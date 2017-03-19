@@ -14,6 +14,27 @@
 		C67BAAE61E7EBDC2004E9126 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C67BAAE41E7EBDC2004E9126 /* Main.storyboard */; };
 		C67BAAE81E7EBDC2004E9126 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C67BAAE71E7EBDC2004E9126 /* Assets.xcassets */; };
 		C67BAAEB1E7EBDC2004E9126 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */; };
+		C67BAB251E7ED792004E9126 /* SettingsButton Canvas 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB1F1E7ED792004E9126 /* SettingsButton Canvas 2.png */; };
+		C67BAB261E7ED792004E9126 /* SettingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB201E7ED792004E9126 /* SettingsButton.png */; };
+		C67BAB271E7ED792004E9126 /* SettingsButton@2x Canvas.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB211E7ED792004E9126 /* SettingsButton@2x Canvas.png */; };
+		C67BAB281E7ED792004E9126 /* SettingsButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB221E7ED792004E9126 /* SettingsButton@2x.png */; };
+		C67BAB291E7ED792004E9126 /* SettingsButton@3x Canvas.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB231E7ED792004E9126 /* SettingsButton@3x Canvas.png */; };
+		C67BAB2A1E7ED792004E9126 /* SettingsButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB241E7ED792004E9126 /* SettingsButton@3x.png */; };
+		C67BAB2E1E7ED8E0004E9126 /* PlusButton@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB2B1E7ED8E0004E9126 /* PlusButton@1x.png */; };
+		C67BAB2F1E7ED8E0004E9126 /* PlusButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB2C1E7ED8E0004E9126 /* PlusButton@2x.png */; };
+		C67BAB301E7ED8E0004E9126 /* PlusButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB2D1E7ED8E0004E9126 /* PlusButton@3x.png */; };
+		C67BAB341E7ED952004E9126 /* FilterButton@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB311E7ED952004E9126 /* FilterButton@1x.png */; };
+		C67BAB351E7ED952004E9126 /* FilterButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB321E7ED952004E9126 /* FilterButton@2x.png */; };
+		C67BAB361E7ED952004E9126 /* FilterButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB331E7ED952004E9126 /* FilterButton@3x.png */; };
+		C67BAB3A1E7EDA07004E9126 /* home [#1391] copy.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB371E7EDA07004E9126 /* home [#1391] copy.png */; };
+		C67BAB3B1E7EDA07004E9126 /* home [#1391] copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB381E7EDA07004E9126 /* home [#1391] copy@2x.png */; };
+		C67BAB3C1E7EDA07004E9126 /* home [#1391] copy@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB391E7EDA07004E9126 /* home [#1391] copy@3x.png */; };
+		C67BAB411E7EDAAF004E9126 /* MeetingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB3E1E7EDAAF004E9126 /* MeetingsButton.png */; };
+		C67BAB421E7EDAAF004E9126 /* MeetingsButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB3F1E7EDAAF004E9126 /* MeetingsButton@2x.png */; };
+		C67BAB431E7EDAAF004E9126 /* MeetingsButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB401E7EDAAF004E9126 /* MeetingsButton@3x.png */; };
+		C67BAB471E7EDB04004E9126 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB441E7EDB04004E9126 /* map.png */; };
+		C67BAB481E7EDB04004E9126 /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB451E7EDB04004E9126 /* map@2x.png */; };
+		C67BAB491E7EDB04004E9126 /* map@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB461E7EDB04004E9126 /* map@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +50,27 @@
 		C67BAAE71E7EBDC2004E9126 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C67BAAEA1E7EBDC2004E9126 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C67BAAEC1E7EBDC2004E9126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C67BAB1F1E7ED792004E9126 /* SettingsButton Canvas 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SettingsButton Canvas 2.png"; path = "Assets.xcassets/SettingsButton Canvas 2.png"; sourceTree = "<group>"; };
+		C67BAB201E7ED792004E9126 /* SettingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingsButton.png; path = Assets.xcassets/SettingsButton.png; sourceTree = "<group>"; };
+		C67BAB211E7ED792004E9126 /* SettingsButton@2x Canvas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SettingsButton@2x Canvas.png"; path = "Assets.xcassets/SettingsButton@2x Canvas.png"; sourceTree = "<group>"; };
+		C67BAB221E7ED792004E9126 /* SettingsButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SettingsButton@2x.png"; path = "Assets.xcassets/SettingsButton@2x.png"; sourceTree = "<group>"; };
+		C67BAB231E7ED792004E9126 /* SettingsButton@3x Canvas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SettingsButton@3x Canvas.png"; path = "Assets.xcassets/SettingsButton@3x Canvas.png"; sourceTree = "<group>"; };
+		C67BAB241E7ED792004E9126 /* SettingsButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SettingsButton@3x.png"; path = "Assets.xcassets/SettingsButton@3x.png"; sourceTree = "<group>"; };
+		C67BAB2B1E7ED8E0004E9126 /* PlusButton@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PlusButton@1x.png"; path = "Assets.xcassets/mainScreenAssets/PlusButton@1x.png"; sourceTree = "<group>"; };
+		C67BAB2C1E7ED8E0004E9126 /* PlusButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PlusButton@2x.png"; path = "Assets.xcassets/mainScreenAssets/PlusButton@2x.png"; sourceTree = "<group>"; };
+		C67BAB2D1E7ED8E0004E9126 /* PlusButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PlusButton@3x.png"; path = "Assets.xcassets/mainScreenAssets/PlusButton@3x.png"; sourceTree = "<group>"; };
+		C67BAB311E7ED952004E9126 /* FilterButton@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FilterButton@1x.png"; path = "Assets.xcassets/mainScreenAssets/FilterButton@1x.png"; sourceTree = "<group>"; };
+		C67BAB321E7ED952004E9126 /* FilterButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FilterButton@2x.png"; path = "Assets.xcassets/mainScreenAssets/FilterButton@2x.png"; sourceTree = "<group>"; };
+		C67BAB331E7ED952004E9126 /* FilterButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FilterButton@3x.png"; path = "Assets.xcassets/mainScreenAssets/FilterButton@3x.png"; sourceTree = "<group>"; };
+		C67BAB371E7EDA07004E9126 /* home [#1391] copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home [#1391] copy.png"; path = "Assets.xcassets/mainScreenAssets/home [#1391] copy.png"; sourceTree = "<group>"; };
+		C67BAB381E7EDA07004E9126 /* home [#1391] copy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home [#1391] copy@2x.png"; path = "Assets.xcassets/mainScreenAssets/home [#1391] copy@2x.png"; sourceTree = "<group>"; };
+		C67BAB391E7EDA07004E9126 /* home [#1391] copy@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home [#1391] copy@3x.png"; path = "Assets.xcassets/mainScreenAssets/home [#1391] copy@3x.png"; sourceTree = "<group>"; };
+		C67BAB3E1E7EDAAF004E9126 /* MeetingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MeetingsButton.png; path = Assets.xcassets/mainScreenAssets/MeetingsButton.png; sourceTree = "<group>"; };
+		C67BAB3F1E7EDAAF004E9126 /* MeetingsButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MeetingsButton@2x.png"; path = "Assets.xcassets/mainScreenAssets/MeetingsButton@2x.png"; sourceTree = "<group>"; };
+		C67BAB401E7EDAAF004E9126 /* MeetingsButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MeetingsButton@3x.png"; path = "Assets.xcassets/mainScreenAssets/MeetingsButton@3x.png"; sourceTree = "<group>"; };
+		C67BAB441E7EDB04004E9126 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = Assets.xcassets/mainScreenAssets/map.png; sourceTree = "<group>"; };
+		C67BAB451E7EDB04004E9126 /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map@2x.png"; path = "Assets.xcassets/mainScreenAssets/map@2x.png"; sourceTree = "<group>"; };
+		C67BAB461E7EDB04004E9126 /* map@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map@3x.png"; path = "Assets.xcassets/mainScreenAssets/map@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +111,7 @@
 				C67BAAE21E7EBDC1004E9126 /* SecondViewController.m */,
 				C67BAAE41E7EBDC2004E9126 /* Main.storyboard */,
 				C67BAAE71E7EBDC2004E9126 /* Assets.xcassets */,
+				C67BAB1C1E7ED6C2004E9126 /* Assets */,
 				C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */,
 				C67BAAEC1E7EBDC2004E9126 /* Info.plist */,
 				C67BAAD81E7EBDC1004E9126 /* Supporting Files */,
@@ -82,6 +125,42 @@
 				C67BAAD91E7EBDC1004E9126 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C67BAB1C1E7ED6C2004E9126 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C67BAB3D1E7EDA1C004E9126 /* MainScreen */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		C67BAB3D1E7EDA1C004E9126 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C67BAB441E7EDB04004E9126 /* map.png */,
+				C67BAB451E7EDB04004E9126 /* map@2x.png */,
+				C67BAB461E7EDB04004E9126 /* map@3x.png */,
+				C67BAB3E1E7EDAAF004E9126 /* MeetingsButton.png */,
+				C67BAB3F1E7EDAAF004E9126 /* MeetingsButton@2x.png */,
+				C67BAB401E7EDAAF004E9126 /* MeetingsButton@3x.png */,
+				C67BAB311E7ED952004E9126 /* FilterButton@1x.png */,
+				C67BAB371E7EDA07004E9126 /* home [#1391] copy.png */,
+				C67BAB381E7EDA07004E9126 /* home [#1391] copy@2x.png */,
+				C67BAB391E7EDA07004E9126 /* home [#1391] copy@3x.png */,
+				C67BAB321E7ED952004E9126 /* FilterButton@2x.png */,
+				C67BAB331E7ED952004E9126 /* FilterButton@3x.png */,
+				C67BAB2B1E7ED8E0004E9126 /* PlusButton@1x.png */,
+				C67BAB2C1E7ED8E0004E9126 /* PlusButton@2x.png */,
+				C67BAB2D1E7ED8E0004E9126 /* PlusButton@3x.png */,
+				C67BAB1F1E7ED792004E9126 /* SettingsButton Canvas 2.png */,
+				C67BAB201E7ED792004E9126 /* SettingsButton.png */,
+				C67BAB211E7ED792004E9126 /* SettingsButton@2x Canvas.png */,
+				C67BAB221E7ED792004E9126 /* SettingsButton@2x.png */,
+				C67BAB231E7ED792004E9126 /* SettingsButton@3x Canvas.png */,
+				C67BAB241E7ED792004E9126 /* SettingsButton@3x.png */,
+			);
+			name = MainScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +222,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C67BAB351E7ED952004E9126 /* FilterButton@2x.png in Resources */,
+				C67BAB2F1E7ED8E0004E9126 /* PlusButton@2x.png in Resources */,
+				C67BAB481E7EDB04004E9126 /* map@2x.png in Resources */,
+				C67BAB271E7ED792004E9126 /* SettingsButton@2x Canvas.png in Resources */,
 				C67BAAEB1E7EBDC2004E9126 /* LaunchScreen.storyboard in Resources */,
+				C67BAB3B1E7EDA07004E9126 /* home [#1391] copy@2x.png in Resources */,
+				C67BAB491E7EDB04004E9126 /* map@3x.png in Resources */,
+				C67BAB431E7EDAAF004E9126 /* MeetingsButton@3x.png in Resources */,
+				C67BAB3C1E7EDA07004E9126 /* home [#1391] copy@3x.png in Resources */,
+				C67BAB2A1E7ED792004E9126 /* SettingsButton@3x.png in Resources */,
+				C67BAB3A1E7EDA07004E9126 /* home [#1391] copy.png in Resources */,
+				C67BAB361E7ED952004E9126 /* FilterButton@3x.png in Resources */,
+				C67BAB251E7ED792004E9126 /* SettingsButton Canvas 2.png in Resources */,
+				C67BAB291E7ED792004E9126 /* SettingsButton@3x Canvas.png in Resources */,
+				C67BAB281E7ED792004E9126 /* SettingsButton@2x.png in Resources */,
+				C67BAB261E7ED792004E9126 /* SettingsButton.png in Resources */,
+				C67BAB2E1E7ED8E0004E9126 /* PlusButton@1x.png in Resources */,
+				C67BAB411E7EDAAF004E9126 /* MeetingsButton.png in Resources */,
+				C67BAB471E7EDB04004E9126 /* map.png in Resources */,
 				C67BAAE81E7EBDC2004E9126 /* Assets.xcassets in Resources */,
 				C67BAAE61E7EBDC2004E9126 /* Main.storyboard in Resources */,
+				C67BAB341E7ED952004E9126 /* FilterButton@1x.png in Resources */,
+				C67BAB421E7EDAAF004E9126 /* MeetingsButton@2x.png in Resources */,
+				C67BAB301E7ED8E0004E9126 /* PlusButton@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
