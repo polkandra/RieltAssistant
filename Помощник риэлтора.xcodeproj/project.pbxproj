@@ -35,6 +35,7 @@
 		C67BAB471E7EDB04004E9126 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB441E7EDB04004E9126 /* map.png */; };
 		C67BAB481E7EDB04004E9126 /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB451E7EDB04004E9126 /* map@2x.png */; };
 		C67BAB491E7EDB04004E9126 /* map@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB461E7EDB04004E9126 /* map@3x.png */; };
+		C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAB4B1E7EE195004E9126 /* StyleKitName.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,8 @@
 		C67BAB441E7EDB04004E9126 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = Assets.xcassets/mainScreenAssets/map.png; sourceTree = "<group>"; };
 		C67BAB451E7EDB04004E9126 /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map@2x.png"; path = "Assets.xcassets/mainScreenAssets/map@2x.png"; sourceTree = "<group>"; };
 		C67BAB461E7EDB04004E9126 /* map@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map@3x.png"; path = "Assets.xcassets/mainScreenAssets/map@3x.png"; sourceTree = "<group>"; };
+		C67BAB4A1E7EE195004E9126 /* StyleKitName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StyleKitName.h; path = "Помощник риэлтора/StyleKitName.h"; sourceTree = "<group>"; };
+		C67BAB4B1E7EE195004E9126 /* StyleKitName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StyleKitName.m; path = "Помощник риэлтора/StyleKitName.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,17 +106,9 @@
 		C67BAAD71E7EBDC1004E9126 /* Помощник риэлтора */ = {
 			isa = PBXGroup;
 			children = (
-				C67BAADB1E7EBDC1004E9126 /* AppDelegate.h */,
-				C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */,
-				C67BAADE1E7EBDC1004E9126 /* FirstViewController.h */,
-				C67BAADF1E7EBDC1004E9126 /* FirstViewController.m */,
-				C67BAAE11E7EBDC1004E9126 /* SecondViewController.h */,
-				C67BAAE21E7EBDC1004E9126 /* SecondViewController.m */,
-				C67BAAE41E7EBDC2004E9126 /* Main.storyboard */,
-				C67BAAE71E7EBDC2004E9126 /* Assets.xcassets */,
+				C67BAB4E1E7EE1CD004E9126 /* ViewControllers */,
+				C67BAB4F1E7EE1EC004E9126 /* Views */,
 				C67BAB1C1E7ED6C2004E9126 /* Assets */,
-				C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */,
-				C67BAAEC1E7EBDC2004E9126 /* Info.plist */,
 				C67BAAD81E7EBDC1004E9126 /* Supporting Files */,
 			);
 			path = "Помощник риэлтора";
@@ -122,6 +117,9 @@
 		C67BAAD81E7EBDC1004E9126 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C67BAADB1E7EBDC1004E9126 /* AppDelegate.h */,
+				C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */,
+				C67BAAEC1E7EBDC2004E9126 /* Info.plist */,
 				C67BAAD91E7EBDC1004E9126 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -130,6 +128,7 @@
 		C67BAB1C1E7ED6C2004E9126 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				C67BAAE71E7EBDC2004E9126 /* Assets.xcassets */,
 				C67BAB3D1E7EDA1C004E9126 /* MainScreen */,
 			);
 			name = Assets;
@@ -161,6 +160,37 @@
 				C67BAB241E7ED792004E9126 /* SettingsButton@3x.png */,
 			);
 			name = MainScreen;
+			sourceTree = "<group>";
+		};
+		C67BAB4D1E7EE19E004E9126 /* StyleKit */ = {
+			isa = PBXGroup;
+			children = (
+				C67BAB4A1E7EE195004E9126 /* StyleKitName.h */,
+				C67BAB4B1E7EE195004E9126 /* StyleKitName.m */,
+			);
+			name = StyleKit;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		C67BAB4E1E7EE1CD004E9126 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C67BAADE1E7EBDC1004E9126 /* FirstViewController.h */,
+				C67BAADF1E7EBDC1004E9126 /* FirstViewController.m */,
+				C67BAAE11E7EBDC1004E9126 /* SecondViewController.h */,
+				C67BAAE21E7EBDC1004E9126 /* SecondViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C67BAB4F1E7EE1EC004E9126 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C67BAB4D1E7EE19E004E9126 /* StyleKit */,
+				C67BAAE41E7EBDC2004E9126 /* Main.storyboard */,
+				C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +289,7 @@
 				C67BAAE31E7EBDC1004E9126 /* SecondViewController.m in Sources */,
 				C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */,
 				C67BAAE01E7EBDC1004E9126 /* FirstViewController.m in Sources */,
+				C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */,
 				C67BAADA1E7EBDC1004E9126 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
