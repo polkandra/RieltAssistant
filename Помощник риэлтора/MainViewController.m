@@ -6,14 +6,14 @@
 //  Copyright © 2017 Chebahatt. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "MainViewController.h"
 #import "StyleKitName.h"
 
-@interface FirstViewController ()
+@interface MainViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

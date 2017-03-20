@@ -6,13 +6,15 @@
 //  Copyright © 2017 Chebahatt. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "MeetingsViewController.h"
+#import "StyleKitName.h"
 
-@interface SecondViewController ()
+
+@interface MeetingsViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation MeetingsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

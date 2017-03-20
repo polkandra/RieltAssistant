@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		C67BAADA1E7EBDC1004E9126 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAD91E7EBDC1004E9126 /* main.m */; };
 		C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */; };
-		C67BAAE01E7EBDC1004E9126 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADF1E7EBDC1004E9126 /* FirstViewController.m */; };
-		C67BAAE31E7EBDC1004E9126 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAE21E7EBDC1004E9126 /* SecondViewController.m */; };
+		C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADF1E7EBDC1004E9126 /* MainViewController.m */; };
+		C67BAAE31E7EBDC1004E9126 /* MeetingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAE21E7EBDC1004E9126 /* MeetingsViewController.m */; };
 		C67BAAE61E7EBDC2004E9126 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C67BAAE41E7EBDC2004E9126 /* Main.storyboard */; };
 		C67BAAE81E7EBDC2004E9126 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C67BAAE71E7EBDC2004E9126 /* Assets.xcassets */; };
 		C67BAAEB1E7EBDC2004E9126 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */; };
@@ -38,6 +38,8 @@
 		C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAB4B1E7EE195004E9126 /* StyleKitName.m */; };
 		C67BAB511E7EE4CE004E9126 /* menu_navigation_grid [#1530].png in Resources */ = {isa = PBXBuildFile; fileRef = C67BAB501E7EE4CE004E9126 /* menu_navigation_grid [#1530].png */; };
 		C67BAB571E7EEF59004E9126 /* ScreenDraw.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAB561E7EEF59004E9126 /* ScreenDraw.m */; };
+		C6F428441E7FFBE800B5613F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F428421E7FFBE800B5613F /* MapViewController.m */; };
+		C6F428451E7FFBE800B5613F /* TabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6F428431E7FFBE800B5613F /* TabBarViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,10 +47,10 @@
 		C67BAAD91E7EBDC1004E9126 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C67BAADB1E7EBDC1004E9126 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C67BAADE1E7EBDC1004E9126 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		C67BAADF1E7EBDC1004E9126 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		C67BAAE11E7EBDC1004E9126 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		C67BAAE21E7EBDC1004E9126 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		C67BAADE1E7EBDC1004E9126 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		C67BAADF1E7EBDC1004E9126 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		C67BAAE11E7EBDC1004E9126 /* MeetingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingsViewController.h; sourceTree = "<group>"; };
+		C67BAAE21E7EBDC1004E9126 /* MeetingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingsViewController.m; sourceTree = "<group>"; };
 		C67BAAE51E7EBDC2004E9126 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C67BAAE71E7EBDC2004E9126 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C67BAAEA1E7EBDC2004E9126 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,6 +81,9 @@
 		C67BAB501E7EE4CE004E9126 /* menu_navigation_grid [#1530].png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu_navigation_grid [#1530].png"; path = "Assets.xcassets/mainScreenAssets/menu_navigation_grid [#1530].png"; sourceTree = "<group>"; };
 		C67BAB551E7EEF59004E9126 /* ScreenDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenDraw.h; sourceTree = "<group>"; };
 		C67BAB561E7EEF59004E9126 /* ScreenDraw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenDraw.m; sourceTree = "<group>"; };
+		C6F428411E7FFBE800B5613F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		C6F428421E7FFBE800B5613F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		C6F428431E7FFBE800B5613F /* TabBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBarViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,10 +187,12 @@
 		C67BAB4E1E7EE1CD004E9126 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C67BAADE1E7EBDC1004E9126 /* FirstViewController.h */,
-				C67BAADF1E7EBDC1004E9126 /* FirstViewController.m */,
-				C67BAAE11E7EBDC1004E9126 /* SecondViewController.h */,
-				C67BAAE21E7EBDC1004E9126 /* SecondViewController.m */,
+				C67BAADE1E7EBDC1004E9126 /* MainViewController.h */,
+				C67BAADF1E7EBDC1004E9126 /* MainViewController.m */,
+				C67BAAE11E7EBDC1004E9126 /* MeetingsViewController.h */,
+				C67BAAE21E7EBDC1004E9126 /* MeetingsViewController.m */,
+				C6F428411E7FFBE800B5613F /* MapViewController.h */,
+				C6F428421E7FFBE800B5613F /* MapViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -197,6 +204,7 @@
 				C67BAAE41E7EBDC2004E9126 /* Main.storyboard */,
 				C67BAB551E7EEF59004E9126 /* ScreenDraw.h */,
 				C67BAB561E7EEF59004E9126 /* ScreenDraw.m */,
+				C6F428431E7FFBE800B5613F /* TabBarViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -272,6 +280,7 @@
 				C67BAB3C1E7EDA07004E9126 /* home [#1391] copy@3x.png in Resources */,
 				C67BAB2A1E7ED792004E9126 /* SettingsButton@3x.png in Resources */,
 				C67BAB3A1E7EDA07004E9126 /* home [#1391] copy.png in Resources */,
+				C6F428451E7FFBE800B5613F /* TabBarViewController.xib in Resources */,
 				C67BAB361E7ED952004E9126 /* FilterButton@3x.png in Resources */,
 				C67BAB251E7ED792004E9126 /* SettingsButton Canvas 2.png in Resources */,
 				C67BAB291E7ED792004E9126 /* SettingsButton@3x Canvas.png in Resources */,
@@ -295,10 +304,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C67BAAE31E7EBDC1004E9126 /* SecondViewController.m in Sources */,
+				C67BAAE31E7EBDC1004E9126 /* MeetingsViewController.m in Sources */,
 				C67BAB571E7EEF59004E9126 /* ScreenDraw.m in Sources */,
+				C6F428441E7FFBE800B5613F /* MapViewController.m in Sources */,
 				C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */,
-				C67BAAE01E7EBDC1004E9126 /* FirstViewController.m in Sources */,
+				C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */,
 				C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */,
 				C67BAADA1E7EBDC1004E9126 /* main.m in Sources */,
 			);
@@ -459,6 +469,7 @@
 				C67BAAF11E7EBDC2004E9126 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -17,6 +17,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    /*
+    UITabBarController* tabBarController = (UITabBarController*)self.window.rootViewController;
+    UITabBar* tabBar = tabBarController.tabBar;
+    UITabBarItem* estateListItem = [tabBar.items objectAtIndex:0];
+    UITabBarItem* mapItem = [tabBar.items objectAtIndex:1];
+    UITabBarItem* meetingsItem = [tabBar.items objectAtIndex:2];
+    estateListItem.title = @"Объекты";
+    mapItem.title = @"Карта";
+    meetingsItem.title = @"Встречи";
+    [estateListItem setSelectedImage:[UIImage imageNamed:@"home"]];
+    [mapItem setSelectedImage:[UIImage imageNamed:@"map"]];
+    [meetingsItem setSelectedImage:[UIImage imageNamed:@"MeetingsButton"]];  */
+
+    
+    
     return YES;
 }
 
