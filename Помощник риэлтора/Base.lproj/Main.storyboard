@@ -18,51 +18,53 @@
                         <viewControllerLayoutGuide type="bottom" id="GkV-wg-bbe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="AAq-gC-cfu" customClass="MainScreenView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojz-nB-yBj" userLabel="plusButton">
-                                <rect key="frame" x="152" y="28" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="plus"/>
-                                <connections>
-                                    <action selector="plusTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="LgY-pp-qq8"/>
-                                    <segue destination="gHv-Wa-FOh" kind="show" id="RCD-R7-anj"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVh-ZU-klW" userLabel="settingsButton">
-                                <rect key="frame" x="305" y="38" width="50" height="50"/>
+                                <rect key="frame" x="310" y="70" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="settings"/>
                                 <connections>
                                     <action selector="settingsTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="jAh-96-QeB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4t-QG-31u" userLabel="FilterButton">
-                                <rect key="frame" x="20" y="39" width="51" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0l6-U5-5sZ" userLabel="FilterButton">
+                                <rect key="frame" x="15" y="72" width="51" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="filter-1"/>
                                 <connections>
-                                    <action selector="filterTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="QWA-WS-bNt"/>
+                                    <action selector="filterTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="yRV-Nd-Wfh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojz-nB-yBj" userLabel="plusButton">
+                                <rect key="frame" x="152" y="79" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="plus"/>
+                                <connections>
+                                    <action selector="plusTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="LgY-pp-qq8"/>
+                                    <segue destination="gHv-Wa-FOh" kind="show" id="iEP-9K-qc4"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="rent3" selectedImage="rent3" id="acW-dT-cKf" userLabel="EstateList">
-                        <inset key="imageInsets" minX="-5" minY="5" maxX="5" maxY="-5"/>
-                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="IRA-7S-BM3">
+                        <nil key="title"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="1770" y="-321"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="tF2-jD-uIA">
             <objects>
                 <tableViewController id="gHv-Wa-FOh" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="yYt-Vs-ob1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -355,10 +357,11 @@
                             <outlet property="delegate" destination="gHv-Wa-FOh" id="dIl-hB-PGf"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="3id-FI-ARN"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5dD-mB-DMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1764" y="-321"/>
+            <point key="canvasLocation" x="2935" y="-321"/>
         </scene>
         <!--MapVC-->
         <scene sceneID="wg7-f3-ORb">
@@ -416,7 +419,7 @@
                         <color key="selectedImageTintColor" red="0.48453878150000002" green="1" blue="0.31963760670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="mGx-fh-zJt" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="dxp-Yg-GTj" kind="relationship" relationship="viewControllers" id="gkO-JM-pCD"/>
                     </connections>
@@ -424,6 +427,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-415" y="-53"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xwa-4Z-9wM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mGx-fh-zJt" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="rent3" selectedImage="rent3" id="acW-dT-cKf" userLabel="EstateList">
+                        <inset key="imageInsets" minX="-5" minY="5" maxX="5" maxY="-5"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Of3-kB-495">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.74106670389999996" green="0.85528823399999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="k4R-EW-9Fe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zfj-2u-spx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
     </scenes>
     <resources>
