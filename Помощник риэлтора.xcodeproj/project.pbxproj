@@ -65,6 +65,8 @@
 		C67BAACC1E7EBDC1004E9126 = {
 			isa = PBXGroup;
 			children = (
+				C6DE1CA81E897CF1008F3536 /* Cells */,
+				C6DE1CA71E897CE2008F3536 /* Model */,
 				C67BAAD71E7EBDC1004E9126 /* Помощник риэлтора */,
 				C67BAAD61E7EBDC1004E9126 /* Products */,
 			);
@@ -142,6 +144,20 @@
 				C67BAB561E7EEF59004E9126 /* MainScreenView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		C6DE1CA71E897CE2008F3536 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C6DE1CA81E897CF1008F3536 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
