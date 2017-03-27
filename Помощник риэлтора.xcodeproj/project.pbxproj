@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C60FFA3C1E8933CB0054F83D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C67BAAE41E7EBDC2004E9126 /* Main.storyboard */; };
 		C60FFA401E8934470054F83D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C67BAAE71E7EBDC2004E9126 /* Assets.xcassets */; };
+		C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FFA431E895B560054F83D /* NewObjectViewController.m */; };
 		C67BAADA1E7EBDC1004E9126 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAD91E7EBDC1004E9126 /* main.m */; };
 		C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */; };
 		C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADF1E7EBDC1004E9126 /* MainViewController.m */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C60FFA421E895B560054F83D /* NewObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewObjectViewController.h; sourceTree = "<group>"; };
+		C60FFA431E895B560054F83D /* NewObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewObjectViewController.m; sourceTree = "<group>"; };
 		C67BAAD51E7EBDC1004E9126 /* Помощник риэлтора.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Помощник риэлтора.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67BAAD91E7EBDC1004E9126 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C67BAADB1E7EBDC1004E9126 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 		C67BAB4E1E7EE1CD004E9126 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C60FFA421E895B560054F83D /* NewObjectViewController.h */,
+				C60FFA431E895B560054F83D /* NewObjectViewController.m */,
 				C67BAADE1E7EBDC1004E9126 /* MainViewController.h */,
 				C67BAADF1E7EBDC1004E9126 /* MainViewController.m */,
 				C67BAAE11E7EBDC1004E9126 /* MeetingsViewController.h */,
@@ -214,6 +219,7 @@
 				C67BAB571E7EEF59004E9126 /* MainScreenView.m in Sources */,
 				C6F428441E7FFBE800B5613F /* MapViewController.m in Sources */,
 				C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */,
+				C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */,
 				C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */,
 				C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */,
 				C67BAADA1E7EBDC1004E9126 /* main.m in Sources */,

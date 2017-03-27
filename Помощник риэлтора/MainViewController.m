@@ -28,4 +28,12 @@
 }
 
 
+- (IBAction)filterTapped:(UIButton *)sender {
+}
+
+- (IBAction)plusTapped:(UIButton *)sender {
+}
+
+- (IBAction)settingsTapped:(UIButton *)sender {
+}
 @end
