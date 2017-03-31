@@ -10,6 +10,10 @@
 
 @interface MainViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *cellImage;
+@property (weak, nonatomic) IBOutlet UILabel *nameOfObjectLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressOfObjectLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceOfObjectLabel;
 
 - (IBAction)filterTapped:(UIButton *)sender;
 - (IBAction)plusTapped:(UIButton *)sender;

@@ -7,6 +7,7 @@
 //
 
 #import "NewObjectViewController.h"
+#import "MainViewController.h"
 
 @interface NewObjectViewController ()
 
@@ -30,6 +31,47 @@
 
 
 
+
+
+
+
+
+
+- (IBAction)saveAction:(UIBarButtonItem *)sender {
+
+
+
+
+}
+
+- (IBAction)addPlaceToMapButton:(UIButton *)sender {
+
+
+
+}
+
+
+
+- (IBAction)addPhotosButton:(UIButton *)sender {
+
+
+
+
+
+}
+
+
+#pragma mark - Segue
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"mainVC"]) {
+        
+        MainViewController* mVC = [segue destinationViewController];
+    self
+    
+    
+    }
+}
 
 
 

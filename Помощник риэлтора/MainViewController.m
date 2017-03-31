@@ -7,9 +7,10 @@
 //
 
 #import "MainViewController.h"
+#import "MainScreenCellTableViewCell.h"
 #import "StyleKitName.h"
 
-@interface MainViewController ()
+@interface MainViewController () <UITableViewDataSource, UITabBarControllerDelegate>
 
 @end
 
@@ -24,7 +25,10 @@
     [self.navigationController.navigationBar setTranslucent:YES];
     //set title and title color
     [self.navigationItem setTitle:@"Мои объекты"];
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor]];
+    
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
     //set back button color
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor,nil] forState:UIControlStateNormal];
     //set back button arrow color
@@ -42,6 +46,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Actions
+
 
 - (IBAction)filterTapped:(UIButton *)sender {
 }
@@ -51,4 +57,30 @@
 
 - (IBAction)settingsTapped:(UIButton *)sender {
 }
+
+
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString* identifier = @"MainScreenCell";
+    MainScreenCellTableViewCell* cell = (MainScreenCellTableViewCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        cell = [[MainScreenCellTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+    cell.textLabel.text = @"hsdkdhdkjfhdkj";
+        
+        cell.textLabel.textColor =[UIColor redColor];
+    }
+
+    return cell;
+
+}
+
+
+
 @end

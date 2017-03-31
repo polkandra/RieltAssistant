@@ -10,11 +10,14 @@
 
 @interface NewObjectViewController : UITableViewController
 
+- (IBAction)saveAction:(UIBarButtonItem *)sender;
+
+- (IBAction)addPlaceToMapButton:(UIButton *)sender;
+- (IBAction)addPhotosButton:(UIButton *)sender;
+
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UITextField *adressTextfield;
 
-
-@property (weak, nonatomic) IBOutlet UILabel *mapAddonLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *roomAddonLabel;
 
@@ -39,7 +42,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *metroFloorLabel;
 @property (weak, nonatomic) IBOutlet UITextField *metroFloorTextField;
 
-@property (weak, nonatomic) IBOutlet UILabel *addPhotosLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *ownerNameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *ownerNameTextField;
