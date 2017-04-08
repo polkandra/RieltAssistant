@@ -7,13 +7,17 @@
 //
 
 #import "NewObjectViewController.h"
-#import "MainViewController.h"
+
 
 @interface NewObjectViewController ()
-
 @end
 
 @implementation NewObjectViewController
+@synthesize objectNameTextField, priceTextField;
+
+
+
+#pragma mark - VC Lyficycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,21 +32,29 @@
 }
 
 
+#pragma mark - Actions
 
+/*
+- (IBAction)saveButtonTaped:(UIButton *)sender {
+    
+    MainViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+    [self.navigationController pushViewController:controller animated:YES];
 
+    
+    [objectNameTextField resignFirstResponder];
+    [priceTextField resignFirstResponder];
+   
+    NSString* objectName = [objectNameTextField text];
+    NSString* objectPrice = [priceTextField text];
 
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:objectName forKey:@"objectName"];
+    [defaults setObject:objectPrice forKey:@"objectPrice"];
+    [defaults synchronize];  
+   
+    
+}*/
 
-
-
-
-
-
-- (IBAction)saveAction:(UIBarButtonItem *)sender {
-
-
-
-
-}
 
 - (IBAction)addPlaceToMapButton:(UIButton *)sender {
 
@@ -61,18 +73,23 @@
 }
 
 
-#pragma mark - Segue
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"mainVC"]) {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"toMain"])
+    {
         
-        MainViewController* mVC = [segue destinationViewController];
-    self
+      // MainViewController *vc = segue.destinationViewController;
+      
+        
+        
+        self.myTextObjectName = self.objectNameTextField.text;
+        self.myTextObjectPrice = self.priceTextField.text;
+        
     
-    
-    }
-}
+  }
 
+}
 
 
 

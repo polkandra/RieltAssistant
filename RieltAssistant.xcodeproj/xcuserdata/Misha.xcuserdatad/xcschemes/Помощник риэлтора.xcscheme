@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C67BAAD41E7EBDC1004E9126"
-               BuildableName = "&#x41f;&#x43e;&#x43c;&#x43e;&#x449;&#x43d;&#x438;&#x43a; &#x440;&#x438;&#x44d;&#x43b;&#x442;&#x43e;&#x440;&#x430;.app"
-               BlueprintName = "&#x41f;&#x43e;&#x43c;&#x43e;&#x449;&#x43d;&#x438;&#x43a; &#x440;&#x438;&#x44d;&#x43b;&#x442;&#x43e;&#x440;&#x430;"
-               ReferencedContainer = "container:&#x41f;&#x43e;&#x43c;&#x43e;&#x449;&#x43d;&#x438;&#x43a; &#x440;&#x438;&#x44d;&#x43b;&#x442;&#x43e;&#x440;&#x430;.xcodeproj">
+               BuildableName = "RieltAssistant.app"
+               BlueprintName = "RieltAssistant"
+               ReferencedContainer = "container:RieltAssistant.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C67BAAD41E7EBDC1004E9126"
-            BuildableName = "&#x41f;&#x43e;&#x43c;&#x43e;&#x449;&#x43d;&#x438;&#x43a; &#x440;&#x438;&#x44d;&#x43b;&#x442;&#x43e;&#x440;&#x430;.app"
-            BlueprintName = "&#x41f;&#x43e;&#x43c;&#x43e;&#x449;&#x43d;&#x438;&#x43a; &#x440;&#x438;&#x44d;&#x43b;&#x442;&#x43e;&#x440;&#x430;"
-            ReferencedContainer = "container:&#x41f;&#x43e;&#x43c;&#x43e;&#x449;&#x43d;&#x438;&#x43a; &#x440;&#x438;&#x44d;&#x43b;&#x442;&#x43e;&#x440;&#x430;.xcodeproj">
+            BuildableName = "RieltAssistant.app"
+            BlueprintName = "RieltAssistant"
+            ReferencedContainer = "container:RieltAssistant.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C67BAAD41E7EBDC1004E9126"
-            BuildableName = "&#x41f;&#x43e;&#x43c;&#x43e;&#x449;&#x43d;&#x438;&#x43a; &#x440;&#x438;&#x44d;&#x43b;&#x442;&#x43e;&#x440;&#x430;.app"
-            BlueprintName = "&#x41f;&#x43e;&#x43c;&#x43e;&#x449;&#x43d;&#x438;&#x43a; &#x440;&#x438;&#x44d;&#x43b;&#x442;&#x43e;&#x440;&#x430;"
-            ReferencedContainer = "container:&#x41f;&#x43e;&#x43c;&#x43e;&#x449;&#x43d;&#x438;&#x43a; &#x440;&#x438;&#x44d;&#x43b;&#x442;&#x43e;&#x440;&#x430;.xcodeproj">
+            BuildableName = "RieltAssistant.app"
+            BlueprintName = "RieltAssistant"
+            ReferencedContainer = "container:RieltAssistant.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C67BAAD41E7EBDC1004E9126"
-            BuildableName = "&#x41f;&#x43e;&#x43c;&#x43e;&#x449;&#x43d;&#x438;&#x43a; &#x440;&#x438;&#x44d;&#x43b;&#x442;&#x43e;&#x440;&#x430;.app"
-            BlueprintName = "&#x41f;&#x43e;&#x43c;&#x43e;&#x449;&#x43d;&#x438;&#x43a; &#x440;&#x438;&#x44d;&#x43b;&#x442;&#x43e;&#x440;&#x430;"
-            ReferencedContainer = "container:&#x41f;&#x43e;&#x43c;&#x43e;&#x449;&#x43d;&#x438;&#x43a; &#x440;&#x438;&#x44d;&#x43b;&#x442;&#x43e;&#x440;&#x430;.xcodeproj">
+            BuildableName = "RieltAssistant.app"
+            BlueprintName = "RieltAssistant"
+            ReferencedContainer = "container:RieltAssistant.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

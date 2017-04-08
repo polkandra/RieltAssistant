@@ -7,14 +7,31 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainViewController.h"
+#import "MainScreenCellTableViewCell.h"
 
-@interface NewObjectViewController : UITableViewController
 
-- (IBAction)saveAction:(UIBarButtonItem *)sender;
+@interface NewObjectViewController : UITableViewController <UITextFieldDelegate>
 
+
+@property(weak, nonatomic)  NSString* myTextObjectName;
+@property(weak, nonatomic)  NSString* myTextObjectPrice;
+
+
+
+
+//- (IBAction)saveButtonTaped:(UIButton *)sender;
 - (IBAction)addPlaceToMapButton:(UIButton *)sender;
 - (IBAction)addPhotosButton:(UIButton *)sender;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *objectTypeLabel;
+
+
+@property (weak, nonatomic) IBOutlet UITextField *objectNameTextField;
+@property (weak, nonatomic) IBOutlet UILabel *objectNameLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UITextField *adressTextfield;
 

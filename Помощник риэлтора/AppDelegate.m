@@ -31,6 +31,7 @@
     [mapItem setSelectedImage:[UIImage imageNamed:@"map"]];
     [meetingsItem setSelectedImage:[UIImage imageNamed:@"MeetingsButton"]];  */
 
+   
     UIImage *tabBarBackground = [UIImage imageNamed:@"imageOfGradient2"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
     [[UITabBar appearance] setTintColor:[UIColor redColor]];

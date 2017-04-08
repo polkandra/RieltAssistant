@@ -17,6 +17,8 @@
 		C67BAAE31E7EBDC1004E9126 /* MeetingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAE21E7EBDC1004E9126 /* MeetingsViewController.m */; };
 		C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAB4B1E7EE195004E9126 /* StyleKitName.m */; };
 		C67BAB571E7EEF59004E9126 /* MainScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAB561E7EEF59004E9126 /* MainScreenView.m */; };
+		C6C5A48D1E97CE5F005BE9AD /* UILabel+DynamicSize.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C5A48C1E97CE5F005BE9AD /* UILabel+DynamicSize.m */; };
+		C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */; };
 		C6F428441E7FFBE800B5613F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F428421E7FFBE800B5613F /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +28,7 @@
 		C607023B1E8E89DD007933F0 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		C60FFA421E895B560054F83D /* NewObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewObjectViewController.h; sourceTree = "<group>"; };
 		C60FFA431E895B560054F83D /* NewObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewObjectViewController.m; sourceTree = "<group>"; };
-		C67BAAD51E7EBDC1004E9126 /* Помощник риэлтора.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Помощник риэлтора.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C67BAAD51E7EBDC1004E9126 /* RieltAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RieltAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67BAAD91E7EBDC1004E9126 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C67BAADB1E7EBDC1004E9126 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -41,6 +43,10 @@
 		C67BAB4B1E7EE195004E9126 /* StyleKitName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StyleKitName.m; path = "Помощник риэлтора/StyleKitName.m"; sourceTree = "<group>"; };
 		C67BAB551E7EEF59004E9126 /* MainScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenView.h; sourceTree = "<group>"; };
 		C67BAB561E7EEF59004E9126 /* MainScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenView.m; sourceTree = "<group>"; };
+		C6C5A48B1E97CE5F005BE9AD /* UILabel+DynamicSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+DynamicSize.h"; sourceTree = "<group>"; };
+		C6C5A48C1E97CE5F005BE9AD /* UILabel+DynamicSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+DynamicSize.m"; sourceTree = "<group>"; };
+		C6DB4FD01E8FD9A400CD4AE2 /* EstateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstateObject.h; sourceTree = "<group>"; };
+		C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstateObject.m; sourceTree = "<group>"; };
 		C6F428411E7FFBE800B5613F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		C6F428421E7FFBE800B5613F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,8 +74,6 @@
 		C67BAACC1E7EBDC1004E9126 = {
 			isa = PBXGroup;
 			children = (
-				C6DE1CA81E897CF1008F3536 /* Cells */,
-				C6DE1CA71E897CE2008F3536 /* Model */,
 				C67BAAD71E7EBDC1004E9126 /* Помощник риэлтора */,
 				C67BAAD61E7EBDC1004E9126 /* Products */,
 			);
@@ -78,7 +82,7 @@
 		C67BAAD61E7EBDC1004E9126 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C67BAAD51E7EBDC1004E9126 /* Помощник риэлтора.app */,
+				C67BAAD51E7EBDC1004E9126 /* RieltAssistant.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +90,9 @@
 		C67BAAD71E7EBDC1004E9126 /* Помощник риэлтора */ = {
 			isa = PBXGroup;
 			children = (
+				C6BA7F3D1E91733F0060D745 /* Category */,
+				C6DE1CA71E897CE2008F3536 /* Model */,
+				C6DE1CA81E897CF1008F3536 /* Cells */,
 				C60FFA411E894BFF0054F83D /* Storyboards */,
 				C67BAB4E1E7EE1CD004E9126 /* ViewControllers */,
 				C67BAB4F1E7EE1EC004E9126 /* Views */,
@@ -149,11 +156,23 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		C6BA7F3D1E91733F0060D745 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				C6C5A48B1E97CE5F005BE9AD /* UILabel+DynamicSize.h */,
+				C6C5A48C1E97CE5F005BE9AD /* UILabel+DynamicSize.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
 		C6DE1CA71E897CE2008F3536 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C6DB4FD01E8FD9A400CD4AE2 /* EstateObject.h */,
+				C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */,
 			);
 			name = Model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C6DE1CA81E897CF1008F3536 /* Cells */ = {
@@ -163,14 +182,15 @@
 				C60702381E8E7A64007933F0 /* MainScreenCellTableViewCell.m */,
 			);
 			name = Cells;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C67BAAD41E7EBDC1004E9126 /* Помощник риэлтора */ = {
+		C67BAAD41E7EBDC1004E9126 /* RieltAssistant */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C67BAAEF1E7EBDC2004E9126 /* Build configuration list for PBXNativeTarget "Помощник риэлтора" */;
+			buildConfigurationList = C67BAAEF1E7EBDC2004E9126 /* Build configuration list for PBXNativeTarget "RieltAssistant" */;
 			buildPhases = (
 				C67BAAD11E7EBDC1004E9126 /* Sources */,
 				C67BAAD21E7EBDC1004E9126 /* Frameworks */,
@@ -180,9 +200,9 @@
 			);
 			dependencies = (
 			);
-			name = "Помощник риэлтора";
+			name = RieltAssistant;
 			productName = "Помощник риэлтора";
-			productReference = C67BAAD51E7EBDC1004E9126 /* Помощник риэлтора.app */;
+			productReference = C67BAAD51E7EBDC1004E9126 /* RieltAssistant.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -201,7 +221,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C67BAAD01E7EBDC1004E9126 /* Build configuration list for PBXProject "Помощник риэлтора" */;
+			buildConfigurationList = C67BAAD01E7EBDC1004E9126 /* Build configuration list for PBXProject "RieltAssistant" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -214,7 +234,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C67BAAD41E7EBDC1004E9126 /* Помощник риэлтора */,
+				C67BAAD41E7EBDC1004E9126 /* RieltAssistant */,
 			);
 		};
 /* End PBXProject section */
@@ -242,8 +262,10 @@
 				C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */,
 				C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */,
 				C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */,
+				C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */,
 				C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */,
 				C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */,
+				C6C5A48D1E97CE5F005BE9AD /* UILabel+DynamicSize.m in Sources */,
 				C67BAADA1E7EBDC1004E9126 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,7 +409,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C67BAAD01E7EBDC1004E9126 /* Build configuration list for PBXProject "Помощник риэлтора" */ = {
+		C67BAAD01E7EBDC1004E9126 /* Build configuration list for PBXProject "RieltAssistant" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C67BAAED1E7EBDC2004E9126 /* Debug */,
@@ -396,7 +418,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C67BAAEF1E7EBDC2004E9126 /* Build configuration list for PBXNativeTarget "Помощник риэлтора" */ = {
+		C67BAAEF1E7EBDC2004E9126 /* Build configuration list for PBXNativeTarget "RieltAssistant" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C67BAAF01E7EBDC2004E9126 /* Debug */,

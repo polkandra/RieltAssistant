@@ -15,7 +15,7 @@
 
 -(void)drawRect:(CGRect)rect {
     
-    [StyleKitName drawGradient3WithFrame: self.bounds resizing:  StyleKitNameResizingBehaviorAspectFill];
+    [StyleKitName drawGradient3WithFrame: self.bounds resizing:StyleKitNameResizingBehaviorAspectFill];
 
     
 }

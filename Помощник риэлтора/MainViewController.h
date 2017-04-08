@@ -7,18 +7,34 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainScreenCellTableViewCell.h"
+#import "StyleKitName.h"
+#import "NewObjectViewController.h"
+#import "EstateObject.h"
+#import "UILabel+DynamicSize.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController  <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIImageView *cellImage;
+
+
+//@property(weak, nonatomic)  NSString* myTextObjectName;
+//@property(weak, nonatomic)  NSString* myTextObjectPrice;
+
+@property(strong, nonatomic) NSMutableArray* myData;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+/*@property (weak, nonatomic) IBOutlet UIImageView *cellImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameOfObjectLabel;
-@property (weak, nonatomic) IBOutlet UILabel *addressOfObjectLabel;
-@property (weak, nonatomic) IBOutlet UILabel *priceOfObjectLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceOfObjectLabel;*/
+
+
 
 - (IBAction)filterTapped:(UIButton *)sender;
 - (IBAction)plusTapped:(UIButton *)sender;
 - (IBAction)settingsTapped:(UIButton *)sender;
 
+- (IBAction)saveButtonTaped:(UIStoryboardSegue*)segue;
+- (IBAction)cancelButtonTapped:(UIStoryboardSegue *)segue;
 
 @end
 

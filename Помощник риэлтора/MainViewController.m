@@ -7,16 +7,40 @@
 //
 
 #import "MainViewController.h"
-#import "MainScreenCellTableViewCell.h"
-#import "StyleKitName.h"
 
-@interface MainViewController () <UITableViewDataSource, UITabBarControllerDelegate>
+
+
+
+@interface MainViewController ()
+
 
 @end
 
 @implementation MainViewController
 
+@synthesize  myData;
+
+
+
+#pragma mark - VC Lyficycle
+
+
+
+
 - (void)viewDidLoad {
+    
+  
+    /*
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray* myData = [defaults objectForKey:@"myData"];
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSString* objectName = [defaults objectForKey:@"objectName"];
+    NSString* objectPrice = [defaults objectForKey:@"objectPrice"];
+    nameOfObjectLabel = objectName;
+    priceOfObjectLabel = objectPrice; */
+    
+    
     [super viewDidLoad];
     
        //set bar color
@@ -38,48 +62,166 @@
      @{NSForegroundColorAttributeName:[UIColor whiteColor],
        NSFontAttributeName:[UIFont fontWithName:@"avenir" size:21]}];
 
+    
+    self.myData = [[NSMutableArray alloc] init];
+                   
+                   //self.tableView.backgroundColor = [UIColor clearColor];
+    
+   
 }
 
+#pragma mark - Unwind Segues
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)saveButtonTaped:(UIStoryboardSegue*)segue {
+    
+    
+    NewObjectViewController *controller = segue.sourceViewController;
+    EstateObject* newObject = [[EstateObject alloc] initWithDiscription:controller.myTextObjectName price:controller.myTextObjectPrice];
+    if(newObject != nil) {
+    
+    [self.myData addObject:newObject];
+    [self.tableView reloadData];
 }
+    
+    /*NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:objectName forKey:@"objectName"];
+    [defaults setObject:objectPrice forKey:@"objectPrice"];
+    [defaults synchronize];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:myData forKey:@"myData"];
+    [defaults synchronize];*/
+    
+     
+
+
+}
+
+- (IBAction)cancelButtonTapped:(UIStoryboardSegue *)segue{
+    
+}
+
 
 #pragma mark - Actions
 
 
+
 - (IBAction)filterTapped:(UIButton *)sender {
+
+
 }
 
 - (IBAction)plusTapped:(UIButton *)sender {
+
+   /* NewObjectViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"NewObjectViewController"];
+    [self.navigationController pushViewController:controller animated:YES];*/
+
+
 }
 
-- (IBAction)settingsTapped:(UIButton *)sender {
+
+-(IBAction)settingsTapped:(UIButton *)sender {
+
+
 }
 
 
 
 #pragma mark - UITableViewDataSource
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    
+    return [self.myData count] ;
 }
+
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString* identifier = @"MainScreenCell";
-    MainScreenCellTableViewCell* cell = (MainScreenCellTableViewCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[MainScreenCellTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
-    cell.textLabel.text = @"hsdkdhdkjfhdkj";
-        
-        cell.textLabel.textColor =[UIColor redColor];
-    }
+    
+    EstateObject* newObject = [self.myData objectAtIndex:indexPath.row];
+    
+    
+    
+    MainScreenCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MainScreenCell" forIndexPath:indexPath];
+       
+    
+    
+    /*cell.nameCellLabel.adjustsFontSizeToFitWidth = YES;
+    cell.nameCellLabel.minimumScaleFactor = 10 / 14;
+    cell.priceCellLabel.adjustsFontSizeToFitWidth = YES;
+    cell.priceCellLabel.minimumScaleFactor = 10 / 14;*/
 
+    
+      
+    
+    /*cell.nameCellLabel.numberOfLines = 1;
+    cell.nameCellLabel.minimumScaleFactor = 8.;
+    cell.nameCellLabel.adjustsFontSizeToFitWidth = YES;*/
+   
+    
+    
+    
+    
+    cell.nameCellLabel.text = newObject.discription;
+    cell.priceCellLabel.text = newObject.price;
+    cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
+   
+    
+    
+    
+    
+    // cell.nameCellLabel.font = [UIFont systemFontOfSize:20];
+      
+    
+   
+    
     return cell;
+    
+    // MainScreenCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+   
+   
+   // cell = [[EstateObject alloc]initWithDiscription:newObject.discription price:newObject.price];
+    
+    /* UILabel* labelName = (UILabel*)[cell viewWithTag:100];
+     UILabel* labelPrice = (UILabel*)[cell viewWithTag:101];
+    labelName = newObject.discription;
+    labelPrice = newObject.price;*/
+   
+    
+    /* MainScreenCellTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];*/
+    
+   /*
+    cell.nameOfObjectCell = [self.myData objectAtIndex:indexPath.row];
+    cell.priceOfObjectCell = [self.myData objectAtIndex:indexPath.row];*/
+    
+    // cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",[self.myData objectAtIndex:0],[self.myData objectAtIndex:1]];
+    
+    
+    
+    /* UILabel* labelName = (UILabel*)[cell viewWithTag:100];
+        UILabel* labelPrice = (UILabel*)[cell viewWithTag:101];
+        labelName.text = [self.myData objectAtIndex:indexPath.row];*/
+   
+    
+    /*
+    UILabel* labelName = (UILabel*)[cell viewWithTag:100];
+    UILabel* labelAddress = (UILabel*)[cell viewWithTag:101];
+    UILabel* labelPrice = (UILabel*)[cell viewWithTag:101];
+    labelName.text = [self.myData objectAtIndex:indexPath.row];
+    labelAddress.text = [self.myData objectAtIndex:indexPath.row];
+    labelPrice.text = [self.myData objectAtIndex:indexPath.row]; */
+  
+    
+    }
+  
 
-}
+
+
+
+
+
 
 
 
