@@ -76,7 +76,7 @@
     
     
     NewObjectViewController *controller = segue.sourceViewController;
-    EstateObject* newObject = [[EstateObject alloc] initWithDiscription:controller.myTextObjectName price:controller.myTextObjectPrice];
+    EstateObject* newObject = [[EstateObject alloc] initWithDiscription:controller.myTextObjectName price:controller.myTextObjectPrice picture:controller.myObjectPicture];
     if(newObject != nil) {
     
     [self.myData addObject:newObject];
@@ -146,7 +146,7 @@
     
     MainScreenCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MainScreenCell" forIndexPath:indexPath];
        
-    
+    cell = [[EstateObject alloc] initWithDiscription:newObject.discription price:newObject.price picture:newObject.picture];
     
     /*cell.nameCellLabel.adjustsFontSizeToFitWidth = YES;
     cell.nameCellLabel.minimumScaleFactor = 10 / 14;
@@ -163,7 +163,7 @@
     
     
     
-    
+    cell.imageViewCell.image = newObject.picture;
     cell.nameCellLabel.text = newObject.discription;
     cell.priceCellLabel.text = newObject.price;
     cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;

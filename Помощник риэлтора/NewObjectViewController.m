@@ -10,10 +10,12 @@
 
 
 @interface NewObjectViewController ()
+
+
 @end
 
 @implementation NewObjectViewController
-@synthesize objectNameTextField, priceTextField;
+@synthesize objectNameTextField, priceTextField, myPhotosArray;
 
 
 
@@ -23,6 +25,9 @@
     [super viewDidLoad];
 
 
+    
+    
+    self.myPhotosArray = [[NSMutableArray alloc] init];
 
 }
 
@@ -66,12 +71,43 @@
 
 - (IBAction)addPhotosButton:(UIButton *)sender {
 
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
 
+    UIAlertAction* firstAction = [UIAlertAction actionWithTitle:@"Сделать снимок" style:UIAlertActionStyleDefault  handler:^(UIAlertAction * _Nonnull action) {
+       
+        UIImagePickerController* picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:picker animated:YES completion:nil];
+    
+    
+    }];
 
+    UIAlertAction* secondAction = [UIAlertAction actionWithTitle:@"Выбрать из галереи" style:UIAlertActionStyleDefault  handler:^(UIAlertAction * _Nonnull action) {
+        
+        UIImagePickerController* picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:picker animated:YES completion:nil];
+        
 
-
+        
+    }];
+    
+    
+    UIAlertAction* cancellAction = [UIAlertAction actionWithTitle:@"Отмена" style:UIAlertActionStyleDefault  handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"You pressed button cancell");
+    }];
+    
+    
+    [alert addAction:firstAction];
+    [alert addAction:secondAction];
+    [alert addAction:cancellAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
-
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -81,15 +117,60 @@
         
       // MainViewController *vc = segue.destinationViewController;
       
-        
-        
         self.myTextObjectName = self.objectNameTextField.text;
         self.myTextObjectPrice = self.priceTextField.text;
         
-    
-  }
+    }
 
 }
+ #pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    UIImage* image = info[UIImagePickerControllerEditedImage];
+    //self.addPhotosView.image = image;
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+
+#pragma mark - UICollectionViewDataSource
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    
+    return [self.myPhotosArray count];
+}
+
+
+
+
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString* identifier = @"CVcell";
+    
+    UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    EstateObject* newObject2 = [self.myPhotosArray objectAtIndex:indexPath.row];
+    
+    
+    UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:300];
+    recipeImageView.image = newObject2.picture;
+    
+    
+    return cell;
+  
+}
+
+
 
 
 

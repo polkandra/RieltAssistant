@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C60702381E8E7A64007933F0 /* MainScreenCellTableViewCell.m */; };
-		C60FFA3C1E8933CB0054F83D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C67BAAE41E7EBDC2004E9126 /* Main.storyboard */; };
 		C60FFA401E8934470054F83D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C67BAAE71E7EBDC2004E9126 /* Assets.xcassets */; };
 		C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FFA431E895B560054F83D /* NewObjectViewController.m */; };
 		C67BAADA1E7EBDC1004E9126 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAD91E7EBDC1004E9126 /* main.m */; };
@@ -17,8 +16,12 @@
 		C67BAAE31E7EBDC1004E9126 /* MeetingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAE21E7EBDC1004E9126 /* MeetingsViewController.m */; };
 		C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAB4B1E7EE195004E9126 /* StyleKitName.m */; };
 		C67BAB571E7EEF59004E9126 /* MainScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAB561E7EEF59004E9126 /* MainScreenView.m */; };
+		C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */; };
+		C6A36DA81E9A981A00A00F04 /* PictureCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A36DA71E9A981A00A00F04 /* PictureCamera.m */; };
+		C6A36DAB1E9A98EC00A00F04 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */; };
 		C6C5A48D1E97CE5F005BE9AD /* UILabel+DynamicSize.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C5A48C1E97CE5F005BE9AD /* UILabel+DynamicSize.m */; };
 		C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */; };
+		C6E35E651E9D08A100235216 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E35E641E9D08A100235216 /* Main.storyboard */; };
 		C6F428441E7FFBE800B5613F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F428421E7FFBE800B5613F /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +38,6 @@
 		C67BAADF1E7EBDC1004E9126 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		C67BAAE11E7EBDC1004E9126 /* MeetingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingsViewController.h; sourceTree = "<group>"; };
 		C67BAAE21E7EBDC1004E9126 /* MeetingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingsViewController.m; sourceTree = "<group>"; };
-		C67BAAE51E7EBDC2004E9126 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C67BAAE71E7EBDC2004E9126 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C67BAAEA1E7EBDC2004E9126 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C67BAAEC1E7EBDC2004E9126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,10 +45,16 @@
 		C67BAB4B1E7EE195004E9126 /* StyleKitName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StyleKitName.m; path = "Помощник риэлтора/StyleKitName.m"; sourceTree = "<group>"; };
 		C67BAB551E7EEF59004E9126 /* MainScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenView.h; sourceTree = "<group>"; };
 		C67BAB561E7EEF59004E9126 /* MainScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenView.m; sourceTree = "<group>"; };
+		C6A36DA31E9A827B00A00F04 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		C6A36DA61E9A981A00A00F04 /* PictureCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureCamera.h; sourceTree = "<group>"; };
+		C6A36DA71E9A981A00A00F04 /* PictureCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureCamera.m; sourceTree = "<group>"; };
+		C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		C6C5A48B1E97CE5F005BE9AD /* UILabel+DynamicSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+DynamicSize.h"; sourceTree = "<group>"; };
 		C6C5A48C1E97CE5F005BE9AD /* UILabel+DynamicSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+DynamicSize.m"; sourceTree = "<group>"; };
 		C6DB4FD01E8FD9A400CD4AE2 /* EstateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstateObject.h; sourceTree = "<group>"; };
 		C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstateObject.m; sourceTree = "<group>"; };
+		C6E35E641E9D08A100235216 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C6F428411E7FFBE800B5613F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		C6F428421E7FFBE800B5613F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6A36DAB1E9A98EC00A00F04 /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,8 +74,8 @@
 		C60FFA411E894BFF0054F83D /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				C6E35E641E9D08A100235216 /* Main.storyboard */,
 				C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */,
-				C67BAAE41E7EBDC2004E9126 /* Main.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -76,6 +85,7 @@
 			children = (
 				C67BAAD71E7EBDC1004E9126 /* Помощник риэлтора */,
 				C67BAAD61E7EBDC1004E9126 /* Products */,
+				C6A36DA91E9A98EB00A00F04 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +166,14 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		C6A36DA91E9A98EB00A00F04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C6BA7F3D1E91733F0060D745 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +188,8 @@
 			children = (
 				C6DB4FD01E8FD9A400CD4AE2 /* EstateObject.h */,
 				C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */,
+				C6A36DA61E9A981A00A00F04 /* PictureCamera.h */,
+				C6A36DA71E9A981A00A00F04 /* PictureCamera.m */,
 			);
 			name = Model;
 			path = ..;
@@ -180,6 +200,8 @@
 			children = (
 				C60702371E8E7A64007933F0 /* MainScreenCellTableViewCell.h */,
 				C60702381E8E7A64007933F0 /* MainScreenCellTableViewCell.m */,
+				C6A36DA31E9A827B00A00F04 /* CollectionViewCell.h */,
+				C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */,
 			);
 			name = Cells;
 			path = ..;
@@ -244,8 +266,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6E35E651E9D08A100235216 /* Main.storyboard in Resources */,
 				C60FFA401E8934470054F83D /* Assets.xcassets in Resources */,
-				C60FFA3C1E8933CB0054F83D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,10 +284,12 @@
 				C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */,
 				C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */,
 				C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */,
+				C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */,
 				C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */,
 				C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */,
 				C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */,
 				C6C5A48D1E97CE5F005BE9AD /* UILabel+DynamicSize.m in Sources */,
+				C6A36DA81E9A981A00A00F04 /* PictureCamera.m in Sources */,
 				C67BAADA1E7EBDC1004E9126 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,14 +297,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C67BAAE41E7EBDC2004E9126 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C67BAAE51E7EBDC2004E9126 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -10,14 +10,14 @@
 
 @implementation EstateObject
 
--(id)initWithDiscription:(NSString*)discription price:(NSString*)price {
+-(id)initWithDiscription:(NSString*)discription price:(NSString*)price picture:(UIImageView*)picture {
     
     self = [super init];
     
     if (self) {
         _discription = discription;
         _price = price;
-        
+        _picture;
     }
     return  self;
 }
