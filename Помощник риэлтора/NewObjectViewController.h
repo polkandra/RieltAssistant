@@ -10,7 +10,6 @@
 #import "MainViewController.h"
 #import "MainScreenCellTableViewCell.h"
 #import "EstateObject.h"
-#import "PictureCamera.h"
 #import "CollectionViewCell.h"
 
 
@@ -18,11 +17,6 @@
 
 
 @property(strong, nonatomic) EstateObject* myObject;
-
-/*
-@property(weak, nonatomic)  NSString* myTextObjectName;
-@property(weak, nonatomic)  NSString* myTextObjectPrice;
-@property(weak, nonatomic)  UIImageView* myObjectPicture;*/
 
 
 @property(strong, nonatomic) NSMutableArray* myPhotosArray;

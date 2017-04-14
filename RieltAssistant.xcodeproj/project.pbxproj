@@ -17,7 +17,6 @@
 		C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAB4B1E7EE195004E9126 /* StyleKitName.m */; };
 		C67BAB571E7EEF59004E9126 /* MainScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAB561E7EEF59004E9126 /* MainScreenView.m */; };
 		C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */; };
-		C6A36DA81E9A981A00A00F04 /* PictureCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A36DA71E9A981A00A00F04 /* PictureCamera.m */; };
 		C6A36DAB1E9A98EC00A00F04 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */; };
 		C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */; };
 		C6E35E651E9D08A100235216 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E35E641E9D08A100235216 /* Main.storyboard */; };
@@ -46,8 +45,6 @@
 		C67BAB561E7EEF59004E9126 /* MainScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenView.m; sourceTree = "<group>"; };
 		C6A36DA31E9A827B00A00F04 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
-		C6A36DA61E9A981A00A00F04 /* PictureCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureCamera.h; sourceTree = "<group>"; };
-		C6A36DA71E9A981A00A00F04 /* PictureCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureCamera.m; sourceTree = "<group>"; };
 		C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		C6DB4FD01E8FD9A400CD4AE2 /* EstateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstateObject.h; sourceTree = "<group>"; };
 		C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstateObject.m; sourceTree = "<group>"; };
@@ -183,8 +180,6 @@
 			children = (
 				C6DB4FD01E8FD9A400CD4AE2 /* EstateObject.h */,
 				C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */,
-				C6A36DA61E9A981A00A00F04 /* PictureCamera.h */,
-				C6A36DA71E9A981A00A00F04 /* PictureCamera.m */,
 			);
 			name = Model;
 			path = ..;
@@ -283,7 +278,6 @@
 				C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */,
 				C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */,
 				C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */,
-				C6A36DA81E9A981A00A00F04 /* PictureCamera.m in Sources */,
 				C67BAADA1E7EBDC1004E9126 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

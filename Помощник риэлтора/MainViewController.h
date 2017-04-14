@@ -15,21 +15,9 @@
 
 @interface MainViewController : UIViewController  <UITableViewDataSource, UITableViewDelegate>
 
-/*
-@property(weak, nonatomic)  NSString* myTextObjectName;
-@property(weak, nonatomic)  NSString* myTextObjectPrice;
-@property(weak, nonatomic)  UIImageView* myObjectPicture;*/
-
-
-
 
 @property(strong, nonatomic) NSMutableArray* myData;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
-/*@property (weak, nonatomic) IBOutlet UIImageView *cellImage;
-@property (weak, nonatomic) IBOutlet UILabel *nameOfObjectLabel;
-@property (weak, nonatomic) IBOutlet UILabel *priceOfObjectLabel;*/
-
 
 
 - (IBAction)filterTapped:(UIButton *)sender;

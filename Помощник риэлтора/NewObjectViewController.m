@@ -39,27 +39,6 @@
 
 #pragma mark - Actions
 
-/*
-- (IBAction)saveButtonTaped:(UIButton *)sender {
-    
-    MainViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-    [self.navigationController pushViewController:controller animated:YES];
-
-    
-    [objectNameTextField resignFirstResponder];
-    [priceTextField resignFirstResponder];
-   
-    NSString* objectName = [objectNameTextField text];
-    NSString* objectPrice = [priceTextField text];
-
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:objectName forKey:@"objectName"];
-    [defaults setObject:objectPrice forKey:@"objectPrice"];
-    [defaults synchronize];  
-   
-    
-}*/
-
 
 - (IBAction)addPlaceToMapButton:(UIButton *)sender {
 
@@ -112,34 +91,13 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    
-    
     self.myObject = [[EstateObject alloc] init];
     self.myObject.discription = self.objectNameTextField.text;
     self.myObject.price = self.priceTextField.text;
+    self.myObject.picture = [myPhotosArray objectAtIndex:0];
     
-    /*  if([segue.identifier isEqualToString:@"toMain"]) {
-     
-     
-     // MainViewController *vc = segue.destinationViewController;
-     
-     
-     if (self.objectNameTextField > 0) {
-     self.myTextObjectName = self.objectNameTextField.text;
-     
-     
-     } else if (self.priceTextField > 0) {
-     self.myTextObjectPrice = self.priceTextField.text;
-     
-        }
-        
-        
-       // self.myObjectPicture = [self.myPhotosArray objectAtIndex:0];
-        
-    }
-   */
 }
-    
+
 
 
 #pragma mark - UIImagePickerControllerDelegate
@@ -151,7 +109,9 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
     
     UIImage* image = info[UIImagePickerControllerOriginalImage];
+    EstateObject* photoObject = [[EstateObject alloc] init];
     
+    photoObject.picture = image;
     
     [myPhotosArray addObject:image];
     
@@ -173,7 +133,6 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    
     return [self.myPhotosArray count];
 }
 
@@ -184,8 +143,7 @@
     
     CollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
-  
-     
+    
     
     cell.objectView.image = [myPhotosArray objectAtIndex:indexPath.row];
     
