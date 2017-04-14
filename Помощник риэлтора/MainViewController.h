@@ -11,14 +11,17 @@
 #import "StyleKitName.h"
 #import "NewObjectViewController.h"
 #import "EstateObject.h"
-#import "UILabel+DynamicSize.h"
+
 
 @interface MainViewController : UIViewController  <UITableViewDataSource, UITableViewDelegate>
 
+/*
+@property(weak, nonatomic)  NSString* myTextObjectName;
+@property(weak, nonatomic)  NSString* myTextObjectPrice;
+@property(weak, nonatomic)  UIImageView* myObjectPicture;*/
 
 
-//@property(weak, nonatomic)  NSString* myTextObjectName;
-//@property(weak, nonatomic)  NSString* myTextObjectPrice;
+
 
 @property(strong, nonatomic) NSMutableArray* myData;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

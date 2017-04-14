@@ -12,10 +12,10 @@
 @interface EstateObject : NSObject
 
 @property(strong,nonatomic) NSString* discription;
-@property(assign,nonatomic) NSString* price;
+@property(strong,nonatomic) NSString* price;
 @property(strong, nonatomic) UIImageView* picture;
 
 
--(id)initWithDiscription:(NSString*)discription price:(NSString*)price picture:(UIImageView*)picture;
+//-(id)initWithDiscription:(NSString*)discription price:(NSString*)price picture:(UIImageView*)picture;
 
 @end

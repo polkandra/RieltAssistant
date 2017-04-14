@@ -10,26 +10,34 @@
 #import "MainViewController.h"
 #import "MainScreenCellTableViewCell.h"
 #import "EstateObject.h"
-#import <AssetsLibrary/AssetsLibrary.h>
+#import "PictureCamera.h"
+#import "CollectionViewCell.h"
 
 
-@interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate, UICollectionViewDataSource>
+@interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource>
 
 
+@property(strong, nonatomic) EstateObject* myObject;
+
+/*
 @property(weak, nonatomic)  NSString* myTextObjectName;
 @property(weak, nonatomic)  NSString* myTextObjectPrice;
-@property(weak, nonatomic)  UIImageView* myObjectPicture;
+@property(weak, nonatomic)  UIImageView* myObjectPicture;*/
+
 
 @property(strong, nonatomic) NSMutableArray* myPhotosArray;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property(nonatomic, assign) id<UINavigationControllerDelegate,
+UIImagePickerControllerDelegate>delegate;
 
 
-//- (IBAction)saveButtonTaped:(UIButton *)sender;
+
 - (IBAction)addPlaceToMapButton:(UIButton *)sender;
-
 - (IBAction)addPhotosButton:(UIButton *)sender;
 
 
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 
 
 

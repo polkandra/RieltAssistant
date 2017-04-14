@@ -13,13 +13,8 @@
 @interface MainScreenCellTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewCell;
-
 @property (weak, nonatomic) IBOutlet UILabel *nameCellLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *priceCellLabel;
-
-//@property(strong, nonatomic) UILabel* nameLabelCell;
-//@property(strong, nonatomic) UILabel* priceLabelCell;
 
 
 @end

@@ -9,18 +9,19 @@
 #import "EstateObject.h"
 
 @implementation EstateObject
+@synthesize discription, price, picture;
 
--(id)initWithDiscription:(NSString*)discription price:(NSString*)price picture:(UIImageView*)picture {
+/*-(id)initWithDiscription:(NSString*)discription price:(NSString*)price picture:(UIImageView*)picture {
     
     self = [super init];
     
     if (self) {
         _discription = discription;
         _price = price;
-        _picture;
+        _picture = picture;
     }
     return  self;
-}
+}*/
 
 
 

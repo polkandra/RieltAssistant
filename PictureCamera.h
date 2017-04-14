@@ -10,4 +10,6 @@
 
 @interface PictureCamera : UICollectionViewCell
 
+@property(strong, nonatomic) UIImageView* collectionPicture;
+
 @end

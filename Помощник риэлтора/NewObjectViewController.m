@@ -15,7 +15,7 @@
 @end
 
 @implementation NewObjectViewController
-@synthesize objectNameTextField, priceTextField, myPhotosArray;
+@synthesize  myPhotosArray, delegate;
 
 
 
@@ -28,7 +28,7 @@
     
     
     self.myPhotosArray = [[NSMutableArray alloc] init];
-
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,9 +91,7 @@
         picker.allowsEditing = YES;
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self presentViewController:picker animated:YES completion:nil];
-        
-
-        
+       
     }];
     
     
@@ -110,26 +108,55 @@
 }
 
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqualToString:@"toMain"])
-    {
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    
+    
+    self.myObject = [[EstateObject alloc] init];
+    self.myObject.discription = self.objectNameTextField.text;
+    self.myObject.price = self.priceTextField.text;
+    
+    /*  if([segue.identifier isEqualToString:@"toMain"]) {
+     
+     
+     // MainViewController *vc = segue.destinationViewController;
+     
+     
+     if (self.objectNameTextField > 0) {
+     self.myTextObjectName = self.objectNameTextField.text;
+     
+     
+     } else if (self.priceTextField > 0) {
+     self.myTextObjectPrice = self.priceTextField.text;
+     
+        }
         
-      // MainViewController *vc = segue.destinationViewController;
-      
-        self.myTextObjectName = self.objectNameTextField.text;
-        self.myTextObjectPrice = self.priceTextField.text;
+        
+       // self.myObjectPicture = [self.myPhotosArray objectAtIndex:0];
         
     }
-
+   */
 }
- #pragma mark - UIImagePickerControllerDelegate
+    
+
+
+#pragma mark - UIImagePickerControllerDelegate
+
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
-    UIImage* image = info[UIImagePickerControllerEditedImage];
-    //self.addPhotosView.image = image;
     [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    UIImage* image = info[UIImagePickerControllerOriginalImage];
+    
+    
+    [myPhotosArray addObject:image];
+    
+    [self.collectionView reloadData];
+    
 }
 
 
@@ -152,19 +179,15 @@
 
 
 
-
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString* identifier = @"CVcell";
     
-    UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    CollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
-    EstateObject* newObject2 = [self.myPhotosArray objectAtIndex:indexPath.row];
+  
+     
     
-    
-    UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:300];
-    recipeImageView.image = newObject2.picture;
-    
+    cell.objectView.image = [myPhotosArray objectAtIndex:indexPath.row];
     
     return cell;
   

@@ -72,26 +72,39 @@
 
 #pragma mark - Unwind Segues
 
-- (IBAction)saveButtonTaped:(UIStoryboardSegue*)segue {
+- (IBAction)saveButtonTaped:(UIStoryboardSegue*)sender {
     
-    
-    NewObjectViewController *controller = segue.sourceViewController;
-    EstateObject* newObject = [[EstateObject alloc] initWithDiscription:controller.myTextObjectName price:controller.myTextObjectPrice picture:controller.myObjectPicture];
-    if(newObject != nil) {
-    
-    [self.myData addObject:newObject];
-    [self.tableView reloadData];
-}
-    
-    /*NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:objectName forKey:@"objectName"];
-    [defaults setObject:objectPrice forKey:@"objectPrice"];
-    [defaults synchronize];
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:myData forKey:@"myData"];
-    [defaults synchronize];*/
-    
-     
+    if ([sender.identifier isEqualToString:@"toMain"]) {
+        
+        NewObjectViewController *controller = sender.sourceViewController;
+        
+        EstateObject* newObject = controller.myObject;
+        
+        //NSString* discription = controller.objectNameTextField;
+        // NSString* price = controller.priceTextField;
+        
+        [self.myData addObject:newObject];
+        [self.tableView reloadData];
+        
+        
+        
+        /*
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:([self.myData count] - 1) inSection:1];
+        
+        // Insert it into the tableview
+        [self.tableView beginUpdates];
+        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView endUpdates];*/
+
+        /*NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+         [defaults setObject:objectName forKey:@"objectName"];
+         [defaults setObject:objectPrice forKey:@"objectPrice"];
+         [defaults synchronize];
+         NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+         [defaults setObject:myData forKey:@"myData"];
+         [defaults synchronize];*/
+        
+    }
 
 
 }
@@ -140,79 +153,33 @@
     
     static NSString* identifier = @"MainScreenCell";
     
-    EstateObject* newObject = [self.myData objectAtIndex:indexPath.row];
+      
+    UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    
+    //MainScreenCellTableViewCell *cell = (MainScreenCellTableViewCell*) [self.tableView dequeueReusableCellWithIdentifier:@"MainScreenCell" forIndexPath:indexPath];
+    
+    EstateObject* object = [self.myData objectAtIndex:indexPath.row];
+    cell.textLabel.text = object.discription;
+    cell.detailTextLabel.text = object.price;
     
     
+    //cell.nameCellLabel.text =[self.myData objectAtIndex:indexPath.row];
+    // cell.priceCellLabel.text = [self.myData objectAtIndex:indexPath.row];
     
-    MainScreenCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MainScreenCell" forIndexPath:indexPath];
-       
-    cell = [[EstateObject alloc] initWithDiscription:newObject.discription price:newObject.price picture:newObject.picture];
+    // cell = [[EstateObject alloc] initWithDiscription:newObject.discription price:newObject.price picture:newObject.picture];
     
     /*cell.nameCellLabel.adjustsFontSizeToFitWidth = YES;
-    cell.nameCellLabel.minimumScaleFactor = 10 / 14;
-    cell.priceCellLabel.adjustsFontSizeToFitWidth = YES;
-    cell.priceCellLabel.minimumScaleFactor = 10 / 14;*/
-
+     cell.nameCellLabel.minimumScaleFactor = 10 / 14;
+     cell.priceCellLabel.adjustsFontSizeToFitWidth = YES;
+     cell.priceCellLabel.minimumScaleFactor = 10 / 14;*/
+    
     
       
-    
-    /*cell.nameCellLabel.numberOfLines = 1;
-    cell.nameCellLabel.minimumScaleFactor = 8.;
-    cell.nameCellLabel.adjustsFontSizeToFitWidth = YES;*/
-   
-    
-    
-    
-    cell.imageViewCell.image = newObject.picture;
-    cell.nameCellLabel.text = newObject.discription;
-    cell.priceCellLabel.text = newObject.price;
-    cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
-   
-    
-    
-    
-    
-    // cell.nameCellLabel.font = [UIFont systemFontOfSize:20];
-      
-    
+     
    
     
     return cell;
     
-    // MainScreenCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-   
-   
-   // cell = [[EstateObject alloc]initWithDiscription:newObject.discription price:newObject.price];
-    
-    /* UILabel* labelName = (UILabel*)[cell viewWithTag:100];
-     UILabel* labelPrice = (UILabel*)[cell viewWithTag:101];
-    labelName = newObject.discription;
-    labelPrice = newObject.price;*/
-   
-    
-    /* MainScreenCellTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];*/
-    
-   /*
-    cell.nameOfObjectCell = [self.myData objectAtIndex:indexPath.row];
-    cell.priceOfObjectCell = [self.myData objectAtIndex:indexPath.row];*/
-    
-    // cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",[self.myData objectAtIndex:0],[self.myData objectAtIndex:1]];
-    
-    
-    
-    /* UILabel* labelName = (UILabel*)[cell viewWithTag:100];
-        UILabel* labelPrice = (UILabel*)[cell viewWithTag:101];
-        labelName.text = [self.myData objectAtIndex:indexPath.row];*/
-   
-    
-    /*
-    UILabel* labelName = (UILabel*)[cell viewWithTag:100];
-    UILabel* labelAddress = (UILabel*)[cell viewWithTag:101];
-    UILabel* labelPrice = (UILabel*)[cell viewWithTag:101];
-    labelName.text = [self.myData objectAtIndex:indexPath.row];
-    labelAddress.text = [self.myData objectAtIndex:indexPath.row];
-    labelPrice.text = [self.myData objectAtIndex:indexPath.row]; */
-  
     
     }
   
