@@ -83,13 +83,15 @@
         [self.myData addObject:newObject];
         [self.tableView reloadData];
         
+    
     }
     
     
 }
 
-- (IBAction)cancelButtonTapped:(UIStoryboardSegue *)segue{
+- (IBAction)cancelButtonTapped:(UIStoryboardSegue *)sender{
     
+
 }
 
 
@@ -137,6 +139,7 @@
     
     cell.nameCellLabel.text = object.discription;
     cell.priceCellLabel.text = object.price;
+    
     cell.imageViewCell.image = object.picture;
     
     

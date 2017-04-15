@@ -25,6 +25,22 @@
     [super viewDidLoad];
 
 
+    self.saveRightBarButton.enabled = NO;
+    
+    
+    self.priceTextField.delegate = self;
+    self.objectNameTextField.delegate = self;
+    self.adressTextfield.delegate = self;
+    self.totalSquareTextField.delegate = self;
+    self.livingSquareTextField.delegate = self;
+    self.kitchenSquareTextField.delegate = self;
+    self.priceTextField.delegate = self;
+    self.metroFloorTextField.delegate = self;
+    self.ownerNameTextField.delegate = self;
+    self.phoneTextField.delegate = self;
+    self.extraInfoTextField.delegate = self;
+    
+    
     
     
     self.myPhotosArray = [[NSMutableArray alloc] init];
@@ -87,6 +103,7 @@
 }
 
 
+#pragma mark - PrepareForSegue
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -94,7 +111,25 @@
     self.myObject = [[EstateObject alloc] init];
     self.myObject.discription = self.objectNameTextField.text;
     self.myObject.price = self.priceTextField.text;
-    self.myObject.picture = [myPhotosArray objectAtIndex:0];
+    
+    self.myObject.picture = [myPhotosArray firstObject];
+   
+    
+    
+   /* if ([myPhotosArray count] == 0) {
+        
+        UIImage* image = [UIImage imageNamed:@"emptyObject"];
+        
+        self.myObject.picture = [myPhotosArray arrayByAddingObject:image];
+        
+    }else{
+        
+        self.myObject.picture = [myPhotosArray firstObject];
+        
+    }*/
+    
+    
+    
     
 }
 
@@ -113,7 +148,20 @@
     
     photoObject.picture = image;
     
-    [myPhotosArray addObject:image];
+    
+    /*if(image) {
+        
+        [myPhotosArray objectAtIndex:0];
+    }else{
+        
+        //UIImage* image = [UIImage imageNamed:@"emptyObject"];
+        //[myPhotosArray addObject:image];
+        //self.myObject.picture = [myPhotosArray arrayByAddingObject:image];
+        [myPhotosArray objectAtIndex:1];
+    }
+    
+    
+    [myPhotosArray addObject:image];*/
     
     [self.collectionView reloadData];
     
@@ -151,9 +199,45 @@
   
 }
 
+#pragma mark - UITextFieldDelegate
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    if (self.objectNameTextField.text > 0) {
+        
+        _saveRightBarButton.enabled = YES;
+        
+    }else{
+        _saveRightBarButton.enabled = NO;
+    }
+    
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [self.objectNameTextField resignFirstResponder];
+    [self.adressTextfield resignFirstResponder];
+    [self.totalSquareTextField resignFirstResponder];
+    [self.livingSquareTextField resignFirstResponder];
+    [self.kitchenSquareTextField resignFirstResponder];
+    [self.priceTextField resignFirstResponder];
+    [self.metroFloorTextField resignFirstResponder];
+    [self.ownerNameTextField resignFirstResponder];
+    [self.phoneTextField resignFirstResponder];
+    [self.extraInfoTextField resignFirstResponder];
+
+    return NO;
+    
+}
 
 
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.objectNameTextField resignFirstResponder];
+    //[self.priceTextField resignFirstResponder];
+}
 
 
 

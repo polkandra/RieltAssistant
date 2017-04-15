@@ -15,8 +15,11 @@
 
 @interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveRightBarButton;
+
 
 @property(strong, nonatomic) EstateObject* myObject;
+
 
 
 @property(strong, nonatomic) NSMutableArray* myPhotosArray;
