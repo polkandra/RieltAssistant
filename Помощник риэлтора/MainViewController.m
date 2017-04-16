@@ -65,8 +65,8 @@
     
     self.myData = [[NSMutableArray alloc] init];
     
-    //self.tableView.backgroundColor = [UIColor clearColor];
-    
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
 }
 
@@ -125,11 +125,17 @@
     return [self.myData count] ;
 }
 
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100.0;
+    
+    return 100;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+   
     
     static NSString* identifier = @"MainScreenCell";
     
@@ -138,18 +144,21 @@
     EstateObject* object = [self.myData objectAtIndex:indexPath.row];
     
     cell.nameCellLabel.text = object.discription;
+    cell.nameCellLabel.textColor = [UIColor whiteColor];
     cell.priceCellLabel.text = object.price;
-    
+    cell.priceCellLabel.textColor = [UIColor whiteColor];
+    cell.backgroundColor = [UIColor clearColor];
+    // cell.accessoryView.backgroundColor = [UIColor blueColor];
     cell.imageViewCell.image = object.picture;
     
-    
-    
-    
-    
-    return cell;
-    
-    
+    return  cell;
+
+
 }
+    
+
+    
+
 
 
 

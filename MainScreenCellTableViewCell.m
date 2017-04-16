@@ -11,9 +11,16 @@
 @implementation MainScreenCellTableViewCell
 @synthesize nameCellLabel, priceCellLabel, imageViewCell;
 
+
+-(void)drawRect:(CGRect)rect {
+    
+    [StyleKitName drawTableViewCell];
+}
+
+
 /*
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+ - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     
  

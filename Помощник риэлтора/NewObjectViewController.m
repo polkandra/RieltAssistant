@@ -158,10 +158,10 @@
         //[myPhotosArray addObject:image];
         //self.myObject.picture = [myPhotosArray arrayByAddingObject:image];
         [myPhotosArray objectAtIndex:1];
-    }
+    }*/
     
     
-    [myPhotosArray addObject:image];*/
+    [myPhotosArray addObject:image];
     
     [self.collectionView reloadData];
     

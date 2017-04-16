@@ -11,7 +11,8 @@
 #import "StyleKitName.h"
 #import "NewObjectViewController.h"
 #import "EstateObject.h"
-#import "ImageRounded.h"
+
+
 
 @interface MainViewController : UIViewController  <UITableViewDataSource, UITableViewDelegate>
 
