@@ -21,8 +21,8 @@
 @property(strong, nonatomic) EstateObject* myObject;
 
 
-
 @property(strong, nonatomic) NSMutableArray* myPhotosArray;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property(nonatomic, assign) id<UINavigationControllerDelegate,

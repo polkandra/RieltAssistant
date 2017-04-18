@@ -42,9 +42,13 @@
     
     
     
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    [self.tableView addGestureRecognizer:gestureRecognizer];
+    
+    
     
     self.myPhotosArray = [[NSMutableArray alloc] init];
-   
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,13 +57,14 @@
 }
 
 
+
 #pragma mark - Actions
 
 
 - (IBAction)addPlaceToMapButton:(UIButton *)sender {
-
-
-
+    
+    
+    
 }
 
 
@@ -109,26 +114,22 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     self.myObject = [[EstateObject alloc] init];
+    
     self.myObject.discription = self.objectNameTextField.text;
     self.myObject.price = self.priceTextField.text;
     
-    self.myObject.picture = [myPhotosArray firstObject];
-   
-    
-    
-   /* if ([myPhotosArray count] == 0) {
+    if ([myPhotosArray count] == 0) {
         
-        UIImage* image = [UIImage imageNamed:@"emptyObject"];
+        UIImage *image = [UIImage imageNamed:@"emptyObject"];
         
-        self.myObject.picture = [myPhotosArray arrayByAddingObject:image];
+        [myPhotosArray addObject:image];
+        self.myObject.picture = [myPhotosArray firstObject];
         
     }else{
         
         self.myObject.picture = [myPhotosArray firstObject];
         
-    }*/
-    
-    
+    }
     
     
 }
@@ -143,23 +144,10 @@
     
     [picker dismissViewControllerAnimated:YES completion:nil];
     
-    UIImage* image = info[UIImagePickerControllerOriginalImage];
+    UIImageView* image = info[UIImagePickerControllerOriginalImage];
     EstateObject* photoObject = [[EstateObject alloc] init];
     
     photoObject.picture = image;
-    
-    
-    /*if(image) {
-        
-        [myPhotosArray objectAtIndex:0];
-    }else{
-        
-        //UIImage* image = [UIImage imageNamed:@"emptyObject"];
-        //[myPhotosArray addObject:image];
-        //self.myObject.picture = [myPhotosArray arrayByAddingObject:image];
-        [myPhotosArray objectAtIndex:1];
-    }*/
-    
     
     [myPhotosArray addObject:image];
     
@@ -215,6 +203,7 @@
 }
 
 
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     [self.objectNameTextField resignFirstResponder];
@@ -234,9 +223,13 @@
 
 
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self.objectNameTextField resignFirstResponder];
-    //[self.priceTextField resignFirstResponder];
+
+#pragma mark - UITapGestureRecognizer Method
+
+
+- (void)hideKeyboard {
+    
+    [self.view endEditing:YES];
 }
 
 
