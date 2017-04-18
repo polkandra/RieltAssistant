@@ -15,7 +15,7 @@
 @end
 
 @implementation NewObjectViewController
-@synthesize  myPhotosArray, delegate;
+@synthesize  myPhotosArray, delegate, tableView;
 
 
 
@@ -25,7 +25,7 @@
     [super viewDidLoad];
 
 
-    self.saveRightBarButton.enabled = NO;
+    self.saveRightBarButton.enabled = YES;
     
     
     self.priceTextField.delegate = self;
@@ -115,8 +115,18 @@
     
     self.myObject = [[EstateObject alloc] init];
     
+    
     self.myObject.discription = self.objectNameTextField.text;
-    self.myObject.price = self.priceTextField.text;
+    
+    if ((self.priceTextField.text.length == 0)) {
+        
+        self.myObject.price = @"Цена не указана";
+        
+    }else{
+        
+        self.myObject.price = self.priceTextField.text;
+    }
+    
     
     if ([myPhotosArray count] == 0) {
         
@@ -133,6 +143,34 @@
     
     
 }
+
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    
+    if ((self.objectNameTextField.text.length == 0)) {
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"Введите название объекта" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        
+        [alert addAction:action];
+        
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        
+        return NO;
+    }
+    
+    
+    
+    return YES;
+}
+
+
+
 
 
 
@@ -189,7 +227,7 @@
 
 #pragma mark - UITextFieldDelegate
 
-
+/*
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     
     if (self.objectNameTextField.text > 0) {
@@ -200,7 +238,7 @@
         _saveRightBarButton.enabled = NO;
     }
    
-}
+}*/
 
 
 

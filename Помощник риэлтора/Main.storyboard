@@ -77,7 +77,7 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="Label">
                                                             <attributes>
-                                                                <font key="NSFont" size="17" name="BradleyHandITCTT-Bold"/>
+                                                                <font key="NSFont" size="17" name="HelveticaNeue-MediumItalic"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -124,8 +124,6 @@
         <!--New Object View Controller-->
         <scene sceneID="tF2-jD-uIA">
             <objects>
-                <exit id="q8T-DH-86U" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5dD-mB-DMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="gHv-Wa-FOh" customClass="NewObjectViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="yYt-Vs-ob1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -568,9 +566,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="3id-FI-ARN">
-                        <barButtonItem key="leftBarButtonItem" title="отменить" id="wYw-gm-3jz">
+                        <barButtonItem key="leftBarButtonItem" title="Oтменить" id="wYw-gm-3jz">
                             <connections>
-                                <segue destination="q8T-DH-86U" kind="unwind" unwindAction="cancelButtonTapped:" id="CrB-p5-s8a"/>
+                                <segue destination="q8T-DH-86U" kind="unwind" identifier="cancelToMain" unwindAction="cancelButtonTapped:" id="CrB-p5-s8a"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Сохранить" style="done" id="FqY-nJ-9IH">
@@ -612,6 +610,8 @@
                         <outlet property="totalSquareTextField" destination="2dq-5X-973" id="CYd-FJ-vyc"/>
                     </connections>
                 </tableViewController>
+                <exit id="q8T-DH-86U" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5dD-mB-DMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2692" y="-322.48875562218893"/>
         </scene>

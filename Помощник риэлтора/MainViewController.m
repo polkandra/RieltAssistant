@@ -79,21 +79,20 @@
         NewObjectViewController *controller = sender.sourceViewController;
         
         EstateObject* newObject = controller.myObject;
-                
+         
+        
         [self.myData addObject:newObject];
         [self.tableView reloadData];
         
-    
     }
-    
-    
 }
+
 
 - (IBAction)cancelButtonTapped:(UIStoryboardSegue *)sender{
+    [self dismissViewControllerAnimated:YES completion:nil];
     
-
+    
 }
-
 
 #pragma mark - Actions
 
