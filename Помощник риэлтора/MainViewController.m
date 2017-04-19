@@ -43,24 +43,7 @@
     
     [super viewDidLoad];
     
-    //set bar color
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:85.0/255.0 green:143.0/255.0 blue:220.0/255.0 alpha:1.0]];
-    //optional, i don't want my bar to be translucent
-    [self.navigationController.navigationBar setTranslucent:YES];
-    //set title and title color
-    [self.navigationItem setTitle:@"Мои объекты"];
-    
-    [self.navigationController.navigationBar
-     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-    
-    //set back button color
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor,nil] forState:UIControlStateNormal];
-    //set back button arrow color
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSForegroundColorAttributeName:[UIColor whiteColor],
-       NSFontAttributeName:[UIFont fontWithName:@"avenir" size:21]}];
+    [self setNavigationController];
     
     
     self.myData = [[NSMutableArray alloc] init];
@@ -70,13 +53,39 @@
     
 }
 
+
+
+-(void)setNavigationController {
+    
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:85.0/255.0 green:143.0/255.0 blue:220.0/255.0 alpha:1.0]];
+   
+    [self.navigationController.navigationBar setTranslucent:YES];
+    
+    [self.navigationItem setTitle:@"Мои объекты"];
+    
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
+  
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor,nil] forState:UIControlStateNormal];
+        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor],
+       NSFontAttributeName:[UIFont fontWithName:@"avenir" size:21]}];
+   
+}
+
+
+
+
 #pragma mark - Unwind Segues
 
-- (IBAction)saveButtonTaped:(UIStoryboardSegue*)sender {
+- (IBAction)saveButtonTaped:(UIStoryboardSegue*)segue {
     
-    if ([sender.identifier isEqualToString:@"toMain"]) {
+    if ([segue.identifier isEqualToString:@"toMain"]) {
         
-        NewObjectViewController *controller = sender.sourceViewController;
+        NewObjectViewController *controller = segue.sourceViewController;
         
         EstateObject* newObject = controller.myObject;
          
@@ -88,14 +97,13 @@
 }
 
 
-- (IBAction)cancelButtonTapped:(UIStoryboardSegue *)sender{
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (IBAction)cancelButtonTapped:(UIStoryboardSegue *)segue {
     
-    
+   
 }
 
-#pragma mark - Actions
 
+#pragma mark - Actions
 
 
 - (IBAction)filterTapped:(UIButton *)sender {

@@ -11,9 +11,11 @@
 #import "MainScreenCellTableViewCell.h"
 #import "EstateObject.h"
 #import "CollectionViewCell.h"
+#import "StyleKitName.h"
+#import "Checkmark.h"
 
 
-@interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource>
+@interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveRightBarButton;
 
@@ -22,6 +24,13 @@
 
 
 @property(strong, nonatomic) NSMutableArray* myPhotosArray;
+
+//
+@property(strong, nonatomic) NSMutableArray* selectedPhotos;
+@property (assign,nonatomic) BOOL selected;
+//
+
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
@@ -30,8 +39,11 @@ UIImagePickerControllerDelegate>delegate;
 
 
 
+
+
 - (IBAction)addPlaceToMapButton:(UIButton *)sender;
 - (IBAction)addPhotosButton:(UIButton *)sender;
+
 
 
 

@@ -24,41 +24,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-
+    
     self.saveRightBarButton.enabled = YES;
+   
+    self.collectionView.delegate = self;
+    self.collectionView.allowsMultipleSelection = YES;
     
-    
-    self.priceTextField.delegate = self;
-    self.objectNameTextField.delegate = self;
-    self.adressTextfield.delegate = self;
-    self.totalSquareTextField.delegate = self;
-    self.livingSquareTextField.delegate = self;
-    self.kitchenSquareTextField.delegate = self;
-    self.priceTextField.delegate = self;
-    self.metroFloorTextField.delegate = self;
-    self.ownerNameTextField.delegate = self;
-    self.phoneTextField.delegate = self;
-    self.extraInfoTextField.delegate = self;
-    
-    
-    
-    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
-    [self.tableView addGestureRecognizer:gestureRecognizer];
+    [self setDelegates];
+    [self addGestureRecognizer];
+   
     
     
     
     self.myPhotosArray = [[NSMutableArray alloc] init];
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.selectedPhotos = [[NSMutableArray alloc] init];
 }
 
 
 
 #pragma mark - Actions
+
 
 
 - (IBAction)addPlaceToMapButton:(UIButton *)sender {
@@ -70,20 +55,20 @@
 
 
 - (IBAction)addPhotosButton:(UIButton *)sender {
-
+    
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
-
+    
     UIAlertAction* firstAction = [UIAlertAction actionWithTitle:@"Сделать снимок" style:UIAlertActionStyleDefault  handler:^(UIAlertAction * _Nonnull action) {
-       
+        
         UIImagePickerController* picker = [[UIImagePickerController alloc] init];
         picker.delegate = self;
         picker.allowsEditing = YES;
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentViewController:picker animated:YES completion:nil];
-    
-    
+        
+        
     }];
-
+    
     UIAlertAction* secondAction = [UIAlertAction actionWithTitle:@"Выбрать из галереи" style:UIAlertActionStyleDefault  handler:^(UIAlertAction * _Nonnull action) {
         
         UIImagePickerController* picker = [[UIImagePickerController alloc] init];
@@ -91,7 +76,7 @@
         picker.allowsEditing = YES;
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self presentViewController:picker animated:YES completion:nil];
-       
+        
     }];
     
     
@@ -108,14 +93,17 @@
 }
 
 
-#pragma mark - PrepareForSegue
+
+
+
+
+#pragma mark - Segues
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     self.myObject = [[EstateObject alloc] init];
-    
-    
+        
     self.myObject.discription = self.objectNameTextField.text;
     
     if ((self.priceTextField.text.length == 0)) {
@@ -140,16 +128,17 @@
         self.myObject.picture = [myPhotosArray firstObject];
         
     }
-    
-    
-}
+ }
+
 
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     
+   if ([identifier isEqualToString:@"toMain"]) {
+    
     if ((self.objectNameTextField.text.length == 0)) {
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"Введите название объекта" preferredStyle:UIAlertControllerStyleAlert];
+       UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"Введите название объекта" preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
@@ -163,9 +152,7 @@
         
         return NO;
     }
-    
-    
-    
+   }
     return YES;
 }
 
@@ -217,29 +204,53 @@
     
     CollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
-    
-    
-    cell.objectView.image = [myPhotosArray objectAtIndex:indexPath.row];
+        cell.objectView.image = [myPhotosArray objectAtIndex:indexPath.row];
     
     return cell;
-  
 }
+
+
+#pragma mark - UICollectionViewDelegate
+
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+   
+    CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"deselected"]];
+    cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"selected"]];
+
+
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+   }
+
+
 
 #pragma mark - UITextFieldDelegate
 
-/*
+
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     
-    if (self.objectNameTextField.text > 0) {
-        
-        _saveRightBarButton.enabled = YES;
-        
-    }else{
-        _saveRightBarButton.enabled = NO;
-    }
-   
-}*/
+  
+ }
 
+-(void)setDelegates {
+    self.priceTextField.delegate = self;
+    self.objectNameTextField.delegate = self;
+    self.adressTextfield.delegate = self;
+    self.totalSquareTextField.delegate = self;
+    self.livingSquareTextField.delegate = self;
+    self.kitchenSquareTextField.delegate = self;
+    self.priceTextField.delegate = self;
+    self.metroFloorTextField.delegate = self;
+    self.ownerNameTextField.delegate = self;
+    self.phoneTextField.delegate = self;
+    self.extraInfoTextField.delegate = self;
+    
+}
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -263,6 +274,12 @@
 
 
 #pragma mark - UITapGestureRecognizer Method
+
+-(void)addGestureRecognizer {
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    [self.tableView addGestureRecognizer:gestureRecognizer];
+    
+}
 
 
 - (void)hideKeyboard {

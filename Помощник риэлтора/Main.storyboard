@@ -229,7 +229,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NH-qQ-ZUr">
-                                                    <rect key="frame" x="31" y="6" width="178" height="30"/>
+                                                    <rect key="frame" x="8" y="6" width="178" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="добавить метку на карту"/>
                                                     <connections>
@@ -427,7 +427,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ej-8N-NkZ">
-                                                    <rect key="frame" x="38" y="6" width="158" height="30"/>
+                                                    <rect key="frame" x="54" y="6" width="158" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="добавить фотографии"/>
                                                     <connections>
@@ -435,29 +435,29 @@
                                                     </connections>
                                                 </button>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LcS-P1-sHq">
-                                                    <rect key="frame" x="8" y="44" width="334" height="106"/>
+                                                    <rect key="frame" x="8" y="44" width="334" height="126"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gyw-m8-0vK">
-                                                        <size key="itemSize" width="50" height="50"/>
+                                                        <size key="itemSize" width="68" height="61"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="400" contentMode="center" reuseIdentifier="CVcell" id="Sdz-bL-aYO" customClass="CollectionViewCell">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="68" height="61"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="68" height="61"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" tag="300" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EL6-SC-1jM">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TAk-VP-Na1">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="68" height="70"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
                                                                                 <integer key="value" value="7"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
@@ -465,7 +465,7 @@
                                                                 </subviews>
                                                             </view>
                                                             <connections>
-                                                                <outlet property="objectView" destination="EL6-SC-1jM" id="j3y-fb-LHZ"/>
+                                                                <outlet property="objectView" destination="TAk-VP-Na1" id="6AQ-60-VmR"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -474,6 +474,11 @@
                                                         <outlet property="delegate" destination="gHv-Wa-FOh" id="6or-9G-KvO"/>
                                                     </connections>
                                                 </collectionView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ade-ya-GrY">
+                                                    <rect key="frame" x="14" y="5" width="32" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button" image="trash"/>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -565,10 +570,12 @@
                             <outlet property="delegate" destination="gHv-Wa-FOh" id="dIl-hB-PGf"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="3id-FI-ARN">
                         <barButtonItem key="leftBarButtonItem" title="Oтменить" id="wYw-gm-3jz">
                             <connections>
-                                <segue destination="q8T-DH-86U" kind="unwind" identifier="cancelToMain" unwindAction="cancelButtonTapped:" id="CrB-p5-s8a"/>
+                                <action selector="cancelButonTapped:" destination="gHv-Wa-FOh" id="X2c-jv-tTe"/>
+                                <segue destination="q8T-DH-86U" kind="unwind" identifier="cancel" unwindAction="cancelButtonTapped:" id="vzf-bO-PaW"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Сохранить" style="done" id="FqY-nJ-9IH">
@@ -656,7 +663,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6KF-XU-I1v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-415" y="860"/>
+            <point key="canvasLocation" x="750" y="1242"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -710,5 +717,6 @@
         <image name="plus" width="70" height="70"/>
         <image name="rent3" width="30" height="30"/>
         <image name="settings" width="50" height="50"/>
+        <image name="trash" width="37" height="45"/>
     </resources>
 </document>
