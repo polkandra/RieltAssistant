@@ -29,12 +29,16 @@
    
     self.collectionView.delegate = self;
     self.collectionView.allowsMultipleSelection = YES;
-    
-    [self setDelegates];
+   
+    [self setDelegatesForPickerView];
+    [self setDelegatesForTextFields];
     [self addGestureRecognizer];
    
     
     
+    self.pickerViewArrayRoomQuantity = [[NSMutableArray alloc] initWithObjects:@"1 комната",@" 2 комнаты",@"3 комнаты",@"4 комнаты",@"5 комнат и более", nil];
+    self.pickerViewArrayCity = [[NSMutableArray alloc] initWithObjects:@"Москва",@"Санкт-Петербург",@"Екатеринбург",@"Сочи", nil];
+   // self.pickerViewArrayRoomQuantity = [[NSMutableArray alloc] init];
     
     self.myPhotosArray = [[NSMutableArray alloc] init];
     self.selectedPhotos = [[NSMutableArray alloc] init];
@@ -90,6 +94,9 @@
     [alert addAction:cancellAction];
     
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (IBAction)deletePhotosButton:(UIButton *)sender {
 }
 
 
@@ -237,7 +244,7 @@
   
  }
 
--(void)setDelegates {
+-(void)setDelegatesForTextFields {
     self.priceTextField.delegate = self;
     self.objectNameTextField.delegate = self;
     self.adressTextfield.delegate = self;
@@ -285,6 +292,71 @@
 - (void)hideKeyboard {
     
     [self.view endEditing:YES];
+}
+
+
+
+#pragma mark - UIPickerViewDelegate
+
+
+
+
+#pragma mark - UIPickerViewDataSource
+
+-(void)setDelegatesForPickerView {
+    
+    //self.objectTypePicker.delegate = self;
+    self.cityPicker.delegate = self;
+    self.roomPicker.delegate = self;
+
+}
+
+
+
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+
+
+}
+
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    
+    NSInteger quantity;
+    
+    if (pickerView == _roomPicker)
+    {
+        quantity = [_pickerViewArrayRoomQuantity count];
+    }
+    else if (pickerView == _cityPicker )
+    {
+        quantity = [_pickerViewArrayCity count];
+        
+    }
+    
+    return quantity;
+}
+
+
+- (NSString *)pickerView:(UIPickerView *)pickerView
+             titleForRow:(NSInteger)row
+            forComponent:(NSInteger)component
+{
+    NSString *title;
+    
+    if (pickerView == _roomPicker)
+    {
+        title = [_pickerViewArrayRoomQuantity objectAtIndex:row];
+    }
+    else if (pickerView == _cityPicker)
+    {
+        title = [_pickerViewArrayCity objectAtIndex:row];
+        
+    }
+    
+    return title;
+    
 }
 
 

@@ -25,10 +25,13 @@
 
 @property(strong, nonatomic) NSMutableArray* myPhotosArray;
 
-//
+//@property(strong, nonatomic) NSMutableArray* pickerViewArrayType;
+@property(strong, nonatomic) NSMutableArray* pickerViewArrayCity;
+@property(strong, nonatomic) NSMutableArray* pickerViewArrayRoomQuantity;
+
 @property(strong, nonatomic) NSMutableArray* selectedPhotos;
-@property (assign,nonatomic) BOOL selected;
-//
+
+
 
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -41,13 +44,10 @@ UIImagePickerControllerDelegate>delegate;
 
 
 
+
 - (IBAction)addPlaceToMapButton:(UIButton *)sender;
 - (IBAction)addPhotosButton:(UIButton *)sender;
-
-
-
-
-
+- (IBAction)deletePhotosButton:(UIButton *)sender;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *objectTypeLabel;
@@ -66,20 +66,20 @@ UIImagePickerControllerDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UILabel *totalSquareLabel;
 
 @property (weak, nonatomic) IBOutlet UITextField *totalSquareTextField;
-@property (weak, nonatomic) IBOutlet UILabel *totalSquareMetersLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *totalSquareMetersLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *livingSquareLabel;
 @property (weak, nonatomic) IBOutlet UITextField *livingSquareTextField;
-@property (weak, nonatomic) IBOutlet UILabel *livingSquareMetersLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *livingSquareMetersLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *kitchenSquareLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *kitchenSquareLabel;
 @property (weak, nonatomic) IBOutlet UITextField *kitchenSquareTextField;
 @property (weak, nonatomic) IBOutlet UILabel *kitchenMetersLabel;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UITextField *priceTextField;
-@property (weak, nonatomic) IBOutlet UILabel *priceRoublesLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *priceRoublesLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *metroFloorLabel;
 @property (weak, nonatomic) IBOutlet UITextField *metroFloorTextField;
@@ -95,6 +95,9 @@ UIImagePickerControllerDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UILabel *extraInfoLabel;
 @property (weak, nonatomic) IBOutlet UITextField *extraInfoTextField;
 
+//@property (weak, nonatomic) IBOutlet UIPickerView *objectTypePicker;
+@property (weak, nonatomic) IBOutlet UIPickerView *cityPicker;
+@property (weak, nonatomic) IBOutlet UIPickerView *roomPicker;
 
 
 @end

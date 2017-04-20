@@ -13,7 +13,7 @@
 
 -(void)awakeFromNib {
     [super awakeFromNib];
-    
+  /*
     UIView *bg = [[UIView alloc] initWithFrame:self.bounds];
     self.backgroundView = bg;
     self.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"deselected"]];
@@ -22,7 +22,7 @@
     
     UIView *selectedView = [[UIView alloc] initWithFrame:self.bounds];
     self.selectedBackgroundView = selectedView;
-    self.selectedBackgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"selected"]];
+    self.selectedBackgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"selected"]];*/
 
 }
 
