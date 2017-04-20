@@ -18,8 +18,12 @@
 
 
 @property(strong, nonatomic) NSMutableArray* myData;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (weak, nonatomic) IBOutlet UILabel *emptyDataBaseLabel;
+
+@property (assign, nonatomic) BOOL hidden;
 
 - (IBAction)filterTapped:(UIButton *)sender;
 - (IBAction)plusTapped:(UIButton *)sender;
@@ -27,6 +31,7 @@
 
 - (IBAction)saveButtonTaped:(UIStoryboardSegue*)segue;
 - (IBAction)cancelButtonTapped:(UIStoryboardSegue *)segue;
+
 
 @end
 

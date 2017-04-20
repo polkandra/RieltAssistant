@@ -109,6 +109,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
+    
     self.myObject = [[EstateObject alloc] init];
         
     self.myObject.discription = self.objectNameTextField.text;
@@ -135,15 +136,17 @@
         self.myObject.picture = [myPhotosArray firstObject];
         
     }
- }
+ 
+}
 
 
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     
    if ([identifier isEqualToString:@"toMain"]) {
-    
-    if ((self.objectNameTextField.text.length == 0)) {
+
+   
+       if ((self.objectNameTextField.text.length == 0)) {
         
        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"Введите название объекта" preferredStyle:UIAlertControllerStyleAlert];
         

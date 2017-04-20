@@ -17,6 +17,7 @@
 
 @interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveRightBarButton;
 
 
@@ -30,7 +31,6 @@
 @property(strong, nonatomic) NSMutableArray* pickerViewArrayRoomQuantity;
 
 @property(strong, nonatomic) NSMutableArray* selectedPhotos;
-
 
 
 

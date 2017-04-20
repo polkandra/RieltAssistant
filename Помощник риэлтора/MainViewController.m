@@ -45,6 +45,7 @@
     
     [self setNavigationController];
     
+    self.emptyDataBaseLabel.hidden = NO;
     
     self.myData = [[NSMutableArray alloc] init];
     
@@ -88,7 +89,8 @@
         NewObjectViewController *controller = segue.sourceViewController;
         
         EstateObject* newObject = controller.myObject;
-         
+        
+        _emptyDataBaseLabel.hidden = YES;
         
         [self.myData addObject:newObject];
         [self.tableView reloadData];
