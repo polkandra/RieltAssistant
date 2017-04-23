@@ -33,12 +33,8 @@
     [self setDelegatesForPickerView];
     [self setDelegatesForTextFields];
     [self addGestureRecognizer];
+    [self pickerViewWithData];
    
-    
-    
-    self.pickerViewArrayRoomQuantity = [[NSMutableArray alloc] initWithObjects:@"1 комната",@" 2 комнаты",@"3 комнаты",@"4 комнаты",@"5 комнат и более", nil];
-    self.pickerViewArrayCity = [[NSMutableArray alloc] initWithObjects:@"Москва",@"Санкт-Петербург",@"Екатеринбург",@"Сочи", nil];
-   // self.pickerViewArrayRoomQuantity = [[NSMutableArray alloc] init];
     
     self.myPhotosArray = [[NSMutableArray alloc] init];
     self.selectedPhotos = [[NSMutableArray alloc] init];
@@ -111,8 +107,27 @@
     
     
     self.myObject = [[EstateObject alloc] init];
-        
+    
     self.myObject.discription = self.objectNameTextField.text;
+    
+    if ((self.ownerNameTextField.text.length == 0)) {
+        
+        self.myObject.owner = @"Собственник не указан";
+        
+    }else{
+        
+        self.myObject.owner = self.ownerNameTextField.text;
+    }
+    
+    if ((self.adressTextfield.text.length == 0)) {
+        
+        self.myObject.address = @"Адрес не указан";
+        
+    }else{
+        
+        self.myObject.address = self.adressTextfield.text;
+    }
+    
     
     if ((self.priceTextField.text.length == 0)) {
         
@@ -121,6 +136,8 @@
     }else{
         
         self.myObject.price = self.priceTextField.text;
+        //[self.priceTextField  ];
+        
     }
     
     
@@ -136,7 +153,7 @@
         self.myObject.picture = [myPhotosArray firstObject];
         
     }
- 
+    
 }
 
 
@@ -301,7 +318,17 @@
 
 #pragma mark - UIPickerViewDelegate
 
+-(void)pickerViewWithData {
+    
+    
+    self.pickerViewArrayRoomQuantity = [[NSMutableArray alloc] initWithObjects:@"1 комната",@" 2 комнаты",@"3 комнаты",@"4 комнаты",@"5 комнат и более", nil];
+    self.pickerViewArrayCity = [[NSMutableArray alloc] initWithObjects:@"Москва",@"Санкт-Петербург",@"Екатеринбург",@"Сочи", nil];
+    // self.pickerViewArrayRoomQuantity = [[NSMutableArray alloc] init];
+    
+    self.myPhotosArray = [[NSMutableArray alloc] init];
+    self.selectedPhotos = [[NSMutableArray alloc] init];
 
+}
 
 
 #pragma mark - UIPickerViewDataSource

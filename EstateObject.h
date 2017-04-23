@@ -14,8 +14,8 @@
 @property(strong,nonatomic) NSString* discription;
 @property(strong,nonatomic) NSString* price;
 @property(strong, nonatomic) UIImageView* picture;
-
-
+@property(strong, nonatomic) NSString* address;
+@property(strong, nonatomic) NSString* owner;
 
 //-(id)initWithDiscription:(NSString*)discription price:(NSString*)price picture:(UIImageView*)picture;
 

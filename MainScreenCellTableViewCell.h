@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
 #import "StyleKitName.h"
 
 @interface MainScreenCellTableViewCell : UITableViewCell
@@ -16,5 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameCellLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceCellLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *addressCellLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ownerCellLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rubLabel;
 
 @end

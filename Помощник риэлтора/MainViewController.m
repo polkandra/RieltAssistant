@@ -46,6 +46,7 @@
     [self setNavigationController];
     
     self.emptyDataBaseLabel.hidden = NO;
+    self.rubLabel.hidden = YES;
     
     self.myData = [[NSMutableArray alloc] init];
     
@@ -91,6 +92,7 @@
         EstateObject* newObject = controller.myObject;
         
         _emptyDataBaseLabel.hidden = YES;
+        _rubLabel.hidden = NO;
         
         [self.myData addObject:newObject];
         [self.tableView reloadData];
@@ -138,7 +140,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 100;
+    return 150;
 }
 
 
@@ -156,6 +158,11 @@
     cell.nameCellLabel.textColor = [UIColor whiteColor];
     cell.priceCellLabel.text = object.price;
     cell.priceCellLabel.textColor = [UIColor whiteColor];
+    cell.addressCellLabel.text = object.address;
+    cell.addressCellLabel.textColor = [UIColor whiteColor];
+    cell.ownerCellLabel.text = object.owner;
+    cell.ownerCellLabel.textColor = [UIColor whiteColor];
+    
     cell.backgroundColor = [UIColor clearColor];
     // cell.accessoryView.backgroundColor = [UIColor blueColor];
     cell.imageViewCell.image = object.picture;

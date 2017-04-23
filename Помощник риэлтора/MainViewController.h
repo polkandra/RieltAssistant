@@ -16,6 +16,7 @@
 
 @interface MainViewController : UIViewController  <UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *rubLabel;
 
 @property(strong, nonatomic) NSMutableArray* myData;
 

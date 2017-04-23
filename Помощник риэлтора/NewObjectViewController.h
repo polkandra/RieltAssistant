@@ -13,7 +13,7 @@
 #import "CollectionViewCell.h"
 #import "StyleKitName.h"
 #import "Checkmark.h"
-
+#import "UITextField+Postfix.h"
 
 @interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
