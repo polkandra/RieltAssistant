@@ -10,6 +10,7 @@
 		C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C60702381E8E7A64007933F0 /* MainScreenCellTableViewCell.m */; };
 		C60FFA401E8934470054F83D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C67BAAE71E7EBDC2004E9126 /* Assets.xcassets */; };
 		C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FFA431E895B560054F83D /* NewObjectViewController.m */; };
+		C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = C64380C61EAD358100D88E01 /* DetailObjectController.m */; };
 		C67BAADA1E7EBDC1004E9126 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAD91E7EBDC1004E9126 /* main.m */; };
 		C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */; };
 		C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADF1E7EBDC1004E9126 /* MainViewController.m */; };
@@ -30,6 +31,8 @@
 		C607023B1E8E89DD007933F0 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		C60FFA421E895B560054F83D /* NewObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewObjectViewController.h; sourceTree = "<group>"; };
 		C60FFA431E895B560054F83D /* NewObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewObjectViewController.m; sourceTree = "<group>"; };
+		C64380C51EAD358100D88E01 /* DetailObjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailObjectController.h; sourceTree = "<group>"; };
+		C64380C61EAD358100D88E01 /* DetailObjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailObjectController.m; sourceTree = "<group>"; };
 		C67BAAD51E7EBDC1004E9126 /* RieltAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RieltAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67BAAD91E7EBDC1004E9126 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C67BAADB1E7EBDC1004E9126 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 			children = (
 				C607023B1E8E89DD007933F0 /* MainViewController.h */,
 				C67BAADF1E7EBDC1004E9126 /* MainViewController.m */,
+				C64380C51EAD358100D88E01 /* DetailObjectController.h */,
+				C64380C61EAD358100D88E01 /* DetailObjectController.m */,
 				C60FFA421E895B560054F83D /* NewObjectViewController.h */,
 				C60FFA431E895B560054F83D /* NewObjectViewController.m */,
 				C67BAAE11E7EBDC1004E9126 /* MeetingsViewController.h */,
@@ -280,6 +285,7 @@
 				C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */,
 				C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */,
 				C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */,
+				C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */,
 				C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */,
 				C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */,
 				C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */,
