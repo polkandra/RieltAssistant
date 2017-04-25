@@ -21,6 +21,8 @@
 		C6A36DAB1E9A98EC00A00F04 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */; };
 		C6BEF0D91EA793EA00EF9C0B /* Checkmark.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BEF0D81EA793EA00EF9C0B /* Checkmark.m */; };
 		C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */; };
+		C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */; };
+		C6DF6B3E1EAFB81C007F1CB9 /* StaticCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DF6B3D1EAFB81C007F1CB9 /* StaticCell.m */; };
 		C6E35E651E9D08A100235216 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E35E641E9D08A100235216 /* Main.storyboard */; };
 		C6F428441E7FFBE800B5613F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F428421E7FFBE800B5613F /* MapViewController.m */; };
 /* End PBXBuildFile section */
@@ -54,6 +56,10 @@
 		C6BEF0D81EA793EA00EF9C0B /* Checkmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checkmark.m; sourceTree = "<group>"; };
 		C6DB4FD01E8FD9A400CD4AE2 /* EstateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstateObject.h; sourceTree = "<group>"; };
 		C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstateObject.m; sourceTree = "<group>"; };
+		C6DF6B391EAF673C007F1CB9 /* RoomTypeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomTypeController.h; sourceTree = "<group>"; };
+		C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomTypeController.m; sourceTree = "<group>"; };
+		C6DF6B3C1EAFB81C007F1CB9 /* StaticCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StaticCell.h; path = "Помощник риэлтора/StaticCell.h"; sourceTree = "<group>"; };
+		C6DF6B3D1EAFB81C007F1CB9 /* StaticCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StaticCell.m; path = "Помощник риэлтора/StaticCell.m"; sourceTree = "<group>"; };
 		C6E35E641E9D08A100235216 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C6F428411E7FFBE800B5613F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		C6F428421E7FFBE800B5613F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
@@ -148,6 +154,8 @@
 				C67BAADF1E7EBDC1004E9126 /* MainViewController.m */,
 				C64380C51EAD358100D88E01 /* DetailObjectController.h */,
 				C64380C61EAD358100D88E01 /* DetailObjectController.m */,
+				C6DF6B391EAF673C007F1CB9 /* RoomTypeController.h */,
+				C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */,
 				C60FFA421E895B560054F83D /* NewObjectViewController.h */,
 				C60FFA431E895B560054F83D /* NewObjectViewController.m */,
 				C67BAAE11E7EBDC1004E9126 /* MeetingsViewController.h */,
@@ -202,6 +210,8 @@
 				C60702381E8E7A64007933F0 /* MainScreenCellTableViewCell.m */,
 				C6A36DA31E9A827B00A00F04 /* CollectionViewCell.h */,
 				C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */,
+				C6DF6B3C1EAFB81C007F1CB9 /* StaticCell.h */,
+				C6DF6B3D1EAFB81C007F1CB9 /* StaticCell.m */,
 			);
 			name = Cells;
 			path = ..;
@@ -288,9 +298,11 @@
 				C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */,
 				C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */,
 				C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */,
+				C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */,
 				C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */,
 				C67BAADA1E7EBDC1004E9126 /* main.m in Sources */,
 				C6BEF0D91EA793EA00EF9C0B /* Checkmark.m in Sources */,
+				C6DF6B3E1EAFB81C007F1CB9 /* StaticCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

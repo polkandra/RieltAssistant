@@ -61,20 +61,20 @@
     
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:85.0/255.0 green:143.0/255.0 blue:220.0/255.0 alpha:1.0]];
    
-    [self.navigationController.navigationBar setTranslucent:YES];
+    //[self.navigationController.navigationBar setTranslucent:NO];
     
-    [self.navigationItem setTitle:@"Мои объекты"];
+    //[self.navigationItem setTitle:@"Мои объекты"];
     
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
   
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor,nil] forState:UIControlStateNormal];
-        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    /*[[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor,nil] forState:UIControlStateNormal];
+        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];*/
     
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor],
-       NSFontAttributeName:[UIFont fontWithName:@"avenir" size:21]}];
+       NSFontAttributeName:[UIFont fontWithName:@"avenir" size:19]}];
    
 }
 
@@ -174,9 +174,13 @@
     
 #pragma mark - UITableViewDelegate
 
-    
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+    //[self performSegueWithIdentifier:@"toRoomType" sender:self];
+    
 }
 
 

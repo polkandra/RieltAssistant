@@ -89,16 +89,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XTY-Q0-toF">
-                                                    <rect key="frame" x="215" y="51" width="43" height="41"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.88831820210000001" green="0.89651637880000001" blue="0.99567358539999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </view>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iJ-km-amP">
                                                     <rect key="frame" x="261" y="63" width="110" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Адрес на карте"/>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ewe-N4-p86">
+                                                    <rect key="frame" x="218" y="49" width="42" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -122,6 +121,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V7Y-I0-dJk">
+                                                    <rect key="frame" x="285" y="4" width="55" height="55"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -339,9 +342,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1560.8" y="-323.38830584707648"/>
+            <point key="canvasLocation" x="1585" y="-321"/>
         </scene>
-        <!--New Object View Controller-->
+        <!-- Новый объект-->
         <scene sceneID="c0L-MV-jgy">
             <objects>
                 <tableViewController id="nkq-gs-aGa" customClass="NewObjectViewController" sceneMemberID="viewController">
@@ -352,7 +355,7 @@
                         <sections>
                             <tableViewSection headerTitle="Общие" id="dfp-FB-mFL">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="70" id="Z9X-28-kTd">
+                                    <tableViewCell clipsSubviews="YES" tag="55" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="type" rowHeight="70" id="Z9X-28-kTd" customClass="StaticCell">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z9X-28-kTd" id="8QB-Zq-nV0">
@@ -366,10 +369,29 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcE-pu-Wir">
+                                                    <rect key="frame" x="141" y="14" width="172" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcH-c2-mFR">
+                                                    <rect key="frame" x="190" y="33" width="74" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="tintColor" red="0.32941176470588235" green="0.7803921568627451" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.76105603733293703" green="0.88952634938976205" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="actionTypeLabelInCell" destination="GcH-c2-mFR" id="Xa6-Z5-aF2"/>
+                                            <outlet property="objectTypeLabelInCell" destination="zcE-pu-Wir" id="DBT-uT-XIT"/>
+                                            <segue destination="6QV-Bu-4m6" kind="show" identifier="toRoomType" id="fkg-F7-BXR"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="sDq-VY-Drg">
                                         <rect key="frame" x="0.0" y="125.5" width="375" height="70"/>
@@ -795,7 +817,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="e9Z-EJ-daA">
+                    <navigationItem key="navigationItem" title=" Новый объект" id="e9Z-EJ-daA">
                         <barButtonItem key="leftBarButtonItem" title="Отменить" id="cWB-u5-e8b">
                             <connections>
                                 <segue destination="Jq4-D8-kRU" kind="unwind" identifier="cancel" unwindAction="cancelButtonTapped:" id="ok7-zL-u4Z"/>
@@ -809,6 +831,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="actionTypeLabelInCell" destination="GcH-c2-mFR" id="z1M-j5-glM"/>
                         <outlet property="addressLabel" destination="0C5-Va-oLn" id="YY8-8o-IAP"/>
                         <outlet property="adressTextfield" destination="jFA-ZV-ojF" id="62d-Mi-f1o"/>
                         <outlet property="cityLabel" destination="MaS-UK-Aof" id="zwz-u2-3yO"/>
@@ -825,6 +848,8 @@
                         <outlet property="objectNameLabel" destination="Je7-UY-hP9" id="SX7-nA-meo"/>
                         <outlet property="objectNameTextField" destination="egN-w5-Xc9" id="dls-UO-hV6"/>
                         <outlet property="objectTypeLabel" destination="Lvu-Rs-248" id="BGV-28-ZeA"/>
+                        <outlet property="objectTypeLabelInCell" destination="Lvu-Rs-248" id="6mp-JX-cVa"/>
+                        <outlet property="objectTypeLabelInRow" destination="zcE-pu-Wir" id="lgi-Z7-8rM"/>
                         <outlet property="ownerNameLabel" destination="ALs-Ge-3sv" id="IwT-vE-ESL"/>
                         <outlet property="ownerNameTextField" destination="gqH-TS-6al" id="ZGm-22-IDd"/>
                         <outlet property="phoneLabel" destination="ALs-Ge-3sv" id="93u-YS-6iT"/>
@@ -834,6 +859,8 @@
                         <outlet property="roomAddonLabel" destination="H6b-VA-5Q1" id="meY-jV-38N"/>
                         <outlet property="roomPicker" destination="2xZ-EO-DPC" id="CKP-cA-Mdz"/>
                         <outlet property="saveRightBarButton" destination="vD3-28-zD6" id="9Su-pz-E0J"/>
+                        <outlet property="staticCell" destination="Z9X-28-kTd" id="HSM-Ca-N4z"/>
+                        <outlet property="staticCellWithTwoLabels" destination="Z9X-28-kTd" id="Ca2-D9-dO5"/>
                         <outlet property="tableView" destination="frd-Uw-dy2" id="p4P-eR-Gyz"/>
                         <outlet property="totalSquareLabel" destination="kXu-n2-1DR" id="oX6-ye-ysW"/>
                         <outlet property="totalSquareTextField" destination="oMU-AB-mYm" id="SXh-28-uDo"/>
@@ -842,7 +869,177 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="evj-bj-maC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Jq4-D8-kRU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2850" y="-323"/>
+            <point key="canvasLocation" x="2650" y="-321"/>
+        </scene>
+        <!--Объект по типу-->
+        <scene sceneID="6Jy-7Q-zDF">
+            <objects>
+                <tableViewController id="yLx-bl-Hz6" customClass="RoomTypeController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ONw-5C-r0a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection headerTitle="Тип объекта" id="rtR-0m-gMa">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="flatCell" id="br4-0E-qpe">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="br4-0E-qpe" id="baE-DQ-kNH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Квартира" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTs-13-hSL">
+                                                    <rect key="frame" x="8" y="11" width="76" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="roomCell" id="Bco-Oc-WLK">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bco-Oc-WLK" id="gBS-M8-od7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Комната" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxc-ML-Si1">
+                                                    <rect key="frame" x="8" y="11" width="69" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="houseCell" id="QRF-ix-AJb">
+                                        <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QRF-ix-AJb" id="Bcl-Mf-Cme">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Дом" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbi-14-VQm">
+                                                    <rect key="frame" x="8" y="11" width="172" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nonLivingCell" id="tA6-iO-atz">
+                                        <rect key="frame" x="0.0" y="160" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tA6-iO-atz" id="fbU-1t-Qlf">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Нежилое помещение" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uR3-LM-qln">
+                                                    <rect key="frame" x="8" y="11" width="172" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="earthCell" id="t5U-DK-WL8">
+                                        <rect key="frame" x="0.0" y="204" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t5U-DK-WL8" id="8qG-92-h9W">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Земельный участок" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHA-TX-eZv">
+                                                    <rect key="frame" x="8" y="11" width="158" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Тип действия" id="jYm-uI-LIG">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="rentCell" id="9ao-74-J9T">
+                                        <rect key="frame" x="0.0" y="276" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9ao-74-J9T" id="ZsM-P2-gRQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Аренда" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbS-cq-pXg">
+                                                    <rect key="frame" x="8" y="11" width="60" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sellCell" id="LM9-g4-n7C">
+                                        <rect key="frame" x="0.0" y="320" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LM9-g4-n7C" id="n1x-YX-ayR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Продажа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvb-gP-U2F">
+                                                    <rect key="frame" x="8" y="11" width="74" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="yLx-bl-Hz6" id="Q5K-EY-ozd"/>
+                            <outlet property="delegate" destination="yLx-bl-Hz6" id="5Cs-Zs-Uts"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Объект по типу" id="SqL-rQ-qCJ">
+                        <barButtonItem key="leftBarButtonItem" title="Назад" id="Ksz-VE-5dq">
+                            <connections>
+                                <segue destination="O0M-1R-jtM" kind="unwind" identifier="unwindAfterBackTapped" unwindAction="unwindToNewObjectVCAfterBackButtonTapped:" id="a7a-32-5Vn"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="Ea4-wi-Ctc">
+                            <connections>
+                                <segue destination="O0M-1R-jtM" kind="unwind" identifier="unwindAfterSaveTapped" unwindAction="unwindToNewObjectVCAfterSaveButtonTaped:" id="J1c-B0-Uuh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="earthType" destination="MHA-TX-eZv" id="6pE-o1-Wdj"/>
+                        <outlet property="flatType" destination="rTs-13-hSL" id="CZl-bv-Q7Q"/>
+                        <outlet property="houseType" destination="wbi-14-VQm" id="aDU-zX-Hzy"/>
+                        <outlet property="nonLivingType" destination="uR3-LM-qln" id="OOP-JR-V8I"/>
+                        <outlet property="rentType" destination="ZsM-P2-gRQ" id="LUi-RF-4mc"/>
+                        <outlet property="roomType" destination="oxc-ML-Si1" id="p4i-UJ-ubO"/>
+                        <outlet property="sellType" destination="lvb-gP-U2F" id="bzm-gi-Sec"/>
+                        <outlet property="tableView" destination="ONw-5C-r0a" id="al4-ve-Iro"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hvp-fH-ysq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="O0M-1R-jtM" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4551.1999999999998" y="-323.38830584707648"/>
         </scene>
         <!--MapVC-->
         <scene sceneID="wg7-f3-ORb">
@@ -930,6 +1127,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfj-2u-spx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gdV-H8-jLz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6QV-Bu-4m6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jkH-Dl-iHl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yLx-bl-Hz6" kind="relationship" relationship="rootViewController" id="iiu-lN-l1M"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fp1-Zb-pZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3612" y="-323.38830584707648"/>
         </scene>
     </scenes>
     <resources>

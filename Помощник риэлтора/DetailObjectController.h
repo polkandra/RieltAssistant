@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RoomTypeController.h"
+
 
 @interface DetailObjectController : UITableViewController
 

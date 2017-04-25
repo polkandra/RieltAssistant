@@ -17,6 +17,8 @@
 @property(strong, nonatomic) NSString* address;
 @property(strong, nonatomic) NSString* owner;
 
-//-(id)initWithDiscription:(NSString*)discription price:(NSString*)price picture:(UIImageView*)picture;
+@property(strong, nonatomic) NSString* estateType;
+@property(strong, nonatomic) NSString* typeOfActionByEstate;
+
 
 @end

@@ -30,12 +30,14 @@
     self.collectionView.delegate = self;
     self.collectionView.allowsMultipleSelection = YES;
    
+    
     [self setDelegatesForPickerView];
     [self setDelegatesForTextFields];
     [self addGestureRecognizer];
     [self pickerViewWithData];
    
     
+    self.myData = [[NSMutableArray alloc] init];
     self.myPhotosArray = [[NSMutableArray alloc] init];
     self.selectedPhotos = [[NSMutableArray alloc] init];
 }
@@ -104,7 +106,7 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+   
     
     self.myObject = [[EstateObject alloc] init];
     
@@ -160,29 +162,57 @@
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     
-   if ([identifier isEqualToString:@"toMain"]) {
-
-   
-       if ((self.objectNameTextField.text.length == 0)) {
+    if ([identifier isEqualToString:@"toMain"]) {
         
-       UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"Введите название объекта" preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if ((self.objectNameTextField.text.length == 0)) {
             
-        }];
-        
-        [alert addAction:action];
-        
-        
-        [self presentViewController:alert animated:YES completion:nil];
-        
-        
-        return NO;
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"Введите название объекта" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            
+            [alert addAction:action];
+            
+            
+            [self presentViewController:alert animated:YES completion:nil];
+            
+            
+            return NO;
+        }
     }
-   }
     return YES;
 }
 
+
+#pragma mark - Unwind Segues
+
+
+- (IBAction)unwindToNewObjectVCAfterSaveButtonTaped:(UIStoryboardSegue*)segue {
+    
+    if ([segue.identifier isEqualToString:@"unwindAfterSaveTapped"]) {
+        
+        RoomTypeController *controller = segue.sourceViewController;
+        
+        EstateObject* newObject = controller.myObject;
+        
+        //_emptyDataBaseLabel.hidden = YES;
+       // _rubLabel.hidden = NO;
+        
+      //  [self.myData addObject:newObject];
+        [self.tableView reloadData];
+        
+    }
+
+
+
+}
+
+
+- (IBAction)unwindToNewObjectVCAfterBackButtonTapped:(UIStoryboardSegue *)segue {
+    
+}
 
 
 
@@ -214,6 +244,38 @@
 }
 
 
+#pragma mark - UITableViewDataSource
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    StaticCell *cell = (StaticCell*)[tableView cellForRowAtIndexPath:indexPath];
+  
+    
+    
+    EstateObject* object = [self.myData objectAtIndex:indexPath.row];
+    
+    cell.objectTypeLabelInCell = object.estateType;
+    cell.objectTypeLabelInCell.textColor = [UIColor whiteColor];
+    
+    cell.actionTypeLabelInCell = object.typeOfActionByEstate;
+    cell.actionTypeLabelInCell.textColor = [UIColor whiteColor];
+    
+        
+    
+    return cell;
+}
+
+
+
+#pragma mark - UITableViewDelegate
+
+
+- (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //  [self performSegueWithIdentifier:@"toRoomType" sender:theTableView];
+}
+
+
 
 
 #pragma mark - UICollectionViewDataSource
@@ -231,7 +293,7 @@
     
     CollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
-        cell.objectView.image = [myPhotosArray objectAtIndex:indexPath.row];
+    cell.objectView.image = [myPhotosArray objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -241,18 +303,18 @@
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-   
+    
     CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"deselected"]];
     cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"selected"]];
-
-
+    
+    
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-   }
+}
 
 
 
@@ -261,8 +323,8 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     
-  
- }
+    
+}
 
 -(void)setDelegatesForTextFields {
     self.priceTextField.delegate = self;
@@ -292,7 +354,7 @@
     [self.ownerNameTextField resignFirstResponder];
     [self.phoneTextField resignFirstResponder];
     [self.extraInfoTextField resignFirstResponder];
-
+    
     return NO;
     
 }
@@ -304,8 +366,10 @@
 
 -(void)addGestureRecognizer {
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
-    [self.tableView addGestureRecognizer:gestureRecognizer];
     
+    
+    [self.tableView addGestureRecognizer:gestureRecognizer];
+    gestureRecognizer.cancelsTouchesInView = NO;
 }
 
 
@@ -323,11 +387,10 @@
     
     self.pickerViewArrayRoomQuantity = [[NSMutableArray alloc] initWithObjects:@"1 комната",@" 2 комнаты",@"3 комнаты",@"4 комнаты",@"5 комнат и более", nil];
     self.pickerViewArrayCity = [[NSMutableArray alloc] initWithObjects:@"Москва",@"Санкт-Петербург",@"Екатеринбург",@"Сочи", nil];
-    // self.pickerViewArrayRoomQuantity = [[NSMutableArray alloc] init];
-    
+       
     self.myPhotosArray = [[NSMutableArray alloc] init];
     self.selectedPhotos = [[NSMutableArray alloc] init];
-
+    
 }
 
 
@@ -335,7 +398,7 @@
 
 -(void)setDelegatesForPickerView {
     
-    //self.objectTypePicker.delegate = self;
+    
     self.cityPicker.delegate = self;
     self.roomPicker.delegate = self;
 
@@ -355,12 +418,12 @@
     
     NSInteger quantity;
     
-    if (pickerView == _roomPicker)
-    {
+    if (pickerView == _roomPicker) {
+    
         quantity = [_pickerViewArrayRoomQuantity count];
     }
-    else if (pickerView == _cityPicker )
-    {
+    
+    else {
         quantity = [_pickerViewArrayCity count];
         
     }
