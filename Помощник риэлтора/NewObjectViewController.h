@@ -17,7 +17,7 @@
 #import "RoomTypeController.h"
 #import "StaticCell.h"
 
-@interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+@interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveRightBarButton;

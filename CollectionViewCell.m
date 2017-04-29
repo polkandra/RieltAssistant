@@ -13,17 +13,25 @@
 
 -(void)awakeFromNib {
     [super awakeFromNib];
-  /*
-    UIView *bg = [[UIView alloc] initWithFrame:self.bounds];
-    self.backgroundView = bg;
-    self.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"deselected"]];
-
     
     
-    UIView *selectedView = [[UIView alloc] initWithFrame:self.bounds];
-    self.selectedBackgroundView = selectedView;
-    self.selectedBackgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"selected"]];*/
+}
 
+
+
+-(void)setHighlighted:(BOOL)highlighted
+{
+    if (highlighted)
+    {
+        self.layer.opacity = 1.0;
+        self.backgroundView = [[UIView alloc] initWithFrame:self.bounds];
+        self.backgroundView.backgroundColor = [UIColor clearColor];
+        
+    }
+    else{
+        self.layer.opacity = 1.0;
+        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.bounds];
+        self.selectedBackgroundView.backgroundColor = [UIColor redColor];    }
 }
 
 @end

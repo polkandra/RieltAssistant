@@ -674,28 +674,28 @@
                                                     <rect key="frame" x="8" y="64" width="359" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.77311297020000003" green="0.90871839850000002" blue="0.99567358539999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xy3-gX-SAP">
-                                                        <size key="itemSize" width="50" height="50"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Xy3-gX-SAP">
+                                                        <size key="itemSize" width="80" height="80"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CVcell" id="m4s-LC-a5J" customClass="CollectionViewCell">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Skr-EY-w6j">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IeB-bt-yOw">
+                                                                        <rect key="frame" x="5" y="7" width="70" height="65"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                 </subviews>
                                                             </view>
                                                             <connections>
-                                                                <outlet property="objectView" destination="Skr-EY-w6j" id="NqV-pa-DkX"/>
+                                                                <outlet property="objectView" destination="IeB-bt-yOw" id="l5g-5u-gMk"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -831,7 +831,6 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="actionTypeLabelInCell" destination="GcH-c2-mFR" id="z1M-j5-glM"/>
                         <outlet property="addressLabel" destination="0C5-Va-oLn" id="YY8-8o-IAP"/>
                         <outlet property="adressTextfield" destination="jFA-ZV-ojF" id="62d-Mi-f1o"/>
                         <outlet property="cityLabel" destination="MaS-UK-Aof" id="zwz-u2-3yO"/>
@@ -848,8 +847,6 @@
                         <outlet property="objectNameLabel" destination="Je7-UY-hP9" id="SX7-nA-meo"/>
                         <outlet property="objectNameTextField" destination="egN-w5-Xc9" id="dls-UO-hV6"/>
                         <outlet property="objectTypeLabel" destination="Lvu-Rs-248" id="BGV-28-ZeA"/>
-                        <outlet property="objectTypeLabelInCell" destination="Lvu-Rs-248" id="6mp-JX-cVa"/>
-                        <outlet property="objectTypeLabelInRow" destination="zcE-pu-Wir" id="lgi-Z7-8rM"/>
                         <outlet property="ownerNameLabel" destination="ALs-Ge-3sv" id="IwT-vE-ESL"/>
                         <outlet property="ownerNameTextField" destination="gqH-TS-6al" id="ZGm-22-IDd"/>
                         <outlet property="phoneLabel" destination="ALs-Ge-3sv" id="93u-YS-6iT"/>
@@ -859,8 +856,6 @@
                         <outlet property="roomAddonLabel" destination="H6b-VA-5Q1" id="meY-jV-38N"/>
                         <outlet property="roomPicker" destination="2xZ-EO-DPC" id="CKP-cA-Mdz"/>
                         <outlet property="saveRightBarButton" destination="vD3-28-zD6" id="9Su-pz-E0J"/>
-                        <outlet property="staticCell" destination="Z9X-28-kTd" id="HSM-Ca-N4z"/>
-                        <outlet property="staticCellWithTwoLabels" destination="Z9X-28-kTd" id="Ca2-D9-dO5"/>
                         <outlet property="tableView" destination="frd-Uw-dy2" id="p4P-eR-Gyz"/>
                         <outlet property="totalSquareLabel" destination="kXu-n2-1DR" id="oX6-ye-ysW"/>
                         <outlet property="totalSquareTextField" destination="oMU-AB-mYm" id="SXh-28-uDo"/>
@@ -869,7 +864,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="evj-bj-maC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Jq4-D8-kRU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2650" y="-321"/>
+            <point key="canvasLocation" x="2648.8000000000002" y="-321.58920539730138"/>
         </scene>
         <!--Объект по типу-->
         <scene sceneID="6Jy-7Q-zDF">

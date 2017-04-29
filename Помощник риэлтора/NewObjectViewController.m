@@ -11,12 +11,12 @@
 
 @interface NewObjectViewController ()
 
+@property(assign, nonatomic) BOOL isSelected;
 
 @end
 
 @implementation NewObjectViewController
 @synthesize  myPhotosArray, delegate, tableView;
-
 
 
 #pragma mark - VC Lyficycle
@@ -29,8 +29,11 @@
    
     self.collectionView.delegate = self;
     self.collectionView.allowsMultipleSelection = YES;
-   
     
+    /*UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.minimumInteritemSpacing=0.0f;
+    flowLayout.minimumLineSpacing=0.0f;*/
+   
     [self setDelegatesForPickerView];
     [self setDelegatesForTextFields];
     [self addGestureRecognizer];
@@ -95,6 +98,10 @@
 }
 
 - (IBAction)deletePhotosButton:(UIButton *)sender {
+
+
+
+
 }
 
 
@@ -138,7 +145,6 @@
     }else{
         
         self.myObject.price = self.priceTextField.text;
-        //[self.priceTextField  ];
         
     }
     
@@ -200,7 +206,7 @@
         //_emptyDataBaseLabel.hidden = YES;
        // _rubLabel.hidden = NO;
         
-      //  [self.myData addObject:newObject];
+        [self.myData addObject:newObject];
         [self.tableView reloadData];
         
     }
@@ -246,7 +252,7 @@
 
 #pragma mark - UITableViewDataSource
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+/*- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     StaticCell *cell = (StaticCell*)[tableView cellForRowAtIndexPath:indexPath];
   
@@ -263,7 +269,7 @@
         
     
     return cell;
-}
+}*/
 
 
 
@@ -296,25 +302,36 @@
     cell.objectView.image = [myPhotosArray objectAtIndex:indexPath.row];
     
     return cell;
+    
+    
 }
 
-
-#pragma mark - UICollectionViewDelegate
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"deselected"]];
-    cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"selected"]];
-    
-    
 }
+
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    //CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    
 }
+
+
+
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionView *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0;
+}
+
+
 
 
 

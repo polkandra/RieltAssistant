@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C60702381E8E7A64007933F0 /* MainScreenCellTableViewCell.m */; };
-		C60FFA401E8934470054F83D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C67BAAE71E7EBDC2004E9126 /* Assets.xcassets */; };
 		C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FFA431E895B560054F83D /* NewObjectViewController.m */; };
+		C63412F41EB4B24800ACE886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63412F31EB4B24800ACE886 /* Assets.xcassets */; };
 		C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = C64380C61EAD358100D88E01 /* DetailObjectController.m */; };
 		C67BAADA1E7EBDC1004E9126 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAD91E7EBDC1004E9126 /* main.m */; };
 		C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */; };
@@ -33,6 +33,7 @@
 		C607023B1E8E89DD007933F0 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		C60FFA421E895B560054F83D /* NewObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewObjectViewController.h; sourceTree = "<group>"; };
 		C60FFA431E895B560054F83D /* NewObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewObjectViewController.m; sourceTree = "<group>"; };
+		C63412F31EB4B24800ACE886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C64380C51EAD358100D88E01 /* DetailObjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailObjectController.h; sourceTree = "<group>"; };
 		C64380C61EAD358100D88E01 /* DetailObjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailObjectController.m; sourceTree = "<group>"; };
 		C67BAAD51E7EBDC1004E9126 /* RieltAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RieltAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,7 +43,6 @@
 		C67BAADF1E7EBDC1004E9126 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		C67BAAE11E7EBDC1004E9126 /* MeetingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeetingsViewController.h; sourceTree = "<group>"; };
 		C67BAAE21E7EBDC1004E9126 /* MeetingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingsViewController.m; sourceTree = "<group>"; };
-		C67BAAE71E7EBDC2004E9126 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C67BAAEA1E7EBDC2004E9126 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C67BAAEC1E7EBDC2004E9126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C67BAB4A1E7EE195004E9126 /* StyleKitName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StyleKitName.h; path = "Помощник риэлтора/StyleKitName.h"; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		C67BAB1C1E7ED6C2004E9126 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				C67BAAE71E7EBDC2004E9126 /* Assets.xcassets */,
+				C63412F31EB4B24800ACE886 /* Assets.xcassets */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -276,8 +276,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C63412F41EB4B24800ACE886 /* Assets.xcassets in Resources */,
 				C6E35E651E9D08A100235216 /* Main.storyboard in Resources */,
-				C60FFA401E8934470054F83D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
