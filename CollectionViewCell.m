@@ -22,13 +22,14 @@
 -(void)setHighlighted:(BOOL)highlighted
 {
     if (highlighted)
+   
     {
         self.layer.opacity = 1.0;
         self.backgroundView = [[UIView alloc] initWithFrame:self.bounds];
         self.backgroundView.backgroundColor = [UIColor clearColor];
         
-    }
-    else{
+    }else{
+        
         self.layer.opacity = 1.0;
         self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.bounds];
         self.selectedBackgroundView.backgroundColor = [UIColor redColor];    }

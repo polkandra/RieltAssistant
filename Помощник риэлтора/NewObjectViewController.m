@@ -26,14 +26,16 @@
 
     
     self.saveRightBarButton.enabled = YES;
-   
+    
+    
     self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+
     self.collectionView.allowsMultipleSelection = YES;
     
-    /*UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.minimumInteritemSpacing=0.0f;
-    flowLayout.minimumLineSpacing=0.0f;*/
+    
    
+    
     [self setDelegatesForPickerView];
     [self setDelegatesForTextFields];
     [self addGestureRecognizer];
@@ -97,16 +99,30 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+
+
 - (IBAction)deletePhotosButton:(UIButton *)sender {
-
-
-
-
+    
+    if (self.collectionView) {
+        
+        
+        [self.collectionView performBatchUpdates:^{
+            
+            
+            NSArray* selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
+            
+            NSMutableIndexSet *removeIndexes = [NSMutableIndexSet new];
+            
+            for (NSIndexPath *path in selectedItemsIndexPaths) {
+                [removeIndexes addIndex:path.item];
+                
+            }
+            [self.myPhotosArray removeObjectsAtIndexes:removeIndexes];
+            [self.collectionView deleteItemsAtIndexPaths:selectedItemsIndexPaths];
+            
+        } completion:nil];
+    }
 }
-
-
-
-
 
 
 #pragma mark - Segues
@@ -249,10 +265,10 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-
+/*
 #pragma mark - UITableViewDataSource
 
-/*- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     StaticCell *cell = (StaticCell*)[tableView cellForRowAtIndexPath:indexPath];
   
@@ -269,26 +285,27 @@
         
     
     return cell;
-}*/
+}
 
 
 
 #pragma mark - UITableViewDelegate
 
 
+
 - (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //  [self performSegueWithIdentifier:@"toRoomType" sender:theTableView];
 }
-
+*/
 
 
 
 #pragma mark - UICollectionViewDataSource
 
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+
     return [self.myPhotosArray count];
 }
 
@@ -302,16 +319,15 @@
     cell.objectView.image = [myPhotosArray objectAtIndex:indexPath.row];
     
     return cell;
-    
-    
+  
 }
-
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
 }
+
 
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {

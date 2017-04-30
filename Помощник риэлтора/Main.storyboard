@@ -836,6 +836,7 @@
                         <outlet property="cityLabel" destination="MaS-UK-Aof" id="zwz-u2-3yO"/>
                         <outlet property="cityPicker" destination="Qq2-1l-YV0" id="uey-tD-VGb"/>
                         <outlet property="collectionView" destination="0XH-n8-PhC" id="yHz-hj-a3X"/>
+                        <outlet property="deleteButton" destination="Mvp-av-CER" id="vsw-h0-pw5"/>
                         <outlet property="extraInfoLabel" destination="ArB-FZ-Ga4" id="Cfw-Y2-J9l"/>
                         <outlet property="extraInfoTextField" destination="yzZ-cv-1yh" id="u8G-11-29e"/>
                         <outlet property="kitchenMetersLabel" destination="mSY-UO-QFp" id="lh2-F0-jhj"/>

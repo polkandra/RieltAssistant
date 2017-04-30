@@ -21,6 +21,7 @@
 
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveRightBarButton;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 
 @property(strong, nonatomic) EstateObject* myObject;
