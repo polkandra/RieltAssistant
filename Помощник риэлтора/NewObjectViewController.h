@@ -12,12 +12,16 @@
 #import "EstateObject.h"
 #import "CollectionViewCell.h"
 #import "StyleKitName.h"
-#import "Checkmark.h"
-#import "UITextField+Postfix.h"
 #import "RoomTypeController.h"
-#import "StaticCell.h"
+
 
 @interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+
+
+
+@property (weak, nonatomic) IBOutlet UILabel *objectTypeLabelInCell;
+@property (weak, nonatomic) IBOutlet UILabel *actionTypeLabelInCell;
+
 
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveRightBarButton;
@@ -53,10 +57,6 @@ UIImagePickerControllerDelegate>delegate;
 - (IBAction)addPlaceToMapButton:(UIButton *)sender;
 - (IBAction)addPhotosButton:(UIButton *)sender;
 - (IBAction)deletePhotosButton:(UIButton *)sender;
-
-
-
-
 
 
 

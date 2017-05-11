@@ -9,14 +9,14 @@
 #import "NewObjectViewController.h"
 
 
-@interface NewObjectViewController ()
+@interface NewObjectViewController () 
 
 @property(assign, nonatomic) BOOL isSelected;
 
 @end
 
 @implementation NewObjectViewController
-@synthesize  myPhotosArray, delegate, tableView;
+@synthesize  myPhotosArray, tableView;
 
 
 #pragma mark - VC Lyficycle
@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    NSLog(@"my array = %@",self.myData);
     
     self.saveRightBarButton.enabled = YES;
     
@@ -34,17 +35,18 @@
     self.collectionView.allowsMultipleSelection = YES;
     
     
-   
     
     [self setDelegatesForPickerView];
     [self setDelegatesForTextFields];
     [self addGestureRecognizer];
     [self pickerViewWithData];
    
-    
     self.myData = [[NSMutableArray alloc] init];
     self.myPhotosArray = [[NSMutableArray alloc] init];
     self.selectedPhotos = [[NSMutableArray alloc] init];
+
+
+    
 }
 
 
@@ -217,19 +219,19 @@
         
         RoomTypeController *controller = segue.sourceViewController;
         
-        EstateObject* newObject = controller.myObject;
         
-        //_emptyDataBaseLabel.hidden = YES;
-       // _rubLabel.hidden = NO;
+        self.objectTypeLabelInCell.text = [self.myData firstObject];
+        self.actionTypeLabelInCell.text = [self.myData lastObject];
         
-        [self.myData addObject:newObject];
+       
         [self.tableView reloadData];
         
     }
 
-
+    NSLog(@"my array bom = %@",self.myData);
 
 }
+
 
 
 - (IBAction)unwindToNewObjectVCAfterBackButtonTapped:(UIStoryboardSegue *)segue {
@@ -265,39 +267,8 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-/*
-#pragma mark - UITableViewDataSource
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    StaticCell *cell = (StaticCell*)[tableView cellForRowAtIndexPath:indexPath];
-  
-    
-    
-    EstateObject* object = [self.myData objectAtIndex:indexPath.row];
-    
-    cell.objectTypeLabelInCell = object.estateType;
-    cell.objectTypeLabelInCell.textColor = [UIColor whiteColor];
-    
-    cell.actionTypeLabelInCell = object.typeOfActionByEstate;
-    cell.actionTypeLabelInCell.textColor = [UIColor whiteColor];
-    
-        
-    
-    return cell;
-}
 
 
-
-#pragma mark - UITableViewDelegate
-
-
-
-- (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //  [self performSegueWithIdentifier:@"toRoomType" sender:theTableView];
-}
-*/
 
 
 

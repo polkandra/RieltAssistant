@@ -21,35 +21,15 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
+    tableView.allowsMultipleSelection = YES;
+   
     self.cellSelectedArray = [[NSMutableArray alloc] init];
-    self.myData = [NSMutableArray arrayWithObjects:@"1 комната",@"2 комнаты",@"3 комнаты",@"4 комнаты",@"5 комнат и более", nil];
+    
+   
+    
 }
 
 
-
-#pragma mark - UITableViewDataSource
-
-/*- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
-    return 2;
-}*/
-
-
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
-
-
-
-
-
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
-    
-    
-    return cell;
-}*/
 
 
 
@@ -58,19 +38,18 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (checkedCellSection == indexPath.section) {
+   if (checkedCellSection == indexPath.section) {
         
         if (checkedCellRow == indexPath.row) {
             
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
             
+       
         }else{
             
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
-        
-    }
-    
+   }
 }
 
 
@@ -82,20 +61,28 @@
     [tableView reloadData];
     
     
-   /* [[tableView cellForRowAtIndexPath:indexPath] accessoryType] == UITableViewCellAccessoryCheckmark;
-    
-    self.cellSelectedArray = [self.tableView indexPathsForSelectedRows];
-    
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-    
-    for (NSIndexPath *indexPath in cellSelectedArray) {
+    if ([indexPath row] >= 0) {
+        
+        UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
         
         
-        [array addObject: self.myData[indexPath.row]];
-    }*/
-    
+        NSString *cellText = selectedCell.textLabel.text;
+        
+        NSLog(@"text = %@",selectedCell.textLabel.text);
+        
+        if ([cellSelectedArray containsObject:cellText]) {
+            [cellSelectedArray removeObject:cellText];
+            
+            
+        }else{
+            
+            [cellSelectedArray addObject:cellText];
+            
+        }
     }
-
+    NSLog(@"%lu",(unsigned long)cellSelectedArray.count);
+    
+}
 
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -105,19 +92,26 @@
 
 
 
+
+
 #pragma mark - Segues
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    self.myObject = [[EstateObject alloc] init];
-    
-    
-    //self.myObject.estateType = [self.array firstObject];
-   // self.myObject.typeOfActionByEstate = [self.cellSelectedArray lastObject];
-    
-    
-    
+    if ([segue.identifier isEqualToString:@"unwindAfterSaveTapped"]) {
+        
+
+        
+        NewObjectViewController *controller = segue.destinationViewController;
+        controller.myData = cellSelectedArray;
+        
+        
+        NSLog(@"%lu",(unsigned long)cellSelectedArray.count);
+        
+           }
 }
+
+
 
 @end

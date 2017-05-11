@@ -10,14 +10,18 @@
 #import "NewObjectViewController.h"
 #import "MainViewController.h"
 
-@interface RoomTypeController : UITableViewController
+
+@interface RoomTypeController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+
+
+
 
 
 @property NSInteger checkedCellRow;
 @property NSInteger checkedCellSection;
 
 
-@property(strong, nonatomic) EstateObject* myObject;
+
 
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

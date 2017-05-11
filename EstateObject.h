@@ -17,8 +17,6 @@
 @property(strong, nonatomic) NSString* address;
 @property(strong, nonatomic) NSString* owner;
 
-@property(strong, nonatomic) NSString* estateType;
-@property(strong, nonatomic) NSString* typeOfActionByEstate;
 
 
 @end

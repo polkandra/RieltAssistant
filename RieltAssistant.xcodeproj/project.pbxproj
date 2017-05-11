@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C60702381E8E7A64007933F0 /* MainScreenCellTableViewCell.m */; };
+		C609EE7A1EBA13E300B6F9D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */; };
 		C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FFA431E895B560054F83D /* NewObjectViewController.m */; };
 		C63412F41EB4B24800ACE886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63412F31EB4B24800ACE886 /* Assets.xcassets */; };
 		C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = C64380C61EAD358100D88E01 /* DetailObjectController.m */; };
@@ -22,7 +23,6 @@
 		C6BEF0D91EA793EA00EF9C0B /* Checkmark.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BEF0D81EA793EA00EF9C0B /* Checkmark.m */; };
 		C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */; };
 		C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */; };
-		C6DF6B3E1EAFB81C007F1CB9 /* StaticCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DF6B3D1EAFB81C007F1CB9 /* StaticCell.m */; };
 		C6E35E651E9D08A100235216 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E35E641E9D08A100235216 /* Main.storyboard */; };
 		C6F428441E7FFBE800B5613F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F428421E7FFBE800B5613F /* MapViewController.m */; };
 /* End PBXBuildFile section */
@@ -58,8 +58,6 @@
 		C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstateObject.m; sourceTree = "<group>"; };
 		C6DF6B391EAF673C007F1CB9 /* RoomTypeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomTypeController.h; sourceTree = "<group>"; };
 		C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomTypeController.m; sourceTree = "<group>"; };
-		C6DF6B3C1EAFB81C007F1CB9 /* StaticCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StaticCell.h; path = "Помощник риэлтора/StaticCell.h"; sourceTree = "<group>"; };
-		C6DF6B3D1EAFB81C007F1CB9 /* StaticCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StaticCell.m; path = "Помощник риэлтора/StaticCell.m"; sourceTree = "<group>"; };
 		C6E35E641E9D08A100235216 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C6F428411E7FFBE800B5613F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		C6F428421E7FFBE800B5613F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
@@ -210,8 +208,6 @@
 				C60702381E8E7A64007933F0 /* MainScreenCellTableViewCell.m */,
 				C6A36DA31E9A827B00A00F04 /* CollectionViewCell.h */,
 				C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */,
-				C6DF6B3C1EAFB81C007F1CB9 /* StaticCell.h */,
-				C6DF6B3D1EAFB81C007F1CB9 /* StaticCell.m */,
 			);
 			name = Cells;
 			path = ..;
@@ -276,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C609EE7A1EBA13E300B6F9D8 /* LaunchScreen.storyboard in Resources */,
 				C63412F41EB4B24800ACE886 /* Assets.xcassets in Resources */,
 				C6E35E651E9D08A100235216 /* Main.storyboard in Resources */,
 			);
@@ -302,7 +299,6 @@
 				C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */,
 				C67BAADA1E7EBDC1004E9126 /* main.m in Sources */,
 				C6BEF0D91EA793EA00EF9C0B /* Checkmark.m in Sources */,
-				C6DF6B3E1EAFB81C007F1CB9 /* StaticCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8LJGXZ9C93;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "Помощник риэлтора/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Chebahatt.-----------------";
@@ -427,6 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8LJGXZ9C93;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "Помощник риэлтора/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Chebahatt.-----------------";

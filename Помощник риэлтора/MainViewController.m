@@ -146,10 +146,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-   
-    
-    static NSString* identifier = @"MainScreenCell";
-    
+       
     MainScreenCellTableViewCell *cell = (MainScreenCellTableViewCell*) [self.tableView dequeueReusableCellWithIdentifier:@"MainScreenCell" forIndexPath:indexPath];
     
     EstateObject* object = [self.myData objectAtIndex:indexPath.row];

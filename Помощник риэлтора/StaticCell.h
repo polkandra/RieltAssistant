@@ -10,7 +10,7 @@
 
 @interface StaticCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *objectTypeLabelInCell;
-@property (weak, nonatomic) IBOutlet UILabel *actionTypeLabelInCell;
+//@property (weak, nonatomic) IBOutlet UILabel *objectTypeLabelInCell;
+//@property (weak, nonatomic) IBOutlet UILabel *actionTypeLabelInCell;
 
 @end
