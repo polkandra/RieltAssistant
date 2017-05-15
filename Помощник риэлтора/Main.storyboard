@@ -871,14 +871,14 @@
         <scene sceneID="6Jy-7Q-zDF">
             <objects>
                 <tableViewController id="yLx-bl-Hz6" customClass="RoomTypeController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ONw-5C-r0a">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ONw-5C-r0a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection headerTitle="Тип объекта" id="rtR-0m-gMa">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="flatCell" textLabel="Zs1-oG-N6W" style="IBUITableViewCellStyleDefault" id="br4-0E-qpe">
+                                    <tableViewCell clipsSubviews="YES" tag="55" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="flatCell" textLabel="Zs1-oG-N6W" style="IBUITableViewCellStyleDefault" id="br4-0E-qpe">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="br4-0E-qpe" id="baE-DQ-kNH">
@@ -946,16 +946,16 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="earthCell" id="t5U-DK-WL8">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="earthCell" textLabel="23J-sb-eBw" style="IBUITableViewCellStyleDefault" id="t5U-DK-WL8">
                                         <rect key="frame" x="0.0" y="204" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t5U-DK-WL8" id="8qG-92-h9W">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Земельный участок" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHA-TX-eZv">
-                                                    <rect key="frame" x="17" y="11" width="158" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Земельный участок" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="23J-sb-eBw">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1022,12 +1022,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="earthType" destination="MHA-TX-eZv" id="6pE-o1-Wdj"/>
+                        <outlet property="earthCell" destination="t5U-DK-WL8" id="0hc-PN-tld"/>
+                        <outlet property="flatCell" destination="br4-0E-qpe" id="sC9-cJ-nQ2"/>
                         <outlet property="flatType" destination="Zs1-oG-N6W" id="O6F-za-urL"/>
+                        <outlet property="houseCell" destination="QRF-ix-AJb" id="bEK-fK-Mbc"/>
                         <outlet property="houseType" destination="UTI-HT-Q5C" id="a58-iN-8L1"/>
+                        <outlet property="nonLivingCell" destination="tA6-iO-atz" id="Yyf-F5-hXD"/>
                         <outlet property="nonLivingType" destination="A7t-w7-TSM" id="tzH-WX-S1Y"/>
+                        <outlet property="rentCell" destination="9ao-74-J9T" id="u0x-lI-G5a"/>
                         <outlet property="rentType" destination="ZsM-P2-gRQ" id="LUi-RF-4mc"/>
+                        <outlet property="roomCell" destination="Bco-Oc-WLK" id="Tzs-O3-64s"/>
                         <outlet property="roomType" destination="bLq-EQ-eXB" id="mf3-cP-y3a"/>
+                        <outlet property="sellCell" destination="LM9-g4-n7C" id="t18-X6-iTd"/>
                         <outlet property="sellType" destination="Rgl-t2-iCQ" id="Um5-vg-CBM"/>
                         <outlet property="tableView" destination="ONw-5C-r0a" id="al4-ve-Iro"/>
                     </connections>

@@ -15,8 +15,6 @@
 
 
 
-
-
 @property NSInteger checkedCellRow;
 @property NSInteger checkedCellSection;
 
@@ -24,13 +22,23 @@
 
 
 
+@property (weak, nonatomic) IBOutlet UITableViewCell *roomCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *houseCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *nonLivingCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *earthCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *rentCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *flatCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *sellCell;
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *flatType;
 @property (weak, nonatomic) IBOutlet UILabel *roomType;
 @property (weak, nonatomic) IBOutlet UILabel *houseType;
 @property (weak, nonatomic) IBOutlet UILabel *nonLivingType;
 @property (weak, nonatomic) IBOutlet UILabel *earthType;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *rentType;
 @property (weak, nonatomic) IBOutlet UILabel *sellType;
