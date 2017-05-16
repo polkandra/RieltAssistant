@@ -11,18 +11,21 @@
 #import "StyleKitName.h"
 #import "NewObjectViewController.h"
 #import "EstateObject.h"
-
+#import "DetailObjectController.h"
 
 
 @interface MainViewController : UIViewController  <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *rubLabel;
+
 
 @property(strong, nonatomic) NSMutableArray* myData;
+@property(strong, nonatomic) NSMutableArray* myData2;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UILabel *emptyDataBaseLabel;
+
+@property(strong, nonatomic) EstateObject* myObject;
 
 @property (assign, nonatomic) BOOL hidden;
 
@@ -33,6 +36,8 @@
 - (IBAction)saveButtonTaped:(UIStoryboardSegue*)segue;
 - (IBAction)cancelButtonTapped:(UIStoryboardSegue *)segue;
 
+- (IBAction)unwindAfterBackButtonFromDetail:(UIStoryboardSegue*)segue;
+- (IBAction)unwindAfterChangeButtonFromDetail:(UIStoryboardSegue*)segue;
 
 @end
 

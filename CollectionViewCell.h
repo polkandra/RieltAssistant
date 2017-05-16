@@ -12,6 +12,6 @@
 @interface CollectionViewCell : UICollectionViewCell
 
 @property( strong, nonatomic )IBOutlet UIImageView* objectView;
-@property( strong, nonatomic )IBOutlet UIImageView* objectViewChecked;
+
 
 @end

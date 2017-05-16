@@ -18,7 +18,7 @@
 
 @implementation MainViewController
 
-@synthesize  myData;
+@synthesize  myData, myData2;
 
 
 
@@ -46,9 +46,10 @@
     [self setNavigationController];
     
     self.emptyDataBaseLabel.hidden = NO;
-    self.rubLabel.hidden = YES;
+    
     
     self.myData = [[NSMutableArray alloc] init];
+    self.myData2 = [[NSMutableArray alloc] init];
     
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -83,6 +84,8 @@
 
 #pragma mark - Unwind Segues
 
+
+// unwind segue from NewObject VC
 - (IBAction)saveButtonTaped:(UIStoryboardSegue*)segue {
     
     if ([segue.identifier isEqualToString:@"toMain"]) {
@@ -92,19 +95,56 @@
         EstateObject* newObject = controller.myObject;
         
         _emptyDataBaseLabel.hidden = YES;
-        _rubLabel.hidden = NO;
+        
         
         [self.myData addObject:newObject];
+        NSLog(@"my aaaaray = %@",self.myData);
+        
         [self.tableView reloadData];
         
     }
 }
 
 
+// unwind segue from NewObject VC
 - (IBAction)cancelButtonTapped:(UIStoryboardSegue *)segue {
     
    
 }
+
+// unwind segue from DetailObject VC
+- (IBAction)unwindAfterBackButtonFromDetail:(UIStoryboardSegue*)segue {
+    
+    
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"toDetail"]) {
+        
+        
+        
+        //DetailObjectController *controller = (DetailObjectController *)segue.destinationViewController;
+       // controller.myDetailData = myData;
+        
+        DetailObjectController *controller = segue.destinationViewController;
+        
+        EstateObject *object = [self.myData objectAtIndex:indexPath.row];
+        
+        controller.myDetailData = myData;
+        
+        
+       controller.detailPriceLabel.text = newObject.price;
+        
+        [self.myData addObject:newObject];
+        
+        NSLog(@"my arrrrrrrrray = %@",self.myData);
+        
+    }
+}
+
+
 
 
 #pragma mark - Actions
@@ -162,22 +202,29 @@
     
     cell.backgroundColor = [UIColor clearColor];
     // cell.accessoryView.backgroundColor = [UIColor blueColor];
+    
     cell.imageViewCell.image = object.picture;
     
-    return  cell;
-
-
-}
     
+    return  cell;
+    
+    
+}
+
 #pragma mark - UITableViewDelegate
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    // [self performSegueWithIdentifier:@"toDetail" sender:self];
     
-    //[self performSegueWithIdentifier:@"toRoomType" sender:self];
+    EstateObject *object = [self.myData objectAtIndex:indexPath.row];
+   
     
+    
+  //  [self.myData addObject:object];
+
 }
 
 

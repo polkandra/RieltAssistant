@@ -131,57 +131,60 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-   
     
-    self.myObject = [[EstateObject alloc] init];
+    if ([segue.identifier isEqualToString:@"toMain"]) {
+        
+        self.myObject = [[EstateObject alloc] init];
+        
+        self.myObject.discription = self.objectNameTextField.text;
+        
+        if ((self.ownerNameTextField.text.length == 0)) {
+            
+            self.myObject.owner = @"Собственник не указан";
+            
+        }else{
+            
+            self.myObject.owner = self.ownerNameTextField.text;
+        }
+        
+        if ((self.adressTextfield.text.length == 0)) {
+            
+            self.myObject.address = @"Адрес не указан";
+            
+        }else{
+            
+            self.myObject.address = self.adressTextfield.text;
+        }
+        
+        
+        if ((self.priceTextField.text.length == 0)) {
+            
+            self.myObject.price = @"Цена не указана";
+            
+        }else{
+            
+            NSMutableString *concatString = self.priceTextField.text;
+            concatString = [concatString stringByAppendingString:@" Рублей"];
+            self.myObject.price = concatString;
+            
+        }
     
-    self.myObject.discription = self.objectNameTextField.text;
     
-    if ((self.ownerNameTextField.text.length == 0)) {
+        if ([myPhotosArray count] == 0) {
+            
+            UIImage *image = [UIImage imageNamed:@"emptyObject2"];
+            
+            [myPhotosArray addObject:image];
+            self.myObject.picture = [myPhotosArray firstObject];
+            
+        }else{
+            
+            self.myObject.picture = [myPhotosArray firstObject];
+            
+        }
         
-        self.myObject.owner = @"Собственник не указан";
-        
-    }else{
-        
-        self.myObject.owner = self.ownerNameTextField.text;
     }
-    
-    if ((self.adressTextfield.text.length == 0)) {
-        
-        self.myObject.address = @"Адрес не указан";
-        
-    }else{
-        
-        self.myObject.address = self.adressTextfield.text;
-    }
-    
-    
-    if ((self.priceTextField.text.length == 0)) {
-        
-        self.myObject.price = @"Цена не указана";
-        
-    }else{
-        
-        self.myObject.price = self.priceTextField.text;
-        
-    }
-    
-    
-    if ([myPhotosArray count] == 0) {
-        
-        UIImage *image = [UIImage imageNamed:@"emptyObject"];
-        
-        [myPhotosArray addObject:image];
-        self.myObject.picture = [myPhotosArray firstObject];
-        
-    }else{
-        
-        self.myObject.picture = [myPhotosArray firstObject];
-        
-    }
-    
 }
-
 
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
@@ -212,6 +215,7 @@
 
 #pragma mark - Unwind Segues
 
+// unwind segue from RoomType VC
 
 - (IBAction)unwindToNewObjectVCAfterSaveButtonTaped:(UIStoryboardSegue*)segue {
     
@@ -233,6 +237,7 @@
 }
 
 
+// unwind segue from RoomType VC
 
 - (IBAction)unwindToNewObjectVCAfterBackButtonTapped:(UIStoryboardSegue *)segue {
     
@@ -436,9 +441,7 @@
 }
 
 
-- (NSString *)pickerView:(UIPickerView *)pickerView
-             titleForRow:(NSInteger)row
-            forComponent:(NSInteger)component
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     NSString *title;
     

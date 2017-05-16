@@ -15,12 +15,6 @@
 
 
 
-@property NSInteger checkedCellRow;
-@property NSInteger checkedCellSection;
-
-
-
-
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *roomCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *houseCell;
@@ -44,7 +38,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *sellType;
 
 @property (strong, nonatomic) NSMutableArray *myData;
-
 @property (strong, nonatomic)  NSMutableArray *cellSelectedArray;
 
 @end

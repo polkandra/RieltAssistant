@@ -18,6 +18,7 @@
 		C67BAAE31E7EBDC1004E9126 /* MeetingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAE21E7EBDC1004E9126 /* MeetingsViewController.m */; };
 		C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAB4B1E7EE195004E9126 /* StyleKitName.m */; };
 		C67BAB571E7EEF59004E9126 /* MainScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAB561E7EEF59004E9126 /* MainScreenView.m */; };
+		C69206121ECB48F600D7210D /* DetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C69206111ECB48F600D7210D /* DetailCollectionViewCell.m */; };
 		C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */; };
 		C6A36DAB1E9A98EC00A00F04 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */; };
 		C6BEF0D91EA793EA00EF9C0B /* Checkmark.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BEF0D81EA793EA00EF9C0B /* Checkmark.m */; };
@@ -49,6 +50,8 @@
 		C67BAB4B1E7EE195004E9126 /* StyleKitName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StyleKitName.m; path = "Помощник риэлтора/StyleKitName.m"; sourceTree = "<group>"; };
 		C67BAB551E7EEF59004E9126 /* MainScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenView.h; sourceTree = "<group>"; };
 		C67BAB561E7EEF59004E9126 /* MainScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenView.m; sourceTree = "<group>"; };
+		C69206101ECB48F600D7210D /* DetailCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCollectionViewCell.h; sourceTree = "<group>"; };
+		C69206111ECB48F600D7210D /* DetailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCollectionViewCell.m; sourceTree = "<group>"; };
 		C6A36DA31E9A827B00A00F04 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -148,18 +151,13 @@
 		C67BAB4E1E7EE1CD004E9126 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C607023B1E8E89DD007933F0 /* MainViewController.h */,
-				C67BAADF1E7EBDC1004E9126 /* MainViewController.m */,
+				C692060F1ECB40B900D7210D /* Tabs */,
 				C64380C51EAD358100D88E01 /* DetailObjectController.h */,
 				C64380C61EAD358100D88E01 /* DetailObjectController.m */,
 				C6DF6B391EAF673C007F1CB9 /* RoomTypeController.h */,
 				C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */,
 				C60FFA421E895B560054F83D /* NewObjectViewController.h */,
 				C60FFA431E895B560054F83D /* NewObjectViewController.m */,
-				C67BAAE11E7EBDC1004E9126 /* MeetingsViewController.h */,
-				C67BAAE21E7EBDC1004E9126 /* MeetingsViewController.m */,
-				C6F428411E7FFBE800B5613F /* MapViewController.h */,
-				C6F428421E7FFBE800B5613F /* MapViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -174,6 +172,19 @@
 				C6BEF0D81EA793EA00EF9C0B /* Checkmark.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		C692060F1ECB40B900D7210D /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				C607023B1E8E89DD007933F0 /* MainViewController.h */,
+				C67BAADF1E7EBDC1004E9126 /* MainViewController.m */,
+				C67BAAE11E7EBDC1004E9126 /* MeetingsViewController.h */,
+				C67BAAE21E7EBDC1004E9126 /* MeetingsViewController.m */,
+				C6F428411E7FFBE800B5613F /* MapViewController.h */,
+				C6F428421E7FFBE800B5613F /* MapViewController.m */,
+			);
+			name = Tabs;
 			sourceTree = "<group>";
 		};
 		C6A36DA91E9A98EB00A00F04 /* Frameworks */ = {
@@ -208,6 +219,8 @@
 				C60702381E8E7A64007933F0 /* MainScreenCellTableViewCell.m */,
 				C6A36DA31E9A827B00A00F04 /* CollectionViewCell.h */,
 				C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */,
+				C69206101ECB48F600D7210D /* DetailCollectionViewCell.h */,
+				C69206111ECB48F600D7210D /* DetailCollectionViewCell.m */,
 			);
 			name = Cells;
 			path = ..;
@@ -294,6 +307,7 @@
 				C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */,
 				C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */,
 				C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */,
+				C69206121ECB48F600D7210D /* DetailCollectionViewCell.m in Sources */,
 				C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */,
 				C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */,
 				C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */,
