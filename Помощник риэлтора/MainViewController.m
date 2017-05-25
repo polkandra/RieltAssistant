@@ -18,7 +18,7 @@
 
 @implementation MainViewController
 
-@synthesize  myData;
+@synthesize  myData, myPhotosData;
 
 
 
@@ -49,7 +49,9 @@
     
     
     self.myData = [[NSMutableArray alloc] init];
-    
+    self.myPhotosData = [[NSMutableArray alloc] init];
+    NSLog(@"all my photos == %@",myPhotosData);
+   
     
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -135,7 +137,9 @@
         DetailObjectController *controller = (DetailObjectController *)segue.destinationViewController;
         
         controller.myDetailObject = [self.myData objectAtIndex:indexPath.row];
-        
+        controller.myPhotosArray = self.myPhotosData;
+    
+    
     }
 }
 

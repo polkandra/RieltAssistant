@@ -137,6 +137,10 @@
         self.myObject = [[EstateObject alloc] init];
         
         
+        MainViewController *controller = segue.destinationViewController;
+        controller.myPhotosData = myPhotosArray;
+        
+        
         NSString *selValue = [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]];
         
         self.myObject.roomQuantity = selValue;

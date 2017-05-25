@@ -27,10 +27,10 @@
     
    
     
-   // setting navigation bar translucent
+    /* // setting navigation bar translucent
     [[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
-    [[UINavigationBar appearance] setTranslucent:YES];
+    [[UINavigationBar appearance] setTranslucent:YES];*/
    
     return YES;
 }

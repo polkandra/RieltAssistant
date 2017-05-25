@@ -35,6 +35,7 @@
     self.detailLivingSquareLabel.text = myDetailObject.livingArea;
     self.detailKitchenSquareLabel.text = myDetailObject.kitchenArea;
 
+    NSLog(@"transfered pics ==%@",myPhotosArray);
 }
 
 - (void)didReceiveMemoryWarning {
