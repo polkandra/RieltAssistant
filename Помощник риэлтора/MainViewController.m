@@ -18,7 +18,7 @@
 
 @implementation MainViewController
 
-@synthesize  myData, myData2;
+@synthesize  myData;
 
 
 
@@ -49,7 +49,7 @@
     
     
     self.myData = [[NSMutableArray alloc] init];
-    self.myData2 = [[NSMutableArray alloc] init];
+    
     
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -98,6 +98,7 @@
         
         
         [self.myData addObject:newObject];
+        
         NSLog(@"my aaaaray = %@",self.myData);
         
         [self.tableView reloadData];
@@ -109,7 +110,7 @@
 // unwind segue from NewObject VC
 - (IBAction)cancelButtonTapped:(UIStoryboardSegue *)segue {
     
-   
+    
 }
 
 // unwind segue from DetailObject VC
@@ -118,28 +119,22 @@
     
 }
 
+// unwind segue from DetailObject VC
+- (IBAction)unwindAfterChangeButtonFromDetail:(UIStoryboardSegue*)segue {
+    
+}
+
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"toDetail"]) {
         
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
+        DetailObjectController *controller = (DetailObjectController *)segue.destinationViewController;
         
-        //DetailObjectController *controller = (DetailObjectController *)segue.destinationViewController;
-       // controller.myDetailData = myData;
-        
-        DetailObjectController *controller = segue.destinationViewController;
-        
-        EstateObject *object = [self.myData objectAtIndex:indexPath.row];
-        
-        controller.myDetailData = myData;
-        
-        
-       controller.detailPriceLabel.text = newObject.price;
-        
-        [self.myData addObject:newObject];
-        
-        NSLog(@"my arrrrrrrrray = %@",self.myData);
+        controller.myDetailObject = [self.myData objectAtIndex:indexPath.row];
         
     }
 }
@@ -156,7 +151,7 @@
 }
 
 - (IBAction)plusTapped:(UIButton *)sender {
-   
+    
     
 }
 
@@ -186,17 +181,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-       
+    
     MainScreenCellTableViewCell *cell = (MainScreenCellTableViewCell*) [self.tableView dequeueReusableCellWithIdentifier:@"MainScreenCell" forIndexPath:indexPath];
     
     EstateObject* object = [self.myData objectAtIndex:indexPath.row];
     
     cell.nameCellLabel.text = object.discription;
     cell.nameCellLabel.textColor = [UIColor whiteColor];
+    
     cell.priceCellLabel.text = object.price;
     cell.priceCellLabel.textColor = [UIColor whiteColor];
+    
     cell.addressCellLabel.text = object.address;
     cell.addressCellLabel.textColor = [UIColor whiteColor];
+    
     cell.ownerCellLabel.text = object.owner;
     cell.ownerCellLabel.textColor = [UIColor whiteColor];
     
@@ -211,20 +209,13 @@
     
 }
 
+
 #pragma mark - UITableViewDelegate
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    // [self performSegueWithIdentifier:@"toDetail" sender:self];
-    
-    EstateObject *object = [self.myData objectAtIndex:indexPath.row];
-   
-    
-    
-  //  [self.myData addObject:object];
-
 }
 
 

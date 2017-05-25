@@ -13,10 +13,16 @@
 
 @property(strong,nonatomic) NSString* discription;
 @property(strong,nonatomic) NSString* price;
-@property(strong, nonatomic) UIImageView* picture;
 @property(strong, nonatomic) NSString* address;
 @property(strong, nonatomic) NSString* owner;
 
+@property(strong, nonatomic) NSString* roomQuantity;
+
+@property(strong, nonatomic) NSString* wholeArea;
+@property(strong, nonatomic) NSString* livingArea;
+@property(strong, nonatomic) NSString* kitchenArea;
+
+@property(strong, nonatomic) UIImageView* picture;
 
 
 @end

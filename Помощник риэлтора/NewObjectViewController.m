@@ -136,8 +136,47 @@
         
         self.myObject = [[EstateObject alloc] init];
         
+        
+        NSString *selValue = [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]];
+        
+        self.myObject.roomQuantity = selValue;
+       
+        
+       
+        
+        if (( self.totalSquareTextField.text.length == 0 )){
+            
+            self.myObject.wholeArea = @"--";
+        
+        }else{
+            self.myObject.wholeArea = self.totalSquareTextField.text;
+        }
+        
+        
+        
+        if (( self.livingSquareTextField.text.length == 0 )){
+            
+            self.myObject.livingArea = @"--";
+        
+        }else{
+            self.myObject.livingArea = self.livingSquareTextField.text;
+        }
+        
+        
+        
+        if (( self.kitchenSquareTextField.text.length == 0 )) {
+            
+            self.myObject.kitchenArea = @"--";
+        
+        }else{
+            
+            self.myObject.kitchenArea = self.kitchenSquareTextField.text;
+        }
+        
+        
         self.myObject.discription = self.objectNameTextField.text;
         
+       
         if ((self.ownerNameTextField.text.length == 0)) {
             
             self.myObject.owner = @"Собственник не указан";
@@ -168,8 +207,8 @@
             self.myObject.price = concatString;
             
         }
-    
-    
+        
+        
         if ([myPhotosArray count] == 0) {
             
             UIImage *image = [UIImage imageNamed:@"emptyObject2"];
@@ -184,6 +223,7 @@
         }
         
     }
+    
 }
 
 
@@ -428,7 +468,7 @@
     NSInteger quantity;
     
     if (pickerView == _roomPicker) {
-    
+        
         quantity = [_pickerViewArrayRoomQuantity count];
     }
     
@@ -445,12 +485,14 @@
 {
     NSString *title;
     
-    if (pickerView == _roomPicker)
-    {
+    if (pickerView == _roomPicker) {
+    
+    
         title = [_pickerViewArrayRoomQuantity objectAtIndex:row];
     }
-    else if (pickerView == _cityPicker)
-    {
+    
+    else if (pickerView == _cityPicker) {
+    
         title = [_pickerViewArrayCity objectAtIndex:row];
         
     }

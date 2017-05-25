@@ -17,6 +17,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *addressCellLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ownerCellLabel;
-@property (weak, nonatomic) IBOutlet UILabel *rubLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *rubLabel;
 
 @end

@@ -24,8 +24,16 @@
 @property(strong, nonatomic) NSMutableArray* myPhotosArray;
 @property(strong, nonatomic) NSMutableArray* myDetailData;
 
-@property (weak, nonatomic) IBOutlet UIImageView *detailImageOfObject;
+@property (weak, nonatomic) IBOutlet UITableViewCell *detailCellWithImageView;
+@property (weak, nonatomic) IBOutlet UITableViewCell *detailCellWithMainCharacteristics;
+@property (weak, nonatomic) IBOutlet UITableViewCell *detailCellWithOwnerInfo;
 
+
+
+@property(strong, nonatomic) EstateObject* myDetailObject;
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *detailImageOfObject;
 @property (weak, nonatomic) IBOutlet UILabel *detailPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailAddressLabel;
 
@@ -40,8 +48,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *detailRoomLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailWholeSquareLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailLivingSquareLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *detailKitchenSquareLabel;
+
+
 @property (weak, nonatomic) IBOutlet UILabel *detailOwnerLabel;
 
 

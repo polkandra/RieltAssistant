@@ -9,7 +9,7 @@
 #import "EstateObject.h"
 
 @implementation EstateObject
-@synthesize discription, price, picture;
+@synthesize discription, price, picture, address, owner;
 
 /*-(id)initWithDiscription:(NSString*)discription price:(NSString*)price picture:(UIImageView*)picture {
     

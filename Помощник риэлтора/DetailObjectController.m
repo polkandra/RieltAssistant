@@ -13,7 +13,7 @@
 @end
 
 @implementation DetailObjectController
-@synthesize tableView, collectionView, myPhotosArray, myDetailData;
+@synthesize tableView, collectionView, myPhotosArray, myDetailData, myDetailObject;
 
 
 
@@ -26,7 +26,15 @@
     self.myPhotosArray = [[NSMutableArray alloc] init];
     self.myDetailData = [[NSMutableArray alloc] init];
     
-    NSLog(@"my array in DetailObject = %@",self.myDetailData);
+    self.detailPriceLabel.text = myDetailObject.price;
+    self.detailImageOfObject.image = myDetailObject.picture;
+    self.detailAddressLabel.text = myDetailObject.address;
+    self.detailOwnerLabel.text = myDetailObject.owner;
+    self.detailRoomLabel.text = myDetailObject.roomQuantity;
+    self.detailWholeSquareLabel.text = myDetailObject.wholeArea;
+    self.detailLivingSquareLabel.text = myDetailObject.livingArea;
+    self.detailKitchenSquareLabel.text = myDetailObject.kitchenArea;
+
 }
 
 - (void)didReceiveMemoryWarning {

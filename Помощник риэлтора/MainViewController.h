@@ -19,13 +19,13 @@
 
 
 @property(strong, nonatomic) NSMutableArray* myData;
-@property(strong, nonatomic) NSMutableArray* myData2;
+
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UILabel *emptyDataBaseLabel;
 
-@property(strong, nonatomic) EstateObject* myObject;
+//@property(strong, nonatomic) EstateObject* myObject;
 
 @property (assign, nonatomic) BOOL hidden;
 

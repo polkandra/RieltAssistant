@@ -27,7 +27,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="160.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nl1-Xf-Bwt">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nl1-Xf-Bwt">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="161"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -42,7 +42,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZt-ml-m3Z">
-                                                    <rect key="frame" x="17" y="20" width="190" height="21"/>
+                                                    <rect key="frame" x="17" y="0.0" width="190" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.88831820210000001" green="0.89651637880000001" blue="0.99567358539999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -207,15 +207,18 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Y06-ah-uFw" id="RkQ-Vo-WlE"/>
-                        <outlet property="detailAddressLabel" destination="MkE-si-jfb" id="hoT-gx-Dgo"/>
+                        <outlet property="detailAddressLabel" destination="MkE-si-jfb" id="nyl-kA-N57"/>
+                        <outlet property="detailCellWithImageView" destination="pHW-jY-yCr" id="Lls-di-Lyx"/>
+                        <outlet property="detailCellWithMainCharacteristics" destination="uUy-7O-YPb" id="xPo-cQ-zY3"/>
+                        <outlet property="detailCellWithOwnerInfo" destination="Np7-Xm-hfd" id="ccy-n3-5Y9"/>
                         <outlet property="detailImageOfObject" destination="Nl1-Xf-Bwt" id="bm8-aq-NvK"/>
-                        <outlet property="detailKitchenSquareLabel" destination="Aj8-il-VNH" id="Rtq-Kc-pKF"/>
-                        <outlet property="detailLivingSquareLabel" destination="ZfQ-aO-oYE" id="gs9-Mh-qbm"/>
+                        <outlet property="detailKitchenSquareLabel" destination="Aj8-il-VNH" id="z3o-DG-QCv"/>
+                        <outlet property="detailLivingSquareLabel" destination="ZfQ-aO-oYE" id="wMD-IM-pE7"/>
                         <outlet property="detailOwnerLabel" destination="ucd-8b-qry" id="kRD-mY-wc6"/>
                         <outlet property="detailPinImage" destination="ewe-N4-p86" id="Gnc-D4-kB1"/>
-                        <outlet property="detailPriceLabel" destination="zZt-ml-m3Z" id="zUK-Wl-DYv"/>
-                        <outlet property="detailRoomLabel" destination="gru-R8-4fB" id="gPd-tX-IjN"/>
-                        <outlet property="detailWholeSquareLabel" destination="NB2-5T-S4A" id="ZqH-it-hJJ"/>
+                        <outlet property="detailPriceLabel" destination="zZt-ml-m3Z" id="TQV-kK-xnH"/>
+                        <outlet property="detailRoomLabel" destination="gru-R8-4fB" id="7hP-r2-SRe"/>
+                        <outlet property="detailWholeSquareLabel" destination="NB2-5T-S4A" id="i6D-ax-9vv"/>
                         <outlet property="handsetImageView" destination="V7Y-I0-dJk" id="C6z-IB-fNJ"/>
                         <outlet property="tableView" destination="QOJ-bO-DmX" id="DmM-Rv-3Rh"/>
                     </connections>
@@ -223,7 +226,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zmq-1P-6sD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4Qw-uf-4KQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="-1017"/>
+            <point key="canvasLocation" x="2245.5999999999999" y="-1017.84107946027"/>
         </scene>
         <!--MainScreenVC-->
         <scene sceneID="hNz-n2-bh7">

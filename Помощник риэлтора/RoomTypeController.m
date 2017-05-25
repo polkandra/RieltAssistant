@@ -23,8 +23,6 @@
     
     self.tableView.allowsMultipleSelection = YES;
    
-    //self.cellSelectedArray = [[NSMutableArray alloc] initWithObjects:@"Квартира",nil];
-    
     self.cellSelectedArray = [[NSMutableArray alloc] init];
     
     
@@ -76,7 +74,7 @@
         
     }
     
-    else if (indexPath.section == 1){
+    else if (indexPath.section == 1) {
         
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         
