@@ -13,7 +13,7 @@
 @end
 
 @implementation DetailObjectController
-@synthesize tableView, collectionView, myPhotosArray, myDetailData, myDetailObject;
+@synthesize tableView, collectionView, myDetailPhotosArray, myDetailData, myDetailObject;
 
 
 
@@ -23,7 +23,10 @@
     
     [super viewDidLoad];
     
-    self.myPhotosArray = [[NSMutableArray alloc] init];
+       
+    
+    
+    //self.myDetailPhotosArray = [[NSMutableArray alloc] init];
     self.myDetailData = [[NSMutableArray alloc] init];
     
     self.detailPriceLabel.text = myDetailObject.price;
@@ -35,14 +38,16 @@
     self.detailLivingSquareLabel.text = myDetailObject.livingArea;
     self.detailKitchenSquareLabel.text = myDetailObject.kitchenArea;
 
-    NSLog(@"transfered pics ==%@",myPhotosArray);
+    self.tableView.separatorColor = [UIColor clearColor];
+    self.tableView.allowsSelection = NO;
+    
+    NSLog(@"transfered pics == %@",self.myDetailPhotosArray);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 
 
@@ -70,7 +75,7 @@
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return  [myPhotosArray count];
+    return  [self.myDetailPhotosArray count];
     
 }
 
@@ -79,13 +84,20 @@
     
     static NSString* identifier = @"detailCollectionViewCell";
     
-    DetailCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    DetailCollectionViewCell* cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
-    cell.detailImageView.image = [myPhotosArray objectAtIndex:indexPath.row];
+    
+    if ([self.myDetailPhotosArray containsObject:@"emptyObject2"]) {
+        cell.detailImageView.image = nil;
+        
+    }else{
+        
+        cell.detailImageView.image = [self.myDetailPhotosArray objectAtIndex:indexPath.row];
+    }
     
     return cell;
     
-
+    
 }
 
 

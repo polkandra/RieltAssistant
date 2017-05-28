@@ -145,14 +145,13 @@
         
         self.myObject.roomQuantity = selValue;
        
-        
-       
-        
+                
         if (( self.totalSquareTextField.text.length == 0 )){
             
             self.myObject.wholeArea = @"--";
         
         }else{
+            
             self.myObject.wholeArea = self.totalSquareTextField.text;
         }
         
@@ -163,6 +162,7 @@
             self.myObject.livingArea = @"--";
         
         }else{
+            
             self.myObject.livingArea = self.livingSquareTextField.text;
         }
         
@@ -218,6 +218,7 @@
             UIImage *image = [UIImage imageNamed:@"emptyObject2"];
             
             [myPhotosArray addObject:image];
+            
             self.myObject.picture = [myPhotosArray firstObject];
             
         }else{
@@ -334,7 +335,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString* identifier = @"CVcell";
     
-    CollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    CollectionViewCell* cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
     cell.objectView.image = [myPhotosArray objectAtIndex:indexPath.row];
     

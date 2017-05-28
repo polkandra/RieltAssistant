@@ -13,15 +13,27 @@
 #import "DetailCollectionViewCell.h"
 #import "EstateObject.h"
 
-@interface DetailObjectController : UITableViewController <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface DetailObjectController : UITableViewController <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
+
+
+{
+    UIImageView *fullScreenImageView;
+    UIImageView *originalImageView;
+}
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *fullView;
+
+
+
 
 @property(strong, nonatomic) EstateObject* myObject;
 
 
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
-@property(strong, nonatomic) NSMutableArray* myPhotosArray;
+@property(strong, nonatomic) NSMutableArray* myDetailPhotosArray;
 @property(strong, nonatomic) NSMutableArray* myDetailData;
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *detailCellWithImageView;

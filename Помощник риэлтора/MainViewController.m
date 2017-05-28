@@ -50,7 +50,8 @@
     
     self.myData = [[NSMutableArray alloc] init];
     self.myPhotosData = [[NSMutableArray alloc] init];
-    NSLog(@"all my photos == %@",myPhotosData);
+    
+    NSLog(@"all my photos in vdl = %@",myPhotosData);
    
     
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -102,6 +103,7 @@
         [self.myData addObject:newObject];
         
         NSLog(@"my aaaaray = %@",self.myData);
+        NSLog(@"all my photos = %@",myPhotosData);
         
         [self.tableView reloadData];
         
@@ -137,7 +139,10 @@
         DetailObjectController *controller = (DetailObjectController *)segue.destinationViewController;
         
         controller.myDetailObject = [self.myData objectAtIndex:indexPath.row];
-        controller.myPhotosArray = self.myPhotosData;
+        
+        controller.myDetailPhotosArray = [[NSMutableArray alloc] init];
+        
+        controller.myDetailPhotosArray = self.myPhotosData;
     
     
     }
@@ -220,7 +225,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-}
+  }
 
 
 
