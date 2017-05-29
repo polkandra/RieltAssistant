@@ -23,8 +23,6 @@
     
     [super viewDidLoad];
     
-       
-    
     
     //self.myDetailPhotosArray = [[NSMutableArray alloc] init];
     self.myDetailData = [[NSMutableArray alloc] init];
@@ -51,10 +49,86 @@
 
 
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    //UITouch *touch = [touches anyObject];
+    //CGPoint pointInCollectionView = [touch locationInView:self.collectionView];
+    //NSIndexPath *selectedIndexPath = [self.collectionView indexPathForItemAtPoint:pointInCollectionView];
+    //UICollectionViewCell *selectedCell = [self.collectionView cellForItemAtIndexPath:selectedIndexPath];
+   
+    DetailCollectionViewCell *cell = (DetailCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath];
+    
+    originalImageView = cell.detailImageView;
+    
+    fullScreenImageView = [[UIImageView alloc] init];
+    [fullScreenImageView setContentMode:UIViewContentModeScaleAspectFit];
+    
+    fullScreenImageView.image = [originalImageView image];
+    
+    
+    
+    CGRect tempPoint = CGRectMake(originalImageView.center.x, originalImageView.center.y, 0, 0);
+    
+    // OR, if you want to zoom from the tapped point...
+    //CGRect tempPoint = CGRectMake(pointInCollectionView.x, pointInCollectionView.y, 0, 0);
+    
+    //CGRect startingPoint = [self.view convertRect:tempPoint fromView:[self.collectionView cellForItemAtIndexPath:selectedIndexPath]];
+   // [fullScreenImageView setFrame:startingPoint];
+    
+    [fullScreenImageView setBackgroundColor:[[UIColor lightGrayColor] colorWithAlphaComponent:0.9f]];
+    
+    [self.view addSubview:fullScreenImageView];
+    
+    [UIView animateWithDuration:0.4
+                     animations:^{
+                         [fullScreenImageView setFrame:CGRectMake(0,
+                                                                  0,
+                                                                  self.view.bounds.size.width,
+                                                                  self.view.bounds.size.height)];
+                     }];
+    
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fullScreenImageViewTapped:)];
+    singleTap.numberOfTapsRequired = 1;
+    singleTap.numberOfTouchesRequired = 1;
+    [fullScreenImageView addGestureRecognizer:singleTap];
+    [fullScreenImageView setUserInteractionEnabled:YES];
+    
+    
+}
+
+- (void)fullScreenImageViewTapped:(UIGestureRecognizer *)gestureRecognizer {
+    
+    CGRect point = [self.view convertRect:originalImageView.bounds fromView:originalImageView];
+    
+    gestureRecognizer.view.backgroundColor = [UIColor clearColor];
+    
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         [(UIImageView *)gestureRecognizer.view setFrame:point];
+                     }];
+    [self performSelector:@selector(animationDone:) withObject:[gestureRecognizer view] afterDelay:0.4];
+    
+}
+
+
+-(void)animationDone:(UIView  *)view
+{
+    [fullScreenImageView removeFromSuperview];
+    fullScreenImageView = nil;
+}
+
+
+
+
+
+
+
 
 - (IBAction)detailMapAddressButton:(id)sender {
-
-
+    
+    
 }
 
 

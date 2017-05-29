@@ -15,14 +15,19 @@
 
 @interface DetailObjectController : UITableViewController <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
 
-
 {
     UIImageView *fullScreenImageView;
     UIImageView *originalImageView;
 }
 
 
-@property (weak, nonatomic) IBOutlet UIImageView *fullView;
+
+//@property (weak, nonatomic) IBOutlet DetailCollectionViewCell *collectionViewCell;
+
+
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *proxyView;
 
 
 
@@ -36,9 +41,6 @@
 @property(strong, nonatomic) NSMutableArray* myDetailPhotosArray;
 @property(strong, nonatomic) NSMutableArray* myDetailData;
 
-@property (weak, nonatomic) IBOutlet UITableViewCell *detailCellWithImageView;
-@property (weak, nonatomic) IBOutlet UITableViewCell *detailCellWithMainCharacteristics;
-@property (weak, nonatomic) IBOutlet UITableViewCell *detailCellWithOwnerInfo;
 
 
 

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailObjectController.h"
+
 
 @interface DetailCollectionViewCell : UICollectionViewCell
 
