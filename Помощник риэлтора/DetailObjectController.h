@@ -12,6 +12,7 @@
 #import "MainViewController.h"
 #import "DetailCollectionViewCell.h"
 #import "EstateObject.h"
+#import "UIPageViewControllerScene.h"
 
 @interface DetailObjectController : UITableViewController <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
 
@@ -24,10 +25,7 @@
 
 //@property (weak, nonatomic) IBOutlet DetailCollectionViewCell *collectionViewCell;
 
-
-
-
-@property (weak, nonatomic) IBOutlet UIImageView *proxyView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 
 
@@ -35,7 +33,8 @@
 @property(strong, nonatomic) EstateObject* myObject;
 
 
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+
+//@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property(strong, nonatomic) NSMutableArray* myDetailPhotosArray;
@@ -47,7 +46,7 @@
 @property(strong, nonatomic) EstateObject* myDetailObject;
 
 
-@property (weak, nonatomic) IBOutlet UIImageView *detailImageOfObject;
+//@property (weak, nonatomic) IBOutlet UIImageView *detailImageOfObject;
 @property (weak, nonatomic) IBOutlet UILabel *detailPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailAddressLabel;
 

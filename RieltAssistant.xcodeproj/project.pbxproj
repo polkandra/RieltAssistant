@@ -25,6 +25,8 @@
 		C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */; };
 		C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */; };
 		C6E35E651E9D08A100235216 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E35E641E9D08A100235216 /* Main.storyboard */; };
+		C6F14D671EDF08FE00658494 /* UIPageViewControllerScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F14D661EDF08FE00658494 /* UIPageViewControllerScene.m */; };
+		C6F14D6A1EDF0AD800658494 /* EbmeddedImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F14D691EDF0AD800658494 /* EbmeddedImageController.m */; };
 		C6F428441E7FFBE800B5613F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F428421E7FFBE800B5613F /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,10 @@
 		C6DF6B391EAF673C007F1CB9 /* RoomTypeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomTypeController.h; sourceTree = "<group>"; };
 		C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomTypeController.m; sourceTree = "<group>"; };
 		C6E35E641E9D08A100235216 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C6F14D651EDF08FE00658494 /* UIPageViewControllerScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPageViewControllerScene.h; sourceTree = "<group>"; };
+		C6F14D661EDF08FE00658494 /* UIPageViewControllerScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPageViewControllerScene.m; sourceTree = "<group>"; };
+		C6F14D681EDF0AD800658494 /* EbmeddedImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EbmeddedImageController.h; sourceTree = "<group>"; };
+		C6F14D691EDF0AD800658494 /* EbmeddedImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EbmeddedImageController.m; sourceTree = "<group>"; };
 		C6F428411E7FFBE800B5613F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		C6F428421E7FFBE800B5613F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +164,10 @@
 				C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */,
 				C60FFA421E895B560054F83D /* NewObjectViewController.h */,
 				C60FFA431E895B560054F83D /* NewObjectViewController.m */,
+				C6F14D651EDF08FE00658494 /* UIPageViewControllerScene.h */,
+				C6F14D661EDF08FE00658494 /* UIPageViewControllerScene.m */,
+				C6F14D681EDF0AD800658494 /* EbmeddedImageController.h */,
+				C6F14D691EDF0AD800658494 /* EbmeddedImageController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -304,11 +314,13 @@
 				C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */,
 				C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */,
 				C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */,
+				C6F14D6A1EDF0AD800658494 /* EbmeddedImageController.m in Sources */,
 				C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */,
 				C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */,
 				C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */,
 				C69206121ECB48F600D7210D /* DetailCollectionViewCell.m in Sources */,
 				C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */,
+				C6F14D671EDF08FE00658494 /* UIPageViewControllerScene.m in Sources */,
 				C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */,
 				C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */,
 				C67BAADA1E7EBDC1004E9126 /* main.m in Sources */,

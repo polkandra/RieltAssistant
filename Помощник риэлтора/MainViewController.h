@@ -12,6 +12,8 @@
 #import "NewObjectViewController.h"
 #import "EstateObject.h"
 #import "DetailObjectController.h"
+#import "EbmeddedImageController.h"
+
 
 
 @interface MainViewController : UIViewController  <UITableViewDataSource, UITableViewDelegate>

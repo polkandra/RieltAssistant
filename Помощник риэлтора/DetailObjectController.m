@@ -13,7 +13,7 @@
 @end
 
 @implementation DetailObjectController
-@synthesize tableView, collectionView, myDetailPhotosArray, myDetailData, myDetailObject;
+@synthesize tableView,  myDetailPhotosArray, myDetailData, myDetailObject;
 
 
 
@@ -25,10 +25,11 @@
     
     
     //self.myDetailPhotosArray = [[NSMutableArray alloc] init];
+    
     self.myDetailData = [[NSMutableArray alloc] init];
     
     self.detailPriceLabel.text = myDetailObject.price;
-    self.detailImageOfObject.image = myDetailObject.picture;
+   // self.detailImageOfObject.image = myDetailObject.picture;
     self.detailAddressLabel.text = myDetailObject.address;
     self.detailOwnerLabel.text = myDetailObject.owner;
     self.detailRoomLabel.text = myDetailObject.roomQuantity;
@@ -36,6 +37,8 @@
     self.detailLivingSquareLabel.text = myDetailObject.livingArea;
     self.detailKitchenSquareLabel.text = myDetailObject.kitchenArea;
 
+   
+    
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.allowsSelection = NO;
     
@@ -48,7 +51,7 @@
 }
 
 
-
+/*
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     
@@ -142,7 +145,7 @@
 }
 
 - (IBAction)changeDetailItemBurButtonItem:(UIBarButtonItem *)sender {
-}*/
+}
 
 
 
@@ -172,11 +175,28 @@
     return cell;
     
     
+}*/
+
+#pragma mark - Segues
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"toPage"]) {
+        
+        UIPageViewControllerScene *controller = (UIPageViewControllerScene *)segue.destinationViewController;
+        
+        controller.pageVCArray = [[NSMutableArray alloc]init];
+        controller.pageVCArray = self.myDetailPhotosArray;
+        
+
+        /*EbmeddedImageController *ctr = (EbmeddedImageController *)segue.destinationViewController;
+        ctr.embeddedArray = [[NSMutableArray alloc]init];
+        ctr.embeddedArray = self.myDetailPhotosArray;*/
+    
+    
+    }
+
 }
-
-
-
-
 
 
 

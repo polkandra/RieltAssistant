@@ -143,7 +143,23 @@
         controller.myDetailPhotosArray = [[NSMutableArray alloc] init];
         
         controller.myDetailPhotosArray = self.myPhotosData;
+        
+        
+        /*UIPageViewControllerScene *pageController = (UIPageViewControllerScene *)segue.destinationViewController;
+        
+        pageController.pageVCArray = [[NSMutableArray alloc]init];
+        pageController.pageVCArray = self.myPhotosData;*/
+
+        
+       /* if ([segue.identifier isEqualToString:@"toPage"]) {
+        
+            UIPageViewControllerScene *controller = (UIPageViewControllerScene *)segue.destinationViewController;
+            
+            controller.pageVCArray = [[NSMutableArray alloc]init];
+            controller.pageVCArray = self.myPhotosData;
     
+        
+        }*/
     
     }
 }
