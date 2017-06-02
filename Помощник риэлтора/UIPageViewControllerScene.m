@@ -22,19 +22,19 @@
     self.delegate = self;
     self.dataSource = self;
 
-    
-    //self.pageVCArray = @[];
-   
+       
     NSLog(@"Page array = %lu",(unsigned long)[self.pageVCArray count]);
+   
+    self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
+    
     
     
     EbmeddedImageController *initialVC = (EbmeddedImageController*)[self viewControllerAtIndex:0];
     NSArray *viewControllers = [NSArray arrayWithObject:initialVC];
     
+       
     [self setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-
-
-
+    
 }
 
 
@@ -46,6 +46,7 @@
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     
     NSUInteger index = ((EbmeddedImageController*) viewController).pageIndex;
+    
     
     if ((index == 0) || (index == NSNotFound)) {
         return nil;
@@ -64,6 +65,8 @@
     
     NSUInteger index = ((EbmeddedImageController*) viewController).pageIndex;
     
+    
+  
     if (index == NSNotFound) {
         return nil;
     }
@@ -79,6 +82,21 @@
 }
 
 
+
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
+{
+    return [self.pageVCArray count];
+}
+
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
+{
+    return 0;
+}
+
+
+
+
+
 #pragma mark - Helper Method
 
 - (EbmeddedImageController *)viewControllerAtIndex:(NSUInteger)index {
@@ -92,22 +110,15 @@
     EbmeddedImageController *embeddedVC = [self.storyboard instantiateViewControllerWithIdentifier:@"embedded"];
     embeddedVC.imageFile = self.pageVCArray[index];
     embeddedVC.pageIndex = index;
-    //embeddedVC.embeddedArray = self.pageVCArray;
+    
+   
     return embeddedVC;
+    
+    
 }
 
 
 
-
-- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
-{
-    return [self.pageVCArray count];
-}
-
-- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
-{
-    return 0;
-}
 
 
 

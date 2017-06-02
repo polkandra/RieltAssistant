@@ -84,15 +84,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C60FFA411E894BFF0054F83D /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				C6E35E641E9D08A100235216 /* Main.storyboard */,
-				C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */,
-			);
-			name = Storyboards;
-			sourceTree = "<group>";
-		};
 		C67BAACC1E7EBDC1004E9126 = {
 			isa = PBXGroup;
 			children = (
@@ -116,7 +107,6 @@
 				C6BA7F3D1E91733F0060D745 /* Category */,
 				C6DE1CA71E897CE2008F3536 /* Model */,
 				C6DE1CA81E897CF1008F3536 /* Cells */,
-				C60FFA411E894BFF0054F83D /* Storyboards */,
 				C67BAB4E1E7EE1CD004E9126 /* ViewControllers */,
 				C67BAB4F1E7EE1EC004E9126 /* Views */,
 				C67BAB1C1E7ED6C2004E9126 /* Assets */,
@@ -164,10 +154,7 @@
 				C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */,
 				C60FFA421E895B560054F83D /* NewObjectViewController.h */,
 				C60FFA431E895B560054F83D /* NewObjectViewController.m */,
-				C6F14D651EDF08FE00658494 /* UIPageViewControllerScene.h */,
-				C6F14D661EDF08FE00658494 /* UIPageViewControllerScene.m */,
-				C6F14D681EDF0AD800658494 /* EbmeddedImageController.h */,
-				C6F14D691EDF0AD800658494 /* EbmeddedImageController.m */,
+				C6CAB5D51EE1E91D00078A32 /* PageViewController */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -176,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				C67BAB4D1E7EE19E004E9126 /* StyleKit */,
+				C6E35E641E9D08A100235216 /* Main.storyboard */,
+				C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */,
 				C67BAB551E7EEF59004E9126 /* MainScreenView.h */,
 				C67BAB561E7EEF59004E9126 /* MainScreenView.m */,
 				C6BEF0D71EA793EA00EF9C0B /* Checkmark.h */,
@@ -210,6 +199,17 @@
 			children = (
 			);
 			name = Category;
+			sourceTree = "<group>";
+		};
+		C6CAB5D51EE1E91D00078A32 /* PageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C6F14D651EDF08FE00658494 /* UIPageViewControllerScene.h */,
+				C6F14D661EDF08FE00658494 /* UIPageViewControllerScene.m */,
+				C6F14D681EDF0AD800658494 /* EbmeddedImageController.h */,
+				C6F14D691EDF0AD800658494 /* EbmeddedImageController.m */,
+			);
+			name = PageViewController;
 			sourceTree = "<group>";
 		};
 		C6DE1CA71E897CE2008F3536 /* Model */ = {

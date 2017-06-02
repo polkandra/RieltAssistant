@@ -25,7 +25,7 @@
 
 //@property (weak, nonatomic) IBOutlet DetailCollectionViewCell *collectionViewCell;
 
-@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+
 
 
 

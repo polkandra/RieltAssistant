@@ -54,24 +54,29 @@
                                         <rect key="frame" x="0.0" y="100" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="87s-lK-NPV" id="h1y-42-lkK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="299.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mby-WX-n7J">
-                                                    <rect key="frame" x="8" y="0.0" width="359" height="300"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.3294117647" green="0.78039215689999997" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mby-WX-n7J">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="299.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="375" id="5mh-cR-Edj"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="375" id="8Q3-xL-hug"/>
+                                                        <constraint firstAttribute="height" constant="299.5" id="djk-QN-fLr"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="299.5" id="p1q-1L-SfJ"/>
+                                                    </constraints>
                                                     <connections>
-                                                        <segue destination="GCM-Ea-FoM" kind="embed" identifier="toPage" id="gTr-3e-vhk"/>
+                                                        <segue destination="GCM-Ea-FoM" kind="embed" identifier="toPage" id="uIx-Dr-j0i"/>
                                                     </connections>
                                                 </containerView>
-                                                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ahQ-qZ-Oah">
-                                                    <rect key="frame" x="168" y="262" width="39" height="37"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                </pageControl>
                                             </subviews>
                                             <color key="backgroundColor" red="0.3294117647" green="0.78039215689999997" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="Mby-WX-n7J" firstAttribute="leading" secondItem="h1y-42-lkK" secondAttribute="leading" id="0Mh-rJ-Wxy"/>
+                                                <constraint firstAttribute="trailing" secondItem="Mby-WX-n7J" secondAttribute="trailing" id="AWj-Oo-aJK"/>
+                                                <constraint firstAttribute="bottom" secondItem="Mby-WX-n7J" secondAttribute="bottom" id="IyB-bc-ncX"/>
+                                                <constraint firstItem="Mby-WX-n7J" firstAttribute="top" secondItem="h1y-42-lkK" secondAttribute="top" id="i3q-9S-5KV"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.3294117647" green="0.78039215689999997" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -202,14 +207,13 @@
                         <outlet property="detailRoomLabel" destination="gru-R8-4fB" id="7hP-r2-SRe"/>
                         <outlet property="detailWholeSquareLabel" destination="NB2-5T-S4A" id="i6D-ax-9vv"/>
                         <outlet property="handsetImageView" destination="RdE-Qt-Y2H" id="vPU-dU-WG2"/>
-                        <outlet property="pageControl" destination="ahQ-qZ-Oah" id="zQe-ae-SwV"/>
                         <outlet property="tableView" destination="QOJ-bO-DmX" id="DmM-Rv-3Rh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zmq-1P-6sD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4Qw-uf-4KQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2229.5999999999999" y="-1015.1424287856073"/>
+            <point key="canvasLocation" x="2236" y="-1026"/>
         </scene>
         <!--MainScreenVC-->
         <scene sceneID="hNz-n2-bh7">
@@ -1144,11 +1148,11 @@
             <objects>
                 <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="GCM-Ea-FoM" customClass="UIPageViewControllerScene" sceneMemberID="viewController">
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="359" height="300"/>
+                    <size key="freeformSize" width="360" height="300"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zKZ-yE-hmY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3009" y="-984"/>
+            <point key="canvasLocation" x="2976" y="-986"/>
         </scene>
         <!--Ebmedded Image Controller-->
         <scene sceneID="4Iw-Dz-qMY">
@@ -1159,27 +1163,39 @@
                         <viewControllerLayoutGuide type="bottom" id="iYf-iT-PgJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ELe-oR-xEx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bAh-dp-cYS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyObject" translatesAutoresizingMaskIntoConstraints="NO" id="bAh-dp-cYS">
+                                <rect key="frame" x="0.0" y="0.0" width="360" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="BLP-WR-irP"/>
+                                    <constraint firstAttribute="width" constant="360" id="lyF-5n-7uK"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iYf-iT-PgJ" firstAttribute="top" secondItem="bAh-dp-cYS" secondAttribute="bottom" id="5eE-P8-EEA"/>
+                            <constraint firstAttribute="trailing" secondItem="bAh-dp-cYS" secondAttribute="trailing" id="UOM-Mz-Jtk"/>
+                            <constraint firstItem="bAh-dp-cYS" firstAttribute="leading" secondItem="ELe-oR-xEx" secondAttribute="leading" id="Zsy-TD-00h"/>
+                            <constraint firstItem="bAh-dp-cYS" firstAttribute="top" secondItem="ELe-oR-xEx" secondAttribute="top" id="n03-eY-Ir1"/>
+                        </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="360" height="300"/>
                     <connections>
                         <outlet property="ImageInEmbeddedView" destination="bAh-dp-cYS" id="FJ6-gP-eDD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7uE-ni-9dx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3750" y="-1149"/>
+            <point key="canvasLocation" x="3696" y="-987"/>
         </scene>
     </scenes>
     <resources>
         <image name="Image" width="50" height="50"/>
+        <image name="emptyObject" width="148" height="108"/>
         <image name="filter-1" width="50" height="50"/>
         <image name="handset" width="55" height="55"/>
         <image name="mainRect" width="353" height="298"/>

@@ -13,9 +13,10 @@
 
 
 @property (strong, nonatomic)  NSMutableArray *pageVCArray;
+
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 
-//@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+
 
 
 @end
