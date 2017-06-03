@@ -29,16 +29,15 @@
     self.myDetailData = [[NSMutableArray alloc] init];
     
     self.detailPriceLabel.text = myDetailObject.price;
-   // self.detailImageOfObject.image = myDetailObject.picture;
     self.detailAddressLabel.text = myDetailObject.address;
     self.detailOwnerLabel.text = myDetailObject.owner;
     self.detailRoomLabel.text = myDetailObject.roomQuantity;
     self.detailWholeSquareLabel.text = myDetailObject.wholeArea;
     self.detailLivingSquareLabel.text = myDetailObject.livingArea;
     self.detailKitchenSquareLabel.text = myDetailObject.kitchenArea;
-
-   
-    
+    self.phoneNumberLabel.text = myDetailObject.phoneNumber;
+    self.actionLabel.text = myDetailObject.typeOfProperty;
+    self.typeLabel.text = myDetailObject.actionByProperty;
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.allowsSelection = NO;
     
@@ -51,8 +50,8 @@
 }
 
 
-/*
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+
+/*-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     
     //UITouch *touch = [touches anyObject];
@@ -122,7 +121,7 @@
     fullScreenImageView = nil;
 }
 
-
+*/
 
 
 
@@ -137,7 +136,15 @@
 
 
 - (IBAction)callButton:(UIButton *)sender {
+
+
+
+
+
+
 }
+
+
 
 /*- (IBAction)backBarButtonItem:(UIBarButtonItem *)sender {
     
@@ -188,14 +195,16 @@
         controller.pageVCArray = [[NSMutableArray alloc]init];
         controller.pageVCArray = self.myDetailPhotosArray;
         
-
-        /*EbmeddedImageController *ctr = (EbmeddedImageController *)segue.destinationViewController;
-        ctr.embeddedArray = [[NSMutableArray alloc]init];
-        ctr.embeddedArray = self.myDetailPhotosArray;*/
-    
-    
+        
+        
+    }else if ([segue.identifier isEqualToString:@"backToNew"]) {
+        
+        NewObjectViewController *newVC = [self.storyboard instantiateViewControllerWithIdentifier:@"New"];
+        
+        
+        [self presentViewController:newVC animated:YES completion:nil];
     }
-
+    
 }
 
 

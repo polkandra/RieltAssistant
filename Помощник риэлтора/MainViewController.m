@@ -143,24 +143,7 @@
         controller.myDetailPhotosArray = [[NSMutableArray alloc] init];
         
         controller.myDetailPhotosArray = self.myPhotosData;
-        
-        
-        /*UIPageViewControllerScene *pageController = (UIPageViewControllerScene *)segue.destinationViewController;
-        
-        pageController.pageVCArray = [[NSMutableArray alloc]init];
-        pageController.pageVCArray = self.myPhotosData;*/
-
-        
-       /* if ([segue.identifier isEqualToString:@"toPage"]) {
-        
-            UIPageViewControllerScene *controller = (UIPageViewControllerScene *)segue.destinationViewController;
-            
-            controller.pageVCArray = [[NSMutableArray alloc]init];
-            controller.pageVCArray = self.myPhotosData;
-    
-        
-        }*/
-    
+      
     }
 }
 
@@ -233,6 +216,21 @@
     
     
 }
+
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        [self.myData removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+    }
+}
+
+
+
 
 
 #pragma mark - UITableViewDelegate

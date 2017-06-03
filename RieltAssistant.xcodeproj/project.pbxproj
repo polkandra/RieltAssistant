@@ -21,10 +21,11 @@
 		C69206121ECB48F600D7210D /* DetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C69206111ECB48F600D7210D /* DetailCollectionViewCell.m */; };
 		C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */; };
 		C6A36DAB1E9A98EC00A00F04 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */; };
-		C6BEF0D91EA793EA00EF9C0B /* Checkmark.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BEF0D81EA793EA00EF9C0B /* Checkmark.m */; };
 		C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */; };
 		C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */; };
 		C6E35E651E9D08A100235216 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E35E641E9D08A100235216 /* Main.storyboard */; };
+		C6E37E941EE2F0D80013DDD5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E37E931EE2F0D80013DDD5 /* CoreLocation.framework */; };
+		C6E37E961EE2F0E30013DDD5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E37E951EE2F0E30013DDD5 /* MapKit.framework */; };
 		C6F14D671EDF08FE00658494 /* UIPageViewControllerScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F14D661EDF08FE00658494 /* UIPageViewControllerScene.m */; };
 		C6F14D6A1EDF0AD800658494 /* EbmeddedImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F14D691EDF0AD800658494 /* EbmeddedImageController.m */; };
 		C6F428441E7FFBE800B5613F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F428421E7FFBE800B5613F /* MapViewController.m */; };
@@ -57,13 +58,13 @@
 		C6A36DA31E9A827B00A00F04 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		C6BEF0D71EA793EA00EF9C0B /* Checkmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checkmark.h; sourceTree = "<group>"; };
-		C6BEF0D81EA793EA00EF9C0B /* Checkmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checkmark.m; sourceTree = "<group>"; };
 		C6DB4FD01E8FD9A400CD4AE2 /* EstateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstateObject.h; sourceTree = "<group>"; };
 		C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstateObject.m; sourceTree = "<group>"; };
 		C6DF6B391EAF673C007F1CB9 /* RoomTypeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomTypeController.h; sourceTree = "<group>"; };
 		C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomTypeController.m; sourceTree = "<group>"; };
 		C6E35E641E9D08A100235216 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C6E37E931EE2F0D80013DDD5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C6E37E951EE2F0E30013DDD5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C6F14D651EDF08FE00658494 /* UIPageViewControllerScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPageViewControllerScene.h; sourceTree = "<group>"; };
 		C6F14D661EDF08FE00658494 /* UIPageViewControllerScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPageViewControllerScene.m; sourceTree = "<group>"; };
 		C6F14D681EDF0AD800658494 /* EbmeddedImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EbmeddedImageController.h; sourceTree = "<group>"; };
@@ -77,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6E37E961EE2F0E30013DDD5 /* MapKit.framework in Frameworks */,
+				C6E37E941EE2F0D80013DDD5 /* CoreLocation.framework in Frameworks */,
 				C6A36DAB1E9A98EC00A00F04 /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,8 +170,6 @@
 				C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */,
 				C67BAB551E7EEF59004E9126 /* MainScreenView.h */,
 				C67BAB561E7EEF59004E9126 /* MainScreenView.m */,
-				C6BEF0D71EA793EA00EF9C0B /* Checkmark.h */,
-				C6BEF0D81EA793EA00EF9C0B /* Checkmark.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -189,6 +190,8 @@
 		C6A36DA91E9A98EB00A00F04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C6E37E951EE2F0E30013DDD5 /* MapKit.framework */,
+				C6E37E931EE2F0D80013DDD5 /* CoreLocation.framework */,
 				C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */,
 			);
 			name = Frameworks;
@@ -324,7 +327,6 @@
 				C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */,
 				C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */,
 				C67BAADA1E7EBDC1004E9126 /* main.m in Sources */,
-				C6BEF0D91EA793EA00EF9C0B /* Checkmark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

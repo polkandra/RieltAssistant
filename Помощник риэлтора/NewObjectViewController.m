@@ -136,16 +136,26 @@
         
         self.myObject = [[EstateObject alloc] init];
         
-        
+        // passing data in MainViewController
         MainViewController *controller = segue.destinationViewController;
         controller.myPhotosData = myPhotosArray;
         
+        
+       //setting picker value and passing it
         
         NSString *selValue = [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]];
         
         self.myObject.roomQuantity = selValue;
        
                 
+        self.myObject.phoneNumber = self.phoneTextField.text;
+               
+        
+        
+        self.myObject.typeOfProperty = self.objectTypeLabelInCell.text;
+        self.myObject.actionByProperty = self.actionTypeLabelInCell.text;
+        
+        
         if (( self.totalSquareTextField.text.length == 0 )){
             
             self.myObject.wholeArea = @"--";
@@ -227,15 +237,8 @@
             
         }
         
-    }else if ([segue.identifier isEqualToString:@"toPage"]) {
-        
-    
     }
     
-
-
-
-
 }
 
 
@@ -263,6 +266,7 @@
     }
     return YES;
 }
+
 
 
 #pragma mark - Unwind Segues

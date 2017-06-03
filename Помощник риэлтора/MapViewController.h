@@ -7,8 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface MapViewController :UIViewController
 
+@interface MapViewController :UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
+@property (strong, nonatomic)  CLLocationManager *locationManager;
+@property (strong, nonatomic)  CLGeocoder *geocoder;
+@property (strong, nonatomic)  CLPlacemark *placemark;
 
 @end

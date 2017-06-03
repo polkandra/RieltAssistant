@@ -40,7 +40,7 @@
 
 
 
-#pragma mark - UIPageViewControllerDataSource
+#pragma mark - UIPageViewControllerDataSource      UIPageViewControllerDelegate
 
 
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {

@@ -58,6 +58,15 @@
 //- (IBAction)backBarButtonItem:(UIBarButtonItem *)sender;
 //- (IBAction)changeDetailItemBurButtonItem:(UIBarButtonItem *)sender;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *actionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+
+
+
+
+@property (weak, nonatomic) IBOutlet UILabel *phoneNumberLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *detailRoomLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailWholeSquareLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailLivingSquareLabel;

@@ -7,53 +7,82 @@
 //
 
 #import "MapViewController.h"
-#import "StyleKitName.h"
+
 
 
 @interface MapViewController ()
 
+
 @end
 
 @implementation MapViewController
+@synthesize mapView, geocoder, placemark, locationManager;
+
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     
+    self.mapView.delegate = self;
+    self.mapView.showsUserLocation = YES;
+   
+
+    locationManager = [[CLLocationManager alloc] init];
+    geocoder = [[CLGeocoder alloc] init];
+
+}
+
+
+
+
+#pragma mark - MKMapViewDelegate
+
+
+
+
+/*-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    
+    [self.locationManager stopUpdatingLocation];
+    CGFloat usersLatitude = self.locationManager.location.coordinate.latitude;
+    CGFloat usersLongidute = self.locationManager.location.coordinate.longitude;
 
     
 }
+    
+- (IBAction)statrtGettingLocation:(id)sender {
+    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    //Remember your pList needs to be configured to include the location persmission - adding the display message  (NSLocationWhenInUseUsageDescription)
+    
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    [self.locationManager startUpdatingLocation];
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
 }
-*/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+   
+}*/
 
 
 
