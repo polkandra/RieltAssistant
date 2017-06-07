@@ -1,28 +1,24 @@
 //
-//  TabBarViewController.m
-//  Помощник риэлтора
+//  AddPlaceToMapController.m
+//  RieltAssistant
 //
-//  Created by Mikhail Kozlyukov on 20.03.17.
+//  Created by Mikhail Kozlyukov on 07.06.17.
 //  Copyright © 2017 Chebahatt. All rights reserved.
 //
 
-#import "MapViewController.h"
+#import "AddPlaceToMapController.h"
 
+@interface AddPlaceToMapController ()
 
-
-@interface MapViewController ()
 @end
 
-
-@implementation MapViewController
+@implementation AddPlaceToMapController
 @synthesize mapView, locationManager, searchBar;
-
-
-
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
     self.searchBar.delegate = self;
     self.mapView.delegate = self;
@@ -30,15 +26,8 @@
     
     [self setLocationManager];
     [self setGestureRecognizers];
-    
-    //geocoder = [[CLGeocoder alloc] init];
-    
-    
-    
-  }
 
-
-
+}
 
 
 -(void)setLocationManager {
@@ -46,7 +35,7 @@
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [locationManager startUpdatingLocation];
- 
+    
     
 }
 
@@ -65,7 +54,7 @@
 
 
 - (void) dismissKeyboard {
-
+    
     
     [self.searchBar resignFirstResponder];
 }
@@ -76,37 +65,21 @@
     
     if (gestureRecognizer.state != UIGestureRecognizerStateBegan) {
         return;
-    
+        
     }
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
     CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
-
-        MapAnnotation *annotation = [[MapAnnotation alloc] init];
-        annotation.coordinate = touchMapCoordinate;
-        annotation.title = @"Title";
-        annotation.subtitle = @"Subtitle";
-        
-        [self.mapView addAnnotation:annotation];
-        
-    }
     
-
-
-
-#pragma mark -- MKMapViewDelegate
-
-
-
-
-/*-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
-{
+    MapAnnotation *annotation = [[MapAnnotation alloc] init];
+    annotation.coordinate = touchMapCoordinate;
+    annotation.title = @"Title";
+    annotation.subtitle = @"Subtitle";
     
-    [self.locationManager stopUpdatingLocation];
-    CGFloat usersLatitude = self.locationManager.location.coordinate.latitude;
-    CGFloat usersLongidute = self.locationManager.location.coordinate.longitude;
-
+    [self.mapView addAnnotation:annotation];
     
-}*/
+}
+
+
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     
@@ -145,7 +118,7 @@
         NSLog(@"\nlocation = {%f, %f}\npoint = %@", location.latitude, location.longitude, MKStringFromMapPoint(point));
         
     }
- }
+}
 
 
 
@@ -165,38 +138,11 @@
 {
     NSLog(@"didUpdateToLocation: %@", newLocation);
     CLLocation *currentLocation = newLocation;
-   
-}
-
-
-
-#pragma mark -- Actions
-
-
-- (IBAction)showAllObjects:(UIBarButtonItem *)sender {
-    
-    MKMapRect zoomRect = MKMapRectNull;
-    
-    for (id <MKAnnotation> annotation in self.mapView.annotations) {
-        
-        CLLocationCoordinate2D location = annotation.coordinate;
-        
-        MKMapPoint center = MKMapPointForCoordinate(location);
-        
-        static double delta = 20000;
-        
-        MKMapRect rect = MKMapRectMake(center.x - delta, center.y - delta, delta * 2, delta * 2);
-        
-        zoomRect = MKMapRectUnion(zoomRect, rect);
-    }
-    
-    zoomRect = [self.mapView mapRectThatFits:zoomRect];
-    
-    [self.mapView setVisibleMapRect:zoomRect
-                        edgePadding:UIEdgeInsetsMake(50, 50, 50, 50)
-                           animated:YES];
     
 }
+
+
+
 
 
 
@@ -206,5 +152,8 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)aSearchBar {
     [searchBar resignFirstResponder];
 }
+
+
+
 
 @end

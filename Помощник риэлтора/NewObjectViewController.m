@@ -33,8 +33,7 @@
     self.collectionView.dataSource = self;
 
     self.collectionView.allowsMultipleSelection = YES;
-    
-    
+    self.tableView.allowsSelection = NO;
     
     [self setDelegatesForPickerView];
     [self setDelegatesForTextFields];
@@ -57,7 +56,8 @@
 
 - (IBAction)addPlaceToMapButton:(UIButton *)sender {
     
-    
+   // MapViewController *mapVC = [self.storyboard instantiateViewControllerWithIdentifier:@"mapVC"];
+   // [self presentViewController:mapVC animated:YES completion:nil];
     
 }
 
@@ -237,9 +237,14 @@
             
         }
         
+    } else if ([segue.identifier isEqualToString:@"toMapView"]) {
+        
+   
+    
     }
     
 }
+
 
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {

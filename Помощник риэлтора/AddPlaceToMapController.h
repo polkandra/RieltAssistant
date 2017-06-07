@@ -1,8 +1,8 @@
 //
-//  TabBarViewController.h
-//  Помощник риэлтора
+//  AddPlaceToMapController.h
+//  RieltAssistant
 //
-//  Created by Mikhail Kozlyukov on 20.03.17.
+//  Created by Mikhail Kozlyukov on 07.06.17.
 //  Copyright © 2017 Chebahatt. All rights reserved.
 //
 
@@ -11,14 +11,13 @@
 #import <CoreLocation/CoreLocation.h>
 #import "MapAnnotation.h"
 
-@interface MapViewController :UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
 
+@interface AddPlaceToMapController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @property (strong, nonatomic)  CLLocationManager *locationManager;
 
-- (IBAction)showAllObjects:(UIBarButtonItem *)sender;
 
 @end
