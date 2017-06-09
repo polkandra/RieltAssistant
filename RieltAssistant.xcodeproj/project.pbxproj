@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		231CC5B91236518F13227362 /* libPods-RieltAssistant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4D5CA4A21AB8925B38B804 /* libPods-RieltAssistant.a */; };
 		C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C60702381E8E7A64007933F0 /* MainScreenCellTableViewCell.m */; };
 		C609EE7A1EBA13E300B6F9D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */; };
 		C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FFA431E895B560054F83D /* NewObjectViewController.m */; };
 		C63412F41EB4B24800ACE886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63412F31EB4B24800ACE886 /* Assets.xcassets */; };
 		C636778F1EE854FB0098FC90 /* AddPlaceToMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = C636778E1EE854FB0098FC90 /* AddPlaceToMapController.m */; };
 		C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = C64380C61EAD358100D88E01 /* DetailObjectController.m */; };
+		C65B20201EEAE304009F8DFA /* GoogleMapsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C65B201F1EEAE304009F8DFA /* GoogleMapsVC.m */; };
+		C65B20221EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master in Resources */ = {isa = PBXBuildFile; fileRef = C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */; };
 		C67BAADA1E7EBDC1004E9126 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAD91E7EBDC1004E9126 /* main.m */; };
 		C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */; };
 		C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADF1E7EBDC1004E9126 /* MainViewController.m */; };
@@ -34,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		680B096D56A625AAEC280D31 /* Pods-RieltAssistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RieltAssistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RieltAssistant/Pods-RieltAssistant.debug.xcconfig"; sourceTree = "<group>"; };
+		9C4D5CA4A21AB8925B38B804 /* libPods-RieltAssistant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RieltAssistant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C60702371E8E7A64007933F0 /* MainScreenCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenCellTableViewCell.h; sourceTree = "<group>"; };
 		C60702381E8E7A64007933F0 /* MainScreenCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenCellTableViewCell.m; sourceTree = "<group>"; };
 		C607023B1E8E89DD007933F0 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -44,6 +49,9 @@
 		C636778E1EE854FB0098FC90 /* AddPlaceToMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPlaceToMapController.m; sourceTree = "<group>"; };
 		C64380C51EAD358100D88E01 /* DetailObjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailObjectController.h; sourceTree = "<group>"; };
 		C64380C61EAD358100D88E01 /* DetailObjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailObjectController.m; sourceTree = "<group>"; };
+		C65B201E1EEAE304009F8DFA /* GoogleMapsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMapsVC.h; sourceTree = "<group>"; };
+		C65B201F1EEAE304009F8DFA /* GoogleMapsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMapsVC.m; sourceTree = "<group>"; };
+		C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "SPGooglePlacesAutocomplete-master"; sourceTree = "<group>"; };
 		C67BAAD51E7EBDC1004E9126 /* RieltAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RieltAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67BAAD91E7EBDC1004E9126 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C67BAADB1E7EBDC1004E9126 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -77,6 +85,7 @@
 		C6F14D691EDF0AD800658494 /* EbmeddedImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EbmeddedImageController.m; sourceTree = "<group>"; };
 		C6F428411E7FFBE800B5613F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		C6F428421E7FFBE800B5613F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		DF636865D7E19A7A836332AF /* Pods-RieltAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RieltAssistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-RieltAssistant/Pods-RieltAssistant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,18 +96,42 @@
 				C6E37E961EE2F0E30013DDD5 /* MapKit.framework in Frameworks */,
 				C6E37E941EE2F0D80013DDD5 /* CoreLocation.framework in Frameworks */,
 				C6A36DAB1E9A98EC00A00F04 /* AssetsLibrary.framework in Frameworks */,
+				231CC5B91236518F13227362 /* libPods-RieltAssistant.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B38DF0468A2DD83401ECC7B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				680B096D56A625AAEC280D31 /* Pods-RieltAssistant.debug.xcconfig */,
+				DF636865D7E19A7A836332AF /* Pods-RieltAssistant.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C65B201D1EEAE2C4009F8DFA /* MapsControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C6F428411E7FFBE800B5613F /* MapViewController.h */,
+				C6F428421E7FFBE800B5613F /* MapViewController.m */,
+				C6D0E08D1EE8030B00E0FF26 /* MapAnnotation.h */,
+				C6D0E08E1EE8030B00E0FF26 /* MapAnnotation.m */,
+				C65B201E1EEAE304009F8DFA /* GoogleMapsVC.h */,
+				C65B201F1EEAE304009F8DFA /* GoogleMapsVC.m */,
+			);
+			name = MapsControllers;
+			sourceTree = "<group>";
+		};
 		C67BAACC1E7EBDC1004E9126 = {
 			isa = PBXGroup;
 			children = (
 				C67BAAD71E7EBDC1004E9126 /* Помощник риэлтора */,
 				C67BAAD61E7EBDC1004E9126 /* Products */,
 				C6A36DA91E9A98EB00A00F04 /* Frameworks */,
+				8B38DF0468A2DD83401ECC7B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,12 +146,10 @@
 		C67BAAD71E7EBDC1004E9126 /* Помощник риэлтора */ = {
 			isa = PBXGroup;
 			children = (
-				C6BA7F3D1E91733F0060D745 /* Category */,
 				C6DE1CA71E897CE2008F3536 /* Model */,
 				C6DE1CA81E897CF1008F3536 /* Cells */,
 				C67BAB4E1E7EE1CD004E9126 /* ViewControllers */,
 				C67BAB4F1E7EE1EC004E9126 /* Views */,
-				C67BAB1C1E7ED6C2004E9126 /* Assets */,
 				C67BAAD81E7EBDC1004E9126 /* Supporting Files */,
 			);
 			path = "Помощник риэлтора";
@@ -133,14 +164,6 @@
 				C67BAAD91E7EBDC1004E9126 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C67BAB1C1E7ED6C2004E9126 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				C63412F31EB4B24800ACE886 /* Assets.xcassets */,
-			);
-			name = Assets;
 			sourceTree = "<group>";
 		};
 		C67BAB4D1E7EE19E004E9126 /* StyleKit */ = {
@@ -176,10 +199,9 @@
 				C67BAB4D1E7EE19E004E9126 /* StyleKit */,
 				C6E35E641E9D08A100235216 /* Main.storyboard */,
 				C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */,
+				C63412F31EB4B24800ACE886 /* Assets.xcassets */,
 				C67BAB551E7EEF59004E9126 /* MainScreenView.h */,
 				C67BAB561E7EEF59004E9126 /* MainScreenView.m */,
-				C6D0E08D1EE8030B00E0FF26 /* MapAnnotation.h */,
-				C6D0E08E1EE8030B00E0FF26 /* MapAnnotation.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -187,12 +209,11 @@
 		C692060F1ECB40B900D7210D /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				C65B201D1EEAE2C4009F8DFA /* MapsControllers */,
 				C607023B1E8E89DD007933F0 /* MainViewController.h */,
 				C67BAADF1E7EBDC1004E9126 /* MainViewController.m */,
 				C67BAAE11E7EBDC1004E9126 /* MeetingsViewController.h */,
 				C67BAAE21E7EBDC1004E9126 /* MeetingsViewController.m */,
-				C6F428411E7FFBE800B5613F /* MapViewController.h */,
-				C6F428421E7FFBE800B5613F /* MapViewController.m */,
 			);
 			name = Tabs;
 			sourceTree = "<group>";
@@ -200,18 +221,13 @@
 		C6A36DA91E9A98EB00A00F04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */,
 				C6E37E951EE2F0E30013DDD5 /* MapKit.framework */,
 				C6E37E931EE2F0D80013DDD5 /* CoreLocation.framework */,
 				C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */,
+				9C4D5CA4A21AB8925B38B804 /* libPods-RieltAssistant.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C6BA7F3D1E91733F0060D745 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Category;
 			sourceTree = "<group>";
 		};
 		C6CAB5D51EE1E91D00078A32 /* PageViewController */ = {
@@ -256,9 +272,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C67BAAEF1E7EBDC2004E9126 /* Build configuration list for PBXNativeTarget "RieltAssistant" */;
 			buildPhases = (
+				07506E8FA6B3603C477D5836 /* [CP] Check Pods Manifest.lock */,
 				C67BAAD11E7EBDC1004E9126 /* Sources */,
 				C67BAAD21E7EBDC1004E9126 /* Frameworks */,
 				C67BAAD31E7EBDC1004E9126 /* Resources */,
+				BEF7AC0E10AFA6276259237F /* [CP] Embed Pods Frameworks */,
+				B52AE9581EA921A00F06ADD3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -308,6 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C65B20221EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master in Resources */,
 				C609EE7A1EBA13E300B6F9D8 /* LaunchScreen.storyboard in Resources */,
 				C63412F41EB4B24800ACE886 /* Assets.xcassets in Resources */,
 				C6E35E651E9D08A100235216 /* Main.storyboard in Resources */,
@@ -315,6 +335,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07506E8FA6B3603C477D5836 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B52AE9581EA921A00F06ADD3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RieltAssistant/Pods-RieltAssistant-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BEF7AC0E10AFA6276259237F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RieltAssistant/Pods-RieltAssistant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C67BAAD11E7EBDC1004E9126 /* Sources */ = {
@@ -334,6 +402,7 @@
 				C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */,
 				C69206121ECB48F600D7210D /* DetailCollectionViewCell.m in Sources */,
 				C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */,
+				C65B20201EEAE304009F8DFA /* GoogleMapsVC.m in Sources */,
 				C6F14D671EDF08FE00658494 /* UIPageViewControllerScene.m in Sources */,
 				C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */,
 				C636778F1EE854FB0098FC90 /* AddPlaceToMapController.m in Sources */,
@@ -448,26 +517,28 @@
 		};
 		C67BAAF01E7EBDC2004E9126 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 680B096D56A625AAEC280D31 /* Pods-RieltAssistant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8LJGXZ9C93;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "Помощник риэлтора/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Chebahatt.-----------------";
+				PRODUCT_BUNDLE_IDENTIFIER = Chebahatt.RieltAssistant.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		C67BAAF11E7EBDC2004E9126 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF636865D7E19A7A836332AF /* Pods-RieltAssistant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8LJGXZ9C93;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "Помощник риэлтора/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Chebahatt.-----------------";
+				PRODUCT_BUNDLE_IDENTIFIER = Chebahatt.RieltAssistant.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

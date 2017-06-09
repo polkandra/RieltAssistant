@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+@import GoogleMaps;
+@import GooglePlaces;
 
 @interface AppDelegate ()
 
@@ -20,7 +22,13 @@
     
     
     
+    [GMSServices provideAPIKey:@"AIzaSyBLyGSJWcQvDrSdS2opP-BZtwu5WYo7JTE"];
+    [GMSPlacesClient provideAPIKey:@"AIzaSyBLyGSJWcQvDrSdS2opP-BZtwu5WYo7JTE"];
    
+    
+    
+    
+    
     UIImage *tabBarBackground = [UIImage imageNamed:@"imageOfGradient2"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
     [[UITabBar appearance] setTintColor:[UIColor redColor]];
