@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteQuery.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

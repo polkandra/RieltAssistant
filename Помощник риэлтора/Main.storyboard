@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -538,7 +538,7 @@
                                                     <state key="normal" title="Добавить метку на карту"/>
                                                     <connections>
                                                         <action selector="addPlaceToMapButton:" destination="nkq-gs-aGa" eventType="touchUpInside" id="ngh-OF-qVA"/>
-                                                        <segue destination="EU8-55-dtf" kind="show" identifier="toMapView" id="Qhv-gx-2sA"/>
+                                                        <segue destination="4KP-cY-zt9" kind="show" identifier="toMapView" id="Wib-bt-eOY"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1133,7 +1133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ark-nl-7LI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3665" y="151"/>
+            <point key="canvasLocation" x="6146" y="44"/>
         </scene>
         <!--MapVC-->
         <scene sceneID="wg7-f3-ORb">
@@ -1180,7 +1180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3161" y="1136"/>
+            <point key="canvasLocation" x="6145" y="710"/>
         </scene>
         <!--MeetingsVC-->
         <scene sceneID="c2R-ZU-QVx">
@@ -1204,58 +1204,92 @@
             </objects>
             <point key="canvasLocation" x="633" y="1394"/>
         </scene>
-        <!--Google MapsVC-->
+        <!--Мои объекты-->
         <scene sceneID="272-rJ-1vX">
             <objects>
-                <viewController id="HGi-ja-Jut" customClass="GoogleMapsVC" sceneMemberID="viewController">
+                <viewController id="HGi-ja-Jut" customClass="MapsGeneral" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wbl-cl-hfY"/>
-                        <viewControllerLayoutGuide type="bottom" id="cEm-6j-dKX"/>
+                        <viewControllerLayoutGuide type="top" id="ezv-Xu-dv7"/>
+                        <viewControllerLayoutGuide type="bottom" id="tFo-ZU-svk"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ied-6p-btN">
+                    <view key="view" contentMode="scaleToFill" id="lS6-o0-YqB" userLabel="justView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Введите адрес объекта" translatesAutoresizingMaskIntoConstraints="NO" id="Ufd-yH-RaO">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ODF-EI-j19">
+                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
+                            </mapView>
+                            <tableView clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Un6-rq-fUV">
+                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="autocompleteCell" textLabel="9zK-Gx-xLf" style="IBUITableViewCellStyleDefault" id="6By-qz-LRO">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6By-qz-LRO" id="9Yb-Lv-G2u">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9zK-Gx-xLf">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="HGi-ja-Jut" id="5I9-BO-4YF"/>
+                                    <outlet property="delegate" destination="HGi-ja-Jut" id="J9F-7C-laG"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" placeholder="Введите адрес" translatesAutoresizingMaskIntoConstraints="NO" id="mbV-1H-unk">
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
                                 <connections>
-                                    <outlet property="delegate" destination="HGi-ja-Jut" id="yXG-De-Dke"/>
+                                    <outlet property="delegate" destination="HGi-ja-Jut" id="1ex-Bh-zRW"/>
                                 </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ufd-yH-RaO" firstAttribute="top" secondItem="wbl-cl-hfY" secondAttribute="bottom" id="k4I-W0-4IS"/>
-                            <constraint firstAttribute="trailing" secondItem="Ufd-yH-RaO" secondAttribute="trailing" id="ljy-c2-0Ob"/>
-                            <constraint firstItem="Ufd-yH-RaO" firstAttribute="leading" secondItem="ied-6p-btN" secondAttribute="leading" id="sWG-tj-0Lr"/>
+                            <constraint firstItem="Un6-rq-fUV" firstAttribute="top" secondItem="mbV-1H-unk" secondAttribute="bottom" id="3Mc-7h-zPz"/>
+                            <constraint firstItem="Un6-rq-fUV" firstAttribute="leading" secondItem="lS6-o0-YqB" secondAttribute="leading" id="7dT-W8-XWy"/>
+                            <constraint firstItem="ODF-EI-j19" firstAttribute="top" secondItem="Un6-rq-fUV" secondAttribute="top" id="LUS-NW-uxs"/>
+                            <constraint firstItem="tFo-ZU-svk" firstAttribute="top" secondItem="ODF-EI-j19" secondAttribute="bottom" id="POR-6A-LXf"/>
+                            <constraint firstAttribute="trailing" secondItem="ODF-EI-j19" secondAttribute="trailing" id="Q8f-bl-mbX"/>
+                            <constraint firstAttribute="trailing" secondItem="Un6-rq-fUV" secondAttribute="trailing" id="ShQ-92-Sr9"/>
+                            <constraint firstAttribute="trailing" secondItem="mbV-1H-unk" secondAttribute="trailing" id="Yon-Zh-hgq"/>
+                            <constraint firstItem="ODF-EI-j19" firstAttribute="leading" secondItem="lS6-o0-YqB" secondAttribute="leading" id="a0t-v6-rn2"/>
+                            <constraint firstItem="mbV-1H-unk" firstAttribute="leading" secondItem="lS6-o0-YqB" secondAttribute="leading" id="bwh-VK-CIZ"/>
+                            <constraint firstItem="tFo-ZU-svk" firstAttribute="top" secondItem="Un6-rq-fUV" secondAttribute="bottom" id="qAW-TU-9uE"/>
+                            <constraint firstItem="mbV-1H-unk" firstAttribute="top" secondItem="ezv-Xu-dv7" secondAttribute="bottom" id="zrL-yf-Mi8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="oI0-JR-Vsb">
+                    <navigationItem key="navigationItem" title="Мои объекты" id="oI0-JR-Vsb">
                         <barButtonItem key="leftBarButtonItem" title="Все объекты" id="l6b-f3-Fux">
                             <connections>
                                 <action selector="showAllObjects:" destination="HGi-ja-Jut" id="S4B-ox-jCw"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="7Zt-UY-TAw">
+                        <barButtonItem key="rightBarButtonItem" title="Тип карты" id="7Zt-UY-TAw">
                             <connections>
                                 <action selector="searchPlace:" destination="HGi-ja-Jut" id="jK5-uf-kpm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="searchBar" destination="Ufd-yH-RaO" id="5sC-cf-Gph"/>
+                        <outlet property="mapView" destination="ODF-EI-j19" id="2GR-bc-DkP"/>
+                        <outlet property="searchBar" destination="mbV-1H-unk" id="riv-QA-Vhi"/>
+                        <outlet property="tableView" destination="Un6-rq-fUV" id="pKr-zu-LGb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7g7-mT-Qj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1863" y="430"/>
+            <point key="canvasLocation" x="1682" y="430"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1370,6 +1404,96 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCg-uQ-s4M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="633" y="430"/>
+        </scene>
+        <!--Мои объекты-->
+        <scene sceneID="zF9-Qu-VKp">
+            <objects>
+                <viewController id="4KP-cY-zt9" customClass="MapsGeneral" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xx8-wU-GcP"/>
+                        <viewControllerLayoutGuide type="bottom" id="TET-Yr-7bU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kS0-Vy-Anq" userLabel="justView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6zl-Kb-feH">
+                                <rect key="frame" x="0.0" y="108" width="375" height="515"/>
+                                <connections>
+                                    <outlet property="delegate" destination="4KP-cY-zt9" id="GXr-Qb-skS"/>
+                                </connections>
+                            </mapView>
+                            <tableView clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B0k-xd-NUI">
+                                <rect key="frame" x="0.0" y="108" width="375" height="515"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="autocompleteCell" textLabel="YTE-HV-Hdu" style="IBUITableViewCellStyleDefault" id="Uy7-zE-uia">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uy7-zE-uia" id="Akb-I6-gSa">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YTE-HV-Hdu">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="4KP-cY-zt9" id="KYj-LZ-0yn"/>
+                                    <outlet property="delegate" destination="4KP-cY-zt9" id="xiv-RO-lS1"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" placeholder="Введите адрес" translatesAutoresizingMaskIntoConstraints="NO" id="jRW-aY-gjn">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="4KP-cY-zt9" id="NQI-N2-62O"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="B0k-xd-NUI" firstAttribute="leading" secondItem="kS0-Vy-Anq" secondAttribute="leading" id="Bhj-Ax-0A4"/>
+                            <constraint firstItem="TET-Yr-7bU" firstAttribute="top" secondItem="B0k-xd-NUI" secondAttribute="bottom" id="HZv-6m-gt7"/>
+                            <constraint firstItem="B0k-xd-NUI" firstAttribute="top" secondItem="jRW-aY-gjn" secondAttribute="bottom" id="NcQ-SF-qrv"/>
+                            <constraint firstItem="jRW-aY-gjn" firstAttribute="top" secondItem="Xx8-wU-GcP" secondAttribute="bottom" id="S8a-l2-tgS"/>
+                            <constraint firstItem="TET-Yr-7bU" firstAttribute="top" secondItem="6zl-Kb-feH" secondAttribute="bottom" id="X7d-qK-n7A"/>
+                            <constraint firstItem="6zl-Kb-feH" firstAttribute="leading" secondItem="kS0-Vy-Anq" secondAttribute="leading" id="aqf-AA-dpn"/>
+                            <constraint firstItem="6zl-Kb-feH" firstAttribute="top" secondItem="B0k-xd-NUI" secondAttribute="top" id="lXy-1X-DfM"/>
+                            <constraint firstAttribute="trailing" secondItem="jRW-aY-gjn" secondAttribute="trailing" id="n5G-7r-zBs"/>
+                            <constraint firstAttribute="trailing" secondItem="B0k-xd-NUI" secondAttribute="trailing" id="wj4-xz-7gH"/>
+                            <constraint firstItem="jRW-aY-gjn" firstAttribute="leading" secondItem="kS0-Vy-Anq" secondAttribute="leading" id="z1O-Lt-sat"/>
+                            <constraint firstAttribute="trailing" secondItem="6zl-Kb-feH" secondAttribute="trailing" id="zJH-S3-P5T"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Мои объекты" id="nJk-Za-DCg">
+                        <barButtonItem key="leftBarButtonItem" title="Все объекты" id="gqD-eY-xmM">
+                            <connections>
+                                <action selector="showAllObjects:" destination="4KP-cY-zt9" id="7p1-0A-clN"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Тип карты" id="kr7-bA-aPx">
+                            <connections>
+                                <action selector="searchPlace:" destination="4KP-cY-zt9" id="U9r-Dp-UVR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="6zl-Kb-feH" id="hYS-k0-8LK"/>
+                        <outlet property="searchBar" destination="jRW-aY-gjn" id="LsD-v2-hgK"/>
+                        <outlet property="tableView" destination="B0k-xd-NUI" id="5Y9-80-xyF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ilw-S5-hQ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3654" y="193"/>
         </scene>
     </scenes>
     <resources>
