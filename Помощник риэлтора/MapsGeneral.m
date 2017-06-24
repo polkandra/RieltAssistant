@@ -247,10 +247,14 @@
     CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     
     MapAnnotation *annotation = [[MapAnnotation alloc] init];
+  
+    
+    annotation.canShowCallout = YES;
     annotation.coordinate = touchMapCoordinate;
-    annotation.title = @"Title";
-    annotation.subtitle = @"Subtitle";
-    //annotation.image = [self.pinPhotosArray firstObject];
+  
+    annotation.title = self.titleText;
+    annotation.subtitle = self.subTitleText;
+    
     MKAnnotationView *pinView = nil;
    
     NSInteger toRemoveCount = self.mapView.annotations.count;
@@ -378,19 +382,39 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
       
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+    
+        return nil;
+    }
+    
+    
     if ([annotation isKindOfClass:[MapAnnotation class]]) {
         
         static NSString *identifier = @"Annotation";
+        
         MKAnnotationView *annotationView = (MKAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
         
         //Lazy instantation
         if (annotationView == nil) {
             annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
-            annotationView.image = [self.pinPhotosArray firstObject];
-            annotationView.centerOffset = CGPointMake(0,-annotationView.frame.size.height*0.5);
+            
+            
+            //[annotationView setImage:[self.pinPhotosArray firstObject]];
+            annotationView.image = [UIImage imageNamed:@"house"];
+            annotationView.centerOffset = CGPointMake(0, annotationView.frame.size.height / 2);
             annotationView.canShowCallout = YES;
             annotationView.enabled = YES;
-        
+                     
+            UIImageView *userAvatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+            userAvatar.image = [self.pinPhotosArray firstObject];
+            userAvatar.contentMode = UIViewContentModeScaleAspectFill;
+            userAvatar.layer.cornerRadius = 4.0;
+            userAvatar.layer.masksToBounds = YES;
+            userAvatar.layer.borderColor = [[UIColor blackColor] CGColor];
+            userAvatar.layer.borderWidth = 1;
+            annotationView.leftCalloutAccessoryView = userAvatar;
+            
+            
         } else {
             
             annotationView.annotation = annotation;
@@ -404,6 +428,11 @@
     return nil;
 
 }
+
+
+
+
+
 
 
 

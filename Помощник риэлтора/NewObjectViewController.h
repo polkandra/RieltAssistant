@@ -50,11 +50,12 @@ UIImagePickerControllerDelegate>delegate;
 
 
 
+
 - (IBAction)unwindToNewObjectVCAfterSaveButtonTaped:(UIStoryboardSegue*)segue;
 - (IBAction)unwindToNewObjectVCAfterBackButtonTapped:(UIStoryboardSegue *)segue;
 
 
-
+@property (weak, nonatomic) IBOutlet UIButton *addPlaceOnMapButton;
 - (IBAction)addPlaceToMapButton:(UIButton *)sender;
 - (IBAction)addPhotosButton:(UIButton *)sender;
 - (IBAction)deletePhotosButton:(UIButton *)sender;

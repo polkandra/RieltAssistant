@@ -876,6 +876,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="actionTypeLabelInCell" destination="GcH-c2-mFR" id="KFx-0l-7Du"/>
+                        <outlet property="addPlaceOnMapButton" destination="Bze-xG-RLc" id="jh9-LY-ow4"/>
                         <outlet property="addressLabel" destination="0C5-Va-oLn" id="YY8-8o-IAP"/>
                         <outlet property="adressTextfield" destination="jFA-ZV-ojF" id="62d-Mi-f1o"/>
                         <outlet property="cityLabel" destination="MaS-UK-Aof" id="zwz-u2-3yO"/>

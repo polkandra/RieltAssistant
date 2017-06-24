@@ -36,7 +36,8 @@
 @property (strong, nonatomic) NSArray *pinPhotosArray;
 @property (strong, nonatomic)  CLLocationManager *locationManager;
 
-
+@property (strong, nonatomic) NSString *titleText;
+@property (strong, nonatomic) NSString *subTitleText;
 
 
 @end

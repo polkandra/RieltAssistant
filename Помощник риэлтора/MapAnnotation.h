@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
-
+#import "NewObjectViewController.h"
 
 @interface MapAnnotation :  MKAnnotationView <MKAnnotation>
 
@@ -20,7 +20,7 @@
 @property(nonatomic,strong) UIImageView *pinImage;
 
 
-- (void)setImage:(UIImage *)image;
+
 
 
 @end

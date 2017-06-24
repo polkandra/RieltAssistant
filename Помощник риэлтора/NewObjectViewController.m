@@ -45,7 +45,13 @@
     self.selectedPhotos = [[NSMutableArray alloc] init];
 
 
-    
+    if([myPhotosArray count] > 0) {
+        self.addPlaceOnMapButton.enabled = NO;
+    }else{
+        self.addPlaceOnMapButton.enabled = YES;
+    }
+
+
 }
 
 
@@ -242,8 +248,8 @@
         MapsGeneral * mapVC = (MapsGeneral *)segue.destinationViewController;
         mapVC.pinPhotosArray =  [[NSMutableArray alloc] init];
         mapVC.pinPhotosArray = self.myPhotosArray;
-        
-    
+        mapVC.titleText = self.objectNameTextField.text;
+        mapVC.subTitleText = self.priceTextField.text;
     }
     
 }
