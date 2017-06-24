@@ -239,7 +239,10 @@
         
     } else if ([segue.identifier isEqualToString:@"toMapView"]) {
         
-   
+        MapsGeneral * mapVC = (MapsGeneral *)segue.destinationViewController;
+        mapVC.pinPhotosArray =  [[NSMutableArray alloc] init];
+        mapVC.pinPhotosArray = self.myPhotosArray;
+        
     
     }
     

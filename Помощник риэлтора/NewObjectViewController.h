@@ -14,6 +14,7 @@
 #import "StyleKitName.h"
 #import "RoomTypeController.h"
 #import "MapViewController.h"
+#import "MapsGeneral.h"
 
 @interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 

@@ -161,6 +161,7 @@
 
 -(void)setMKUserTrackingButton {
     MKUserTrackingBarButtonItem *buttonItem = [[MKUserTrackingBarButtonItem alloc] initWithMapView:self.mapView];
+    
     self.navigationItem.rightBarButtonItem = buttonItem;
 }
 
@@ -184,6 +185,9 @@
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     annotation.coordinate = placemark.location.coordinate;
     annotation.title = address;
+    
+    
+    
     
     [self.mapView addAnnotation:annotation];
 }
@@ -246,10 +250,12 @@
     annotation.coordinate = touchMapCoordinate;
     annotation.title = @"Title";
     annotation.subtitle = @"Subtitle";
-    
+    //annotation.image = [self.pinPhotosArray firstObject];
+    MKAnnotationView *pinView = nil;
    
     NSInteger toRemoveCount = self.mapView.annotations.count;
     NSMutableArray *toRemove = [NSMutableArray arrayWithCapacity:toRemoveCount];
+    
     for (id annotation in self.mapView.annotations)
         if (annotation != self.mapView.userLocation)
             [toRemove addObject:annotation];
@@ -371,29 +377,32 @@
 #pragma mark  MKMapViewDelegate
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
-    
-    if ([annotation isKindOfClass:[MKUserLocation class]]) {
-        return nil;
+      
+    if ([annotation isKindOfClass:[MapAnnotation class]]) {
+        
+        static NSString *identifier = @"Annotation";
+        MKAnnotationView *annotationView = (MKAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        
+        //Lazy instantation
+        if (annotationView == nil) {
+            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+            annotationView.image = [self.pinPhotosArray firstObject];
+            annotationView.centerOffset = CGPointMake(0,-annotationView.frame.size.height*0.5);
+            annotationView.canShowCallout = YES;
+            annotationView.enabled = YES;
+        
+        } else {
+            
+            annotationView.annotation = annotation;
+            
+        }
+        
+        return annotationView;
+        
     }
     
-    static NSString *identifier = @"Annotation";
-    
-    MKPinAnnotationView *pin = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];;
-    
-    
-    if (!pin) {
-        pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier ];
-        pin.pinTintColor = [UIColor purpleColor];
-        pin.animatesDrop = YES;
-        pin.canShowCallout = YES;
-        pin.draggable = YES;
-        
-    }else{
-        
-        pin.annotation = annotation;
-    }
-    
-    return pin;
+    return nil;
+
 }
 
 

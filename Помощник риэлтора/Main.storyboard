@@ -1479,7 +1479,7 @@
                                 <action selector="showAllObjects:" destination="4KP-cY-zt9" id="7p1-0A-clN"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Тип карты" id="kr7-bA-aPx">
+                        <barButtonItem key="rightBarButtonItem" title="Где я" id="kr7-bA-aPx">
                             <connections>
                                 <action selector="searchPlace:" destination="4KP-cY-zt9" id="U9r-Dp-UVR"/>
                             </connections>

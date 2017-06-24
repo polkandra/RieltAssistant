@@ -12,6 +12,7 @@
 #import "MapAnnotation.h"
 #import <MapKit/MapKit.h>
 #import "CLPlacemark+HNKAdditions.h"
+#import "NewObjectViewController.h"
 @import GooglePlaces;
 
 
@@ -32,7 +33,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *searchResults;
-
+@property (strong, nonatomic) NSArray *pinPhotosArray;
 @property (strong, nonatomic)  CLLocationManager *locationManager;
 
 
