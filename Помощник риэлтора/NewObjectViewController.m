@@ -9,7 +9,7 @@
 #import "NewObjectViewController.h"
 
 
-@interface NewObjectViewController () 
+@interface NewObjectViewController ()
 
 @property(assign, nonatomic) BOOL isSelected;
 
@@ -53,6 +53,7 @@
 
 
 }
+
 
 
 
@@ -245,11 +246,31 @@
         
     } else if ([segue.identifier isEqualToString:@"toMapView"]) {
         
-        MapsGeneral * mapVC = (MapsGeneral *)segue.destinationViewController;
+        AddToMapVC *mapVC = (AddToMapVC *)segue.destinationViewController;
         mapVC.pinPhotosArray =  [[NSMutableArray alloc] init];
         mapVC.pinPhotosArray = self.myPhotosArray;
-        mapVC.titleText = self.objectNameTextField.text;
-        mapVC.subTitleText = self.priceTextField.text;
+        
+        if ((self.objectNameTextField.text.length == 0)) {
+          
+            mapVC.titleText = @"Введите название объекта";
+        
+        }else{
+             mapVC.titleText = self.objectNameTextField.text;
+        }
+        
+         if ((self.priceTextField.text.length == 0)) {
+          
+             mapVC.subTitleText =  @"Введите цену объекта";
+         
+         }else{
+             mapVC.subTitleText = self.priceTextField.text;
+
+         }
+        
+       // mapVC.titleText = self.objectNameTextField.text;
+       // mapVC.subTitleText = self.priceTextField.text;
+    
+    
     }
     
 }

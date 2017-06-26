@@ -13,8 +13,7 @@
 #import "CollectionViewCell.h"
 #import "StyleKitName.h"
 #import "RoomTypeController.h"
-#import "MapViewController.h"
-#import "MapsGeneral.h"
+#import "AddToMapVC.h"
 
 @interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 

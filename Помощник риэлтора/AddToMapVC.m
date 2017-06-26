@@ -6,14 +6,14 @@
 //  Copyright © 2017 Chebahatt. All rights reserved.
 //
 
-#import "MapsGeneral.h"
+#import "AddToMapVC.h"
 
-@interface MapsGeneral ()
+@interface AddToMapVC ()
 
 
 @end
 
-@implementation MapsGeneral
+@implementation AddToMapVC
 @synthesize searchBar, mapView, tableView, searchResults;
 
 
@@ -98,7 +98,7 @@
                                    completion:^(CLPlacemark *placemark, NSString *addressString, NSError *error) {
                                        if (placemark) {
                                            [self.tableView setHidden: YES];
-                                           [self addPlacemarkAnnotationToMap:placemark addressString:addressString];
+                                           //[self addPlacemarkAnnotationToMap:placemark addressString:addressString];
                                            [self recenterMapToPlacemark:placemark];
                                            [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
                                        }
@@ -125,7 +125,7 @@
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
 
     if (searchText.length > 0) {
-    
+        
         [self.tableView setHidden:NO];
         [self.searchQuery fetchPlacesForSearchQuery: searchText
                                          completion:^(NSArray *places, NSError *error) {
@@ -139,8 +139,9 @@
                                                  [self.tableView reloadData];
                                              }
                                          }];
-                                }else{
-                                   self.tableView.hidden = YES;
+    }else{
+        
+        self.tableView.hidden = YES;
     }
 }
 
@@ -151,6 +152,13 @@
     [searchBar setShowsCancelButton:NO animated:YES];
     [searchBar resignFirstResponder];
     [self.tableView setHidden:YES];
+}
+
+
+- (void) dismissKeyboard {
+    
+    
+    [self.searchBar resignFirstResponder];
 }
 
 
@@ -187,10 +195,13 @@
     annotation.title = address;
     
     
-    
-    
     [self.mapView addAnnotation:annotation];
+
+    
+    
 }
+
+
 
 - (void)recenterMapToPlacemark:(CLPlacemark *)placemark
 {
@@ -206,13 +217,14 @@
     [self.mapView setRegion:region animated:YES];
 }
 
+
 -(void)setLocationManager {
+   
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [_locationManager startUpdatingLocation];
-    
-    
+   
 }
 
 
@@ -228,12 +240,6 @@
     
 }
 
-
-- (void) dismissKeyboard {
-    
-    
-    [self.searchBar resignFirstResponder];
-}
 
 
 
@@ -251,9 +257,10 @@
     
     annotation.canShowCallout = YES;
     annotation.coordinate = touchMapCoordinate;
-  
+    annotation.image = [self.pinPhotosArray firstObject];
     annotation.title = self.titleText;
     annotation.subtitle = self.subTitleText;
+    
     
     MKAnnotationView *pinView = nil;
    
@@ -293,28 +300,26 @@
 
 - (IBAction)showAllObjects:(UIBarButtonItem *)sender {
 
+    MKMapRect zoomRect = MKMapRectNull;
     
+    for (id <MKAnnotation> annotation in self.mapView.annotations) {
         
-        MKMapRect zoomRect = MKMapRectNull;
+        CLLocationCoordinate2D location = annotation.coordinate;
         
-        for (id <MKAnnotation> annotation in self.mapView.annotations) {
-            
-            CLLocationCoordinate2D location = annotation.coordinate;
-            
-            MKMapPoint center = MKMapPointForCoordinate(location);
-            
-            static double delta = 20000;
-            
-            MKMapRect rect = MKMapRectMake(center.x - delta, center.y - delta, delta * 2, delta * 2);
-            
-            zoomRect = MKMapRectUnion(zoomRect, rect);
-        }
+        MKMapPoint center = MKMapPointForCoordinate(location);
         
-        zoomRect = [self.mapView mapRectThatFits:zoomRect];
+        static double delta = 20000;
         
-        [self.mapView setVisibleMapRect:zoomRect
-                            edgePadding:UIEdgeInsetsMake(50, 50, 50, 50)
-                               animated:YES];
+        MKMapRect rect = MKMapRectMake(center.x - delta, center.y - delta, delta * 2, delta * 2);
+        
+        zoomRect = MKMapRectUnion(zoomRect, rect);
+    }
+    
+    zoomRect = [self.mapView mapRectThatFits:zoomRect];
+    
+    [self.mapView setVisibleMapRect:zoomRect
+                        edgePadding:UIEdgeInsetsMake(50, 50, 50, 50)
+                           animated:YES];
     
 }
 
@@ -362,9 +367,6 @@
 
 }
 
-
-
-
 -(void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
     
 //push to another VC here
@@ -380,10 +382,24 @@
 
 #pragma mark  MKMapViewDelegate
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
-      
-    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)annotationView didChangeDragState:(MKAnnotationViewDragState)newState
+   fromOldState:(MKAnnotationViewDragState)oldState
+{
+    if (newState == MKAnnotationViewDragStateEnding)
     
+    {
+        CLLocationCoordinate2D droppedAt = annotationView.annotation.coordinate;
+        [annotationView.annotation setCoordinate:droppedAt];
+    }
+}
+
+
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        
         return nil;
     }
     
@@ -396,23 +412,40 @@
         
         //Lazy instantation
         if (annotationView == nil) {
+            
             annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
-            
-            
-            //[annotationView setImage:[self.pinPhotosArray firstObject]];
+          
             annotationView.image = [UIImage imageNamed:@"house"];
             annotationView.centerOffset = CGPointMake(0, annotationView.frame.size.height / 2);
             annotationView.canShowCallout = YES;
             annotationView.enabled = YES;
-                     
-            UIImageView *userAvatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-            userAvatar.image = [self.pinPhotosArray firstObject];
+            annotationView.draggable = YES;
+            
+            
+            UIImageView *userAvatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 47, 47)];
+            
+            if (self.pinPhotosArray.count ==0) {
+                
+                userAvatar.image = [UIImage imageNamed:@"nophoto"];
+                
+            }else{
+                
+                userAvatar.image = [self.pinPhotosArray firstObject];
+            }
+            
+            UIButton *buttonPic = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 48, 48)];
+            buttonPic.backgroundColor = [UIColor purpleColor];
+            UIImage *btnImage = [UIImage imageNamed:@"door"];
+            [buttonPic setImage:btnImage forState:UIControlStateNormal];
+            
+            annotationView.leftCalloutAccessoryView = userAvatar;
+            annotationView.rightCalloutAccessoryView = buttonPic;
+            
             userAvatar.contentMode = UIViewContentModeScaleAspectFill;
             userAvatar.layer.cornerRadius = 4.0;
             userAvatar.layer.masksToBounds = YES;
             userAvatar.layer.borderColor = [[UIColor blackColor] CGColor];
             userAvatar.layer.borderWidth = 1;
-            annotationView.leftCalloutAccessoryView = userAvatar;
             
             
         } else {
@@ -426,26 +459,9 @@
     }
     
     return nil;
-
-}
-
-
-
-
-
-
-
-
--(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view didChangeDragState:(MKAnnotationViewDragState)newState fromOldState:(MKAnnotationViewDragState)oldState {
     
-    if (newState == MKAnnotationViewDragStateEnding) {
-        
-        CLLocationCoordinate2D location = view.annotation.coordinate;
-        MKMapPoint point = MKMapPointForCoordinate(location);
-        NSLog(@"\nlocation = {%f, %f}\npoint = %@", location.latitude, location.longitude, MKStringFromMapPoint(point));
-        
-    }
 }
+
 
 
 
@@ -467,16 +483,6 @@
     CLLocation *currentLocation = newLocation;
     
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

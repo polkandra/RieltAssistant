@@ -29,18 +29,7 @@
 
 - (void)viewDidLoad {
     
-    
-    /*
-     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-     NSMutableArray* myData = [defaults objectForKey:@"myData"];
-     
-     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-     NSString* objectName = [defaults objectForKey:@"objectName"];
-     NSString* objectPrice = [defaults objectForKey:@"objectPrice"];
-     nameOfObjectLabel = objectName;
-     priceOfObjectLabel = objectPrice; */
-    
-    
+        
     [super viewDidLoad];
     
     [self setNavigationController];
@@ -63,8 +52,7 @@
 
 -(void)setNavigationController {
     
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:85.0/255.0 green:143.0/255.0 blue:220.0/255.0 alpha:1.0]];
-   
+    [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor55]];
     //[self.navigationController.navigationBar setTranslucent:NO];
     
     //[self.navigationItem setTitle:@"Мои объекты"];

@@ -12,19 +12,21 @@
 		C609EE7A1EBA13E300B6F9D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */; };
 		C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FFA431E895B560054F83D /* NewObjectViewController.m */; };
 		C63412F41EB4B24800ACE886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63412F31EB4B24800ACE886 /* Assets.xcassets */; };
-		C636778F1EE854FB0098FC90 /* AddPlaceToMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = C636778E1EE854FB0098FC90 /* AddPlaceToMapController.m */; };
+		C636778F1EE854FB0098FC90 /* MapTab.m in Sources */ = {isa = PBXBuildFile; fileRef = C636778E1EE854FB0098FC90 /* MapTab.m */; };
 		C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = C64380C61EAD358100D88E01 /* DetailObjectController.m */; };
-		C65B20201EEAE304009F8DFA /* MapsGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = C65B201F1EEAE304009F8DFA /* MapsGeneral.m */; };
+		C65B20201EEAE304009F8DFA /* AddToMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C65B201F1EEAE304009F8DFA /* AddToMapVC.m */; };
 		C65B20221EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master in Resources */ = {isa = PBXBuildFile; fileRef = C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */; };
+		C673C98E1F018C98008EB01C /* StyleKitName.m in Sources */ = {isa = PBXBuildFile; fileRef = C673C98D1F018C98008EB01C /* StyleKitName.m */; };
 		C67BAADA1E7EBDC1004E9126 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAD91E7EBDC1004E9126 /* main.m */; };
 		C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */; };
 		C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADF1E7EBDC1004E9126 /* MainViewController.m */; };
 		C67BAAE31E7EBDC1004E9126 /* MeetingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAE21E7EBDC1004E9126 /* MeetingsViewController.m */; };
-		C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAB4B1E7EE195004E9126 /* StyleKitName.m */; };
 		C67BAB571E7EEF59004E9126 /* MainScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAB561E7EEF59004E9126 /* MainScreenView.m */; };
 		C69206121ECB48F600D7210D /* DetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C69206111ECB48F600D7210D /* DetailCollectionViewCell.m */; };
 		C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */; };
 		C6A36DAB1E9A98EC00A00F04 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */; };
+		C6CDBEBB1F017EC00024B147 /* MeetingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CDBEB91F017EC00024B147 /* MeetingsCell.m */; };
+		C6CDBEBC1F017EC00024B147 /* MeetingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6CDBEBA1F017EC00024B147 /* MeetingsCell.xib */; };
 		C6D0E08F1EE8030B00E0FF26 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D0E08E1EE8030B00E0FF26 /* MapAnnotation.m */; };
 		C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */; };
 		C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */; };
@@ -45,13 +47,15 @@
 		C60FFA421E895B560054F83D /* NewObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewObjectViewController.h; sourceTree = "<group>"; };
 		C60FFA431E895B560054F83D /* NewObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewObjectViewController.m; sourceTree = "<group>"; };
 		C63412F31EB4B24800ACE886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C636778D1EE854FB0098FC90 /* AddPlaceToMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPlaceToMapController.h; sourceTree = "<group>"; };
-		C636778E1EE854FB0098FC90 /* AddPlaceToMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPlaceToMapController.m; sourceTree = "<group>"; };
+		C636778D1EE854FB0098FC90 /* MapTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTab.h; sourceTree = "<group>"; };
+		C636778E1EE854FB0098FC90 /* MapTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTab.m; sourceTree = "<group>"; };
 		C64380C51EAD358100D88E01 /* DetailObjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailObjectController.h; sourceTree = "<group>"; };
 		C64380C61EAD358100D88E01 /* DetailObjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailObjectController.m; sourceTree = "<group>"; };
-		C65B201E1EEAE304009F8DFA /* MapsGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapsGeneral.h; sourceTree = "<group>"; };
-		C65B201F1EEAE304009F8DFA /* MapsGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapsGeneral.m; sourceTree = "<group>"; };
+		C65B201E1EEAE304009F8DFA /* AddToMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToMapVC.h; sourceTree = "<group>"; };
+		C65B201F1EEAE304009F8DFA /* AddToMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToMapVC.m; sourceTree = "<group>"; };
 		C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "SPGooglePlacesAutocomplete-master"; sourceTree = "<group>"; };
+		C673C98C1F018C98008EB01C /* StyleKitName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleKitName.h; sourceTree = "<group>"; };
+		C673C98D1F018C98008EB01C /* StyleKitName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleKitName.m; sourceTree = "<group>"; };
 		C67BAAD51E7EBDC1004E9126 /* RieltAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RieltAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67BAAD91E7EBDC1004E9126 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C67BAADB1E7EBDC1004E9126 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -61,8 +65,6 @@
 		C67BAAE21E7EBDC1004E9126 /* MeetingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingsViewController.m; sourceTree = "<group>"; };
 		C67BAAEA1E7EBDC2004E9126 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C67BAAEC1E7EBDC2004E9126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C67BAB4A1E7EE195004E9126 /* StyleKitName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StyleKitName.h; path = "Помощник риэлтора/StyleKitName.h"; sourceTree = "<group>"; };
-		C67BAB4B1E7EE195004E9126 /* StyleKitName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StyleKitName.m; path = "Помощник риэлтора/StyleKitName.m"; sourceTree = "<group>"; };
 		C67BAB551E7EEF59004E9126 /* MainScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenView.h; sourceTree = "<group>"; };
 		C67BAB561E7EEF59004E9126 /* MainScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenView.m; sourceTree = "<group>"; };
 		C69206101ECB48F600D7210D /* DetailCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCollectionViewCell.h; sourceTree = "<group>"; };
@@ -70,6 +72,9 @@
 		C6A36DA31E9A827B00A00F04 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		C6CDBEB81F017EC00024B147 /* MeetingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingsCell.h; sourceTree = "<group>"; };
+		C6CDBEB91F017EC00024B147 /* MeetingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingsCell.m; sourceTree = "<group>"; };
+		C6CDBEBA1F017EC00024B147 /* MeetingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeetingsCell.xib; sourceTree = "<group>"; };
 		C6D0E08D1EE8030B00E0FF26 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
 		C6D0E08E1EE8030B00E0FF26 /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 		C6DB4FD01E8FD9A400CD4AE2 /* EstateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstateObject.h; sourceTree = "<group>"; };
@@ -119,8 +124,8 @@
 				C6F428421E7FFBE800B5613F /* MapViewController.m */,
 				C6D0E08D1EE8030B00E0FF26 /* MapAnnotation.h */,
 				C6D0E08E1EE8030B00E0FF26 /* MapAnnotation.m */,
-				C65B201E1EEAE304009F8DFA /* MapsGeneral.h */,
-				C65B201F1EEAE304009F8DFA /* MapsGeneral.m */,
+				C65B201E1EEAE304009F8DFA /* AddToMapVC.h */,
+				C65B201F1EEAE304009F8DFA /* AddToMapVC.m */,
 			);
 			name = MapsControllers;
 			sourceTree = "<group>";
@@ -169,8 +174,8 @@
 		C67BAB4D1E7EE19E004E9126 /* StyleKit */ = {
 			isa = PBXGroup;
 			children = (
-				C67BAB4A1E7EE195004E9126 /* StyleKitName.h */,
-				C67BAB4B1E7EE195004E9126 /* StyleKitName.m */,
+				C673C98C1F018C98008EB01C /* StyleKitName.h */,
+				C673C98D1F018C98008EB01C /* StyleKitName.m */,
 			);
 			name = StyleKit;
 			path = ..;
@@ -182,12 +187,11 @@
 				C692060F1ECB40B900D7210D /* Tabs */,
 				C64380C51EAD358100D88E01 /* DetailObjectController.h */,
 				C64380C61EAD358100D88E01 /* DetailObjectController.m */,
-				C636778D1EE854FB0098FC90 /* AddPlaceToMapController.h */,
-				C636778E1EE854FB0098FC90 /* AddPlaceToMapController.m */,
 				C6DF6B391EAF673C007F1CB9 /* RoomTypeController.h */,
 				C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */,
 				C60FFA421E895B560054F83D /* NewObjectViewController.h */,
 				C60FFA431E895B560054F83D /* NewObjectViewController.m */,
+				C65B201D1EEAE2C4009F8DFA /* MapsControllers */,
 				C6CAB5D51EE1E91D00078A32 /* PageViewController */,
 			);
 			name = ViewControllers;
@@ -209,7 +213,8 @@
 		C692060F1ECB40B900D7210D /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				C65B201D1EEAE2C4009F8DFA /* MapsControllers */,
+				C636778D1EE854FB0098FC90 /* MapTab.h */,
+				C636778E1EE854FB0098FC90 /* MapTab.m */,
 				C607023B1E8E89DD007933F0 /* MainViewController.h */,
 				C67BAADF1E7EBDC1004E9126 /* MainViewController.m */,
 				C67BAAE11E7EBDC1004E9126 /* MeetingsViewController.h */,
@@ -256,6 +261,9 @@
 			children = (
 				C60702371E8E7A64007933F0 /* MainScreenCellTableViewCell.h */,
 				C60702381E8E7A64007933F0 /* MainScreenCellTableViewCell.m */,
+				C6CDBEB81F017EC00024B147 /* MeetingsCell.h */,
+				C6CDBEB91F017EC00024B147 /* MeetingsCell.m */,
+				C6CDBEBA1F017EC00024B147 /* MeetingsCell.xib */,
 				C6A36DA31E9A827B00A00F04 /* CollectionViewCell.h */,
 				C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */,
 				C69206101ECB48F600D7210D /* DetailCollectionViewCell.h */,
@@ -329,6 +337,7 @@
 			files = (
 				C65B20221EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master in Resources */,
 				C609EE7A1EBA13E300B6F9D8 /* LaunchScreen.storyboard in Resources */,
+				C6CDBEBC1F017EC00024B147 /* MeetingsCell.xib in Resources */,
 				C63412F41EB4B24800ACE886 /* Assets.xcassets in Resources */,
 				C6E35E651E9D08A100235216 /* Main.storyboard in Resources */,
 			);
@@ -392,6 +401,7 @@
 				C67BAAE31E7EBDC1004E9126 /* MeetingsViewController.m in Sources */,
 				C6D0E08F1EE8030B00E0FF26 /* MapAnnotation.m in Sources */,
 				C67BAB571E7EEF59004E9126 /* MainScreenView.m in Sources */,
+				C673C98E1F018C98008EB01C /* StyleKitName.m in Sources */,
 				C6F428441E7FFBE800B5613F /* MapViewController.m in Sources */,
 				C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */,
 				C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */,
@@ -402,11 +412,11 @@
 				C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */,
 				C69206121ECB48F600D7210D /* DetailCollectionViewCell.m in Sources */,
 				C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */,
-				C65B20201EEAE304009F8DFA /* MapsGeneral.m in Sources */,
+				C65B20201EEAE304009F8DFA /* AddToMapVC.m in Sources */,
 				C6F14D671EDF08FE00658494 /* UIPageViewControllerScene.m in Sources */,
 				C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */,
-				C636778F1EE854FB0098FC90 /* AddPlaceToMapController.m in Sources */,
-				C67BAB4C1E7EE195004E9126 /* StyleKitName.m in Sources */,
+				C636778F1EE854FB0098FC90 /* MapTab.m in Sources */,
+				C6CDBEBB1F017EC00024B147 /* MeetingsCell.m in Sources */,
 				C67BAADA1E7EBDC1004E9126 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

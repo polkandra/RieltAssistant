@@ -6,13 +6,13 @@
 //  Copyright © 2017 Chebahatt. All rights reserved.
 //
 
-#import "AddPlaceToMapController.h"
+#import "MapTab.h"
 
-@interface AddPlaceToMapController ()
+@interface MapTab ()
 
 @end
 
-@implementation AddPlaceToMapController
+@implementation MapTab
 @synthesize mapView, locationManager, searchBar;
 
 
@@ -30,6 +30,9 @@
 }
 
 
+
+
+
 -(void)setLocationManager {
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -39,6 +42,45 @@
     
 }
 
+
+
+- (void) dismissKeyboard {
+    
+    
+    [self.searchBar resignFirstResponder];
+}
+
+
+#pragma mark -- Actions
+
+
+- (IBAction)showAllObjects:(UIBarButtonItem *)sender {
+    
+    MKMapRect zoomRect = MKMapRectNull;
+    
+    for (id <MKAnnotation> annotation in self.mapView.annotations) {
+        
+        CLLocationCoordinate2D location = annotation.coordinate;
+        
+        MKMapPoint center = MKMapPointForCoordinate(location);
+        
+        static double delta = 20000;
+        
+        MKMapRect rect = MKMapRectMake(center.x - delta, center.y - delta, delta * 2, delta * 2);
+        
+        zoomRect = MKMapRectUnion(zoomRect, rect);
+    }
+    
+    zoomRect = [self.mapView mapRectThatFits:zoomRect];
+    
+    [self.mapView setVisibleMapRect:zoomRect
+                        edgePadding:UIEdgeInsetsMake(50, 50, 50, 50)
+                           animated:YES];
+    
+}
+
+
+#pragma mark -- Set GestureRecognisers
 
 -(void)setGestureRecognizers {
     
@@ -51,15 +93,6 @@
     [self.mapView addGestureRecognizer:lpgr];
     
 }
-
-
-- (void) dismissKeyboard {
-    
-    
-    [self.searchBar resignFirstResponder];
-}
-
-
 
 -(void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer {
     
@@ -80,6 +113,9 @@
 }
 
 
+
+
+#pragma mark -- MKMapViewDelegate
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     

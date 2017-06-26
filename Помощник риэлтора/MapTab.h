@@ -12,12 +12,14 @@
 #import "MapAnnotation.h"
 
 
-@interface AddPlaceToMapController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
+@interface MapTab : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @property (strong, nonatomic)  CLLocationManager *locationManager;
+
+- (IBAction)showAllObjects:(UIBarButtonItem *)sender;
 
 
 @end

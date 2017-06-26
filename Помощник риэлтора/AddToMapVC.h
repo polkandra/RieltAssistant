@@ -13,10 +13,11 @@
 #import <MapKit/MapKit.h>
 #import "CLPlacemark+HNKAdditions.h"
 #import "NewObjectViewController.h"
+#import "StyleKitName.h"
 @import GooglePlaces;
 
 
-@interface MapsGeneral : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface AddToMapVC : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 
 - (IBAction)searchPlace:(UIBarButtonItem *)sender;
