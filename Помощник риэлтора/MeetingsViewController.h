@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MeetingsCell.h"
+#import "MeetingObject.h"
+#import "StyleKitName.h"
+#import "EmptyCell.h"
 
 @interface MeetingsViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property(strong, nonatomic) NSMutableArray* myMeetingsDetailsData;
 
 @end
 

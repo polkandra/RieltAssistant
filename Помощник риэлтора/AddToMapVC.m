@@ -27,16 +27,17 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.hidden = YES;
+    
+    mapView.zoomEnabled = YES;
     self.mapView.showsUserLocation = YES;
    
     
    
     self.searchQuery = [HNKGooglePlacesAutocompleteQuery sharedQuery];
     
-    
-   
-    [self setMKUserTrackingButton];
+    [self.locationManager requestWhenInUseAuthorization];
     [self setLocationManager];
+    [self setMKUserTrackingButton];
     [self setGestureRecognizers];
    
     /* GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:55.7522200 longitude:37.6155600 zoom:10.0];
@@ -57,7 +58,6 @@
     
     [self.view addSubview:self.mapView];*/
 
-    
     
     
 }
@@ -168,6 +168,7 @@
 
 
 -(void)setMKUserTrackingButton {
+    
     MKUserTrackingBarButtonItem *buttonItem = [[MKUserTrackingBarButtonItem alloc] initWithMapView:self.mapView];
     
     self.navigationItem.rightBarButtonItem = buttonItem;
@@ -184,6 +185,7 @@
     [alert addAction:cancelAction];
     [self presentViewController:alert animated:YES completion:nil];
 }
+
 
 
 - (void)addPlacemarkAnnotationToMap:(CLPlacemark *)placemark addressString:(NSString *)address
@@ -223,6 +225,12 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+   
+    
     [_locationManager startUpdatingLocation];
    
 }
@@ -434,8 +442,8 @@
             }
             
             UIButton *buttonPic = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 48, 48)];
-            buttonPic.backgroundColor = [UIColor purpleColor];
-            UIImage *btnImage = [UIImage imageNamed:@"door"];
+            //buttonPic.backgroundColor = [UIColor purpleColor];
+            UIImage *btnImage = [UIImage imageNamed:@"playArrow"];
             [buttonPic setImage:btnImage forState:UIControlStateNormal];
             
             annotationView.leftCalloutAccessoryView = userAvatar;
@@ -444,7 +452,7 @@
             userAvatar.contentMode = UIViewContentModeScaleAspectFill;
             userAvatar.layer.cornerRadius = 4.0;
             userAvatar.layer.masksToBounds = YES;
-            userAvatar.layer.borderColor = [[UIColor blackColor] CGColor];
+            userAvatar.layer.borderColor = [[UIColor whiteColor] CGColor];
             userAvatar.layer.borderWidth = 1;
             
             
@@ -477,12 +485,18 @@
 }
 
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    CLLocation *newLocation = locations.lastObject;
+}
+
+
+/*- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     NSLog(@"didUpdateToLocation: %@", newLocation);
-    CLLocation *currentLocation = newLocation;
+   CLLocation *newLocation = locations.lastObject;
     
-}
+}*/
 
 
 

@@ -28,6 +28,9 @@
 		C6CDBEBB1F017EC00024B147 /* MeetingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CDBEB91F017EC00024B147 /* MeetingsCell.m */; };
 		C6CDBEBC1F017EC00024B147 /* MeetingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6CDBEBA1F017EC00024B147 /* MeetingsCell.xib */; };
 		C6D0E08F1EE8030B00E0FF26 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D0E08E1EE8030B00E0FF26 /* MapAnnotation.m */; };
+		C6D33CCF1F02973500F7C82B /* MeetingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D33CCE1F02973500F7C82B /* MeetingObject.m */; };
+		C6D33CD21F029CBA00F7C82B /* NewMeetingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D33CD11F029CBA00F7C82B /* NewMeetingDetailViewController.m */; };
+		C6D33CD51F02A68F00F7C82B /* EmptyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D33CD41F02A68F00F7C82B /* EmptyCell.m */; };
 		C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */; };
 		C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */; };
 		C6E35E651E9D08A100235216 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E35E641E9D08A100235216 /* Main.storyboard */; };
@@ -77,6 +80,12 @@
 		C6CDBEBA1F017EC00024B147 /* MeetingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeetingsCell.xib; sourceTree = "<group>"; };
 		C6D0E08D1EE8030B00E0FF26 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
 		C6D0E08E1EE8030B00E0FF26 /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
+		C6D33CCD1F02973500F7C82B /* MeetingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingObject.h; sourceTree = "<group>"; };
+		C6D33CCE1F02973500F7C82B /* MeetingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingObject.m; sourceTree = "<group>"; };
+		C6D33CD01F029CBA00F7C82B /* NewMeetingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMeetingDetailViewController.h; sourceTree = "<group>"; };
+		C6D33CD11F029CBA00F7C82B /* NewMeetingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMeetingDetailViewController.m; sourceTree = "<group>"; };
+		C6D33CD31F02A68F00F7C82B /* EmptyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyCell.h; sourceTree = "<group>"; };
+		C6D33CD41F02A68F00F7C82B /* EmptyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyCell.m; sourceTree = "<group>"; };
 		C6DB4FD01E8FD9A400CD4AE2 /* EstateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstateObject.h; sourceTree = "<group>"; };
 		C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstateObject.m; sourceTree = "<group>"; };
 		C6DF6B391EAF673C007F1CB9 /* RoomTypeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomTypeController.h; sourceTree = "<group>"; };
@@ -187,6 +196,8 @@
 				C692060F1ECB40B900D7210D /* Tabs */,
 				C64380C51EAD358100D88E01 /* DetailObjectController.h */,
 				C64380C61EAD358100D88E01 /* DetailObjectController.m */,
+				C6D33CD01F029CBA00F7C82B /* NewMeetingDetailViewController.h */,
+				C6D33CD11F029CBA00F7C82B /* NewMeetingDetailViewController.m */,
 				C6DF6B391EAF673C007F1CB9 /* RoomTypeController.h */,
 				C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */,
 				C60FFA421E895B560054F83D /* NewObjectViewController.h */,
@@ -251,6 +262,8 @@
 			children = (
 				C6DB4FD01E8FD9A400CD4AE2 /* EstateObject.h */,
 				C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */,
+				C6D33CCD1F02973500F7C82B /* MeetingObject.h */,
+				C6D33CCE1F02973500F7C82B /* MeetingObject.m */,
 			);
 			name = Model;
 			path = ..;
@@ -268,6 +281,8 @@
 				C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */,
 				C69206101ECB48F600D7210D /* DetailCollectionViewCell.h */,
 				C69206111ECB48F600D7210D /* DetailCollectionViewCell.m */,
+				C6D33CD31F02A68F00F7C82B /* EmptyCell.h */,
+				C6D33CD41F02A68F00F7C82B /* EmptyCell.m */,
 			);
 			name = Cells;
 			path = ..;
@@ -406,8 +421,11 @@
 				C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */,
 				C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */,
 				C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */,
+				C6D33CCF1F02973500F7C82B /* MeetingObject.m in Sources */,
 				C6F14D6A1EDF0AD800658494 /* EbmeddedImageController.m in Sources */,
 				C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */,
+				C6D33CD51F02A68F00F7C82B /* EmptyCell.m in Sources */,
+				C6D33CD21F029CBA00F7C82B /* NewMeetingDetailViewController.m in Sources */,
 				C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */,
 				C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */,
 				C69206121ECB48F600D7210D /* DetailCollectionViewCell.m in Sources */,

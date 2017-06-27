@@ -19,6 +19,7 @@
 
 
 
+
 @property (weak, nonatomic) IBOutlet UILabel *objectTypeLabelInCell;
 @property (weak, nonatomic) IBOutlet UILabel *actionTypeLabelInCell;
 

@@ -32,7 +32,7 @@
         
     [super viewDidLoad];
     
-    [self setNavigationController];
+  
     
     self.emptyDataBaseLabel.hidden = NO;
     
@@ -45,28 +45,29 @@
     
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
 }
 
 
 
--(void)setNavigationController {
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
-    [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor55]];
-    //[self.navigationController.navigationBar setTranslucent:NO];
+    [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor52]];
+    [self.navigationController.navigationBar setTranslucent:YES];
     
-    //[self.navigationItem setTitle:@"Мои объекты"];
+    [self.navigationItem setTitle:@"Мои объекты"];
     
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
-  
-    /*[[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor,nil] forState:UIControlStateNormal];
-        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];*/
-    
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor],
        NSFontAttributeName:[UIFont fontWithName:@"avenir" size:19]}];
+    
+    // making nav bar translucent
+     /*[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+     self.navigationController.navigationBar.shadowImage = [UIImage new];
+     self.navigationController.navigationBar.translucent = YES;*/
    
 }
 
@@ -131,10 +132,9 @@
         controller.myDetailPhotosArray = [[NSMutableArray alloc] init];
         
         controller.myDetailPhotosArray = self.myPhotosData;
-      
+        
     }
 }
-
 
 
 

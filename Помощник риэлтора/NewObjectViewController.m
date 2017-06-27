@@ -19,7 +19,7 @@
 @synthesize  myPhotosArray, tableView;
 
 
-#pragma mark - VC Lyficycle
+#pragma mark - VC Lificycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,26 +31,52 @@
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-
-    self.collectionView.allowsMultipleSelection = YES;
-    self.tableView.allowsSelection = NO;
+    
+    self.collectionView.allowsMultipleSelection = NO;
+    self.tableView.allowsSelection = YES;
+    
     
     [self setDelegatesForPickerView];
     [self setDelegatesForTextFields];
     [self addGestureRecognizer];
     [self pickerViewWithData];
-   
+    
     self.myData = [[NSMutableArray alloc] init];
     self.myPhotosArray = [[NSMutableArray alloc] init];
     self.selectedPhotos = [[NSMutableArray alloc] init];
-
-
+    
+    
     if([myPhotosArray count] > 0) {
+        
         self.addPlaceOnMapButton.enabled = NO;
+        
     }else{
+        
         self.addPlaceOnMapButton.enabled = YES;
     }
+    
+    
+    
+}
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor46]];
+    [self.navigationController.navigationBar setTranslucent:NO];
+    
+    [self.navigationItem setTitle:@"Новый объект"];
+    
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor],
+       NSFontAttributeName:[UIFont fontWithName:@"avenir" size:22]}];
+
+    /*[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;*/
 
 }
 
@@ -156,8 +182,6 @@
        
                 
         self.myObject.phoneNumber = self.phoneTextField.text;
-               
-        
         
         self.myObject.typeOfProperty = self.objectTypeLabelInCell.text;
         self.myObject.actionByProperty = self.actionTypeLabelInCell.text;
@@ -171,8 +195,7 @@
             
             self.myObject.wholeArea = self.totalSquareTextField.text;
         }
-        
-        
+       
         
         if (( self.livingSquareTextField.text.length == 0 )){
             
@@ -244,6 +267,11 @@
             
         }
         
+    
+    
+    
+    
+    
     } else if ([segue.identifier isEqualToString:@"toMapView"]) {
         
         AddToMapVC *mapVC = (AddToMapVC *)segue.destinationViewController;
@@ -263,14 +291,15 @@
              mapVC.subTitleText =  @"Введите цену объекта";
          
          }else{
+             
+             NSMutableString *concatString = self.priceTextField.text;
+             concatString = [concatString stringByAppendingString:@" Рублей"];
+             self.priceTextField.text = concatString;
+             
              mapVC.subTitleText = self.priceTextField.text;
 
          }
-        
-       // mapVC.titleText = self.objectNameTextField.text;
-       // mapVC.subTitleText = self.priceTextField.text;
-    
-    
+      
     }
     
 }

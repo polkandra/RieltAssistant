@@ -17,7 +17,7 @@
 @import GooglePlaces;
 
 
-@interface AddToMapVC : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface AddToMapVC : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate,CLLocationManagerDelegate>
 
 
 - (IBAction)searchPlace:(UIBarButtonItem *)sender;
@@ -31,11 +31,16 @@
 
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic)  CLLocationManager* locationManager;
+
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (strong, nonatomic) NSArray *searchResults;
 @property (strong, nonatomic) NSArray *pinPhotosArray;
-@property (strong, nonatomic)  CLLocationManager *locationManager;
+
+
+
 
 @property (strong, nonatomic) NSString *titleText;
 @property (strong, nonatomic) NSString *subTitleText;

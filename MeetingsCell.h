@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StyleKitName.h"
 
 @interface MeetingsCell : UITableViewCell
 
