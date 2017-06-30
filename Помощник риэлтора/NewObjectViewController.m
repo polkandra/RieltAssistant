@@ -253,17 +253,17 @@
         }
         
         
-        if ([myPhotosArray count] == 0) {
+        if ([self.myPhotosArray count] == 0) {
             
             UIImage *image = [UIImage imageNamed:@"emptyObject2"];
             
-            [myPhotosArray addObject:image];
+            [self.myPhotosArray addObject:image];
             
-            self.myObject.picture = [myPhotosArray firstObject];
+            self.myObject.picture = [self.myPhotosArray firstObject];
             
         }else{
             
-            self.myObject.picture = [myPhotosArray firstObject];
+            self.myObject.picture = [self.myPhotosArray firstObject];
             
         }
         

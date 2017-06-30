@@ -13,7 +13,7 @@
 #import "EstateObject.h"
 #import "DetailObjectController.h"
 #import "EbmeddedImageController.h"
-
+#import "EmptyCell.h"
 
 
 @interface MainViewController : UIViewController  <UITableViewDataSource, UITableViewDelegate>

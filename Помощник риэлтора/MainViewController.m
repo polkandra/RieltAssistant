@@ -162,6 +162,23 @@
 #pragma mark - UITableViewDataSource
 
 
+/*- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return [self.myData count];
+}
+
+ 
+ - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
+- (float)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    
+    
+    return 50;
+}*/
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return [self.myData count] ;
@@ -198,12 +215,16 @@
     // cell.accessoryView.backgroundColor = [UIColor blueColor];
     
     cell.imageViewCell.image = object.picture;
-    
+   
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 140, 374, 30)];
+     
+     view.backgroundColor = [UIColor clearColor];
+     [cell.contentView addSubview:view];
     
     return  cell;
-    
-    
+  
 }
+
 
 
 
@@ -216,6 +237,21 @@
     
     }
 }
+
+
+
+
+/*-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+   
+    UIView *view = [[UIView alloc] init];
+    
+    view.backgroundColor = [UIColor clearColor];
+    
+   // [self.tableView addSubview:view];
+    
+    return view;
+    
+}*/
 
 
 

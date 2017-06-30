@@ -21,4 +21,12 @@
     // Configure the view for the selected state
 }
 
+
+-(void)drawRect:(CGRect)rect {
+   
+
+}
+
+
+
 @end
