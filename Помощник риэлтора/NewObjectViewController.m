@@ -19,11 +19,16 @@
 @synthesize  myPhotosArray, tableView;
 
 
-#pragma mark - VC Lificycle
+#pragma mark - VC Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    
+    NSInteger row = 1;
+    NSInteger section = 4;
+    self.expandedIndexPath = [NSIndexPath indexPathForRow:row inSection:section];
+    
     NSLog(@"my array = %@",self.myData);
     
     self.saveRightBarButton.enabled = YES;
@@ -159,6 +164,41 @@
     }
 }
 
+
+#pragma mark - UITableViewDelegate
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView beginUpdates];
+    
+    
+    if ([indexPath compare:self.expandedIndexPath] == NSOrderedSame) {
+        self.expandedIndexPath = nil;
+    
+    }else{
+        self.expandedIndexPath = indexPath;
+    }
+    /*[[self tableView] reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForItem: 0 inSection:4]] withRowAnimation:UITableViewRowAnimationAutomatic];*/
+    
+    [tableView endUpdates];
+    
+    
+
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+
+{
+    if ([indexPath compare:self.expandedIndexPath] == NSOrderedSame) {
+        
+        return 200.0; // Expanded height
+   
+    }
+    
+    return 70.0; // Normal height
+    
+}
 
 #pragma mark - Segues
 

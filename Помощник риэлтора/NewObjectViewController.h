@@ -43,6 +43,8 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+@property (strong, nonatomic) NSIndexPath *expandedIndexPath;
+
 
 @property(nonatomic, assign) id<UINavigationControllerDelegate,
 UIImagePickerControllerDelegate>delegate;
