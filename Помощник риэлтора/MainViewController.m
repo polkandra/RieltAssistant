@@ -133,6 +133,7 @@
         
         controller.myDetailPhotosArray = self.myPhotosData;
         
+    
     }
 }
 

@@ -10,12 +10,18 @@
 #import "MeetingsCell.h"
 #import "MeetingObject.h"
 #import "StyleKitName.h"
-#import "EmptyCell.h"
+#import "NewMeetingDetailViewController.h"
+#import "DetailMeetingController.h"
 
-@interface MeetingsViewController : UIViewController
+
+@interface MeetingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(strong, nonatomic) NSMutableArray* myMeetingsDetailsData;
 
+@property (weak, nonatomic) IBOutlet UILabel *disclaimerLabel;
+
+
+@property(strong, nonatomic) MeetingObject* meetingObject;
 @end
 

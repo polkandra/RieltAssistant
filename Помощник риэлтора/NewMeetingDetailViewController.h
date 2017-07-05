@@ -7,7 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MeetingObject.h"
+#import "MeetingsViewController.h"
 
-@interface NewMeetingDetailViewController : UITableViewController
+@interface NewMeetingDetailViewController : UITableViewController 
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UITextField *personNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *personPhoneTextField;
+@property (weak, nonatomic) IBOutlet UITextView *meetDetailsTextView;
+
+
+@property(strong, nonatomic) MeetingObject *meetingObject;
+
+
+
+- (IBAction)datePickerValueChanged:(id)sender;
+
 
 @end

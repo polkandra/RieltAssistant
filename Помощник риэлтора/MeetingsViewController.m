@@ -29,6 +29,50 @@
 
 
 
+
+#pragma mark - Unwind segue from NewMeetingVC
+
+
+
+- (IBAction)unwindFromNewMeetengsDetailVC:(UIStoryboardSegue*)segue {
+    
+    if ([segue.identifier isEqualToString:@"toMeetingsVC"]) {
+        
+        NewMeetingDetailViewController *controller = segue.sourceViewController;
+        
+        MeetingObject* newObject = controller.meetingObject;
+        
+        [self.myMeetingsDetailsData addObject:newObject];
+        
+        _disclaimerLabel.hidden = YES;
+
+       
+        NSLog(@"my aaaaray = %@",self.myMeetingsDetailsData);
+        
+        
+        [self.tableView reloadData];
+        
+        
+        
+    }
+    
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"toDetailMeetingVC"]) {
+        
+        DetailMeetingController *controller = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        controller.myMeetingObject = [self.myMeetingsDetailsData objectAtIndex:indexPath.row];
+        
+    }
+}
+
+
+
+
 #pragma mark - UITableViewDataSource
 
 
@@ -42,47 +86,52 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    if (indexPath.row % 2 == 1) {
-        return 40.0;
-    } else {
-        return 2.0;
-    }
+    return 100;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+   
     
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    if (indexPath.row % 2 == 1)
-    {
-        static NSString *CellIdentifier = @"MeetingCell";
-        MeetingsCell *cell = (MeetingsCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil) {
-            cell = [[EmptyCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                          reuseIdentifier:CellIdentifier];
-        }
+    static NSString *CellIdentifier = @"MeetingCell";
+   
+    MeetingsCell *cell = (MeetingsCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
         
-        cell.backgroundColor = [UIColor greenColor];
-        
-        return cell;
-        
-    } else {
-        
-        static NSString *CellIdentifier2 = @"EmptyCell";
-        EmptyCell *cell2 = (EmptyCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier2];
-        if (cell2 == nil) {
-            cell2 = [[EmptyCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                           reuseIdentifier:CellIdentifier2];
-        }
-        cell2.backgroundColor = [UIColor clearColor];
-        cell2.userInteractionEnabled = NO;
-        return cell2;
+        cell = [[MeetingsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
+    MeetingObject* object = [self.myMeetingsDetailsData objectAtIndex:indexPath.row];
+    
+    cell.dateLabel.text = object.date;
+    cell.dateLabel.textColor = [UIColor whiteColor];
+   
+    cell.timeLabel.text = object.time;
+    cell.timeLabel.textColor = [UIColor whiteColor];
+    
+    cell.objectNameLabel.text = object.objectName;
+    cell.objectNameLabel.textColor = [UIColor whiteColor];
+    
+    cell.personNameLabel.text = object.personName;
+    cell.personNameLabel.textColor = [UIColor whiteColor];
+    
+    
+    return cell;
+
+  
 }
 
- 
+#pragma mark - UITableViewDelegate
+
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+
+}
+
+
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -94,29 +143,6 @@
     }
 }
 
-
-
-
-
-#pragma mark - UITableViewDelegate
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-}
-
-
-
-
-#pragma mark - Unwind segue from NewMeetingVC
-
-
-
-- (IBAction)unwindFromNewMeetengsDetailVC:(UIStoryboardSegue*)segue {
-
-
-}
 
 
 @end

@@ -13,7 +13,7 @@
 #import "EstateObject.h"
 #import "DetailObjectController.h"
 #import "EbmeddedImageController.h"
-#import "EmptyCell.h"
+
 
 
 @interface MainViewController : UIViewController  <UITableViewDataSource, UITableViewDelegate>
@@ -27,7 +27,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *emptyDataBaseLabel;
 
-//@property(strong, nonatomic) EstateObject* myMainObject;
+@property(strong, nonatomic) EstateObject* myMainObject;
 
 @property (assign, nonatomic) BOOL hidden;
 

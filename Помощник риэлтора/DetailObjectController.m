@@ -38,6 +38,7 @@
     self.phoneNumberLabel.text = myDetailObject.phoneNumber;
     self.actionLabel.text = myDetailObject.typeOfProperty;
     self.typeLabel.text = myDetailObject.actionByProperty;
+    
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.allowsSelection = NO;
     

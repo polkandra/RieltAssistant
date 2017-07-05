@@ -26,13 +26,12 @@
 		C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */; };
 		C6A36DAB1E9A98EC00A00F04 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */; };
 		C6CDBEBB1F017EC00024B147 /* MeetingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CDBEB91F017EC00024B147 /* MeetingsCell.m */; };
-		C6CDBEBC1F017EC00024B147 /* MeetingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6CDBEBA1F017EC00024B147 /* MeetingsCell.xib */; };
 		C6D0E08F1EE8030B00E0FF26 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D0E08E1EE8030B00E0FF26 /* MapAnnotation.m */; };
 		C6D33CCF1F02973500F7C82B /* MeetingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D33CCE1F02973500F7C82B /* MeetingObject.m */; };
 		C6D33CD21F029CBA00F7C82B /* NewMeetingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D33CD11F029CBA00F7C82B /* NewMeetingDetailViewController.m */; };
-		C6D33CD51F02A68F00F7C82B /* EmptyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D33CD41F02A68F00F7C82B /* EmptyCell.m */; };
 		C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */; };
 		C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */; };
+		C6E11F071F0D256100456A4E /* DetailMeetingController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6E11F061F0D256100456A4E /* DetailMeetingController.m */; };
 		C6E35E651E9D08A100235216 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E35E641E9D08A100235216 /* Main.storyboard */; };
 		C6E37E941EE2F0D80013DDD5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E37E931EE2F0D80013DDD5 /* CoreLocation.framework */; };
 		C6E37E961EE2F0E30013DDD5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E37E951EE2F0E30013DDD5 /* MapKit.framework */; };
@@ -77,19 +76,18 @@
 		C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		C6CDBEB81F017EC00024B147 /* MeetingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingsCell.h; sourceTree = "<group>"; };
 		C6CDBEB91F017EC00024B147 /* MeetingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingsCell.m; sourceTree = "<group>"; };
-		C6CDBEBA1F017EC00024B147 /* MeetingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeetingsCell.xib; sourceTree = "<group>"; };
 		C6D0E08D1EE8030B00E0FF26 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
 		C6D0E08E1EE8030B00E0FF26 /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 		C6D33CCD1F02973500F7C82B /* MeetingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingObject.h; sourceTree = "<group>"; };
 		C6D33CCE1F02973500F7C82B /* MeetingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingObject.m; sourceTree = "<group>"; };
 		C6D33CD01F029CBA00F7C82B /* NewMeetingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMeetingDetailViewController.h; sourceTree = "<group>"; };
 		C6D33CD11F029CBA00F7C82B /* NewMeetingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMeetingDetailViewController.m; sourceTree = "<group>"; };
-		C6D33CD31F02A68F00F7C82B /* EmptyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyCell.h; sourceTree = "<group>"; };
-		C6D33CD41F02A68F00F7C82B /* EmptyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyCell.m; sourceTree = "<group>"; };
 		C6DB4FD01E8FD9A400CD4AE2 /* EstateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstateObject.h; sourceTree = "<group>"; };
 		C6DB4FD11E8FD9A400CD4AE2 /* EstateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstateObject.m; sourceTree = "<group>"; };
 		C6DF6B391EAF673C007F1CB9 /* RoomTypeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomTypeController.h; sourceTree = "<group>"; };
 		C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomTypeController.m; sourceTree = "<group>"; };
+		C6E11F051F0D256100456A4E /* DetailMeetingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailMeetingController.h; sourceTree = "<group>"; };
+		C6E11F061F0D256100456A4E /* DetailMeetingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailMeetingController.m; sourceTree = "<group>"; };
 		C6E35E641E9D08A100235216 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C6E37E931EE2F0D80013DDD5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C6E37E951EE2F0E30013DDD5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -194,14 +192,16 @@
 			isa = PBXGroup;
 			children = (
 				C692060F1ECB40B900D7210D /* Tabs */,
+				C6E11F051F0D256100456A4E /* DetailMeetingController.h */,
+				C6E11F061F0D256100456A4E /* DetailMeetingController.m */,
 				C64380C51EAD358100D88E01 /* DetailObjectController.h */,
 				C64380C61EAD358100D88E01 /* DetailObjectController.m */,
 				C6D33CD01F029CBA00F7C82B /* NewMeetingDetailViewController.h */,
 				C6D33CD11F029CBA00F7C82B /* NewMeetingDetailViewController.m */,
-				C6DF6B391EAF673C007F1CB9 /* RoomTypeController.h */,
-				C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */,
 				C60FFA421E895B560054F83D /* NewObjectViewController.h */,
 				C60FFA431E895B560054F83D /* NewObjectViewController.m */,
+				C6DF6B391EAF673C007F1CB9 /* RoomTypeController.h */,
+				C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */,
 				C65B201D1EEAE2C4009F8DFA /* MapsControllers */,
 				C6CAB5D51EE1E91D00078A32 /* PageViewController */,
 			);
@@ -276,13 +276,10 @@
 				C60702381E8E7A64007933F0 /* MainScreenCellTableViewCell.m */,
 				C6CDBEB81F017EC00024B147 /* MeetingsCell.h */,
 				C6CDBEB91F017EC00024B147 /* MeetingsCell.m */,
-				C6CDBEBA1F017EC00024B147 /* MeetingsCell.xib */,
 				C6A36DA31E9A827B00A00F04 /* CollectionViewCell.h */,
 				C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */,
 				C69206101ECB48F600D7210D /* DetailCollectionViewCell.h */,
 				C69206111ECB48F600D7210D /* DetailCollectionViewCell.m */,
-				C6D33CD31F02A68F00F7C82B /* EmptyCell.h */,
-				C6D33CD41F02A68F00F7C82B /* EmptyCell.m */,
 			);
 			name = Cells;
 			path = ..;
@@ -352,7 +349,6 @@
 			files = (
 				C65B20221EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master in Resources */,
 				C609EE7A1EBA13E300B6F9D8 /* LaunchScreen.storyboard in Resources */,
-				C6CDBEBC1F017EC00024B147 /* MeetingsCell.xib in Resources */,
 				C63412F41EB4B24800ACE886 /* Assets.xcassets in Resources */,
 				C6E35E651E9D08A100235216 /* Main.storyboard in Resources */,
 			);
@@ -424,11 +420,11 @@
 				C6D33CCF1F02973500F7C82B /* MeetingObject.m in Sources */,
 				C6F14D6A1EDF0AD800658494 /* EbmeddedImageController.m in Sources */,
 				C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */,
-				C6D33CD51F02A68F00F7C82B /* EmptyCell.m in Sources */,
 				C6D33CD21F029CBA00F7C82B /* NewMeetingDetailViewController.m in Sources */,
 				C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */,
 				C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */,
 				C69206121ECB48F600D7210D /* DetailCollectionViewCell.m in Sources */,
+				C6E11F071F0D256100456A4E /* DetailMeetingController.m in Sources */,
 				C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */,
 				C65B20201EEAE304009F8DFA /* AddToMapVC.m in Sources */,
 				C6F14D671EDF08FE00658494 /* UIPageViewControllerScene.m in Sources */,

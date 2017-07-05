@@ -11,5 +11,9 @@
 
 @interface MeetingsCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *objectNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *personNameLabel;
 
 @end

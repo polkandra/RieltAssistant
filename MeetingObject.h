@@ -10,4 +10,13 @@
 
 @interface MeetingObject : NSObject
 
+@property(strong, nonatomic) NSString* phoneNumber;
+@property(strong,nonatomic) NSString* objectName;
+@property(strong,nonatomic) NSString* personName;
+@property(strong, nonatomic) NSString* time;
+@property(strong, nonatomic) NSString* date;
+@property(strong, nonatomic) NSString* dateAndTime;
+
+
+
 @end

@@ -37,7 +37,7 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    self.collectionView.allowsMultipleSelection = NO;
+    self.collectionView.allowsMultipleSelection = YES;
     self.tableView.allowsSelection = YES;
     
     
@@ -51,14 +51,14 @@
     self.selectedPhotos = [[NSMutableArray alloc] init];
     
     
-    if([myPhotosArray count] > 0) {
+    /*if([myPhotosArray count] > 0) {
         
         self.addPlaceOnMapButton.enabled = NO;
         
     }else{
         
         self.addPlaceOnMapButton.enabled = YES;
-    }
+    }*/
     
     
     
@@ -168,7 +168,7 @@
 #pragma mark - UITableViewDelegate
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView beginUpdates];
     
@@ -179,7 +179,7 @@
     }else{
         self.expandedIndexPath = indexPath;
     }
-    /*[[self tableView] reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForItem: 0 inSection:4]] withRowAnimation:UITableViewRowAnimationAutomatic];*/
+    /*[[self tableView] reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForItem: 0 inSection:4]] withRowAnimation:UITableViewRowAnimationAutomatic];
     
     [tableView endUpdates];
     
@@ -198,7 +198,7 @@
     
     return 70.0; // Normal height
     
-}
+}*/
 
 #pragma mark - Segues
 
@@ -307,8 +307,6 @@
             
         }
         
-    
-    
     
     
     
