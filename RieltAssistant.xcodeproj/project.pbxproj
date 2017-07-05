@@ -49,6 +49,7 @@
 		C60FFA421E895B560054F83D /* NewObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewObjectViewController.h; sourceTree = "<group>"; };
 		C60FFA431E895B560054F83D /* NewObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewObjectViewController.m; sourceTree = "<group>"; };
 		C63412F31EB4B24800ACE886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C63542451F0D62FE0034149E /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		C636778D1EE854FB0098FC90 /* MapTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTab.h; sourceTree = "<group>"; };
 		C636778E1EE854FB0098FC90 /* MapTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTab.m; sourceTree = "<group>"; };
 		C64380C51EAD358100D88E01 /* DetailObjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailObjectController.h; sourceTree = "<group>"; };
@@ -237,6 +238,7 @@
 		C6A36DA91E9A98EB00A00F04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C63542451F0D62FE0034149E /* EventKit.framework */,
 				C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */,
 				C6E37E951EE2F0E30013DDD5 /* MapKit.framework */,
 				C6E37E931EE2F0D80013DDD5 /* CoreLocation.framework */,

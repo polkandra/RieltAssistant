@@ -19,7 +19,7 @@
 
 -(void)drawRect:(CGRect)rect {
 
-     [StyleKitName drawSuperGradient];
+     [StyleKitName drawMeetingCell];
 }
 
 

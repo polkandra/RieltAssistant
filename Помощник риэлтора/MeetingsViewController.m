@@ -25,6 +25,11 @@
     
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
+
+
+
+   
 }
 
 
@@ -79,6 +84,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return [self.myMeetingsDetailsData count] ;
+
+    
 }
 
 
@@ -90,12 +97,30 @@
 }
 
 
+/*- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [self.sections count];
+}
+
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSDate *dateRepresentingThisDay = [self.sortedDays objectAtIndex:section];
+    return [self.sectionDateFormatter stringFromDate:dateRepresentingThisDay];
+}*/
+
+
+
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    
     
-    static NSString *CellIdentifier = @"MeetingCell";
+   static NSString *CellIdentifier = @"MeetingCell";
    
     MeetingsCell *cell = (MeetingsCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
     if (cell == nil) {
         
         cell = [[MeetingsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -114,6 +139,7 @@
     
     cell.personNameLabel.text = object.personName;
     cell.personNameLabel.textColor = [UIColor whiteColor];
+    
     
     
     return cell;
@@ -142,6 +168,7 @@
         
     }
 }
+
 
 
 

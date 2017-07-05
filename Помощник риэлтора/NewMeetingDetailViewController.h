@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MeetingObject.h"
 #import "MeetingsViewController.h"
+#import "StyleKitName.h"
 
 @interface NewMeetingDetailViewController : UITableViewController 
 

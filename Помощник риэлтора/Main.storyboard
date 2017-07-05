@@ -1246,7 +1246,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="MeetingCell" rowHeight="100" id="I8i-z7-Fji" customClass="MeetingsCell">
                                         <rect key="frame" x="0.0" y="50" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I8i-z7-Fji" id="2WQ-qI-lrE">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" tableViewCell="I8i-z7-Fji" id="2WQ-qI-lrE">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -1280,6 +1280,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
                                         <connections>
                                             <outlet property="dateLabel" destination="bAu-lC-rg4" id="PSn-hN-oDX"/>
                                             <outlet property="objectNameLabel" destination="45I-Wu-H3p" id="RvC-vW-XJP"/>
@@ -1481,6 +1482,7 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="520899104.07891798">
                                                         <!--2017-07-04 22:11:44 +0000-->
                                                     </date>
+                                                    <locale key="locale" localeIdentifier="ru"/>
                                                     <connections>
                                                         <action selector="datePickerValueChanged:" destination="4tq-nq-HiZ" eventType="valueChanged" id="O3J-hf-1Zf"/>
                                                     </connections>
@@ -1873,6 +1875,6 @@
         <image name="trash" width="37" height="45"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wtv-ks-Lb5"/>
+        <segue reference="kvY-xV-bMF"/>
     </inferredMetricsTieBreakers>
 </document>
