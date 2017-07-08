@@ -14,11 +14,12 @@
 #import "StyleKitName.h"
 #import "RoomTypeController.h"
 #import "AddToMapVC.h"
+#import "EstateObjectEntity+CoreDataProperties.h"
 
 @interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 
-
+@property (weak, nonatomic) IBOutlet UIImageView *userimage;
 
 @property (weak, nonatomic) IBOutlet UILabel *objectTypeLabelInCell;
 @property (weak, nonatomic) IBOutlet UILabel *actionTypeLabelInCell;
@@ -30,7 +31,7 @@
 
 
 @property(strong, nonatomic) EstateObject* myObject;
-
+@property (strong, nonatomic) EstateObjectEntity* detailItem;
 
 @property(strong, nonatomic) NSMutableArray* myPhotosArray;
 @property(strong, nonatomic) NSMutableArray* selectedPhotos;

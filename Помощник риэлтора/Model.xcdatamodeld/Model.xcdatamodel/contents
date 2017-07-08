@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="EstateObjectEntity" representedClassName="EstateObjectEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="actionByProperty" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="discription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="kitchenArea" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="livingArea" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="owner" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="picture" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="roomQuantity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typeOfProperty" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wholeArea" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="MeetingObjectEntity" representedClassName="MeetingObjectEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateAndTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="personName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="EstateObjectEntity" positionX="-63" positionY="-18" width="128" height="238"/>
+        <element name="MeetingObjectEntity" positionX="97" positionY="-18" width="128" height="135"/>
+    </elements>
+</model>

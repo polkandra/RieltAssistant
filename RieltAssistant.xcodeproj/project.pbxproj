@@ -25,6 +25,10 @@
 		C69206121ECB48F600D7210D /* DetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C69206111ECB48F600D7210D /* DetailCollectionViewCell.m */; };
 		C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */; };
 		C6A36DAB1E9A98EC00A00F04 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */; };
+		C6A7195D1F0FB6DC00A5FE9B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A7195C1F0FB6DC00A5FE9B /* CoreData.framework */; };
+		C6A7196A1F0FD98B00A5FE9B /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A719691F0FD98B00A5FE9B /* DataManager.m */; };
+		C6A719D01F1005C500A5FE9B /* CoreDataTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A719CF1F1005C500A5FE9B /* CoreDataTableVC.m */; };
+		C6B1A14C1F11160E00965F9D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6B1A14A1F11160E00965F9D /* Model.xcdatamodeld */; };
 		C6CDBEBB1F017EC00024B147 /* MeetingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CDBEB91F017EC00024B147 /* MeetingsCell.m */; };
 		C6D0E08F1EE8030B00E0FF26 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D0E08E1EE8030B00E0FF26 /* MapAnnotation.m */; };
 		C6D33CCF1F02973500F7C82B /* MeetingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D33CCE1F02973500F7C82B /* MeetingObject.m */; };
@@ -75,6 +79,12 @@
 		C6A36DA31E9A827B00A00F04 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		C6A7195C1F0FB6DC00A5FE9B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C6A719681F0FD98B00A5FE9B /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		C6A719691F0FD98B00A5FE9B /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		C6A719CE1F1005C500A5FE9B /* CoreDataTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableVC.h; sourceTree = "<group>"; };
+		C6A719CF1F1005C500A5FE9B /* CoreDataTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableVC.m; sourceTree = "<group>"; };
+		C6B1A14B1F11160E00965F9D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C6CDBEB81F017EC00024B147 /* MeetingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingsCell.h; sourceTree = "<group>"; };
 		C6CDBEB91F017EC00024B147 /* MeetingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingsCell.m; sourceTree = "<group>"; };
 		C6D0E08D1EE8030B00E0FF26 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
@@ -106,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6A7195D1F0FB6DC00A5FE9B /* CoreData.framework in Frameworks */,
 				C6E37E961EE2F0E30013DDD5 /* MapKit.framework in Frameworks */,
 				C6E37E941EE2F0D80013DDD5 /* CoreLocation.framework in Frameworks */,
 				C6A36DAB1E9A98EC00A00F04 /* AssetsLibrary.framework in Frameworks */,
@@ -159,6 +170,7 @@
 		C67BAAD71E7EBDC1004E9126 /* Помощник риэлтора */ = {
 			isa = PBXGroup;
 			children = (
+				C6A719611F0FBB2400A5FE9B /* CoreData */,
 				C6DE1CA71E897CE2008F3536 /* Model */,
 				C6DE1CA81E897CF1008F3536 /* Cells */,
 				C67BAB4E1E7EE1CD004E9126 /* ViewControllers */,
@@ -175,6 +187,7 @@
 				C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */,
 				C67BAAEC1E7EBDC2004E9126 /* Info.plist */,
 				C67BAAD91E7EBDC1004E9126 /* main.m */,
+				C6B1A14A1F11160E00965F9D /* Model.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -238,6 +251,7 @@
 		C6A36DA91E9A98EB00A00F04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C6A7195C1F0FB6DC00A5FE9B /* CoreData.framework */,
 				C63542451F0D62FE0034149E /* EventKit.framework */,
 				C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */,
 				C6E37E951EE2F0E30013DDD5 /* MapKit.framework */,
@@ -246,6 +260,26 @@
 				9C4D5CA4A21AB8925B38B804 /* libPods-RieltAssistant.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C6A719611F0FBB2400A5FE9B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C6A719CC1F0FF86900A5FE9B /* NSManagedObjectSubclasses */,
+				C6A719CE1F1005C500A5FE9B /* CoreDataTableVC.h */,
+				C6A719CF1F1005C500A5FE9B /* CoreDataTableVC.m */,
+				C6A719681F0FD98B00A5FE9B /* DataManager.h */,
+				C6A719691F0FD98B00A5FE9B /* DataManager.m */,
+			);
+			name = CoreData;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		C6A719CC1F0FF86900A5FE9B /* NSManagedObjectSubclasses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NSManagedObjectSubclasses;
 			sourceTree = "<group>";
 		};
 		C6CAB5D51EE1E91D00078A32 /* PageViewController */ = {
@@ -412,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C67BAAE31E7EBDC1004E9126 /* MeetingsViewController.m in Sources */,
+				C6A7196A1F0FD98B00A5FE9B /* DataManager.m in Sources */,
 				C6D0E08F1EE8030B00E0FF26 /* MapAnnotation.m in Sources */,
 				C67BAB571E7EEF59004E9126 /* MainScreenView.m in Sources */,
 				C673C98E1F018C98008EB01C /* StyleKitName.m in Sources */,
@@ -424,6 +459,7 @@
 				C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */,
 				C6D33CD21F029CBA00F7C82B /* NewMeetingDetailViewController.m in Sources */,
 				C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */,
+				C6B1A14C1F11160E00965F9D /* Model.xcdatamodeld in Sources */,
 				C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */,
 				C69206121ECB48F600D7210D /* DetailCollectionViewCell.m in Sources */,
 				C6E11F071F0D256100456A4E /* DetailMeetingController.m in Sources */,
@@ -434,6 +470,7 @@
 				C636778F1EE854FB0098FC90 /* MapTab.m in Sources */,
 				C6CDBEBB1F017EC00024B147 /* MeetingsCell.m in Sources */,
 				C67BAADA1E7EBDC1004E9126 /* main.m in Sources */,
+				C6A719D01F1005C500A5FE9B /* CoreDataTableVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,9 +584,57 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8LJGXZ9C93;
+				ENABLE_BITCODE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "Помощник риэлтора/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"AFNetworking\"",
+					"-l\"HNKGooglePlacesAutocomplete\"",
+					"-l\"Mantle\"",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GLKit\"",
+					"-framework",
+					"\"GoogleMaps\"",
+					"-framework",
+					"\"GoogleMapsBase\"",
+					"-framework",
+					"\"GoogleMapsCore\"",
+					"-framework",
+					"\"GooglePlacePicker\"",
+					"-framework",
+					"\"GooglePlaces\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Chebahatt.RieltAssistant.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -561,9 +646,57 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8LJGXZ9C93;
+				ENABLE_BITCODE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "Помощник риэлтора/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"AFNetworking\"",
+					"-l\"HNKGooglePlacesAutocomplete\"",
+					"-l\"Mantle\"",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GLKit\"",
+					"-framework",
+					"\"GoogleMaps\"",
+					"-framework",
+					"\"GoogleMapsBase\"",
+					"-framework",
+					"\"GoogleMapsCore\"",
+					"-framework",
+					"\"GooglePlacePicker\"",
+					"-framework",
+					"\"GooglePlaces\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Chebahatt.RieltAssistant.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -591,6 +724,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C6B1A14A1F11160E00965F9D /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C6B1A14B1F11160E00965F9D /* Model.xcdatamodel */,
+			);
+			currentVersion = C6B1A14B1F11160E00965F9D /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C67BAACD1E7EBDC1004E9126 /* Project object */;
 }

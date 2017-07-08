@@ -28,7 +28,7 @@
 @property(strong, nonatomic) NSString* livingArea;
 @property(strong, nonatomic) NSString* kitchenArea;
 
-@property(strong, nonatomic) UIImageView* picture;
+@property(strong, nonatomic) NSData* picture;
 
 
 @end

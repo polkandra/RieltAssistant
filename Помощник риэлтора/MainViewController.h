@@ -13,21 +13,26 @@
 #import "EstateObject.h"
 #import "DetailObjectController.h"
 #import "EbmeddedImageController.h"
+#import "EstateObjectEntity+CoreDataProperties.h"
+#import "DataManager.h"
+#import "CoreDataTableVC.h"
 
 
-
-@interface MainViewController : UIViewController  <UITableViewDataSource, UITableViewDelegate>
+@interface MainViewController : CoreDataTableVC  <UITableViewDataSource, UITableViewDataSource>
 
 
 
 @property(strong, nonatomic) NSMutableArray* myData;
 @property(strong, nonatomic) NSMutableArray* myPhotosData;
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UILabel *emptyDataBaseLabel;
 
-@property(strong, nonatomic) EstateObject* myMainObject;
+//@property(strong, nonatomic) EstateObject* myMainObject;
+@property(strong, nonatomic) EstateObjectEntity *object;
+
+
 
 @property (assign, nonatomic) BOOL hidden;
 

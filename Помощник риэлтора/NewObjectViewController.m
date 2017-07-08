@@ -207,7 +207,182 @@
     
     if ([segue.identifier isEqualToString:@"toMain"]) {
         
-        self.myObject = [[EstateObject alloc] init];
+        if (!self.detailItem) {
+        
+        EstateObjectEntity* object =
+        [NSEntityDescription insertNewObjectForEntityForName:@"EstateObjectEntity"
+                                      inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
+        
+        MainViewController *controller = segue.destinationViewController;
+        controller.myPhotosData = myPhotosArray;
+        
+            //setting picker value and passing it
+            
+            NSString *selValue = [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]];
+            
+            object.roomQuantity = selValue;
+            object.phoneNumber = self.phoneTextField.text;
+            object.typeOfProperty = self.objectTypeLabelInCell.text;
+            object.actionByProperty = self.actionTypeLabelInCell.text;
+            
+            if (( self.totalSquareTextField.text.length == 0 )){
+                
+                object.wholeArea = @"--";
+                
+            }else{
+                
+                object.wholeArea = self.totalSquareTextField.text;
+            }
+            
+            if (( self.livingSquareTextField.text.length == 0 )){
+                
+                object.livingArea = @"--";
+                
+            }else{
+                
+                object.livingArea = self.livingSquareTextField.text;
+            }
+            
+            
+            if (( self.kitchenSquareTextField.text.length == 0 )) {
+                
+                object.kitchenArea = @"--";
+                
+            }else{
+                
+                object.kitchenArea = self.kitchenSquareTextField.text;
+            }
+            
+            
+            if ((self.objectNameTextField.text.length == 0)) {
+                
+                object.discription = @"Имя не указано";
+                
+            }else{
+                
+                object.discription = self.objectNameTextField.text;
+                
+            }
+            
+            
+            if ((self.ownerNameTextField.text.length == 0)) {
+                
+                object.owner = @"Собственник не указан";
+                
+            }else{
+                
+                object.owner = self.ownerNameTextField.text;
+            }
+            
+            if ((self.adressTextfield.text.length == 0)) {
+                
+                object.address = @"Адрес не указан";
+                
+            }else{
+                
+                object.address = self.adressTextfield.text;
+            }
+            
+            
+            if ((self.priceTextField.text.length == 0)) {
+                
+                object.price = @"Цена не указана";
+                
+            }else{
+                
+                NSMutableString *concatString = self.priceTextField.text;
+                concatString = [concatString stringByAppendingString:@" Рублей"];
+                object.price = concatString;
+                
+            }
+
+           /* if ([self.myPhotosArray count] == 0) {
+                
+                UIImage *image = [UIImage imageNamed:@"emptyObject2"];
+                
+                [self.myPhotosArray addObject:image];
+                
+                object.picture = [self.myPhotosArray firstObject];
+                
+            }else{
+            
+            object.picture = [self.myPhotosArray firstObject];
+            
+            }*/
+            
+       
+            if ([self.myPhotosArray count] == 0) {
+                
+                UIImage *image = [UIImage imageNamed:@"emptyObject2"];
+               
+                NSData* pictureData = UIImagePNGRepresentation(image);
+                
+                [self.myPhotosArray addObject:pictureData];
+                
+                object.picture = [self.myPhotosArray firstObject];
+                
+            }else{
+                
+                object.picture = [self.myPhotosArray firstObject];
+        
+            }
+        
+        
+        
+        
+        }else{
+            
+            [self.detailItem setValue:self.objectNameTextField.text forKey:@"discription"];
+            [self.detailItem setValue:self.adressTextfield.text forKey:@"address"];
+            [self.detailItem setValue:self.ownerNameTextField.text forKey:@"owner"];
+            [self.detailItem setValue:self.priceTextField.text forKey:@"price"];
+            [self.detailItem setValue:[self.myPhotosArray firstObject] forKey:@"picture"];
+        }
+       
+        [[[DataManager sharedManager] managedObjectContext] save:nil];
+        
+        
+        
+        
+        
+    } else if ([segue.identifier isEqualToString:@"toMapView"]) {
+        
+        AddToMapVC *mapVC = (AddToMapVC *)segue.destinationViewController;
+        mapVC.pinPhotosArray =  [[NSMutableArray alloc] init];
+        mapVC.pinPhotosArray = self.myPhotosArray;
+        
+        if ((self.objectNameTextField.text.length == 0)) {
+            
+            mapVC.titleText = @"Введите название объекта";
+            
+        }else{
+            mapVC.titleText = self.objectNameTextField.text;
+        }
+        
+        if ((self.priceTextField.text.length == 0)) {
+            
+            mapVC.subTitleText =  @"Введите цену объекта";
+            
+        }else{
+            
+            NSMutableString *concatString = self.priceTextField.text;
+            concatString = [concatString stringByAppendingString:@" Рублей"];
+            self.priceTextField.text = concatString;
+            
+            mapVC.subTitleText = self.priceTextField.text;
+            
+        }
+        
+    }
+    
+}
+
+
+
+
+
+
+        /* self.myObject = [[EstateObject alloc] init];
         
         // passing data in MainViewController
         MainViewController *controller = segue.destinationViewController;
@@ -340,7 +515,7 @@
       
     }
     
-}
+}*/
 
 
 
@@ -413,12 +588,17 @@
     
     [picker dismissViewControllerAnimated:YES completion:nil];
     
-    UIImageView* image = info[UIImagePickerControllerOriginalImage];
-    EstateObject* photoObject = [[EstateObject alloc] init];
+    UIImage* image = info[UIImagePickerControllerOriginalImage];
     
-    photoObject.picture = image;
+    NSData *data = UIImagePNGRepresentation(image);
     
-    [myPhotosArray addObject:image];
+    EstateObjectEntity* object =
+    [NSEntityDescription insertNewObjectForEntityForName:@"EstateObjectEntity"
+                                  inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
+    
+    object.picture = data;
+    
+    [myPhotosArray addObject:data];
     
     [self.collectionView reloadData];
     
