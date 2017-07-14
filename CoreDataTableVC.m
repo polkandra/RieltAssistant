@@ -84,14 +84,8 @@
 }
 
 -(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    return NO;
+    return YES;
 }
-
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    //   NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-}
-
-
 
 
 

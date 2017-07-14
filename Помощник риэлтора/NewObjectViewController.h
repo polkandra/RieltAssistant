@@ -30,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 
-@property(strong, nonatomic) EstateObject* myObject;
+//@property(strong, nonatomic) EstateObject* myObject;
 @property (strong, nonatomic) EstateObjectEntity* detailItem;
 
 @property(strong, nonatomic) NSMutableArray* myPhotosArray;
@@ -38,6 +38,8 @@
 
 @property(strong, nonatomic) NSMutableArray* pickerViewArrayCity;
 @property(strong, nonatomic) NSMutableArray* pickerViewArrayRoomQuantity;
+
+@property(strong, nonatomic) NSMutableArray *myArrayWithPhotoData;
 
 @property(strong, nonatomic) NSMutableArray* myData;
 

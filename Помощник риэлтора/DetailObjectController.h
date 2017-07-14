@@ -13,24 +13,24 @@
 #import "DetailCollectionViewCell.h"
 #import "EstateObject.h"
 #import "UIPageViewControllerScene.h"
-
-@interface DetailObjectController : UITableViewController <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
-
-{
-    UIImageView *fullScreenImageView;
-    UIImageView *originalImageView;
-}
+#import "EstateObjectEntity+CoreDataProperties.h"
+#import "DataManager.h"
 
 
+@interface DetailObjectController : UITableViewController <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, NSFetchedResultsControllerDelegate>
 
-//@property (weak, nonatomic) IBOutlet DetailCollectionViewCell *collectionViewCell;
+
+@property (strong, nonatomic) UIImageView *fullScreenImageView;
+@property (strong, nonatomic) UIImageView *originalImageView;
 
 
 
 
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 
-@property(strong, nonatomic) EstateObject* myObject;
+//@property(strong, nonatomic) EstateObject* myObject;
 
 
 
@@ -40,13 +40,14 @@
 @property(strong, nonatomic) NSMutableArray* myDetailPhotosArray;
 @property(strong, nonatomic) NSMutableArray* myDetailData;
 
+//@property(strong, nonatomic) NSMutableArray* fetchedObjects;
+
+@property(strong, nonatomic) EstateObjectEntity* detailItem;
+
+//@property(strong, nonatomic) EstateObject* myDetailObject;
 
 
 
-@property(strong, nonatomic) EstateObject* myDetailObject;
-
-
-//@property (weak, nonatomic) IBOutlet UIImageView *detailImageOfObject;
 @property (weak, nonatomic) IBOutlet UILabel *detailPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailAddressLabel;
 

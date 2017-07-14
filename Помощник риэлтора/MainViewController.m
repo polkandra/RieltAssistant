@@ -17,7 +17,7 @@
 
 @implementation MainViewController
 
-@synthesize  myData, myPhotosData, fetchedResultsController, tableView;
+@synthesize  myData, myPhotosData, fetchedResultsController, tableView, object;
 
 
 #pragma mark - VC Lyficycle
@@ -114,24 +114,49 @@
 }
 
 
+#pragma mark  Navigation
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"toDetail"]) {
+       
+        DetailObjectController *doc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailObjectController"];
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSManagedObject *estateObjectEntity = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        doc.detailItem = estateObjectEntity;
         
-        DetailObjectController *controller = (DetailObjectController *)segue.destinationViewController;
+      
         
-        controller.myDetailObject = [self.myData objectAtIndex:indexPath.row];
+        doc.myDetailPhotosArray = [[NSMutableArray alloc] init];
+        doc.myDetailPhotosArray = self.myPhotosData;
         
-        controller.myDetailPhotosArray = [[NSMutableArray alloc] init];
+      
         
-        controller.myDetailPhotosArray = self.myPhotosData;
         
+        /* if (!self.detailItem) {
+            
+            EstateObjectEntity* object =
+            [NSEntityDescription insertNewObjectForEntityForName:@"EstateObjectEntity"
+                                          inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];*/
+            
+
     
+           /* self.detailPriceLabel.text = object.price;
+            self.detailAddressLabel.text = myDetailObject.address;
+            self.detailOwnerLabel.text = myDetailObject.owner;
+            self.detailRoomLabel.text = myDetailObject.roomQuantity;
+            self.detailWholeSquareLabel.text = myDetailObject.wholeArea;
+            self.detailLivingSquareLabel.text = myDetailObject.livingArea;
+            self.detailKitchenSquareLabel.text = myDetailObject.kitchenArea;
+            self.phoneNumberLabel.text = myDetailObject.phoneNumber;
+            self.actionLabel.text = myDetailObject.typeOfProperty;
+            self.typeLabel.text = myDetailObject.actionByProperty;*/
+    
+            
+        }
     }
-}
 
 
 
@@ -266,7 +291,15 @@
 /*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-  }*/
+    DetailObjectController *doc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailObjectController"];
+    
+
+    EstateObjectEntity *estateObjectEntity = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    doc.detailItem = estateObjectEntity;
+    
+    [self.navigationController pushViewController:doc animated:YES];
+
+}*/
 
 
 
@@ -291,7 +324,7 @@
     
     // Edit the sort key as appropriate.
     NSSortDescriptor *discription = [[NSSortDescriptor alloc] initWithKey:@"discription" ascending:YES];
-    NSSortDescriptor *price = [[NSSortDescriptor alloc] initWithKey:@"address" ascending:YES];
+    NSSortDescriptor *price = [[NSSortDescriptor alloc] initWithKey:@"price" ascending:YES];
     NSArray *sortDescriptors = @[discription, price];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -310,16 +343,6 @@
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
-   
-    /*NSArray *fecthedObject = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    
-    for (NSManagedObject *photos in fecthedObject)
-    
-    {
-        [self.myData addObject : [photos valueForKey :@"picture"]];
-    }*/
-    
-    
     
     
     NSError *error = nil;
@@ -334,7 +357,7 @@
 }
 
 
-#pragma mark - Helper
+#pragma mark - cell configuring
 
 - (void)configureCell:(MainScreenCellTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
@@ -353,40 +376,16 @@
 
     cell.ownerCellLabel.textColor = [UIColor whiteColor];
     
+    cell.imageViewCell.image = [[UIImage alloc]initWithData:[object valueForKey:@"picture"]];
+    
     cell.backgroundColor = [UIColor clearColor];
     
-    // cell.accessoryView.backgroundColor = [UIColor blueColor];
-    
-  // NSData *data = [NSString stringWithFormat:@"%@",[object valueForKey:@"picture"]];
-    
-    // cell.imageViewCell.image = [UIImage imageWithData:data];
-    
-   
-    
-    /*NSString *imagePath = [NSHomeDirectory() stringByAppendingString : [[self.myData objectAtIndex:indexPath.row] stringByAppendingPathComponent:@"jpg"]];
-   
-    cell.imageViewCell.image = [UIImage imageNamed:imagePath];*/
-       
-    
-   // cell.imageViewCell.image = [NSString stringWithFormat:@"%@",[object valueForKey:@"picture"]];
-    
-   /*UIImageView *categoryImageView = (UIImageView *)[cell viewWithTag:10];
-    
-    NSData *imageData = [NSString stringWithFormat:@"%@",[object valueForKey:@"picture"]];
-    
-    if (imageData == nil){
-        categoryImageView.image = [UIImage imageNamed:@"emptyObject2"];
-    }
-    else{
-        categoryImageView.image = [UIImage imageWithData:imageData];
-    }*/
     
     
-    
-    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 140, 374, 30)];
+    /*UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 140, 374, 30)];
     
     view.backgroundColor = [UIColor clearColor];
-    [cell.contentView addSubview:view];
+    [cell.contentView addSubview:view];*/
     
    
 }

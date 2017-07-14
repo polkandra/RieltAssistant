@@ -21,6 +21,7 @@
 @interface MainViewController : CoreDataTableVC  <UITableViewDataSource, UITableViewDataSource>
 
 
+@property (strong, nonatomic) EstateObjectEntity* detailItem;
 
 @property(strong, nonatomic) NSMutableArray* myData;
 @property(strong, nonatomic) NSMutableArray* myPhotosData;
