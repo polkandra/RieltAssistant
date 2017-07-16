@@ -23,24 +23,15 @@
 @property (strong, nonatomic) UIImageView *fullScreenImageView;
 @property (strong, nonatomic) UIImageView *originalImageView;
 
-
-
-
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
-
 //@property(strong, nonatomic) EstateObject* myObject;
 
+@property (weak, nonatomic) IBOutlet UIImageView *bigImage;
 
 
 //@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property(strong, nonatomic) NSMutableArray* myDetailPhotosArray;
-@property(strong, nonatomic) NSMutableArray* myDetailData;
-
-//@property(strong, nonatomic) NSMutableArray* fetchedObjects;
 
 @property(strong, nonatomic) EstateObjectEntity* detailItem;
 
@@ -62,18 +53,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *actionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
-
-
-
-
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumberLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *detailRoomLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailWholeSquareLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailLivingSquareLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailKitchenSquareLabel;
-
-
 @property (weak, nonatomic) IBOutlet UILabel *detailOwnerLabel;
 
 

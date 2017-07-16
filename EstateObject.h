@@ -13,17 +13,13 @@
 
 
 @property(strong, nonatomic) NSString* phoneNumber;
-
 @property(strong,nonatomic) NSString* discription;
 @property(strong,nonatomic) NSString* price;
 @property(strong, nonatomic) NSString* address;
 @property(strong, nonatomic) NSString* owner;
-
 @property(strong, nonatomic) NSString* typeOfProperty;
 @property(strong, nonatomic) NSString* actionByProperty;
-
 @property(strong, nonatomic) NSString* roomQuantity;
-
 @property(strong, nonatomic) NSString* wholeArea;
 @property(strong, nonatomic) NSString* livingArea;
 @property(strong, nonatomic) NSString* kitchenArea;

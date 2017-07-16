@@ -13,12 +13,14 @@
 @end
 
 @implementation EbmeddedImageController
+@synthesize pageIndex,imageFile;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
    
     
-    self.ImageInEmbeddedView.image = _imageFile;
+    self.ImageInEmbeddedView.image = imageFile;
     
 
 

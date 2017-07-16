@@ -33,14 +33,15 @@
 //@property(strong, nonatomic) EstateObject* myObject;
 @property (strong, nonatomic) EstateObjectEntity* detailItem;
 
-@property(strong, nonatomic) NSMutableArray* myPhotosArray;
-@property(strong, nonatomic) NSMutableArray* selectedPhotos;
+
 
 @property(strong, nonatomic) NSMutableArray* pickerViewArrayCity;
 @property(strong, nonatomic) NSMutableArray* pickerViewArrayRoomQuantity;
 
 @property(strong, nonatomic) NSMutableArray *myArrayWithPhotoData;
-
+@property(strong, nonatomic) NSMutableArray* myPhotosArray;
+@property(strong, nonatomic) NSMutableArray* selectedPhotos;
+@property(strong, nonatomic) NSMutableArray* arrayForPVC;
 @property(strong, nonatomic) NSMutableArray* myData;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -51,8 +52,6 @@
 
 @property(nonatomic, assign) id<UINavigationControllerDelegate,
 UIImagePickerControllerDelegate>delegate;
-
-
 
 
 

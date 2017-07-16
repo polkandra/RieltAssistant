@@ -225,6 +225,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="actionLabel" destination="V8b-gq-6bF" id="vOj-88-8rH"/>
+                        <outlet property="bigImage" destination="Mby-WX-n7J" id="r3y-zN-Ybw"/>
                         <outlet property="detailAddressLabel" destination="MkE-si-jfb" id="nyl-kA-N57"/>
                         <outlet property="detailKitchenSquareLabel" destination="Aj8-il-VNH" id="z3o-DG-QCv"/>
                         <outlet property="detailLivingSquareLabel" destination="ZfQ-aO-oYE" id="wMD-IM-pE7"/>

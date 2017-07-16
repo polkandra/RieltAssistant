@@ -16,7 +16,7 @@
 @end
 
 @implementation NewObjectViewController
-@synthesize  myPhotosArray, tableView, myArrayWithPhotoData;
+@synthesize  myPhotosArray, tableView, myArrayWithPhotoData,detailItem;
 
 
 #pragma mark - VC Lifecycle
@@ -50,6 +50,8 @@
     self.myPhotosArray = [[NSMutableArray alloc] init];
     self.selectedPhotos = [[NSMutableArray alloc] init];
     self.myArrayWithPhotoData = [[NSMutableArray alloc] init];
+    self.arrayForPVC = [[NSMutableArray alloc] init];
+    
     
     /*if([myPhotosArray count] > 0) {
         
@@ -200,83 +202,88 @@
     
 }*/
 
-#pragma mark - Segues
+#pragma mark - Navigation
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"toMain"]) {
         
-        //if (!self.detailItem) {
+     //   if (self.detailItem) {
         
         EstateObjectEntity* object =
         [NSEntityDescription insertNewObjectForEntityForName:@"EstateObjectEntity"
                                       inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
         
         MainViewController *controller = segue.destinationViewController;
-        controller.myPhotosData = myArrayWithPhotoData;
+        
+        controller.myPhotosData = [[NSMutableArray alloc] init];
+        //controller.myPhotosData = self.myPhotosArray;
+        controller.myPhotosData = self.myArrayWithPhotoData;
+        
         controller.object = object;
             
         
-        [object setValue:[self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]] forKey:@"roomQuantity"];
-        //object.roomQuantity = [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]];
+        //[object setValue:[self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]] forKey:@"roomQuantity"];
+       
+         object.roomQuantity = [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]];
         
-        [object setValue:self.phoneTextField.text forKey:@"phoneNumber"];
-       // object.phoneNumber = self.phoneTextField.text;
+        //[object setValue:self.phoneTextField.text forKey:@"phoneNumber"];
+        object.phoneNumber = self.phoneTextField.text;
         
-        [object setValue:self.objectTypeLabelInCell.text forKey:@"typeOfProperty"];
-       // object.typeOfProperty = self.objectTypeLabelInCell.text;
+        //[object setValue:self.objectTypeLabelInCell.text forKey:@"typeOfProperty"];
+        object.typeOfProperty = self.objectTypeLabelInCell.text;
         
-        [object setValue:self.actionTypeLabelInCell.text forKey:@"actionByProperty"];
-        //object.actionByProperty = self.actionTypeLabelInCell.text;
+       // [object setValue:self.actionTypeLabelInCell.text forKey:@"actionByProperty"];
+        object.actionByProperty = self.actionTypeLabelInCell.text;
             
-            if (( self.totalSquareTextField.text.length == 0 )){
+           if (( self.totalSquareTextField.text.length == 0 )){
                 
                 
-                [object setValue:@"--" forKey:@"emptyWholeArea"];
-                //object.wholeArea = @"--";
+                //[object setValue:@"--" forKey:@"emptyWholeArea"];
+               object.wholeArea = @"--";
                 
             }else{
                 
-                [object setValue:self.totalSquareTextField.text forKey:@"wholeArea"];
-                //object.wholeArea = self.totalSquareTextField.text;
+               //[object setValue:self.totalSquareTextField.text forKey:@"wholeArea"];
+                object.wholeArea = self.totalSquareTextField.text;
             }
             
             if (( self.livingSquareTextField.text.length == 0 )){
                 
-                [object setValue:@"--" forKey:@"emptyLivingAreaArea"];
-                //object.livingArea = @"--";
+               // [object setValue:@"--" forKey:@"emptyLivingAreaArea"];
+               object.livingArea = @"--";
                 
             }else{
                 
-                [object setValue:self.livingSquareTextField.text forKey:@"livingArea"];
-                //object.livingArea = self.livingSquareTextField.text;
+                //[object setValue:self.livingSquareTextField.text forKey:@"livingArea"];
+                object.livingArea = self.livingSquareTextField.text;
             }
             
             
             if (( self.kitchenSquareTextField.text.length == 0 )) {
                 
                 
-                [object setValue:@"--" forKey:@"emptyKitchenArea"];
-                //object.kitchenArea = @"--";
+                //[object setValue:@"--" forKey:@"emptyKitchenArea"];
+                object.kitchenArea = @"--";
                 
             }else{
                 
                 
-                [object setValue:self.kitchenSquareTextField.text forKey:@"kitchenArea"];
-                //object.kitchenArea = self.kitchenSquareTextField.text;
+               // [object setValue:self.kitchenSquareTextField.text forKey:@"kitchenArea"];
+                object.kitchenArea = self.kitchenSquareTextField.text;
             }
             
             
             if ((self.objectNameTextField.text.length == 0)) {
                 
-                [object setValue:@"Имя не указано" forKey:@"noName"];
-                //object.discription = @"Имя не указано";
+                //[object setValue:@"Имя не указано" forKey:@"noName"];
+                object.discription = @"Имя не указано";
                 
             }else{
                 
-                 [object setValue:self.objectNameTextField.text forKey:@"discription"];
-               // object.discription = self.objectNameTextField.text;
+                 //[object setValue:self.objectNameTextField.text forKey:@"discription"];
+                object.discription = self.objectNameTextField.text;
                 
             }
             
@@ -285,42 +292,43 @@
         if ((self.ownerNameTextField.text.length == 0)) {
                 
             
-             [object setValue:@"Собственник не указан" forKey:@"noOwner"];
-            // object.owner = @"Собственник не указан";
+            // [object setValue:@"Собственник не указан" forKey:@"noOwner"];
+             object.owner = @"Собственник не указан";
                 
             }else{
                 
-                [object setValue:self.ownerNameTextField.text forKey:@"owner"];
-                //object.owner = self.ownerNameTextField.text;
+               //[object setValue:self.ownerNameTextField.text forKey:@"owner"];
+                object.owner = self.ownerNameTextField.text;
             }
             
             if ((self.adressTextfield.text.length == 0)) {
                 
                 
-                [object setValue:@"Адрес не указан" forKey:@"noAddress"];
-                //object.address = @"Адрес не указан";
+                //[object setValue:@"Адрес не указан" forKey:@"noAddress"];
+                object.address = @"Адрес не указан";
                 
             }else{
                 
                 
-                [object setValue:self.adressTextfield.text forKey:@"address"];
-                //object.address = self.adressTextfield.text;
+                //[object setValue:self.adressTextfield.text forKey:@"address"];
+                object.address = self.adressTextfield.text;
             }
             
             
             if ((self.priceTextField.text.length == 0)) {
                 
                 
-                [object setValue:@"Цена не указана" forKey:@"noPrice"];
-                //object.price = @"Цена не указана";
+                //[object setValue:@"Цена не указана" forKey:@"noPrice"];
+                object.price = @"Цена не указана";
                 
             }else{
                 
                 NSMutableString *concatString = self.priceTextField.text;
                 concatString = [concatString stringByAppendingString:@" Рублей"];
+                
                 object.price = concatString;
                 
-                [object setValue:concatString forKey:@"price"];
+               // [object setValue:concatString forKey:@"price"];
            
             }
        
@@ -332,40 +340,48 @@
                 
                 [self.myArrayWithPhotoData addObject:pictureData];
                 
-                object.picture = [self.myArrayWithPhotoData firstObject];
+                //array for PVC
+                [self.myPhotosArray addObject:image];
                 
+                
+                object.picture = [self.myArrayWithPhotoData firstObject];
+               // object.picture = [self.arrayForPVC firstObject];
+               // [object setValue:[self.myArrayWithPhotoData firstObject] forKey:@"picture"];
+            
             }else{
                 
                 object.picture = [self.myArrayWithPhotoData firstObject];
-        
+               // object.picture = [self.arrayForPVC firstObject];
+               // [object setValue:[self.myArrayWithPhotoData firstObject] forKey:@"picture"];
+            
             }
         
         
-        
-        
-       // }else{
             
             
+     /*   }else{
             
-            [object setValue:self.objectNameTextField.text forKey:@"discription"];
-            [object setValue:self.adressTextfield.text forKey:@"address"];
-            [object setValue:self.ownerNameTextField.text forKey:@"owner"];
-            [object setValue:self.priceTextField.text forKey:@"price"];
-            [object setValue:self.phoneTextField.text forKey:@"phoneNumber"];
-            [object setValue: self.objectTypeLabelInCell.text forKey:@"typeOfProperty"];
-            [object setValue: self.actionTypeLabelInCell.text forKey:@"actionByProperty"];
-            [object setValue: [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]] forKey:@"roomQuantity"];
-            [object setValue: self.totalSquareTextField.text forKey:@"wholeArea"];
-            [object setValue: self.livingSquareTextField.text forKey:@"livingArea"];
-            [object setValue: self.kitchenSquareTextField.text forKey:@"kitchenArea"];
+            NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"EstateObjectEntity" inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
             
-            [self.detailItem setValue:[self.myArrayWithPhotoData firstObject] forKey:@"picture"];
-       
-        //}
-       
-        [[[DataManager sharedManager] managedObjectContext] save:nil];
-        
-        
+            [detailItem setValue:self.objectNameTextField.text forKey:@"discription"];
+            [detailItem setValue:self.adressTextfield.text forKey:@"address"];
+            [detailItem setValue:self.ownerNameTextField.text forKey:@"owner"];
+            [detailItem setValue:self.priceTextField.text forKey:@"price"];
+            [detailItem setValue:self.phoneTextField.text forKey:@"phoneNumber"];
+            [detailItem setValue: self.objectTypeLabelInCell.text forKey:@"typeOfProperty"];
+            [detailItem setValue: self.actionTypeLabelInCell.text forKey:@"actionByProperty"];
+            [detailItem setValue: [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]] forKey:@"roomQuantity"];
+            [detailItem setValue: self.totalSquareTextField.text forKey:@"wholeArea"];
+            [detailItem setValue: self.livingSquareTextField.text forKey:@"livingArea"];
+            [detailItem setValue: self.kitchenSquareTextField.text forKey:@"kitchenArea"];
+            
+            [detailItem setValue:[self.myArrayWithPhotoData firstObject] forKey:@"picture"];
+            
+            //}*/
+            
+            [[[DataManager sharedManager] managedObjectContext] save:nil];
+            
+   //     }
         
         
         
@@ -616,11 +632,6 @@
     
     NSData *data = UIImageJPEGRepresentation(image,0);
     
-    /*EstateObjectEntity* object =
-    [NSEntityDescription insertNewObjectForEntityForName:@"EstateObjectEntity"
-                                  inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];*/
-    
-    //object.picture = data;
     
     
     [self.myArrayWithPhotoData addObject:data];

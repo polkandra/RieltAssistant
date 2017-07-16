@@ -23,8 +23,10 @@
 
 @property (strong, nonatomic) EstateObjectEntity* detailItem;
 
-@property(strong, nonatomic) NSMutableArray* myData;
+//@property(strong, nonatomic) NSMutableArray* myData;
 @property(strong, nonatomic) NSMutableArray* myPhotosData;
+@property(strong, nonatomic) NSMutableArray* fetchedData;
+
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 

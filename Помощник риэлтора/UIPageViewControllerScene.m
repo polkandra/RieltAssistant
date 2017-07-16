@@ -19,14 +19,14 @@
     [super viewDidLoad];
    
 
-    self.delegate = self;
-    self.dataSource = self;
 
        
     NSLog(@"Page array = %lu",(unsigned long)[self.pageVCArray count]);
    
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     
+    self.delegate = self;
+    self.dataSource = self;
     
     
     EbmeddedImageController *initialVC = (EbmeddedImageController*)[self viewControllerAtIndex:0];
@@ -40,7 +40,7 @@
 
 
 
-#pragma mark - UIPageViewControllerDataSource      UIPageViewControllerDelegate
+#pragma mark - UIPageViewControllerDataSource,UIPageViewControllerDelegate
 
 
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
@@ -85,8 +85,11 @@
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
 {
+   
     return [self.pageVCArray count];
 }
+
+
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
 {

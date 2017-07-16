@@ -17,7 +17,7 @@
 
 @implementation MainViewController
 
-@synthesize  myData, myPhotosData, fetchedResultsController, tableView, object;
+@synthesize  myPhotosData, fetchedResultsController, tableView, object, fetchedData;
 
 
 #pragma mark - VC Lyficycle
@@ -33,8 +33,11 @@
     self.emptyDataBaseLabel.hidden = YES;
     
     
-    self.myData = [[NSMutableArray alloc] init];
-    self.myPhotosData = [[NSMutableArray alloc] init];
+    //self.myData = [[NSMutableArray alloc] init];
+    
+   // self.myPhotosData = [[NSMutableArray alloc] init];
+ 
+    
     
     NSLog(@"all my photos in vdl = %@",myPhotosData);
    
@@ -68,6 +71,20 @@
 }
 
 
+-(void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
+    // Fetch the devices from persistent data store
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    self.fetchedData = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    NSLog(@"my fetched entities are : %@", self.fetchedData);
+    [self.tableView reloadData];
+    
+}
+
 
 
 #pragma mark - Unwind Segues
@@ -87,11 +104,12 @@
         
        // [self.myData addObject:newObject];
         
-        NSLog(@"my aaaaray = %@",self.myData);
+       // NSLog(@"my aaaaray = %@",self.myData);
         NSLog(@"all my photos = %@",myPhotosData);
         
        // [self.tableView reloadData];
         
+    
     }
 }
 
@@ -123,38 +141,18 @@
        
         DetailObjectController *doc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailObjectController"];
         
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *estateObjectEntity = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        doc.detailItem = estateObjectEntity;
+        //EstateObjectEntity *selectedEntity = [self.fetchedData objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         
-      
         
+        doc.detailItem = object;
+        
+         
         doc.myDetailPhotosArray = [[NSMutableArray alloc] init];
         doc.myDetailPhotosArray = self.myPhotosData;
         
       
+         [self presentViewController:doc animated:YES completion:nil];
         
-        
-        /* if (!self.detailItem) {
-            
-            EstateObjectEntity* object =
-            [NSEntityDescription insertNewObjectForEntityForName:@"EstateObjectEntity"
-                                          inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];*/
-            
-
-    
-           /* self.detailPriceLabel.text = object.price;
-            self.detailAddressLabel.text = myDetailObject.address;
-            self.detailOwnerLabel.text = myDetailObject.owner;
-            self.detailRoomLabel.text = myDetailObject.roomQuantity;
-            self.detailWholeSquareLabel.text = myDetailObject.wholeArea;
-            self.detailLivingSquareLabel.text = myDetailObject.livingArea;
-            self.detailKitchenSquareLabel.text = myDetailObject.kitchenArea;
-            self.phoneNumberLabel.text = myDetailObject.phoneNumber;
-            self.actionLabel.text = myDetailObject.typeOfProperty;
-            self.typeLabel.text = myDetailObject.actionByProperty;*/
-    
-            
         }
     }
 
@@ -325,6 +323,7 @@
     // Edit the sort key as appropriate.
     NSSortDescriptor *discription = [[NSSortDescriptor alloc] initWithKey:@"discription" ascending:YES];
     NSSortDescriptor *price = [[NSSortDescriptor alloc] initWithKey:@"price" ascending:YES];
+    
     NSArray *sortDescriptors = @[discription, price];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -361,7 +360,7 @@
 
 - (void)configureCell:(MainScreenCellTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    EstateObjectEntity *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
        
     cell.nameCellLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"discription"]];
     cell.nameCellLabel.textColor = [UIColor whiteColor];
@@ -376,7 +375,7 @@
 
     cell.ownerCellLabel.textColor = [UIColor whiteColor];
     
-    cell.imageViewCell.image = [[UIImage alloc]initWithData:[object valueForKey:@"picture"]];
+    cell.imageViewCell.image = [[UIImage alloc] initWithData:[object valueForKey:@"picture"]];
     
     cell.backgroundColor = [UIColor clearColor];
     
