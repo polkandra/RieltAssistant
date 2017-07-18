@@ -22,26 +22,16 @@
     [super viewDidLoad];
     
     
-   // self.myDetailPhotosArray = [[NSMutableArray alloc] init];
+    
+    [self setNavController];
+   
+    // self.myDetailPhotosArray = [[NSMutableArray alloc] init];
     
   //  self.myDetailData = [[NSMutableArray alloc] init];
     
+    self.automaticallyAdjustsScrollViewInsets = YES;
     
-      
-  /*  if (self.detailItem) {
     
-    self.detailPriceLabel.text = detailItem.price;
-    self.detailAddressLabel.text = detailItem.address;
-    self.detailOwnerLabel.text = detailItem.owner;
-    self.detailRoomLabel.text = detailItem.roomQuantity;
-    self.detailWholeSquareLabel.text = detailItem.wholeArea;
-    self.detailLivingSquareLabel.text = detailItem.livingArea;
-    self.detailKitchenSquareLabel.text = detailItem.kitchenArea;
-    self.phoneNumberLabel.text = detailItem.phoneNumber;
-    self.actionLabel.text = detailItem.actionByProperty;
-    self.typeLabel.text = detailItem.typeOfProperty;
-    
-    }*/
     
     
     if (self.detailItem) {
@@ -59,19 +49,6 @@
         //self.bigImage.image = [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
     }
    
-
-
-    /* self.detailPriceLabel.text = myDetailObject.price;
-    self.detailAddressLabel.text = myDetailObject.address;
-    self.detailOwnerLabel.text = myDetailObject.owner;
-    self.detailRoomLabel.text = myDetailObject.roomQuantity;
-    self.detailWholeSquareLabel.text = myDetailObject.wholeArea;
-    self.detailLivingSquareLabel.text = myDetailObject.livingArea;
-    self.detailKitchenSquareLabel.text = myDetailObject.kitchenArea;
-    self.phoneNumberLabel.text = myDetailObject.phoneNumber;
-    self.actionLabel.text = myDetailObject.typeOfProperty;
-    self.typeLabel.text = myDetailObject.actionByProperty;*/
-    
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.allowsSelection = NO;
         
@@ -81,6 +58,51 @@
 
 
 
+
+-(void)setNavController
+{
+    UINavigationBar *navbar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, 375, 64)];
+    //do something like background color, title, etc you self
+    [self.view addSubview:navbar];
+    
+    UINavigationItem *navItem = [[UINavigationItem alloc] init];
+    navItem.title = @"Объект";
+    
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Назад" style:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
+    navItem.leftBarButtonItem = leftButton;
+    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Изменить" style:UIBarButtonSystemItemEdit target:self action:@selector(edit)];
+    navItem.rightBarButtonItem = rightButton;
+    
+    navbar.items = @[ navItem ];
+    
+    [self.view addSubview:navbar];
+    
+  
+    
+}
+
+#pragma mark -- Helpers
+
+-(void)cancel
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)setEditing:(BOOL)editing
+{
+    
+}
+
+
+
+/*- (void) viewDidLayoutSubviews {
+    CGFloat top = self.topLayoutGuide.length;
+    CGFloat bottom = self.bottomLayoutGuide.length;
+    UIEdgeInsets newInsets = UIEdgeInsetsMake(top, 0, bottom, 0);
+    self.tableView.contentInset = newInsets;
+    
+}*/
 
 
 - (IBAction)detailMapAddressButton:(id)sender {
@@ -94,50 +116,9 @@
 
 
 
-
-
-
 }
 
 
-
-/*- (IBAction)backBarButtonItem:(UIBarButtonItem *)sender {
-    
-
-}
-
-- (IBAction)changeDetailItemBurButtonItem:(UIBarButtonItem *)sender {
-}
-
-
-
-#pragma mark - UICollectionViewDataSource
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return  [self.myDetailPhotosArray count];
-    
-}
-
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString* identifier = @"detailCollectionViewCell";
-    
-    DetailCollectionViewCell* cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    
-    
-    if ([self.myDetailPhotosArray containsObject:@"emptyObject2"]) {
-        cell.detailImageView.image = nil;
-        
-    }else{
-        
-        cell.detailImageView.image = [self.myDetailPhotosArray objectAtIndex:indexPath.row];
-    }
-    
-    return cell;
-    
-    
-}*/
 
 #pragma mark - Segues
 

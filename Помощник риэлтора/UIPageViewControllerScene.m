@@ -25,6 +25,7 @@
    
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.delegate = self;
     self.dataSource = self;
     
@@ -36,7 +37,6 @@
     [self setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
 }
-
 
 
 

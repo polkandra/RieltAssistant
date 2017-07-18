@@ -42,6 +42,13 @@
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
     [[UINavigationBar appearance] setTranslucent:YES];*/
    
+    /*[[UINavigationBar appearance] setBarStyle:UIBarStyleBlack ];
+    [[UINavigationBar appearance] setTintColor:[UIColor yellowColor]];
+    [[UINavigationBar appearance] setTranslucent:NO];*/
+        
+        
+    
+    
     return YES;
 }
 

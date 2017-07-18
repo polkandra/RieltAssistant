@@ -218,8 +218,8 @@
         MainViewController *controller = segue.destinationViewController;
         
         controller.myPhotosData = [[NSMutableArray alloc] init];
-        //controller.myPhotosData = self.myPhotosArray;
-        controller.myPhotosData = self.myArrayWithPhotoData;
+        controller.myPhotosData = self.myPhotosArray;
+        //controller.myPhotosData = self.myArrayWithPhotoData;
         
         controller.object = object;
             

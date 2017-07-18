@@ -17,7 +17,7 @@
 #import "DataManager.h"
 
 
-@interface DetailObjectController : UITableViewController <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, NSFetchedResultsControllerDelegate>
+@interface DetailObjectController : UITableViewController 
 
 
 @property (strong, nonatomic) UIImageView *fullScreenImageView;
