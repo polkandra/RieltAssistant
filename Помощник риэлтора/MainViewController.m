@@ -67,7 +67,7 @@
      /*[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
      self.navigationController.navigationBar.shadowImage = [UIImage new];
      self.navigationController.navigationBar.translucent = YES;*/
-   
+   //
 }
 
 
@@ -115,10 +115,10 @@
 
 
 // unwind segue from NewObject VC
-- (IBAction)cancelButtonTapped:(UIStoryboardSegue *)segue {
+/*- (IBAction)cancelButtonTapped:(UIStoryboardSegue *)segue {
     
     
-}
+}*/
 
 // unwind segue from DetailObject VC
 - (IBAction)unwindAfterBackButtonFromDetail:(UIStoryboardSegue*)segue {
