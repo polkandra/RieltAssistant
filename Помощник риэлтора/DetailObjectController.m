@@ -21,13 +21,11 @@
     
     [super viewDidLoad];
     
-    
-    
     [self setNavController];
-   
+    
     // self.myDetailPhotosArray = [[NSMutableArray alloc] init];
     
-  //  self.myDetailData = [[NSMutableArray alloc] init];
+    //  self.myDetailData = [[NSMutableArray alloc] init];
     
     self.automaticallyAdjustsScrollViewInsets = YES;
     
@@ -61,14 +59,16 @@
 
 -(void)setNavController
 {
+    
     UINavigationBar *navbar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, 375, 64)];
+    
     //do something like background color, title, etc you self
     [self.view addSubview:navbar];
     
     UINavigationItem *navItem = [[UINavigationItem alloc] init];
     navItem.title = @"Объект";
     
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Назад" style:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Назад" style:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
     navItem.leftBarButtonItem = leftButton;
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Изменить" style:UIBarButtonSystemItemEdit target:self action:@selector(edit)];
@@ -78,20 +78,31 @@
     
     [self.view addSubview:navbar];
     
-  
-    
 }
+
+
+
+
+
 
 #pragma mark -- Helpers
 
--(void)cancel
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+-(void)cancel:(UIBarButtonItem *)sender
 
--(void)setEditing:(BOOL)editing
 {
     
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+   
+}
+
+
+-(void)edit
+
+{
+    
+    
+       
 }
 
 

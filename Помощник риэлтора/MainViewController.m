@@ -115,14 +115,14 @@
 
 
 // unwind segue from NewObject VC
-/*- (IBAction)cancelButtonTapped:(UIStoryboardSegue *)segue {
+- (IBAction)cancelButtonTapped:(UIStoryboardSegue *)segue {
     
     
-}*/
+}
 
 // unwind segue from DetailObject VC
 - (IBAction)unwindAfterBackButtonFromDetail:(UIStoryboardSegue*)segue {
-    
+   
     
 }
 
@@ -130,6 +130,8 @@
 - (IBAction)unwindAfterChangeButtonFromDetail:(UIStoryboardSegue*)segue {
     
 }
+
+
 
 
 #pragma mark  Navigation
