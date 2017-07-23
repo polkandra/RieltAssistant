@@ -13,17 +13,21 @@
 @end
 
 @implementation EbmeddedImageController
-@synthesize pageIndex,imageFile;
+@synthesize pageIndex,imageFile, detailItem;
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
    
     
+    //self.imageFile = [UIImage imageWithData:[detailItem valueForKey:@"picture"]];
+   
     self.ImageInEmbeddedView.image = imageFile;
     
-
-
+   
+    
+   // self.ImageInEmbeddedView.image = [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
+//
 
 }
 

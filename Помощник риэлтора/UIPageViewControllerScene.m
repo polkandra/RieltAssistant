@@ -111,7 +111,11 @@
     // Create a new view controller and pass suitable data.
     
     EbmeddedImageController *embeddedVC = [self.storyboard instantiateViewControllerWithIdentifier:@"embedded"];
+    
+    NSData* myData = [NSKeyedArchiver archivedDataWithRootObject:self.pageVCArray];
+    
     embeddedVC.imageFile = self.pageVCArray[index];
+    //embeddedVC.imageFile = myData;
     embeddedVC.pageIndex = index;
     
    

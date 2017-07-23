@@ -20,12 +20,17 @@
 @interface DetailObjectController : UITableViewController 
 
 
+
+
+
+
+
 @property (strong, nonatomic) UIImageView *fullScreenImageView;
 @property (strong, nonatomic) UIImageView *originalImageView;
 
 //@property(strong, nonatomic) EstateObject* myObject;
 
-@property (weak, nonatomic) IBOutlet UIImageView *bigImage;
+
 
 
 //@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EbmeddedImageController.h"
 
-@interface UIPageViewControllerScene : UIPageViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
+@interface UIPageViewControllerScene : UIPageViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate, NSCoding>
 
 
 @property (strong, nonatomic)  NSMutableArray *pageVCArray;

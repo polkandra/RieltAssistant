@@ -9,13 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "DetailObjectController.h"
 #import "NewObjectViewController.h"
+#import "DataManager.h"
+#import "EstateObjectEntity+CoreDataClass.h"
+
 
 @interface EbmeddedImageController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *ImageInEmbeddedView;
 
 //@property (strong, nonatomic)  NSMutableArray *embeddedArray;
-
+@property (strong, nonatomic) EstateObjectEntity* detailItem;
 
 @property NSUInteger pageIndex;
 @property NSString *imageFile;

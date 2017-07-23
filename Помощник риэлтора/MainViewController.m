@@ -140,20 +140,21 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"toDetail"]) {
+        
        
-        DetailObjectController *doc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailObjectController"];
+        DetailObjectController *doc = segue.destinationViewController;
+                
+        EstateObjectEntity *selectedEntity = [self.fetchedData objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         
-        //EstateObjectEntity *selectedEntity = [self.fetchedData objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         
+       // doc.detailItem = object;
+        doc.detailItem = selectedEntity;
         
-        doc.detailItem = object;
-        
-         
         doc.myDetailPhotosArray = [[NSMutableArray alloc] init];
         doc.myDetailPhotosArray = self.myPhotosData;
         
       
-         [self presentViewController:doc animated:YES completion:nil];
+        
         
         }
     }

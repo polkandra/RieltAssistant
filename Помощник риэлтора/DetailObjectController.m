@@ -21,15 +21,16 @@
     
     [super viewDidLoad];
     
-    [self setNavController];
+    //[self setNavController];
     
     // self.myDetailPhotosArray = [[NSMutableArray alloc] init];
     
     //  self.myDetailData = [[NSMutableArray alloc] init];
     
-    self.automaticallyAdjustsScrollViewInsets = YES;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
-    
+    self.title = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"discription"]];
+
     
     
     if (self.detailItem) {
@@ -49,7 +50,7 @@
    
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.allowsSelection = NO;
-        
+    
         NSLog(@"transfered pics == %@",self.myDetailPhotosArray);
     }
 
@@ -57,7 +58,7 @@
 
 
 
--(void)setNavController
+/*-(void)setNavController
 {
     
     UINavigationBar *navbar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, 375, 64)];
@@ -68,42 +69,24 @@
     UINavigationItem *navItem = [[UINavigationItem alloc] init];
     navItem.title = @"Объект";
     
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Назад" style:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Назад" style:UIBarButtonSystemItemDone target:self action:@selector(cancel:)];
     navItem.leftBarButtonItem = leftButton;
     
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Изменить" style:UIBarButtonSystemItemEdit target:self action:@selector(edit)];
-    navItem.rightBarButtonItem = rightButton;
-    
-    navbar.items = @[ navItem ];
-    
-    [self.view addSubview:navbar];
-    
-}
-
-
-
-
-
-
-#pragma mark -- Helpers
-
--(void)cancel:(UIBarButtonItem *)sender
-
-{
-    
-    
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
    
-}
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Изменить" style:UIBarButtonSystemItemEdit target:self action:@selector(edit:)];
+    navItem.rightBarButtonItem = rightButton;
+    navbar.
+   
+    // navbar.items = @[ navItem ];
+   
+   
+    // [self.view addSubview:navbar];
+}*/
 
 
--(void)edit
 
-{
-    
-    
-       
-}
+
+
 
 
 
@@ -146,10 +129,9 @@
         
     }else if ([segue.identifier isEqualToString:@"backToNew"]) {
         
-        NewObjectViewController *newVC = [self.storyboard instantiateViewControllerWithIdentifier:@"New"];
+        NewObjectViewController *newVC = (NewObjectViewController *)segue.destinationViewController;
         
-        
-        [self presentViewController:newVC animated:YES completion:nil];
+      
     }
     
 }
