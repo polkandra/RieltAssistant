@@ -356,7 +356,11 @@
             
             }
         
+        NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myPhotosArray];
+        object.arrayOfUsersPics = arrayData;
         
+        
+        //object.arrayOfUsersPics = [NSArray arrayWithArray:self.myPhotosArray];
             
             
      /*   }else{

@@ -18,15 +18,15 @@
 #import "CoreDataTableVC.h"
 
 
-@interface MainViewController : CoreDataTableVC  <UITableViewDataSource, UITableViewDataSource>
+@interface MainViewController : CoreDataTableVC  <UITableViewDataSource, UITableViewDataSource, NSCoding>
 
 
-@property (strong, nonatomic) EstateObjectEntity* detailItem;
+//@property (strong, nonatomic) EstateObjectEntity* detailItem;
 
 //@property(strong, nonatomic) NSMutableArray* myData;
 @property(strong, nonatomic) NSMutableArray* myPhotosData;
 @property(strong, nonatomic) NSMutableArray* fetchedData;
-
+@property(strong, nonatomic) NSMutableArray* fetchedArrayWithUsersPics;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 

@@ -28,19 +28,38 @@
         
     [super viewDidLoad];
     
-  
+   
     
     self.emptyDataBaseLabel.hidden = YES;
     
     
     //self.myData = [[NSMutableArray alloc] init];
-    
-   // self.myPhotosData = [[NSMutableArray alloc] init];
+    // self.myPhotosData = [[NSMutableArray alloc] init];
  
-    
-    
-    NSLog(@"all my photos in vdl = %@",myPhotosData);
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    self.fetchedData = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    /*if (self.fetchedData.count > 0) {
+        EstateObjectEntity *estateObject = [self.fetchedData objectAtIndex:0];
+        NSArray *fetchedArrayWithUsersPics = [[NSArray alloc] initWithArray: object.arrayOfUsersPics];
+     
+    }*/
+    
+    
+    //NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:object.arrayOfUsersPics];
+    
+    NSData *newdata = [NSData dataWithData:object.arrayOfUsersPics];
+    NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:newdata];
+    
+    
+    
+    //NSLog(@"fetchedArrayWithUsersPics = %@",[object valueForKey:@"arrayOfUsersPics"]);
+    NSLog(@"all my photos in myPhotosData = %@",self.myPhotosData);
+    NSLog(@"my fetched entities are : %@", self.fetchedData);
+    NSLog(@"fetchedArrayWithUsersPics  : %@", fetchedArrayWithUsersPics.count);
+    
     
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -51,6 +70,38 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+   // NSLog(@"my fetched entities are : %@", self.fetchedData);
+   }
+
+
+-(void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
+    
+    [self setNavigationController];
+    
+    // Fetch from persistent data store
+    /*NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    self.fetchedData = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:object.arrayOfUsersPics];
+    NSLog(@"fetchedArrayWithUsersPics = %@",fetchedArrayWithUsersPics);*/
+
+   // NSLog(@"my fetched entities are : %@", self.fetchedData);
+    
+    [self.tableView reloadData];
+    
+}
+
+
+
+#pragma mark - Helpers
+
+
+-(void)setNavigationController {
+   
     [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor52]];
     [self.navigationController.navigationBar setTranslucent:YES];
     
@@ -64,27 +115,12 @@
        NSFontAttributeName:[UIFont fontWithName:@"avenir" size:19]}];
     
     // making nav bar translucent
-     /*[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    /*[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
      self.navigationController.navigationBar.shadowImage = [UIImage new];
      self.navigationController.navigationBar.translucent = YES;*/
-   //
-}
-
-
--(void)viewDidAppear:(BOOL)animated {
-    
-    [super viewDidAppear:animated];
-    
-    // Fetch the devices from persistent data store
-    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
-    self.fetchedData = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    
-    NSLog(@"my fetched entities are : %@", self.fetchedData);
-    [self.tableView reloadData];
+    //
     
 }
-
 
 
 #pragma mark - Unwind Segues
@@ -105,7 +141,7 @@
        // [self.myData addObject:newObject];
         
        // NSLog(@"my aaaaray = %@",self.myData);
-        NSLog(@"all my photos = %@",myPhotosData);
+       // NSLog(@"all my photos = %@",myPhotosData);
         
        // [self.tableView reloadData];
         

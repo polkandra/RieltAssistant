@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
-    <entity name="EstateObjectEntity" representedClassName="EstateObjectEntity" syncable="YES" codeGenerationType="class">
+    <entity name="EstateObjectEntity" representedClassName="EstateObjectEntity" syncable="YES">
         <attribute name="actionByProperty" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="arrayOfUsersPics" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -14,6 +14,7 @@
         <attribute name="roomQuantity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="typeOfProperty" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wholeArea" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="meetings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MeetingObjectEntity" inverseName="estateObjects" inverseEntity="MeetingObjectEntity" syncable="YES"/>
     </entity>
     <entity name="MeetingObjectEntity" representedClassName="MeetingObjectEntity" syncable="YES">
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
@@ -22,9 +23,10 @@
         <attribute name="personName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="estateObjects" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EstateObjectEntity" inverseName="meetings" inverseEntity="EstateObjectEntity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="EstateObjectEntity" positionX="-63" positionY="-18" width="128" height="240"/>
-        <element name="MeetingObjectEntity" positionX="97" positionY="-18" width="128" height="135"/>
+        <element name="EstateObjectEntity" positionX="1719" positionY="2316" width="128" height="253"/>
+        <element name="MeetingObjectEntity" positionX="1987" positionY="2304" width="128" height="148"/>
     </elements>
 </model>
