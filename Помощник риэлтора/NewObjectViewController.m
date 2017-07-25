@@ -219,7 +219,8 @@
         
         controller.myPhotosData = [[NSMutableArray alloc] init];
         controller.myPhotosData = self.myPhotosArray;
-        //controller.myPhotosData = self.myArrayWithPhotoData;
+       
+        // controller.myPhotosData = self.myArrayWithPhotoData;
         
         controller.object = object;
             
@@ -335,35 +336,38 @@
             if ([self.myArrayWithPhotoData count] == 0) {
                 
                 UIImage *image = [UIImage imageNamed:@"emptyObject2"];
-               
+                
                 NSData* pictureData = UIImageJPEGRepresentation(image,0);
                 
                 [self.myArrayWithPhotoData addObject:pictureData];
                 
-                //array for PVC
-                [self.myPhotosArray addObject:image];
-                
                 
                 object.picture = [self.myArrayWithPhotoData firstObject];
-               // object.picture = [self.arrayForPVC firstObject];
-               // [object setValue:[self.myArrayWithPhotoData firstObject] forKey:@"picture"];
-            
+                // object.picture = [self.arrayForPVC firstObject];
+                // [object setValue:[self.myArrayWithPhotoData firstObject] forKey:@"picture"];
+                
             }else{
                 
                 object.picture = [self.myArrayWithPhotoData firstObject];
-               // object.picture = [self.arrayForPVC firstObject];
-               // [object setValue:[self.myArrayWithPhotoData firstObject] forKey:@"picture"];
-            
+                // object.picture = [self.arrayForPVC firstObject];
+                // [object setValue:[self.myArrayWithPhotoData firstObject] forKey:@"picture"];
+                
             }
+        
+        
+        if ([self.myPhotosArray count] == 0) {
+          
+            UIImage *image = [UIImage imageNamed:@"emptyObject2"];
+            
+            [self.myPhotosArray addObject:image];
+        }
+        
         
         NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myPhotosArray];
         object.arrayOfUsersPics = arrayData;
         
         
-        //object.arrayOfUsersPics = [NSArray arrayWithArray:self.myPhotosArray];
-            
-            
-     /*   }else{
+        /*   }else{
             
             NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"EstateObjectEntity" inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
             

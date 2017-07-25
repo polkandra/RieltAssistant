@@ -18,7 +18,7 @@
 #import "CoreDataTableVC.h"
 
 
-@interface MainViewController : CoreDataTableVC  <UITableViewDataSource, UITableViewDataSource, NSCoding>
+@interface MainViewController : CoreDataTableVC  <UITableViewDataSource, UITableViewDataSource, NSKeyedArchiverDelegate>
 
 
 //@property (strong, nonatomic) EstateObjectEntity* detailItem;

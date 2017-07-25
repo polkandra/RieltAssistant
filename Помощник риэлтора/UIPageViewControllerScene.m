@@ -112,10 +112,9 @@
     
     EbmeddedImageController *embeddedVC = [self.storyboard instantiateViewControllerWithIdentifier:@"embedded"];
     
-    NSData* myData = [NSKeyedArchiver archivedDataWithRootObject:self.pageVCArray];
+   
     
-    embeddedVC.imageFile = self.pageVCArray[index];
-    //embeddedVC.imageFile = myData;
+    embeddedVC.imageFile = [self.pageVCArray objectAtIndex:index];
     embeddedVC.pageIndex = index;
     
    

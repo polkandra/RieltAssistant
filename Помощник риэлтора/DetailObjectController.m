@@ -21,17 +21,29 @@
     
     [super viewDidLoad];
     
+    [self configureView];
+    
+    
     //[self setNavController];
     
     // self.myDetailPhotosArray = [[NSMutableArray alloc] init];
     
     //  self.myDetailData = [[NSMutableArray alloc] init];
     
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.tableView.separatorColor = [UIColor clearColor];
+    self.tableView.allowsSelection = NO;
     
-    self.title = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"discription"]];
+    NSLog(@"transfered pics == %@",self.myDetailPhotosArray);
+}
 
+
+
+
+-(void)configureView {
     
+     self.title = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"discription"]];
     
     if (self.detailItem) {
         
@@ -45,16 +57,9 @@
         self.phoneNumberLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"phoneNumber"]];
         self.actionLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"typeOfProperty"]];
         self.typeLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"actionByProperty"]];
-        //self.bigImage.image = [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
+       
     }
-   
-    self.tableView.separatorColor = [UIColor clearColor];
-    self.tableView.allowsSelection = NO;
-    
-        NSLog(@"transfered pics == %@",self.myDetailPhotosArray);
-    }
-
-
+}
 
 
 
@@ -67,7 +72,7 @@
     [self.view addSubview:navbar];
     
     UINavigationItem *navItem = [[UINavigationItem alloc] init];
-    navItem.title = @"Объект";
+    
     
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Назад" style:UIBarButtonSystemItemDone target:self action:@selector(cancel:)];
     navItem.leftBarButtonItem = leftButton;

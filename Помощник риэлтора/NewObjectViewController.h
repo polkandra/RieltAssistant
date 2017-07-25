@@ -16,7 +16,7 @@
 #import "AddToMapVC.h"
 #import "EstateObjectEntity+CoreDataProperties.h"
 
-@interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, NSCoding>
+@interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, NSKeyedArchiverDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *userimage;

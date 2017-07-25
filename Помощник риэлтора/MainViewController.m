@@ -28,70 +28,60 @@
         
     [super viewDidLoad];
     
-   
-    
     self.emptyDataBaseLabel.hidden = YES;
     
     
     //self.myData = [[NSMutableArray alloc] init];
     // self.myPhotosData = [[NSMutableArray alloc] init];
- 
-    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-   
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
-    self.fetchedData = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    
-    /*if (self.fetchedData.count > 0) {
-        EstateObjectEntity *estateObject = [self.fetchedData objectAtIndex:0];
-        NSArray *fetchedArrayWithUsersPics = [[NSArray alloc] initWithArray: object.arrayOfUsersPics];
-     
-    }*/
-    
-    
-    //NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:object.arrayOfUsersPics];
-    
-    NSData *newdata = [NSData dataWithData:object.arrayOfUsersPics];
-    NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:newdata];
-    
     
     
     //NSLog(@"fetchedArrayWithUsersPics = %@",[object valueForKey:@"arrayOfUsersPics"]);
     NSLog(@"all my photos in myPhotosData = %@",self.myPhotosData);
-    NSLog(@"my fetched entities are : %@", self.fetchedData);
-    NSLog(@"fetchedArrayWithUsersPics  : %@", fetchedArrayWithUsersPics.count);
+   // NSLog(@"my fetched entities are : %@", self.fetchedData);
+   // NSLog(@"fetchedArrayWithUsersPics  : %lu", (unsigned long)fetchedArrayWithUsersPics.count);
     
     
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
 }
 
 
 
+
+
 -(void)viewWillAppear:(BOOL)animated {
+    
     [super viewWillAppear:animated];
     
-   // NSLog(@"my fetched entities are : %@", self.fetchedData);
-   }
+    [self setNavigationController];
+  
+  
+    // Fetch from persistent data store
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    self.fetchedData = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    
+    if (self.fetchedData != nil) {
+        
+        EstateObjectEntity *estateObject = [self.fetchedData objectAtIndex:0];
+        NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:estateObject.arrayOfUsersPics];
+        
+        self.myPhotosData = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
+       
+        NSLog(@"my fetched entities are : %@", self.fetchedData);
+        NSLog(@"fetchedArrayWithUsersPics  : %lu", (unsigned long)fetchedArrayWithUsersPics.count);
+        
+        
+    }
+}
+
 
 
 -(void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
     
-    
-    [self setNavigationController];
-    
-    // Fetch from persistent data store
-    /*NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
-    self.fetchedData = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    
-    NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:object.arrayOfUsersPics];
-    NSLog(@"fetchedArrayWithUsersPics = %@",fetchedArrayWithUsersPics);*/
-
-   // NSLog(@"my fetched entities are : %@", self.fetchedData);
-    
-    [self.tableView reloadData];
     
 }
 
@@ -183,17 +173,15 @@
         EstateObjectEntity *selectedEntity = [self.fetchedData objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         
         
-       // doc.detailItem = object;
+        //doc.detailItem = object;
         doc.detailItem = selectedEntity;
         
         doc.myDetailPhotosArray = [[NSMutableArray alloc] init];
         doc.myDetailPhotosArray = self.myPhotosData;
         
-      
         
-        
-        }
     }
+}
 
 
 
