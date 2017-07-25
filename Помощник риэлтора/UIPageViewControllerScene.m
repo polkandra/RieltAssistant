@@ -114,7 +114,7 @@
     
    
     
-    embeddedVC.imageFile = [self.pageVCArray objectAtIndex:index];
+    embeddedVC.imageFile = self.pageVCArray[index];
     embeddedVC.pageIndex = index;
     
    

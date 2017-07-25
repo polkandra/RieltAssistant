@@ -207,7 +207,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Изменить" id="4dg-IZ-AR7"/>
+                            <barButtonItem title="Изменить" id="4dg-IZ-AR7">
+                                <connections>
+                                    <segue destination="nkq-gs-aGa" kind="show" identifier="editFromDetailVC" id="FJk-wi-hMS"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem systemItem="action" id="os2-IP-Drd"/>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -903,7 +907,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Сохранить" id="vD3-28-zD6">
                             <connections>
-                                <segue destination="Jq4-D8-kRU" kind="unwind" identifier="toMain" unwindAction="saveButtonTaped:" id="xug-o2-dbI"/>
+                                <segue destination="Jq4-D8-kRU" kind="unwind" identifier="toMain" unwindAction="saveButtonTaped:" id="m2i-bN-esA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1218,7 +1222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7084" y="709.29535232383819"/>
+            <point key="canvasLocation" x="6930" y="44"/>
         </scene>
         <!--MeetingsVC-->
         <scene sceneID="c2R-ZU-QVx">
@@ -1693,7 +1697,7 @@
                         <inset key="imageInsets" minX="-5" minY="5" maxX="5" maxY="-5"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Of3-kB-495">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Of3-kB-495">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.74106670389999996" green="0.85528823399999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1764,7 +1768,7 @@
                         <inset key="imageInsets" minX="-5" minY="5" maxX="5" maxY="-5"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AvC-lN-H3H">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="AvC-lN-H3H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1875,7 +1879,7 @@
                         <inset key="imageInsets" minX="-5" minY="5" maxX="5" maxY="-5"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hqf-KU-2ah">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hqf-KU-2ah">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1905,4 +1909,7 @@
         <image name="settings" width="50" height="50"/>
         <image name="trash" width="37" height="45"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="FJk-wi-hMS"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -62,7 +62,7 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
     self.fetchedData = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
     
-    if (self.fetchedData != nil) {
+    if (self.fetchedData.count > 0) {
         
         EstateObjectEntity *estateObject = [self.fetchedData objectAtIndex:0];
         NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:estateObject.arrayOfUsersPics];
@@ -71,7 +71,6 @@
        
         NSLog(@"my fetched entities are : %@", self.fetchedData);
         NSLog(@"fetchedArrayWithUsersPics  : %lu", (unsigned long)fetchedArrayWithUsersPics.count);
-        
         
     }
 }
@@ -126,9 +125,8 @@
         //EstateObjectEntity* newObject = controller.myObject;
         
         _emptyDataBaseLabel.hidden = YES;
-        
-        
-       // [self.myData addObject:newObject];
+                
+        // [self.myData addObject:newObject];
         
        // NSLog(@"my aaaaray = %@",self.myData);
        // NSLog(@"all my photos = %@",myPhotosData);
@@ -348,8 +346,8 @@
     [fetchRequest setFetchBatchSize:10];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *discription = [[NSSortDescriptor alloc] initWithKey:@"discription" ascending:YES];
-    NSSortDescriptor *price = [[NSSortDescriptor alloc] initWithKey:@"price" ascending:YES];
+    NSSortDescriptor *discription = [[NSSortDescriptor alloc] initWithKey:@"discription" ascending:NO];
+    NSSortDescriptor *price = [[NSSortDescriptor alloc] initWithKey:@"price" ascending:NO];
     
     NSArray *sortDescriptors = @[discription, price];
     
