@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "EbmeddedImageController.h"
+#import "EstateObjectEntity+CoreDataProperties.h"
+#import "DataManager.h"
 
 @interface UIPageViewControllerScene : UIPageViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate, NSCoding>
 
@@ -16,7 +18,9 @@
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 
+@property (strong, nonatomic) EstateObjectEntity* detailItem;
 
-
+@property (strong, nonatomic)  NSMutableArray *retrievedArray;
+@property (strong, nonatomic)  NSMutableArray *sourceArray;
 
 @end

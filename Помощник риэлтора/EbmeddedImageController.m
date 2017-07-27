@@ -13,7 +13,7 @@
 @end
 
 @implementation EbmeddedImageController
-@synthesize pageIndex,imageFile, detailItem;
+@synthesize pageIndex,imageFile;
 
 
 - (void)viewDidLoad {
@@ -27,7 +27,7 @@
    
     
    // self.ImageInEmbeddedView.image = [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
-//
+
 
 }
 

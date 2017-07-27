@@ -17,9 +17,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *ImageInEmbeddedView;
 
-//@property (strong, nonatomic)  NSMutableArray *embeddedArray;
-@property (strong, nonatomic) EstateObjectEntity* detailItem;
-
 @property NSUInteger pageIndex;
 @property NSString *imageFile;
 

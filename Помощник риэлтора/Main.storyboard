@@ -432,7 +432,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="New" id="nkq-gs-aGa" userLabel="NewObjectVC" customClass="NewObjectViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="50" sectionFooterHeight="18" id="frd-Uw-dy2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -890,6 +890,25 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.76105603730000004" green="0.88952634939999997" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="vgD-ye-kqG">
+                                        <rect key="frame" x="0.0" y="1659.5" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vgD-ye-kqG" id="11w-4B-e9i">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DT3-ON-fvR">
+                                                    <rect key="frame" x="25" y="8" width="326" height="74"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button" backgroundImage="ownerRect"/>
+                                                    <connections>
+                                                        <segue destination="Jq4-D8-kRU" kind="unwind" identifier="editFromDetailVC" unwindAction="saveSecondButtonTaped:" id="ZX2-U3-Ecg"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.77311297020000003" green="0.90871839850000002" blue="0.99567358539999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -905,14 +924,15 @@
                                 <segue destination="Jq4-D8-kRU" kind="unwind" identifier="cancel" unwindAction="cancelButtonTapped:" id="ok7-zL-u4Z"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="vD3-28-zD6">
+                        <barButtonItem key="rightBarButtonItem" title="Сохранить" width="3" id="vD3-28-zD6">
+                            <inset key="imageInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <connections>
                                 <segue destination="Jq4-D8-kRU" kind="unwind" identifier="toMain" unwindAction="saveButtonTaped:" id="m2i-bN-esA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="1500"/>
+                    <size key="freeformSize" width="375" height="1700"/>
                     <connections>
                         <outlet property="actionTypeLabelInCell" destination="GcH-c2-mFR" id="KFx-0l-7Du"/>
                         <outlet property="addPlaceOnMapButton" destination="Bze-xG-RLc" id="jh9-LY-ow4"/>
@@ -943,6 +963,7 @@
                         <outlet property="roomAddonLabel" destination="H6b-VA-5Q1" id="meY-jV-38N"/>
                         <outlet property="roomPicker" destination="2xZ-EO-DPC" id="CKP-cA-Mdz"/>
                         <outlet property="saveRightBarButton" destination="vD3-28-zD6" id="9Su-pz-E0J"/>
+                        <outlet property="saveSecondButton" destination="DT3-ON-fvR" id="or8-jv-u1M"/>
                         <outlet property="tableView" destination="frd-Uw-dy2" id="p4P-eR-Gyz"/>
                         <outlet property="totalSquareLabel" destination="kXu-n2-1DR" id="oX6-ye-ysW"/>
                         <outlet property="totalSquareTextField" destination="oMU-AB-mYm" id="SXh-28-uDo"/>
@@ -951,7 +972,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="evj-bj-maC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Jq4-D8-kRU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2644" y="2"/>
+            <point key="canvasLocation" x="2678" y="69"/>
         </scene>
         <!--RoomTypeVC-->
         <scene sceneID="6Jy-7Q-zDF">
@@ -1129,7 +1150,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hvp-fH-ysq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="O0M-1R-jtM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3962" y="-448"/>
+            <point key="canvasLocation" x="3961" y="-373"/>
         </scene>
         <!--Add Place To Map Controller-->
         <scene sceneID="RMP-WT-5kC">
@@ -1468,7 +1489,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3d-L5-22Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="465" y="2554"/>
+            <point key="canvasLocation" x="6145" y="2186"/>
         </scene>
         <!--Новая встреча-->
         <scene sceneID="pNv-UG-7QW">
@@ -1758,7 +1779,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7uE-ni-9dx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3816.8000000000002" y="-1055.1724137931035"/>
+            <point key="canvasLocation" x="3961" y="-1055"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fYS-cU-pGA">
@@ -1869,7 +1890,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ilw-S5-hQ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3961" y="522"/>
+            <point key="canvasLocation" x="3961" y="376"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6kv-gJ-bh0">
@@ -1910,6 +1931,6 @@
         <image name="trash" width="37" height="45"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FJk-wi-hMS"/>
+        <segue reference="kvY-xV-bMF"/>
     </inferredMetricsTieBreakers>
 </document>

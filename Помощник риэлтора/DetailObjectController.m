@@ -27,7 +27,6 @@
     //[self setNavController];
     
     // self.myDetailPhotosArray = [[NSMutableArray alloc] init];
-    
     //  self.myDetailData = [[NSMutableArray alloc] init];
     
     
@@ -38,6 +37,17 @@
     NSLog(@"transfered pics == %@",self.myDetailPhotosArray);
 }
 
+
+
+-(void)viewWillAppear:(BOOL)animated {
+   
+    [super viewWillAppear:YES];
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    self.fetchedObjects = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
+  
+}
 
 
 
@@ -91,19 +101,6 @@
 
 
 
-
-
-
-
-/*- (void) viewDidLayoutSubviews {
-    CGFloat top = self.topLayoutGuide.length;
-    CGFloat bottom = self.bottomLayoutGuide.length;
-    UIEdgeInsets newInsets = UIEdgeInsetsMake(top, 0, bottom, 0);
-    self.tableView.contentInset = newInsets;
-    
-}*/
-
-
 - (IBAction)detailMapAddressButton:(id)sender {
     
     
@@ -119,6 +116,19 @@
 
 
 
+- (IBAction)saveSecondButtonTaped:(UIStoryboardSegue*)segue {
+    
+    if ([segue.identifier isEqualToString:@"unwindToDetailWithChanges"]) {
+        
+        
+        
+        
+    }
+}
+
+
+
+
 #pragma mark - Segues
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -127,16 +137,25 @@
         
         UIPageViewControllerScene *controller = (UIPageViewControllerScene *)segue.destinationViewController;
         
-        controller.pageVCArray = [[NSMutableArray alloc]init];
-        controller.pageVCArray = self.myDetailPhotosArray;
+        controller.detailItem = self.detailItem;
+        
+       // controller.pageVCArray = [[NSMutableArray alloc]init];
+       //controller.pageVCArray = self.myDetailPhotosArray;
         
         
         
-    }else if ([segue.identifier isEqualToString:@"backToNew"]) {
+    }else if ([segue.identifier isEqualToString:@"editFromDetailVC"]) {
         
+        EstateObjectEntity *estateObject = [self.fetchedObjects objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+      
+       
         NewObjectViewController *newVC = (NewObjectViewController *)segue.destinationViewController;
         
-      
+        newVC.detailItem = estateObject;
+        newVC.navigationItem.rightBarButtonItem = nil;
+        newVC.saveSecondButton.hidden = NO;
+        newVC.hideButton = NO;
+        
     }
     
 }

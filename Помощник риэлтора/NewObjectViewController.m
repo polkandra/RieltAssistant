@@ -11,12 +11,12 @@
 
 @interface NewObjectViewController ()
 
-@property(assign, nonatomic) BOOL isSelected;
+//@property(assign, nonatomic) BOOL isSelected;
 
 @end
 
 @implementation NewObjectViewController
-@synthesize  myPhotosArray, tableView, myArrayWithPhotoData,detailItem;
+@synthesize  myPhotosArray, tableView, myArrayWithPhotoData, detailItem, hideButton, saveSecondButton;
 
 
 #pragma mark - VC Lifecycle
@@ -25,22 +25,33 @@
     [super viewDidLoad];
     
     
-    NSInteger row = 1;
+    /*NSInteger row = 1;
     NSInteger section = 4;
-    self.expandedIndexPath = [NSIndexPath indexPathForRow:row inSection:section];
+    self.expandedIndexPath = [NSIndexPath indexPathForRow:row inSection:section];*/
     
-    NSLog(@"my array = %@",self.myData);
-    
-    self.saveRightBarButton.enabled = YES;
+    //NSLog(@"my array = %@",self.myData);
     
     
+    
+   
+   
+    if (self.hideButton == YES) {
+        
+        self.saveSecondButton.hidden = YES;
+    
+    }else{
+      
+        self.saveSecondButton.hidden = NO;
+    }
+    
+   
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
     self.collectionView.allowsMultipleSelection = YES;
     self.tableView.allowsSelection = YES;
     
-    
+    [self updateInformation];
     [self setDelegatesForPickerView];
     [self setDelegatesForTextFields];
     [self addGestureRecognizer];
@@ -51,22 +62,14 @@
     self.selectedPhotos = [[NSMutableArray alloc] init];
     self.myArrayWithPhotoData = [[NSMutableArray alloc] init];
     self.arrayForPVC = [[NSMutableArray alloc] init];
-    
-    
-    /*if([myPhotosArray count] > 0) {
-     
-     self.addPlaceOnMapButton.enabled = NO;
-     
-     }else{
-     
-     self.addPlaceOnMapButton.enabled = YES;
-     }*/
-    
-    
+   
     
 }
 
+
+
 -(void)viewWillAppear:(BOOL)animated {
+    
     [super viewWillAppear:animated];
     
     [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor46]];
@@ -87,6 +90,28 @@
     
 }
 
+
+
+
+
+-(void)updateInformation {
+    
+    if (self.detailItem) {
+        
+        [self.objectNameTextField setText:[self.detailItem valueForKey:@"discription"]];
+        [self.adressTextfield setText:[self.detailItem valueForKey:@"address"]];
+        [self.ownerNameTextField setText:[self.detailItem valueForKey:@"owner"]];
+        [self.priceTextField setText:[self.detailItem valueForKey:@"price"]];
+        [self.phoneTextField setText:[self.detailItem valueForKey:@"phoneNumber"]];
+        [self.objectTypeLabelInCell setText:[self.detailItem valueForKey:@"typeOfProperty"]];
+        [self.actionTypeLabelInCell setText:[self.detailItem valueForKey:@"actionByProperty"]];
+        //[[self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]] valueForKey:@"roomQuantity"];
+        [self.totalSquareTextField setText:[self.detailItem valueForKey:@"wholeArea"]];
+        [self.livingSquareTextField setText:[self.detailItem valueForKey:@"livingArea"]];
+        [self.kitchenSquareTextField setText:[self.detailItem valueForKey:@"kitchenArea"]];
+        
+    }
+}
 
 
 
@@ -213,7 +238,7 @@
     
     if ([segue.identifier isEqualToString:@"toMain"]) {
         
-        if (self.detailItem) {
+       /* if (self.detailItem) {
        
             // UPDATING EXISTING OBJECTS
        
@@ -224,7 +249,7 @@
             [self.detailItem setValue:self.phoneTextField.text forKey:@"phoneNumber"];
             [self.detailItem setValue: self.objectTypeLabelInCell.text forKey:@"typeOfProperty"];
             [self.detailItem setValue: self.actionTypeLabelInCell.text forKey:@"actionByProperty"];
-            [self.detailItem setValue: [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]] forKey:@"roomQuantity"];
+            //[self.detailItem setValue: [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]] forKey:@"roomQuantity"];
             [self.detailItem setValue: self.totalSquareTextField.text forKey:@"wholeArea"];
             [self.detailItem setValue: self.livingSquareTextField.text forKey:@"livingArea"];
             [self.detailItem setValue: self.kitchenSquareTextField.text forKey:@"kitchenArea"];
@@ -232,14 +257,12 @@
             // [self.detailItem setValue:[self.myArrayWithPhotoData firstObject] forKey:@"picture"];
             
             
-        }else{
+        }else{*/
             
             
             MainViewController *controller = segue.destinationViewController;
-            controller.myPhotosData = [[NSMutableArray alloc] init];
-            controller.myPhotosData = self.myPhotosArray;
-
-            // CREATING NEW OBJECTS
+           // controller.myPhotosData = [[NSMutableArray alloc] init];
+            //controller.myPhotosData = self.myPhotosArray;
             
             EstateObjectEntity* object =
             [NSEntityDescription insertNewObjectForEntityForName:@"EstateObjectEntity"
@@ -395,11 +418,32 @@
             
         // SAVING OBJECTS IN CONTEXT
             [[[DataManager sharedManager] managedObjectContext] save:nil];
+        
+        // }
+        
+    } else if ([segue.identifier isEqualToString:@"editFromDetailVC"]) {
+        
+        
+        if (self.detailItem) {
             
-    }
-    
-    
-    
+            // UPDATING EXISTING OBJECTS
+            
+            [self.detailItem setValue:self.objectNameTextField.text forKey:@"discription"];
+            [self.detailItem setValue:self.adressTextfield.text forKey:@"address"];
+            [self.detailItem setValue:self.ownerNameTextField.text forKey:@"owner"];
+            [self.detailItem setValue:self.priceTextField.text forKey:@"price"];
+            [self.detailItem setValue:self.phoneTextField.text forKey:@"phoneNumber"];
+            [self.detailItem setValue: self.objectTypeLabelInCell.text forKey:@"typeOfProperty"];
+            [self.detailItem setValue: self.actionTypeLabelInCell.text forKey:@"actionByProperty"];
+            //[self.detailItem setValue: [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]] forKey:@"roomQuantity"];
+            [self.detailItem setValue: self.totalSquareTextField.text forKey:@"wholeArea"];
+            [self.detailItem setValue: self.livingSquareTextField.text forKey:@"livingArea"];
+            [self.detailItem setValue: self.kitchenSquareTextField.text forKey:@"kitchenArea"];
+            
+            // [self.detailItem setValue:[self.myArrayWithPhotoData firstObject] forKey:@"picture"];
+            
+        }
+        
         
     } else if ([segue.identifier isEqualToString:@"toMapView"]) {
         

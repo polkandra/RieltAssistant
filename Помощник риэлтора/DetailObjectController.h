@@ -37,6 +37,8 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property(strong, nonatomic) NSMutableArray* myDetailPhotosArray;
+@property(strong, nonatomic) NSMutableArray* fetchedObjects;;
+
 
 @property(strong, nonatomic) EstateObjectEntity* detailItem;
 

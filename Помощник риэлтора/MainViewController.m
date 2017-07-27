@@ -31,15 +31,10 @@
     self.emptyDataBaseLabel.hidden = YES;
     
     
-    //self.myData = [[NSMutableArray alloc] init];
-    // self.myPhotosData = [[NSMutableArray alloc] init];
     
     
-    //NSLog(@"fetchedArrayWithUsersPics = %@",[object valueForKey:@"arrayOfUsersPics"]);
-    NSLog(@"all my photos in myPhotosData = %@",self.myPhotosData);
-   // NSLog(@"my fetched entities are : %@", self.fetchedData);
-   // NSLog(@"fetchedArrayWithUsersPics  : %lu", (unsigned long)fetchedArrayWithUsersPics.count);
-    
+   // NSLog(@"all my photos in myPhotosData = %@",self.myPhotosData);
+   
     
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -55,24 +50,7 @@
     [super viewWillAppear:animated];
     
     [self setNavigationController];
-  
-  
-    // Fetch from persistent data store
-    NSError *error;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
-    self.fetchedData = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
-    
-    if (self.fetchedData.count > 0) {
-        
-        EstateObjectEntity *estateObject = [self.fetchedData objectAtIndex:0];
-        NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:estateObject.arrayOfUsersPics];
-        
-        self.myPhotosData = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
-       
-        NSLog(@"my fetched entities are : %@", self.fetchedData);
-        NSLog(@"fetchedArrayWithUsersPics  : %lu", (unsigned long)fetchedArrayWithUsersPics.count);
-        
-    }
+ 
 }
 
 
@@ -165,20 +143,25 @@
     
     if ([segue.identifier isEqualToString:@"toDetail"]) {
         
-       
-        DetailObjectController *doc = segue.destinationViewController;
-                
-        EstateObjectEntity *selectedEntity = [self.fetchedData objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         
+        DetailObjectController *doc = segue.destinationViewController;
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        EstateObjectEntity *selectedEntity = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         
         //doc.detailItem = object;
         doc.detailItem = selectedEntity;
         
-        doc.myDetailPhotosArray = [[NSMutableArray alloc] init];
-        doc.myDetailPhotosArray = self.myPhotosData;
+        // doc.myDetailPhotosArray = [[NSMutableArray alloc] init];
+        // doc.myDetailPhotosArray = self.myPhotosData;
+        
+    }else if ([segue.identifier isEqualToString:@"toNewObject"]) {
+        NewObjectViewController *newVC = (NewObjectViewController *)segue.destinationViewController;
+        newVC.hideButton = YES;
         
         
     }
+    
 }
 
 
@@ -205,129 +188,12 @@
 
 
 
-/*
-
-#pragma mark - UITableViewDataSource
-
-
-/*- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    
-    return [self.myData count];
-}
-
- 
- - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
-}
-
-- (float)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    
-    
-    return 50;
-}
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return [self.myData count] ;
-}*/
-
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     return 150;
 }
-
-
-/*- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
-    MainScreenCellTableViewCell *cell = (MainScreenCellTableViewCell*) [self.tableView dequeueReusableCellWithIdentifier:@"MainScreenCell" forIndexPath:indexPath];
-    
-   /* EstateObject* object = [self.myData objectAtIndex:indexPath.row];
-    
-    cell.nameCellLabel.text = object.discription;
-    cell.nameCellLabel.textColor = [UIColor whiteColor];
-    
-    cell.priceCellLabel.text = object.price;
-    cell.priceCellLabel.textColor = [UIColor whiteColor];
-    
-    cell.addressCellLabel.text = object.address;
-    cell.addressCellLabel.textColor = [UIColor whiteColor];
-    
-    cell.ownerCellLabel.text = object.owner;
-    cell.ownerCellLabel.textColor = [UIColor whiteColor];
-    
-    cell.backgroundColor = [UIColor clearColor];
-    // cell.accessoryView.backgroundColor = [UIColor blueColor];
-    
-    cell.imageViewCell.image = object.picture;
-   
-    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 140, 374, 30)];
-     
-     view.backgroundColor = [UIColor clearColor];
-     [cell.contentView addSubview:view];
-    
-    [self configureCell:cell atIndexPath:indexPath];
-
-    
-    return  cell;
-  
-}
-
-
-
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        [self.myData removeObjectAtIndex:indexPath.row];
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    
-    }
-}*/
-
-
-
-
-/*-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-   
-    UIView *view = [[UIView alloc] init];
-    
-    view.backgroundColor = [UIColor clearColor];
-    
-   // [self.tableView addSubview:view];
-    
-    return view;
-    
-}*/
-
-
-
-
-
-#pragma mark - UITableViewDelegate
-
-
-/*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    DetailObjectController *doc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailObjectController"];
-    
-
-    EstateObjectEntity *estateObjectEntity = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    doc.detailItem = estateObjectEntity;
-    
-    [self.navigationController pushViewController:doc animated:YES];
-
-}*/
-
-
-
-
-
 
 
 - (NSFetchedResultsController *)fetchedResultsController

@@ -13,16 +13,15 @@
 @end
 
 @implementation UIPageViewControllerScene
-@synthesize pageViewController;
+@synthesize pageViewController, detailItem;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-
-
-       
-    NSLog(@"Page array = %lu",(unsigned long)[self.pageVCArray count]);
-   
+    [self fetchPhotosArray];
+    
+    
+    
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -35,6 +34,24 @@
     
        
     [self setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    
+}
+
+
+-(void)fetchPhotosArray {
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    self.retrievedArray = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    
+    if (self.retrievedArray > 0) {
+        
+       // EstateObjectEntity *estateObject = [self.retrievedArray objectAtIndex:0];
+        NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
+        self.sourceArray = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
+    }
+    
+  
     
 }
 
@@ -73,7 +90,7 @@
     
     index++;
     
-    if (index == [self.pageVCArray count]) {
+    if (index == [self.sourceArray count]) {
         return nil;
     }
     
@@ -86,7 +103,7 @@
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
 {
    
-    return [self.pageVCArray count];
+    return [self.sourceArray count];
 }
 
 
@@ -104,17 +121,19 @@
 
 - (EbmeddedImageController *)viewControllerAtIndex:(NSUInteger)index {
     
-    if (([self.pageVCArray count] == 0) || (index >= [self.pageVCArray count])) {
+    if (([self.sourceArray count] == 0) || (index >= [self.sourceArray count])) {
         return nil;
     }
     
     // Create a new view controller and pass suitable data.
     
     EbmeddedImageController *embeddedVC = [self.storyboard instantiateViewControllerWithIdentifier:@"embedded"];
-    
    
     
-    embeddedVC.imageFile = self.pageVCArray[index];
+
+   
+    
+    embeddedVC.imageFile = [self.sourceArray objectAtIndex:index];
     embeddedVC.pageIndex = index;
     
    
