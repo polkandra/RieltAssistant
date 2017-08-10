@@ -34,7 +34,7 @@
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.allowsSelection = NO;
     
-    NSLog(@"transfered pics == %@",self.myDetailPhotosArray);
+    //NSLog(@"tfetched array == %@ objects",self.fetchedObjects);
 }
 
 
@@ -45,18 +45,29 @@
     
     NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+   // NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", @"Some Title"];
+   // [fetchRequest setPredicate:predicate];
+    
     self.fetchedObjects = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
   
+}
+
+
+-(void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:YES];
+    
+    NSLog(@"fetched array == %lu objects",(unsigned long)self.fetchedObjects.count);
 }
 
 
 
 -(void)configureView {
     
-     self.title = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"discription"]];
-    
     if (self.detailItem) {
         
+        self.title = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"discription"]];
+       
         self.detailPriceLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"price"]];
         self.detailAddressLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"address"]];
         self.detailOwnerLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"owner"]];
@@ -67,10 +78,10 @@
         self.phoneNumberLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"phoneNumber"]];
         self.actionLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"typeOfProperty"]];
         self.typeLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"actionByProperty"]];
-       
+        
+    
     }
 }
-
 
 
 /*-(void)setNavController
@@ -118,10 +129,9 @@
 
 - (IBAction)saveSecondButtonTaped:(UIStoryboardSegue*)segue {
     
-    if ([segue.identifier isEqualToString:@"unwindToDetailWithChanges"]) {
+    if ([segue.identifier isEqualToString:@"unwindAndSaveToDetail"]) {
         
-        
-        
+        [self configureView];
         
     }
 }
@@ -139,19 +149,26 @@
         
         controller.detailItem = self.detailItem;
         
-       // controller.pageVCArray = [[NSMutableArray alloc]init];
-       //controller.pageVCArray = self.myDetailPhotosArray;
+        // controller.pageVCArray = [[NSMutableArray alloc]init];
+        //controller.pageVCArray = self.myDetailPhotosArray;
         
         
         
     }else if ([segue.identifier isEqualToString:@"editFromDetailVC"]) {
         
-        EstateObjectEntity *estateObject = [self.fetchedObjects objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
-      
-       
-        NewObjectViewController *newVC = (NewObjectViewController *)segue.destinationViewController;
         
-        newVC.detailItem = estateObject;
+        //EstateObjectEntity *estateObject = [self.fetchedObjects objectAtIndex:0];
+        
+        
+        NewObjectViewController *newVC = (NewObjectViewController *)segue.destinationViewController;
+       
+        
+        newVC.navigationItem.title = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"discription"]];
+        
+        
+        
+        newVC.detailItem = self.detailItem;
+        
         newVC.navigationItem.rightBarButtonItem = nil;
         newVC.saveSecondButton.hidden = NO;
         newVC.hideButton = NO;
@@ -159,9 +176,6 @@
     }
     
 }
-
-
-
 
 
 

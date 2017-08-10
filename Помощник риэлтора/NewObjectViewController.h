@@ -15,8 +15,22 @@
 #import "RoomTypeController.h"
 #import "AddToMapVC.h"
 #import "EstateObjectEntity+CoreDataProperties.h"
+#import "DataManager.h"
 
-@interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, NSKeyedArchiverDelegate>
+
+@interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, NSKeyedArchiverDelegate,NSFetchedResultsControllerDelegate>
+
+
+@property (nonatomic, strong) NSBlockOperation *blockOperation;
+@property (nonatomic, assign) BOOL shouldReloadCollectionView;
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+@property (nonatomic, strong) NSMutableArray *itemChanges;
+@property (nonatomic, strong) NSMutableArray *sectionChanges;
+
+
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *userimage;
@@ -32,7 +46,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 
-
+@property (strong, nonatomic) EstateObjectEntity* detailItemFromDetailObjectVC;
 @property (strong, nonatomic) EstateObjectEntity* detailItem;
 
 

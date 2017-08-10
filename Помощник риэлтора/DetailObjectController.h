@@ -17,10 +17,7 @@
 #import "DataManager.h"
 
 
-@interface DetailObjectController : UITableViewController 
-
-
-
+@interface DetailObjectController : UITableViewController
 
 
 
@@ -42,7 +39,7 @@
 
 @property(strong, nonatomic) EstateObjectEntity* detailItem;
 
-//@property(strong, nonatomic) EstateObject* myDetailObject;
+
 
 
 

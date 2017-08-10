@@ -59,7 +59,11 @@
     
     [super viewDidAppear:animated];
     
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    self.fetchedData = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
     
+
 }
 
 
@@ -98,19 +102,11 @@
     
     if ([segue.identifier isEqualToString:@"toMain"]) {
         
-       // NewObjectViewController *controller = segue.sourceViewController;
-        
-        //EstateObjectEntity* newObject = controller.myObject;
+     
         
         _emptyDataBaseLabel.hidden = YES;
                 
-        // [self.myData addObject:newObject];
-        
-       // NSLog(@"my aaaaray = %@",self.myData);
-       // NSLog(@"all my photos = %@",myPhotosData);
-        
-       // [self.tableView reloadData];
-        
+      
     
     }
 }
@@ -144,19 +140,24 @@
     if ([segue.identifier isEqualToString:@"toDetail"]) {
         
         
-        DetailObjectController *doc = segue.destinationViewController;
+        DetailObjectController *doc = (DetailObjectController*)segue.destinationViewController;
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         EstateObjectEntity *selectedEntity = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+      
+        //EstateObjectEntity *selectedEntity = [self.fetchedData objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         
-        //doc.detailItem = object;
+        
         doc.detailItem = selectedEntity;
         
         // doc.myDetailPhotosArray = [[NSMutableArray alloc] init];
         // doc.myDetailPhotosArray = self.myPhotosData;
         
     }else if ([segue.identifier isEqualToString:@"toNewObject"]) {
+        
         NewObjectViewController *newVC = (NewObjectViewController *)segue.destinationViewController;
+        newVC.navigationItem.title = @" Новый объект";
+        
         newVC.hideButton = YES;
         
         
