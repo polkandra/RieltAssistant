@@ -32,7 +32,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *emptyDataBaseLabel;
 
-//@property(strong, nonatomic) EstateObject* myMainObject;
+
 @property(strong, nonatomic) EstateObjectEntity *object;
 
 

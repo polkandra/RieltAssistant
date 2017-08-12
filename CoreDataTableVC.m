@@ -22,13 +22,7 @@
        
 }
 
-/*- (instancetype)init
-{
-    self = [super initWithStyle:UITableViewStylePlain];
-    if (self) {
-    }
-    return self;
-}*/
+
 
 #pragma mark - Table view data source
 
@@ -67,6 +61,13 @@
     return YES;
 }
 
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return YES;
+}
+
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -83,18 +84,15 @@
     }
 }
 
--(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
 
 
 
 #pragma mark - Fetched results controller
 
-- (NSFetchedResultsController *)fetchedResultsController
+/*- (NSFetchedResultsController *)fetchedResultsController
 {
     return nil;
-}
+}*/
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {

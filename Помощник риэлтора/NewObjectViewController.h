@@ -18,22 +18,22 @@
 #import "DataManager.h"
 
 
-@interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, NSKeyedArchiverDelegate,NSFetchedResultsControllerDelegate>
+@interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, NSKeyedArchiverDelegate>
 
 
-@property (nonatomic, strong) NSBlockOperation *blockOperation;
-@property (nonatomic, assign) BOOL shouldReloadCollectionView;
+//@property (nonatomic, strong) NSBlockOperation *blockOperation;
+//@property (nonatomic, assign) BOOL shouldReloadCollectionView;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-@property (nonatomic, strong) NSMutableArray *itemChanges;
-@property (nonatomic, strong) NSMutableArray *sectionChanges;
+//@property (nonatomic, strong) NSMutableArray *itemChanges;
+//@property (nonatomic, strong) NSMutableArray *sectionChanges;
 
 
 
 
-@property (weak, nonatomic) IBOutlet UIImageView *userimage;
+//@property (weak, nonatomic) IBOutlet UIImageView *userimage;
 
 @property (weak, nonatomic) IBOutlet UILabel *objectTypeLabelInCell;
 @property (weak, nonatomic) IBOutlet UILabel *actionTypeLabelInCell;
@@ -57,8 +57,9 @@
 @property(strong, nonatomic) NSMutableArray *myArrayWithPhotoData;
 @property(strong, nonatomic) NSMutableArray* myPhotosArray;
 @property(strong, nonatomic) NSMutableArray* selectedPhotos;
-@property(strong, nonatomic) NSMutableArray* arrayForPVC;
-@property(strong, nonatomic) NSMutableArray* myData;
+@property(strong, nonatomic) NSMutableArray* fetchedPhotos;
+@property(strong, nonatomic) NSMutableArray* myRetrievedPics;
+@property(strong, nonatomic) NSMutableArray* myData1;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;

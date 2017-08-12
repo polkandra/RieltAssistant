@@ -130,7 +130,7 @@
         
         
         NewObjectViewController *controller = segue.destinationViewController;
-        controller.myData = cellSelectedArray;
+        controller.myData1 = cellSelectedArray;
         
         
         NSLog(@"%lu",(unsigned long)cellSelectedArray.count);
