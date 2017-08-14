@@ -14,7 +14,7 @@
 @interface UIPageViewControllerScene : UIPageViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate, NSCoding>
 
 
-@property (strong, nonatomic)  NSMutableArray *pageVCArray;
+
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 
@@ -22,5 +22,6 @@
 
 @property (strong, nonatomic)  NSMutableArray *retrievedArray;
 @property (strong, nonatomic)  NSMutableArray *sourceArray;
+@property (strong, nonatomic)  NSMutableArray *pageVCArray;
 
 @end

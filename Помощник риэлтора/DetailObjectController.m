@@ -27,14 +27,14 @@
     //[self setNavController];
     
     // self.myDetailPhotosArray = [[NSMutableArray alloc] init];
-    //  self.myDetailData = [[NSMutableArray alloc] init];
+    // self.myDetailData = [[NSMutableArray alloc] init];
     
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.allowsSelection = NO;
     
-    //NSLog(@"tfetched array == %@ objects",self.fetchedObjects);
+    //NSLog(@"fetched array == %@ objects",self.fetchedObjects);
 }
 
 
@@ -43,12 +43,9 @@
    
     [super viewWillAppear:YES];
     
-    NSError *error;
+    /*NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
-   // NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", @"Some Title"];
-   // [fetchRequest setPredicate:predicate];
-    
-    self.fetchedObjects = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    self.fetchedObjects = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];*/
   
 }
 
@@ -57,7 +54,6 @@
     
     [super viewDidAppear:YES];
     
-    NSLog(@"fetched array == %lu objects",(unsigned long)self.fetchedObjects.count);
 }
 
 
@@ -78,8 +74,7 @@
         self.phoneNumberLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"phoneNumber"]];
         self.actionLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"typeOfProperty"]];
         self.typeLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"actionByProperty"]];
-        
-    
+       
     }
 }
 
@@ -104,9 +99,7 @@
     navbar.
    
     // navbar.items = @[ navItem ];
-   
-   
-    // [self.view addSubview:navbar];
+       // [self.view addSubview:navbar];
 }*/
 
 
@@ -126,11 +119,11 @@
 }
 
 
-
+// unwind segue from NewObjectVC
 - (IBAction)saveSecondButtonTaped:(UIStoryboardSegue*)segue {
     
     if ([segue.identifier isEqualToString:@"unwindAndSaveToDetail"]) {
-        
+       
         [self configureView];
         
     }
@@ -146,29 +139,16 @@
     if ([segue.identifier isEqualToString:@"toPage"]) {
         
         UIPageViewControllerScene *controller = (UIPageViewControllerScene *)segue.destinationViewController;
-        
         controller.detailItem = self.detailItem;
         
-        // controller.pageVCArray = [[NSMutableArray alloc]init];
-        //controller.pageVCArray = self.myDetailPhotosArray;
-        
-        
-        
+                    
     }else if ([segue.identifier isEqualToString:@"editFromDetailVC"]) {
         
-        
-        //EstateObjectEntity *estateObject = [self.fetchedObjects objectAtIndex:0];
-        
-        
+                
         NewObjectViewController *newVC = (NewObjectViewController *)segue.destinationViewController;
-       
-        
+               
         newVC.navigationItem.title = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"discription"]];
-        
-        
-        
         newVC.detailItem = self.detailItem;
-        
         newVC.navigationItem.rightBarButtonItem = nil;
         newVC.saveSecondButton.hidden = NO;
         newVC.hideButton = NO;

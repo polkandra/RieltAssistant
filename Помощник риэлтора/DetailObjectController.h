@@ -22,6 +22,11 @@
 
 
 
+@property(strong, nonatomic) NSMutableArray* fetchedArrayWithUsersPics;
+@property(strong, nonatomic) NSMutableArray* sourceArray;
+
+
+
 @property (strong, nonatomic) UIImageView *fullScreenImageView;
 @property (strong, nonatomic) UIImageView *originalImageView;
 
@@ -34,7 +39,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property(strong, nonatomic) NSMutableArray* myDetailPhotosArray;
-@property(strong, nonatomic) NSMutableArray* fetchedObjects;;
+@property(strong, nonatomic) NSMutableArray* fetchedObjects;
 
 
 @property(strong, nonatomic) EstateObjectEntity* detailItem;

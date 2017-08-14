@@ -16,7 +16,7 @@
 @end
 
 @implementation NewObjectViewController
-@synthesize  myPhotosArray, tableView, myArrayWithPhotoData, detailItem, hideButton, saveSecondButton, detailItemFromDetailObjectVC, fetchedResultsController, managedObjectContext;
+@synthesize  myPhotosArray, tableView, myArrayWithPhotoData, detailItem, hideButton, saveSecondButton, detailItemFromDetailObjectVC, fetchedResultsController, managedObjectContext, myRetrievedPics;
 
 
 #pragma mark - VC Lifecycle
@@ -65,6 +65,10 @@
     self.myArrayWithPhotoData = [[NSMutableArray alloc] init];
     self.myData1 = [[NSMutableArray alloc] init];
     
+
+    NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
+     self.myRetrievedPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
+    
 }
 
 
@@ -90,15 +94,11 @@
      self.navigationController.navigationBar.translucent = YES;*/
     
 
-    NSError *error;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
-    self.fetchedPhotos = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
-    if (self.fetchedPhotos > 0) {
-        NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
-        self.myRetrievedPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
+    
+        /*NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
+        self.myRetrievedPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];*/
         
     }
-}
 
 
 
@@ -267,16 +267,11 @@
         
         MainViewController *controller = (MainViewController *)segue.destinationViewController;
         
-        // controller.myPhotosData = [[NSMutableArray alloc] init];
-        //controller.myPhotosData = self.myPhotosArray;
-        
         
         EstateObjectEntity* object =
         [NSEntityDescription insertNewObjectForEntityForName:@"EstateObjectEntity"
                                       inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
         
-        
-        // controller.myPhotosData = self.myArrayWithPhotoData;
         
         controller.object = object;
         
@@ -386,11 +381,14 @@
         [[[DataManager sharedManager] managedObjectContext] save:nil];
         
         
+   
         
     } else if ([segue.identifier isEqualToString:@"unwindAndSaveToDetail"]) {
         
-        
-        
+        DetailObjectController *doc = (DetailObjectController*)segue.destinationViewController;
+        doc.detailItem = self.detailItem;
+       
+       
         if (self.detailItem) {
             
             // UPDATING EXISTING OBJECTS.
@@ -407,7 +405,10 @@
             self.detailItem.kitchenArea = self.kitchenSquareTextField.text;
             self.detailItem.roomQuantity = [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]];
             
-            
+           
+            NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
+            detailItem.arrayOfUsersPics = arrayData;
+        
         }else{
             
             // CREATING A NEW OBJECT.
@@ -415,26 +416,27 @@
             EstateObjectEntity* object =
             [NSEntityDescription insertNewObjectForEntityForName:@"EstateObjectEntity"
                                            inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
-             
-          
             
-             object.roomQuantity = [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]];
-             object.phoneNumber = self.phoneTextField.text;
-             object.typeOfProperty = self.objectTypeLabelInCell.text;
-             object.actionByProperty = self.actionTypeLabelInCell.text;
-             
-             if (( self.totalSquareTextField.text.length == 0 )){
-                 
-                 object.wholeArea = @"--";
-                 
-             }else{
-                 
-                 object.wholeArea = self.totalSquareTextField.text;
-             }
-             
-             
-             if (( self.livingSquareTextField.text.length == 0 )){
-                 
+            NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
+            object.arrayOfUsersPics = arrayData;
+                        
+            object.roomQuantity = [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]];
+            object.phoneNumber = self.phoneTextField.text;
+            object.typeOfProperty = self.objectTypeLabelInCell.text;
+            object.actionByProperty = self.actionTypeLabelInCell.text;
+            
+            if (( self.totalSquareTextField.text.length == 0 )){
+                
+                object.wholeArea = @"--";
+                
+            }else{
+                
+                object.wholeArea = self.totalSquareTextField.text;
+            }
+            
+            
+            if (( self.livingSquareTextField.text.length == 0 )){
+                
                  object.livingArea = @"--";
                  
              }else{
@@ -476,15 +478,15 @@
              }
              
              
-             
-             if ((self.adressTextfield.text.length == 0)) {
-                 
-                 object.address = @"Адрес не указан";
-                 
-             }else{
-                 
-                 object.address = self.adressTextfield.text;
-             }
+            
+            if ((self.adressTextfield.text.length == 0)) {
+                
+                object.address = @"Адрес не указан";
+                
+            }else{
+                
+                object.address = self.adressTextfield.text;
+            }
             
             
             
@@ -500,28 +502,6 @@
                 object.price = concatString;
                 
             }
-            
-            if ([self.myArrayWithPhotoData count] == 0) {
-                
-                UIImage *image = [UIImage imageNamed:@"emptyObject2"];
-                
-                NSData* pictureData = UIImageJPEGRepresentation(image,0);
-                
-                [self.myArrayWithPhotoData addObject:pictureData];
-                [self.myPhotosArray addObject:image];
-                
-                object.picture = [self.myArrayWithPhotoData firstObject];
-                
-                
-            }else{
-                
-                object.picture = [self.myArrayWithPhotoData firstObject];
-            }
-            
-            
-            
-            NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myPhotosArray];
-            object.arrayOfUsersPics = arrayData;
             
         }
         
@@ -633,55 +613,17 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    
     UIImage* image = info[UIImagePickerControllerOriginalImage];
     NSData *data = UIImageJPEGRepresentation(image,0);
     
+    [self.myRetrievedPics addObject:image];
     [self.myArrayWithPhotoData addObject:data];
     [self.myPhotosArray addObject:image];
-   
-  
-    if (_myRetrievedPics.count == 0) {
-        
-        [_myRetrievedPics addObject:image];
-    }
     
-     [self.collectionView reloadData];
-    
-    /* EstateObjectEntity* object =
-    [NSEntityDescription insertNewObjectForEntityForName:@"EstateObjectEntity"
-                                  inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
-    
-   // object.picture = data;
-  
-     if ([self.myArrayWithPhotoData count] == 0) {
-        
-        UIImage *image = [UIImage imageNamed:@"emptyObject2"];
-        NSData* pictureData = UIImageJPEGRepresentation(image,0);
-        
-        [self.myArrayWithPhotoData addObject:pictureData];
-        [self.myPhotosArray addObject:image];
-        
-        [object setValue:pictureData forKey:@"picture"];
-        
-    }else{
-        
-        [self.myArrayWithPhotoData addObject:data];
-        [self.myPhotosArray addObject:image];
-        
-        [object setValue: [self.myArrayWithPhotoData firstObject] forKey:@"picture"];
-        
-        
-    }
-    
-    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myPhotosArray];
-    object.arrayOfUsersPics = arrayData;
-
-    
-    [[[DataManager sharedManager] managedObjectContext] save:nil];*/
-    
+    [self.collectionView reloadData];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     
@@ -694,6 +636,9 @@
 
 
 #pragma mark - UICollectionViewDataSource
+
+
+
 
 
 /*- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -788,8 +733,6 @@
 
 -(void)addGestureRecognizer {
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
-    
-    
     [self.tableView addGestureRecognizer:gestureRecognizer];
     gestureRecognizer.cancelsTouchesInView = NO;
 }
@@ -939,17 +882,12 @@
 #pragma mark - UICollectionViewDataSource
 
 
-/*- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    
-    //return [[self.fetchedResultsController sections] count];
-}*/
-
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
+    
     return self.myRetrievedPics.count;
-    //id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-   // return [sectionInfo numberOfObjects];
+    
 }
 
 
@@ -960,19 +898,19 @@
     CollectionViewCell *cell = (CollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if (cell == nil) {
-        
         cell = [[CollectionViewCell alloc] init];
     }
     
     cell.objectView.image = [self.myRetrievedPics objectAtIndex:indexPath.row];
     
-    
-    
     return cell;
 }
 
 
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionView *)collectionViewLayout  minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
 
+    return 0;
+}
 
 
 /*

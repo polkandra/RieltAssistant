@@ -19,23 +19,25 @@
     [super viewDidLoad];
    
     [self fetchPhotosArray];
-    
-    
+    [self setPageViewControllerDirection];
+
     
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
-    
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.delegate = self;
     self.dataSource = self;
-    
-    
-    EbmeddedImageController *initialVC = (EbmeddedImageController*)[self viewControllerAtIndex:0];
-    NSArray *viewControllers = [NSArray arrayWithObject:initialVC];
-    
-       
-    [self setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+   
     
 }
+
+
+
+-(void)setPageViewControllerDirection {
+    EbmeddedImageController *initialVC = (EbmeddedImageController*)[self viewControllerAtIndex:0];
+    NSArray *viewControllers = [NSArray arrayWithObject:initialVC];
+    [self setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+}
+
 
 
 -(void)fetchPhotosArray {
@@ -43,29 +45,27 @@
     NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
     self.retrievedArray = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
-    
-    if (self.retrievedArray > 0) {
-        
-       // EstateObjectEntity *estateObject = [self.retrievedArray objectAtIndex:0];
-        NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
-        self.sourceArray = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
-    }
-    
-  
-    
+    NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
+    self.sourceArray = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
+   
 }
 
+
+
+-(void)viewWillAppear:(BOOL)animated  {
+   
+    [super viewWillAppear:YES];
+    [self fetchPhotosArray];
+}
 
 
 #pragma mark - UIPageViewControllerDataSource,UIPageViewControllerDelegate
 
 
-- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     
     NSUInteger index = ((EbmeddedImageController*) viewController).pageIndex;
-    
-    
-    if ((index == 0) || (index == NSNotFound)) {
+        if ((index == 0) || (index == NSNotFound)) {
         return nil;
     }
     
@@ -76,14 +76,10 @@
 }
 
 
-
-
-- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     
     NSUInteger index = ((EbmeddedImageController*) viewController).pageIndex;
     
-    
-  
     if (index == NSNotFound) {
         return nil;
     }
@@ -128,11 +124,6 @@
     // Create a new view controller and pass suitable data.
     
     EbmeddedImageController *embeddedVC = [self.storyboard instantiateViewControllerWithIdentifier:@"embedded"];
-   
-    
-
-   
-    
     embeddedVC.imageFile = [self.sourceArray objectAtIndex:index];
     embeddedVC.pageIndex = index;
     
@@ -141,14 +132,6 @@
     
     
 }
-
-
-
-
-
-
-
-
 
 
 @end

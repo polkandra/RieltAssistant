@@ -127,8 +127,6 @@
     
     if ([segue.identifier isEqualToString:@"unwindAfterSaveTapped"]) {
         
-        
-        
         NewObjectViewController *controller = segue.destinationViewController;
         controller.myData1 = cellSelectedArray;
         

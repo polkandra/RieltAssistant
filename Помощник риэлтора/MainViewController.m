@@ -59,11 +59,10 @@
     
     [super viewDidAppear:animated];
     
-    NSError *error;
+    /*NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
-    self.fetchedData = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
-    
-
+    self.fetchedData = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];*/
+  
 }
 
 
@@ -101,13 +100,8 @@
 - (IBAction)saveButtonTaped:(UIStoryboardSegue*)segue {
     
     if ([segue.identifier isEqualToString:@"toMain"]) {
-        
-     
-        
         _emptyDataBaseLabel.hidden = YES;
-                
-      
-    
+        
     }
 }
 
@@ -139,30 +133,18 @@
     
     if ([segue.identifier isEqualToString:@"toDetail"]) {
         
-        
         DetailObjectController *doc = (DetailObjectController*)segue.destinationViewController;
-        
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         EstateObjectEntity *selectedEntity = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-      
-        //EstateObjectEntity *selectedEntity = [self.fetchedData objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
-        
-        
         doc.detailItem = selectedEntity;
-        
-        // doc.myDetailPhotosArray = [[NSMutableArray alloc] init];
-        // doc.myDetailPhotosArray = self.myPhotosData;
         
     }else if ([segue.identifier isEqualToString:@"toNewObject"]) {
         
         NewObjectViewController *newVC = (NewObjectViewController *)segue.destinationViewController;
         newVC.navigationItem.title = @" Новый объект";
-        
         newVC.hideButton = YES;
         
-        
     }
-    
 }
 
 
@@ -185,9 +167,6 @@
     
     
 }
-
-
-
 
 
 
@@ -256,29 +235,22 @@
        
     cell.nameCellLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"discription"]];
     cell.nameCellLabel.textColor = [UIColor whiteColor];
-    
     cell.priceCellLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"price"]];
     cell.priceCellLabel.textColor = [UIColor whiteColor];
-    
     cell.addressCellLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"address"]];
     cell.addressCellLabel.textColor = [UIColor whiteColor];
-    
     cell.ownerCellLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"owner"]];
-
     cell.ownerCellLabel.textColor = [UIColor whiteColor];
     
     cell.imageViewCell.image = [[UIImage alloc] initWithData:[object valueForKey:@"picture"]];
     
     cell.backgroundColor = [UIColor clearColor];
     
-    
-    
     /*UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 140, 374, 30)];
     
     view.backgroundColor = [UIColor clearColor];
     [cell.contentView addSubview:view];*/
-    
-   
+  
 }
 
 @end
