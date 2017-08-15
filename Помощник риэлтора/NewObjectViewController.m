@@ -16,7 +16,7 @@
 @end
 
 @implementation NewObjectViewController
-@synthesize  myPhotosArray, tableView, myArrayWithPhotoData, detailItem, hideButton, saveSecondButton, detailItemFromDetailObjectVC, fetchedResultsController, managedObjectContext, myRetrievedPics;
+@synthesize  myPhotosArray, tableView, myArrayWithPhotoData, detailItem, hideButton, saveSecondButton, detailItemFromDetailObjectVC,  myRetrievedPics;
 
 
 #pragma mark - VC Lifecycle
@@ -32,19 +32,6 @@
     //NSLog(@"my array = %@",self.myData);
     
     
-   // self.itemChanges = [NSMutableArray array];
-  //  self.sectionChanges = [NSMutableArray array];
-    
-   
-   
-    if (self.hideButton == YES) {
-        
-        self.saveSecondButton.hidden = YES;
-    
-    }else{
-      
-        self.saveSecondButton.hidden = NO;
-    }
     
    
     self.collectionView.delegate = self;
@@ -59,16 +46,47 @@
     [self addGestureRecognizer];
     [self pickerViewWithData];
     
-   
+    [self fetchPhotos];
+    [self hideShowDeleteSaveButtons];
+    
+    
     self.myPhotosArray = [[NSMutableArray alloc] init];
     self.selectedPhotos = [[NSMutableArray alloc] init];
     self.myArrayWithPhotoData = [[NSMutableArray alloc] init];
     self.myData1 = [[NSMutableArray alloc] init];
     
+}
 
-    NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
-     self.myRetrievedPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
+
+
+
+
+-(void)hideShowDeleteSaveButtons{
     
+    if (self.hideButton == YES) {
+        
+        self.saveSecondButton.hidden = YES;
+        self.deleteSecondButton.hidden = YES;
+        
+    }else{
+        
+        self.saveSecondButton.hidden = NO;
+        self.deleteSecondButton.hidden = NO;
+        
+    }
+    
+}
+
+
+-(void)fetchPhotos {
+    
+    NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
+    self.myRetrievedPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
+    
+    if ([self.myRetrievedPics containsObject:[UIImage imageNamed:@"emptyObject2"]]) {
+        [self.myRetrievedPics removeObject:[UIImage imageNamed:@"emptyObject2"]];
+    }
+ 
 }
 
 
@@ -177,45 +195,6 @@
 }
 
 
-
-- (IBAction)deletePhotosButton:(UIButton *)sender {
-    
-    if (self.collectionView) {
-        
-        
-        [self.collectionView performBatchUpdates:^{
-            
-            NSIndexPath *indexPath = [self.collectionView indexPathsForSelectedItems];
-           
-            NSArray* selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
-            
-            NSMutableIndexSet *removeIndexes = [NSMutableIndexSet new];
-           
-            for (NSIndexPath *path in selectedItemsIndexPaths) {
-                [removeIndexes addIndex:path.item];
-                
-            }
-           
-           
-            NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-            [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-            
-            NSError *error = nil;
-            if (![context save:&error]) {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-                abort();
-                
-            }
-
-            [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
-            [self.myPhotosArray removeObjectsAtIndexes:removeIndexes];
-            [self.collectionView deleteItemsAtIndexPaths:selectedItemsIndexPaths];
-            
-        } completion:nil];
-    }
-}
 
 
 #pragma mark - UITableViewDelegate
@@ -358,13 +337,15 @@
         }
         
         
-        if ([self.myArrayWithPhotoData count] == 0) {
+        if (self.myArrayWithPhotoData.count == 0) {
             
             UIImage *image = [UIImage imageNamed:@"emptyObject2"];
             NSData* pictureData = UIImageJPEGRepresentation(image,0);
             
             [self.myArrayWithPhotoData addObject:pictureData];
             [self.myPhotosArray addObject:image];
+            
+            
             
             object.picture = [self.myArrayWithPhotoData firstObject];
             
@@ -375,20 +356,20 @@
         }
         
         
+        
+        
         NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myPhotosArray];
         object.arrayOfUsersPics = arrayData;
         
         [[[DataManager sharedManager] managedObjectContext] save:nil];
         
         
-   
+        
         
     } else if ([segue.identifier isEqualToString:@"unwindAndSaveToDetail"]) {
         
         DetailObjectController *doc = (DetailObjectController*)segue.destinationViewController;
-        doc.detailItem = self.detailItem;
-       
-       
+        
         if (self.detailItem) {
             
             // UPDATING EXISTING OBJECTS.
@@ -416,6 +397,7 @@
             EstateObjectEntity* object =
             [NSEntityDescription insertNewObjectForEntityForName:@"EstateObjectEntity"
                                            inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
+            
             
             NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
             object.arrayOfUsersPics = arrayData;
@@ -505,7 +487,31 @@
             
         }
         
+        
+        if (self.myRetrievedPics.count == 0) {
+            
+            [self.myRetrievedPics addObject: [UIImage imageNamed:@"emptyObject2"]];
+            
+        }
+        
+        
+        NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
+        detailItem.arrayOfUsersPics = arrayData;
+        
         [[[DataManager sharedManager] managedObjectContext] save:nil];
+        
+        
+        
+    
+    
+    
+    } else if ([segue.identifier isEqualToString:@"unwindAndRemoveFromDetail"]) {
+        
+        
+        [[[DataManager sharedManager] managedObjectContext] deleteObject:self.detailItem];
+        
+        NSError *error = nil;
+        [[[DataManager sharedManager] managedObjectContext] save:&error];
         
         
         
@@ -632,54 +638,6 @@
 
 
 
-
-
-
-#pragma mark - UICollectionViewDataSource
-
-
-
-
-
-/*- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
-    return self.myPhotosArray.count;
-}
-
-
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString* identifier = @"CVcell";
-    CollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    cell.objectView.image = [self.myPhotosArray objectAtIndex:indexPath.row];
-    
-    return cell;
-    
-}
-
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-   // CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-}
-
-
-
--(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    //CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    
-}
-
-
-#pragma mark - UICollectionViewDelegateFlowLayout
-
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionView *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
-    return 0;
-}*/
 
 
 
@@ -821,64 +779,6 @@
 
 
 
-/*- (NSManagedObjectContext*) managedObjectContext {
-    
-    if (!managedObjectContext) {
-        managedObjectContext = [[DataManager sharedManager] managedObjectContext];
-    }
-    return managedObjectContext;
-}
-
-
-
-- (NSFetchedResultsController *)fetchedResultsController
-{
-    if (fetchedResultsController != nil) {
-        return fetchedResultsController;
-    }
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EstateObjectEntity"
-                                              inManagedObjectContext:self.managedObjectContext];
-    
-    [fetchRequest setEntity:entity];
-    
-    [fetchRequest setFetchBatchSize:20];
-    
-    // Edit the sort key as appropriate.
-    NSSortDescriptor *picture = [[NSSortDescriptor alloc] initWithKey:@"picture" ascending:YES];
-    NSArray *sortDescriptors = @[picture];
-    
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController =
-    [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                        managedObjectContext:self.managedObjectContext
-                                          sectionNameKeyPath:nil
-                                                   cacheName:nil];
-    
-       
-    aFetchedResultsController.delegate = self;
-    self.fetchedResultsController = aFetchedResultsController;
-    
-    
-    
-    NSError *error = nil;
-    if (![self.fetchedResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    
-    return fetchedResultsController;
-}*/
-
-
-
 #pragma mark - UICollectionViewDataSource
 
 
@@ -903,203 +803,108 @@
     
     cell.objectView.image = [self.myRetrievedPics objectAtIndex:indexPath.row];
     
+       
+    
     return cell;
 }
 
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionView *)collectionViewLayout  minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionView *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
 
-    return 0;
+    return 30;
 }
 
 
-/*
-#pragma mark - FetchedResultsControllerDelegate
 
-
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
-    self.shouldReloadCollectionView = NO;
-    self.blockOperation = [[NSBlockOperation alloc] init];
-}
-
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
-           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
-{
-    __weak UICollectionView *collectionView = self.collectionView;
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    switch (type) {
-        case NSFetchedResultsChangeInsert: {
-            [self.blockOperation addExecutionBlock:^{
-                [collectionView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]];
-            }];
-            break;
-        }
-            
-        case NSFetchedResultsChangeDelete: {
-            [self.blockOperation addExecutionBlock:^{
-                [collectionView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]];
-            }];
-            break;
-        }
-            
-        case NSFetchedResultsChangeUpdate: {
-            [self.blockOperation addExecutionBlock:^{
-                [collectionView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex]];
-            }];
-            break;
-        }
-            
-        default:
-            break;
-    }
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
-{
-    __weak UICollectionView *collectionView = self.collectionView;
+    CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     
-    switch (type) {
-        case NSFetchedResultsChangeInsert: {
-            if ([self.collectionView numberOfSections] > 0) {
-                if ([self.collectionView numberOfItemsInSection:indexPath.section] == 0) {
-                    self.shouldReloadCollectionView = YES;
-                } else {
-                    [self.blockOperation addExecutionBlock:^{
-                        [collectionView insertItemsAtIndexPaths:@[newIndexPath]];
-                    }];
-                }
-            } else {
-                self.shouldReloadCollectionView = YES;
-            }
-            break;
-        }
-            
-        case NSFetchedResultsChangeDelete: {
-            if ([self.collectionView numberOfItemsInSection:indexPath.section] == 1) {
-                self.shouldReloadCollectionView = YES;
-            } else {
-                [self.blockOperation addExecutionBlock:^{
-                    [collectionView deleteItemsAtIndexPaths:@[indexPath]];
-                }];
-            }
-            break;
-        }
-            
-        case NSFetchedResultsChangeUpdate: {
-            [self.blockOperation addExecutionBlock:^{
-                [collectionView reloadItemsAtIndexPaths:@[indexPath]];
-            }];
-            break;
-        }
-            
-        case NSFetchedResultsChangeMove: {
-            [self.blockOperation addExecutionBlock:^{
-                [collectionView moveItemAtIndexPath:indexPath toIndexPath:newIndexPath];
-            }];
-            break;
-        }
-            
-        default:
-            break;
-    }
+    [self animateZoomforCell:cell];
+    
 }
 
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
+
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (self.shouldReloadCollectionView) {
-        [self.collectionView reloadData];
-    } else {
+    CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+   
+     [self animateZoomOutforCell:cell];
+    
+}
+
+#pragma mark - Helper for UICollectionView
+
+-(void)animateZoomforCell:(CollectionViewCell*)zoomCell
+ {
+    [UIView animateWithDuration:0.2
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        zoomCell.transform = CGAffineTransformMakeScale(1.3,1.3);
+    } completion:^(BOOL finished){
+    }];
+}
+
+
+-(void)animateZoomOutforCell:(CollectionViewCell*)zoomCell
+{
+    [UIView animateWithDuration:0.2
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseOut animations:^{
+                            
+                            zoomCell.transform = CGAffineTransformMakeScale(1,1);
+                        } completion:^(BOOL finished){
+                        }];
+}
+
+
+
+
+- (IBAction)deletePhotosButton:(UIButton *)sender {
+    
+    if (self.collectionView) {
+        
+        
         [self.collectionView performBatchUpdates:^{
-            [self.blockOperation start];
+            
+           
+            NSArray* selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
+            NSMutableIndexSet *removeIndexes = [NSMutableIndexSet new];
+            
+            for (NSIndexPath *path in selectedItemsIndexPaths) {
+                [removeIndexes addIndex:path.item];
+                
+            }
+            
+            if (self.myRetrievedPics.count > 0) {
+                
+                [self.myRetrievedPics removeObjectsAtIndexes:removeIndexes];
+                [self.collectionView deleteItemsAtIndexPaths:selectedItemsIndexPaths];
+                
+            }else{
+                
+                [self.myRetrievedPics addObject:[UIImage imageNamed:@"emptyObject2"]];
+               
+            }
+            
+            
+            NSManagedObjectContext *context = [[DataManager sharedManager] managedObjectContext];
+            NSError *error = nil;
+            if (![context save:&error]) {
+                // Replace this implementation with code to handle the error appropriately.
+                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                abort();
+                
+            }
+         
+        
         } completion:nil];
     }
 }
 
-*/
-
-/*- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    _sectionChanges = [[NSMutableArray alloc] init];
-    _itemChanges = [[NSMutableArray alloc] init];
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
-           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
-    
-    NSMutableDictionary *change = [[NSMutableDictionary alloc] init];
-    change[@(type)] = @(sectionIndex);
-    [_sectionChanges addObject:change];
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
-    
-    NSMutableDictionary *change = [[NSMutableDictionary alloc] init];
-    
-    switch(type) {
-        case NSFetchedResultsChangeInsert:
-            change[@(type)] = newIndexPath;
-            break;
-        case NSFetchedResultsChangeDelete:
-            change[@(type)] = indexPath;
-            break;
-        case NSFetchedResultsChangeUpdate:
-            change[@(type)] = indexPath;
-            break;
-        case NSFetchedResultsChangeMove:
-            change[@(type)] = @[indexPath, newIndexPath];
-            break;
-    }
-    [_itemChanges addObject:change];
-}
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-   
-    [self.collectionView performBatchUpdates:^{
-        for (NSDictionary *change in _sectionChanges) {
-            [change enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-                NSFetchedResultsChangeType type = [key unsignedIntegerValue];
-                switch(type) {
-                    case NSFetchedResultsChangeInsert:
-                        [self.collectionView insertSections:[NSIndexSet indexSetWithIndex:[obj unsignedIntegerValue]]];
-                        break;
-                    case NSFetchedResultsChangeDelete:
-                        [self.collectionView deleteSections:[NSIndexSet indexSetWithIndex:[obj unsignedIntegerValue]]];
-                        case NSFetchedResultsChangeMove:
-                        NSLog(@"A collection item was moved");
-                        break;
-                    case NSFetchedResultsChangeUpdate:
-                        NSLog(@"A collection item was updated");
-                        break;
-                }
-            }];
-        }
-        for (NSDictionary *change in _itemChanges) {
-            [change enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-                NSFetchedResultsChangeType type = [key unsignedIntegerValue];
-                switch(type) {
-                    case NSFetchedResultsChangeInsert:
-                        [self.collectionView insertItemsAtIndexPaths:@[obj]];
-                        break;
-                    case NSFetchedResultsChangeDelete:
-                        [self.collectionView deleteItemsAtIndexPaths:@[obj]];
-                        break;
-                    case NSFetchedResultsChangeUpdate:
-                        [self.collectionView reloadItemsAtIndexPaths:@[obj]];
-                        break;
-                    case NSFetchedResultsChangeMove:
-                        [self.collectionView moveItemAtIndexPath:obj[0] toIndexPath:obj[1]];
-                        break;
-                }
-            }];
-        }
-    } completion:^(BOOL finished) {
-        _sectionChanges = nil;
-        _itemChanges = nil;
-    }];
-}*/
 
 
 

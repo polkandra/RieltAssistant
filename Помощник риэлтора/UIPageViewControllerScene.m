@@ -56,6 +56,8 @@
    
     [super viewWillAppear:YES];
     [self fetchPhotosArray];
+    [self setPageViewControllerDirection];
+
 }
 
 

@@ -18,7 +18,8 @@
 #import "CoreDataTableVC.h"
 
 
-@interface MainViewController : CoreDataTableVC  <UITableViewDataSource, UITableViewDataSource, NSKeyedArchiverDelegate>
+@interface MainViewController : CoreDataTableVC  <UITableViewDataSource, UITableViewDataSource, NSKeyedArchiverDelegate, AddArrayDelegate>
+
 
 
 @property(strong, nonatomic) NSMutableArray* myPhotosData;

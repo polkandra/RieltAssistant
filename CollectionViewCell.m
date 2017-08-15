@@ -19,20 +19,30 @@
 
 
 
--(void)setHighlighted:(BOOL)highlighted
-{
+-(void)setHighlighted:(BOOL)highlighted {
+    
+    //[super setHighlighted:highlighted];
+    
+    
     if (highlighted)
-   
+        
     {
         self.layer.opacity = 1.0;
         self.backgroundView = [[UIView alloc] initWithFrame:self.bounds];
         self.backgroundView.backgroundColor = [UIColor clearColor];
+        // [self setNeedsDisplay];
         
     }else{
         
         self.layer.opacity = 1.0;
         self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.bounds];
-        self.selectedBackgroundView.backgroundColor = [UIColor redColor];    }
+        self.selectedBackgroundView.backgroundColor = [UIColor redColor];
+        // [self setNeedsDisplay];
+    }
 }
+
+
+
+
 
 @end

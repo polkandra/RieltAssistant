@@ -26,15 +26,20 @@
     
     //[self setNavController];
     
-    // self.myDetailPhotosArray = [[NSMutableArray alloc] init];
-    // self.myDetailData = [[NSMutableArray alloc] init];
+    
     
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.allowsSelection = NO;
     
-    //NSLog(@"fetched array == %@ objects",self.fetchedObjects);
+   }
+
+- (IBAction)backToMainBarButtonTapped:(id)sender {
+
+    [self.delegate arrayChosen:self.sourceArray];
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 
@@ -46,7 +51,9 @@
     /*NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
     self.fetchedObjects = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];*/
-  
+    NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
+    self.sourceArray = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
+
 }
 
 
@@ -119,7 +126,7 @@
 }
 
 
-// unwind segue from NewObjectVC
+// unwind segue from NewObjectVC with saving 
 - (IBAction)saveSecondButtonTaped:(UIStoryboardSegue*)segue {
     
     if ([segue.identifier isEqualToString:@"unwindAndSaveToDetail"]) {
@@ -128,6 +135,7 @@
         
     }
 }
+
 
 
 

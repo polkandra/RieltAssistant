@@ -124,7 +124,24 @@
 }
 
 
+// unwind segue from NewObjectVC with deletion
+- (IBAction)removeButtonTaped:(UIStoryboardSegue*)segue {
+    
+   /* NSManagedObjectContext *moc = [[DataManager sharedManager] managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setEntity:[NSEntityDescription entityForName:@"EstateObjectEntity" inManagedObjectContext:moc]];
+    
+    NSError *error = nil;
+    NSArray *objects = [moc executeFetchRequest:fetchRequest error:&error];
+    
+    for (NSManagedObject *object in objects) {
+        [moc deleteObject:object];
+    }
+    NSError *error2 = nil;
+    [moc save:&error2];*/
+    
 
+}
 
 #pragma mark  Navigation
 
@@ -224,6 +241,14 @@
     }
     
     return fetchedResultsController;
+}
+
+
+- (void)arrayChosen:(NSArray *)array {
+    if (!_fetchedArrayWithUsersPics) {
+        _fetchedArrayWithUsersPics = [[NSMutableArray alloc] init];
+    }
+    [_fetchedArrayWithUsersPics insertObject:array atIndex:0];
 }
 
 

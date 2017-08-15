@@ -21,19 +21,10 @@
 @interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, NSKeyedArchiverDelegate>
 
 
-//@property (nonatomic, strong) NSBlockOperation *blockOperation;
-//@property (nonatomic, assign) BOOL shouldReloadCollectionView;
-
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
-//@property (nonatomic, strong) NSMutableArray *itemChanges;
-//@property (nonatomic, strong) NSMutableArray *sectionChanges;
 
 
 
 
-//@property (weak, nonatomic) IBOutlet UIImageView *userimage;
 
 @property (weak, nonatomic) IBOutlet UILabel *objectTypeLabelInCell;
 @property (weak, nonatomic) IBOutlet UILabel *actionTypeLabelInCell;
@@ -42,9 +33,9 @@
 @property (nonatomic, assign) BOOL hideButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *saveSecondButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveRightBarButton;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
-
+@property (weak, nonatomic) IBOutlet UIButton *deleteSecondButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveRightBarButton;
 
 @property (strong, nonatomic) EstateObjectEntity* detailItemFromDetailObjectVC;
 @property (strong, nonatomic) EstateObjectEntity* detailItem;
