@@ -16,12 +16,9 @@
 #import "AddToMapVC.h"
 #import "EstateObjectEntity+CoreDataProperties.h"
 #import "DataManager.h"
-
+#import "MapViewController.h"
 
 @interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, NSKeyedArchiverDelegate>
-
-
-
 
 
 
@@ -33,8 +30,13 @@
 @property (nonatomic, assign) BOOL hideButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *saveSecondButton;
-@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UIButton *deleteSecondButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelSecondButton;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+
+
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveRightBarButton;
 
 @property (strong, nonatomic) EstateObjectEntity* detailItemFromDetailObjectVC;

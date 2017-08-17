@@ -48,17 +48,62 @@
     
     [self fetchPhotos];
     [self hideShowDeleteSaveButtons];
-    
+    [self showHideDeleteButton];
     
     self.myPhotosArray = [[NSMutableArray alloc] init];
     self.selectedPhotos = [[NSMutableArray alloc] init];
     self.myArrayWithPhotoData = [[NSMutableArray alloc] init];
     self.myData1 = [[NSMutableArray alloc] init];
     
+    
+    
 }
 
 
 
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor46]];
+    [self.navigationController.navigationBar setTranslucent:NO];
+    
+    //  [self.navigationItem setTitle:@"Новый объект"];
+    
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor],
+       NSFontAttributeName:[UIFont fontWithName:@"avenir" size:22]}];
+    
+    /*[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+     self.navigationController.navigationBar.shadowImage = [UIImage new];
+     self.navigationController.navigationBar.translucent = YES;*/
+    
+    
+    
+    /*NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
+     self.myRetrievedPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];*/
+    
+}
+
+
+
+
+
+
+- (void) showHideDeleteButton {
+
+    NSArray* selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
+    if(selectedItemsIndexPaths.count > 0) {
+        
+        self.deleteButton.hidden = NO;
+        
+    }else{
+        self.deleteButton.hidden = YES;
+    }
+}
 
 
 -(void)hideShowDeleteSaveButtons{
@@ -67,14 +112,15 @@
         
         self.saveSecondButton.hidden = YES;
         self.deleteSecondButton.hidden = YES;
+        self.cancelSecondButton.hidden = YES;
         
     }else{
         
         self.saveSecondButton.hidden = NO;
         self.deleteSecondButton.hidden = NO;
+        self.cancelSecondButton.hidden = NO;
         
     }
-    
 }
 
 
@@ -88,37 +134,6 @@
     }
  
 }
-
-
-
--(void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
-    
-    [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor46]];
-    [self.navigationController.navigationBar setTranslucent:NO];
-    
-  //  [self.navigationItem setTitle:@"Новый объект"];
-    
-    [self.navigationController.navigationBar
-     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-    
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSForegroundColorAttributeName:[UIColor whiteColor],
-       NSFontAttributeName:[UIFont fontWithName:@"avenir" size:22]}];
-    
-    /*[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-     self.navigationController.navigationBar.shadowImage = [UIImage new];
-     self.navigationController.navigationBar.translucent = YES;*/
-    
-
-    
-        /*NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
-        self.myRetrievedPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];*/
-        
-    }
-
-
 
 
 -(void)updateUI {
@@ -150,7 +165,7 @@
 - (IBAction)addPlaceToMapButton:(UIButton *)sender {
     
     // MapViewController *mapVC = [self.storyboard instantiateViewControllerWithIdentifier:@"mapVC"];
-    // [self presentViewController:mapVC animated:YES completion:nil];
+     //[self presentViewController:mapVC animated:YES completion:nil];
     
 }
 
@@ -355,9 +370,6 @@
             
         }
         
-        
-        
-        
         NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myPhotosArray];
         object.arrayOfUsersPics = arrayData;
         
@@ -547,9 +559,6 @@
     }
     
 }
-
-
-
 
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
@@ -782,10 +791,13 @@
 #pragma mark - UICollectionViewDataSource
 
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    
+  /*  if (self.myRetrievedPics.count > 1) {
+        
+        self.deleteButton.hidden = NO;
+    }*/
+   
     return self.myRetrievedPics.count;
     
 }
@@ -803,7 +815,7 @@
     
     cell.objectView.image = [self.myRetrievedPics objectAtIndex:indexPath.row];
     
-       
+   
     
     return cell;
 }
@@ -819,6 +831,18 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    //[self showAppropriateView];
+   
+    NSArray* selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
+   
+    if(selectedItemsIndexPaths.count > 0) {
+        
+        self.deleteButton.hidden = NO;
+        
+    }else{
+        self.deleteButton.hidden = YES;
+    }
+    
     
     [self animateZoomforCell:cell];
     
@@ -829,22 +853,118 @@
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    
+    NSArray* selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
+    
+    if(selectedItemsIndexPaths.count > 0) {
+        
+        self.deleteButton.hidden = NO;
+        
+    }else{
+        self.deleteButton.hidden = YES;
+    }
    
-     [self animateZoomOutforCell:cell];
+    
+    
+    [self animateZoomOutforCell:cell];
     
 }
+
+
+- (IBAction)deletePhotosButton:(UIButton *)sender {
+    
+    
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Удаление фото" message:@"Правда удалить???" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+   
+   /* NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"Удаление фото"];
+    [string addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:30.0] range:NSMakeRange(8, 5)];
+    [alert setValue:string forKey:@"attributedTitle"];
+
+    
+    NSMutableAttributedString *string2 = [[NSMutableAttributedString alloc] initWithString:@"Правда удалить???"];
+    [string addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20.0] range:NSMakeRange(15, 2)];
+    [alert setValue:string2 forKey:@"attributedMessage"];*/
+
+    
+    UIAlertAction* deleteAction = [UIAlertAction actionWithTitle:@"Удалить" style:UIAlertActionStyleDefault  handler:^(UIAlertAction * _Nonnull action) {
+        
+        if (self.collectionView) {
+            
+            [self.collectionView performBatchUpdates:^{
+                
+                
+                NSArray* selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
+                NSMutableIndexSet *removeIndexes = [NSMutableIndexSet new];
+                
+                
+                for (NSIndexPath *path in selectedItemsIndexPaths) {
+                    [removeIndexes addIndex:path.item];
+                    
+                    
+                }
+                
+                if (self.myRetrievedPics.count > 0) {
+                    
+                    [self.myRetrievedPics removeObjectsAtIndexes:removeIndexes];
+                    [self.collectionView deleteItemsAtIndexPaths:selectedItemsIndexPaths];
+                    
+                }else{
+                    
+                    [self.myRetrievedPics addObject:[UIImage imageNamed:@"emptyObject2"]];
+                    
+                }
+                
+                
+                
+                NSManagedObjectContext *context = [[DataManager sharedManager] managedObjectContext];
+                NSError *error = nil;
+                if (![context save:&error]) {
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                    abort();
+                    
+                }
+                
+                
+            } completion:^(BOOL finished) {
+                int numberOfItemsInCollection = [self.collectionView numberOfItemsInSection:0];
+                if( numberOfItemsInCollection == 0 ) {
+                    
+                    self.deleteButton.hidden = YES;
+                }
+                
+            }];
+        }
+        
+        
+    }];
+    
+    UIAlertAction* cancellAction = [UIAlertAction actionWithTitle:@"Отменить" style:UIAlertActionStyleDefault  handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"You pressed button cancell");
+    }];
+    
+    [alert addAction:deleteAction];
+    [alert addAction:cancellAction];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
+
+
+
 
 #pragma mark - Helper for UICollectionView
 
 -(void)animateZoomforCell:(CollectionViewCell*)zoomCell
- {
+{
     [UIView animateWithDuration:0.2
                           delay:0
                         options:UIViewAnimationOptionCurveEaseOut animations:^{
-        
-        zoomCell.transform = CGAffineTransformMakeScale(1.3,1.3);
-    } completion:^(BOOL finished){
-    }];
+                            
+                            zoomCell.transform = CGAffineTransformMakeScale(1.3,1.3);
+                        } completion:^(BOOL finished){
+                        }];
 }
 
 
@@ -857,54 +977,8 @@
                             zoomCell.transform = CGAffineTransformMakeScale(1,1);
                         } completion:^(BOOL finished){
                         }];
-}
-
-
-
-
-- (IBAction)deletePhotosButton:(UIButton *)sender {
     
-    if (self.collectionView) {
-        
-        
-        [self.collectionView performBatchUpdates:^{
-            
-           
-            NSArray* selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
-            NSMutableIndexSet *removeIndexes = [NSMutableIndexSet new];
-            
-            for (NSIndexPath *path in selectedItemsIndexPaths) {
-                [removeIndexes addIndex:path.item];
-                
-            }
-            
-            if (self.myRetrievedPics.count > 0) {
-                
-                [self.myRetrievedPics removeObjectsAtIndexes:removeIndexes];
-                [self.collectionView deleteItemsAtIndexPaths:selectedItemsIndexPaths];
-                
-            }else{
-                
-                [self.myRetrievedPics addObject:[UIImage imageNamed:@"emptyObject2"]];
-               
-            }
-            
-            
-            NSManagedObjectContext *context = [[DataManager sharedManager] managedObjectContext];
-            NSError *error = nil;
-            if (![context save:&error]) {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-                abort();
-                
-            }
-         
-        
-        } completion:nil];
-    }
 }
-
 
 
 

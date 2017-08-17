@@ -17,16 +17,17 @@
 #import "DataManager.h"
 
 
-@protocol AddArrayDelegate
+/*@protocol AddArrayDelegate
 
 - (void)arrayChosen:(NSArray *)array;
 
-@end
+@end*/
+
 
 
 @interface DetailObjectController : UITableViewController
 
-@property (nonatomic, weak) id <AddArrayDelegate> delegate;
+//@property (nonatomic, weak) id <AddArrayDelegate> delegate;
 
 
 @property(strong, nonatomic) NSMutableArray* fetchedArrayWithUsersPics;

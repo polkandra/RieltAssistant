@@ -17,11 +17,13 @@
 #import "DataManager.h"
 #import "CoreDataTableVC.h"
 
+//@class DetailObjectController;
+//@protocol AddArrayDelegate;
 
-@interface MainViewController : CoreDataTableVC  <UITableViewDataSource, UITableViewDataSource, NSKeyedArchiverDelegate, AddArrayDelegate>
+@interface MainViewController : CoreDataTableVC  <UITableViewDataSource, UITableViewDataSource, NSKeyedArchiverDelegate>
 
 
-
+@property(strong, nonatomic) NSMutableArray* arrayFromDetail;
 @property(strong, nonatomic) NSMutableArray* myPhotosData;
 @property(strong, nonatomic) NSMutableArray* fetchedData;
 @property(strong, nonatomic) NSMutableArray* fetchedArrayWithUsersPics;

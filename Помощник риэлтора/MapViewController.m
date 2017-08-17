@@ -66,7 +66,6 @@
 
 - (void) dismissKeyboard {
 
-    
     [self.searchBar resignFirstResponder];
 }
 

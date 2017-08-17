@@ -29,19 +29,22 @@
     [super viewDidLoad];
     
     self.emptyDataBaseLabel.hidden = YES;
-    
-    
-    
-    
+        
    // NSLog(@"all my photos in myPhotosData = %@",self.myPhotosData);
    
     
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
+    
+   
 }
 
 
+/*- (void)arrayChosen:(NSArray *)array {
+    
+    _arrayFromDetail = [[NSMutableArray alloc]initWithArray:array];
+
+    }*/
 
 
 
@@ -50,7 +53,7 @@
     [super viewWillAppear:animated];
     
     [self setNavigationController];
- 
+    
 }
 
 
@@ -58,7 +61,7 @@
 -(void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
-    
+   
     /*NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
     self.fetchedData = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];*/
@@ -116,6 +119,7 @@
 - (IBAction)unwindAfterBackButtonFromDetail:(UIStoryboardSegue*)segue {
    
     
+
 }
 
 // unwind segue from DetailObject VC
@@ -244,12 +248,7 @@
 }
 
 
-- (void)arrayChosen:(NSArray *)array {
-    if (!_fetchedArrayWithUsersPics) {
-        _fetchedArrayWithUsersPics = [[NSMutableArray alloc] init];
-    }
-    [_fetchedArrayWithUsersPics insertObject:array atIndex:0];
-}
+
 
 
 #pragma mark - cell configuring

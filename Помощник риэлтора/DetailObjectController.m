@@ -25,22 +25,20 @@
     
     
     //[self setNavController];
-    
-    
-    
-    
+        
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.allowsSelection = NO;
     
    }
 
-- (IBAction)backToMainBarButtonTapped:(id)sender {
+
+/*- (IBAction)backToMainBarButtonTapped:(UIBarButtonItem *)sender {
 
     [self.delegate arrayChosen:self.sourceArray];
     [self dismissViewControllerAnimated:YES completion:nil];
 
-}
+}*/
 
 
 
@@ -126,16 +124,29 @@
 }
 
 
-// unwind segue from NewObjectVC with saving 
+// unwind segue from NewObjectVC with saving
 - (IBAction)saveSecondButtonTaped:(UIStoryboardSegue*)segue {
     
     if ([segue.identifier isEqualToString:@"unwindAndSaveToDetail"]) {
-       
+        
         [self configureView];
         
+        
     }
+    
 }
 
+
+// unwind segue from NewObjectVC with canceling
+- (IBAction)cancelFromNewObjectButtonTaped:(UIStoryboardSegue*)segue {
+    
+    if ([segue.identifier isEqualToString:@"cancelFromNewObjectButtonTaped"]) {
+              
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }
+    
+}
 
 
 
@@ -158,8 +169,20 @@
         newVC.navigationItem.title = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"discription"]];
         newVC.detailItem = self.detailItem;
         newVC.navigationItem.rightBarButtonItem = nil;
+        newVC.navigationItem.leftBarButtonItem = nil;
         newVC.saveSecondButton.hidden = NO;
         newVC.hideButton = NO;
+        
+    
+    
+    }else if ([segue.identifier isEqualToString:@"unwindAfterBackButtonFromDetail"]) {
+        
+       NewObjectViewController *newVC = (NewObjectViewController *)segue.destinationViewController;
+        
+        NSData* pictureData = UIImageJPEGRepresentation([self.sourceArray firstObject],0);
+        detailItem.picture = pictureData;
+        
+        [[[DataManager sharedManager] managedObjectContext] save:nil];
         
     }
     

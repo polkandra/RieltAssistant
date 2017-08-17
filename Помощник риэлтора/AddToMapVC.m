@@ -33,7 +33,7 @@
    
     
    
-    self.searchQuery = [HNKGooglePlacesAutocompleteQuery sharedQuery];
+    //self.searchQuery = [HNKGooglePlacesAutocompleteQuery sharedQuery];
     
     [self.locationManager requestWhenInUseAuthorization];
     [self setLocationManager];
@@ -398,7 +398,9 @@
     
     {
         CLLocationCoordinate2D droppedAt = annotationView.annotation.coordinate;
-        [annotationView.annotation setCoordinate:droppedAt];
+         MKMapPoint point = MKMapPointForCoordinate(droppedAt);
+        
+       // [annotationView.annotation setCoordinate:droppedAt];
     }
 }
 
