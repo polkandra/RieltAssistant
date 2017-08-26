@@ -24,9 +24,9 @@
     
     
     //[GMSServices provideAPIKey:@"AIzaSyBLyGSJWcQvDrSdS2opP-BZtwu5WYo7JTE"];
-    [GMSPlacesClient provideAPIKey:@"AIzaSyCU_frx-RaAhyhmLyJ9j3a8ShsTo5EZ49A"];
+    //[GMSPlacesClient provideAPIKey:@"AIzaSyAqAivv-DgtCZPvnH3josgO_5vLBU0SfoE"];
   
-    [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:@"AIzaSyCU_frx-RaAhyhmLyJ9j3a8ShsTo5EZ49A"];
+    [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:@"AIzaSyAh4GgFn_mdwKvfOzhPNxxnU7UERxIMIIM"];
     
     
     

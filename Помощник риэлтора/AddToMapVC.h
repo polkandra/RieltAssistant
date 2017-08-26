@@ -14,9 +14,10 @@
 #import "CLPlacemark+HNKAdditions.h"
 #import "NewObjectViewController.h"
 #import "StyleKitName.h"
+#import "EstateObjectEntity+CoreDataProperties.h"
+#import "DataManager.h"
+
 @import GooglePlaces;
-
-
 @interface AddToMapVC : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate,CLLocationManagerDelegate>
 
 
@@ -26,9 +27,9 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (strong, nonatomic) HNKGooglePlacesAutocompleteQuery *searchQuery;
-
 //@property (strong, nonatomic) IBOutlet GMSMapView *mapView;
 
+@property(strong, nonatomic) EstateObjectEntity *object;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic)  CLLocationManager* locationManager;
@@ -38,9 +39,7 @@
 
 @property (strong, nonatomic) NSArray *searchResults;
 @property (strong, nonatomic) NSArray *pinPhotosArray;
-
-
-
+@property (strong, nonatomic) NSArray *retrievedArray;
 
 @property (strong, nonatomic) NSString *titleText;
 @property (strong, nonatomic) NSString *subTitleText;

@@ -14,7 +14,7 @@
 @end
 
 @implementation AddToMapVC
-@synthesize searchBar, mapView, tableView, searchResults;
+@synthesize searchBar, mapView, tableView, searchResults, object;
 
 
 
@@ -23,17 +23,15 @@
     [super viewDidLoad];
     
     self.searchBar.delegate = self;
-    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.hidden = YES;
     
     mapView.zoomEnabled = YES;
     self.mapView.showsUserLocation = YES;
-   
-    
-   
-    //self.searchQuery = [HNKGooglePlacesAutocompleteQuery sharedQuery];
+      
+    self.searchQuery = [HNKGooglePlacesAutocompleteQuery sharedQuery];
+   // self.searchResults = [[NSMutableArray alloc] init];
     
     [self.locationManager requestWhenInUseAuthorization];
     [self setLocationManager];
@@ -41,27 +39,26 @@
     [self setGestureRecognizers];
    
     /* GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:55.7522200 longitude:37.6155600 zoom:10.0];
-    
-    
-    
     self.mapView = [GMSMapView mapWithFrame:CGRectMake(0, 108, 375, 560) camera:camera];
     self.mapView.delegate = self;
-    
     self.mapView.myLocationEnabled = YES;
     self.mapView.mapType = kGMSTypeNormal;
     self.mapView.settings.compassButton = YES;
     self.mapView.settings.myLocationButton = YES;
-    
     [self.mapView animateToLocation: self.mapView.myLocation.coordinate];
-    
     self.mapView.camera = camera;
-    
     [self.view addSubview:self.mapView];*/
 
-    
+   
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
+    self.retrievedArray = [NSKeyedUnarchiver unarchiveObjectWithData:object.arrayOfUsersPics];
+    self.pinPhotosArray = [[NSMutableArray alloc] initWithArray:self.retrievedArray];
+}
 
 
 #pragma mark - UITableView DataSource
@@ -94,12 +91,19 @@
     HNKGooglePlacesAutocompletePlace *selectedPlace = self.searchResults[indexPath.row];
     
     [CLPlacemark hnk_placemarkFromGooglePlace: selectedPlace
-                                       apiKey:@"AIzaSyCxb6RE27AreKV3R7bDJ72qyJzN0sZkd7M"
+                                       apiKey:@"AIzaSyAh4GgFn_mdwKvfOzhPNxxnU7UERxIMIIM"
                                    completion:^(CLPlacemark *placemark, NSString *addressString, NSError *error) {
                                        if (placemark) {
                                            [self.tableView setHidden: YES];
-                                           //[self addPlacemarkAnnotationToMap:placemark addressString:addressString];
+                                           
+                                          //uncomment to be able after selecting row in search results go to place and put a placemark.
+                                          
+                                           // [self addPlacemarkAnnotationToMap:placemark addressString:addressString];
+                                           
                                            [self recenterMapToPlacemark:placemark];
+                                           
+                                         
+                                           
                                            [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
                                        }
                                    }];
@@ -123,7 +127,7 @@
 
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-
+    
     if (searchText.length > 0) {
         
         [self.tableView setHidden:NO];
@@ -133,7 +137,6 @@
                                                  NSLog(@"ERROR: %@", error);
                                                  [self handleSearchError:error];
                                              } else {
-                                                 
                                                  self.searchResults = places;
                                                  [self.mapView addSubview:self.tableView];
                                                  [self.tableView reloadData];
@@ -155,11 +158,6 @@
 }
 
 
-- (void) dismissKeyboard {
-    
-    
-    [self.searchBar resignFirstResponder];
-}
 
 
 
@@ -170,13 +168,12 @@
 -(void)setMKUserTrackingButton {
     
     MKUserTrackingBarButtonItem *buttonItem = [[MKUserTrackingBarButtonItem alloc] initWithMapView:self.mapView];
-    
     self.navigationItem.rightBarButtonItem = buttonItem;
 }
 
 
-- (void)handleSearchError:(NSError *)error
-{
+- (void)handleSearchError:(NSError *)error {
+
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
                                                                    message:error.localizedDescription
                                                             preferredStyle:UIAlertControllerStyleAlert];
@@ -188,7 +185,7 @@
 
 
 
-- (void)addPlacemarkAnnotationToMap:(CLPlacemark *)placemark addressString:(NSString *)address
+/*- (void)addPlacemarkAnnotationToMap:(CLPlacemark *)placemark addressString:(NSString *)address
 {
     [self.mapView removeAnnotations:self.mapView.annotations];
     
@@ -198,10 +195,10 @@
     
     
     [self.mapView addAnnotation:annotation];
+}*/
 
-    
-    
-}
+
+
 
 
 
@@ -216,8 +213,14 @@
     region.span = span;
     region.center = placemark.location.coordinate;
     
+   
     [self.mapView setRegion:region animated:YES];
 }
+
+
+
+
+
 
 
 -(void)setLocationManager {
@@ -239,8 +242,8 @@
 -(void)setGestureRecognizers {
     
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-    lpgr.minimumPressDuration = 1.0;
-    lpgr .cancelsTouchesInView = NO;
+    lpgr.minimumPressDuration = 0.5;
+    lpgr.cancelsTouchesInView = NO;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
@@ -255,8 +258,8 @@
     
     if (gestureRecognizer.state != UIGestureRecognizerStateBegan) {
         return;
-        
     }
+    
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
     CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     
@@ -265,13 +268,13 @@
     
     annotation.canShowCallout = YES;
     annotation.coordinate = touchMapCoordinate;
-    annotation.image = [self.pinPhotosArray firstObject];
-    annotation.title = self.titleText;
-    annotation.subtitle = self.subTitleText;
+    annotation.image =  [[UIImage alloc] initWithData:[object valueForKey:@"picture"]];
+    annotation.title = @"fgrgrt";
+    annotation.subtitle = @"fvvr";
     
     
     MKAnnotationView *pinView = nil;
-   
+    
     NSInteger toRemoveCount = self.mapView.annotations.count;
     NSMutableArray *toRemove = [NSMutableArray arrayWithCapacity:toRemoveCount];
     
@@ -279,27 +282,16 @@
         if (annotation != self.mapView.userLocation)
             [toRemove addObject:annotation];
     [self.mapView removeAnnotations:toRemove];
-    
-    
     [self.mapView addAnnotation:annotation];
     
 }
 
 
-
-/*-(BOOL)prefersStatusBarHidden {
-   
-    return YES;
+- (void) dismissKeyboard {
+    
+    
+    [self.searchBar resignFirstResponder];
 }
-
-
-
--(void)viewWillLayoutSubviews {
-    
-    [super viewWillLayoutSubviews];
-    
-    self.mapView.padding = UIEdgeInsetsMake(self.topLayoutGuide.length + 5, 0, self.bottomLayoutGuide.length + 55, 0);
-}*/
 
 
 #pragma mark  Actions
@@ -331,60 +323,7 @@
     
 }
 
-/*#pragma mark -- GMSMapViewDelegate
 
-
--(UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {
-    
-    UIView *infoWindow = [[UIView alloc] init];
-    infoWindow.frame = CGRectMake(0, 0, 170, 100);
-    infoWindow.backgroundColor = [UIColor redColor];
-    
-    //UIImageView *backgroundImage = [UIImageView alloc]initWithImage:[UIImage imageNamed:@""];
-   // [infoWindow addSubview:backgroundImage];
-    
-    UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.frame = CGRectMake(14, 11, 175, 16);
-    [infoWindow addSubview:titleLabel];
-    titleLabel.text = marker.title;
-    
-    UILabel *snippetLabel = [[UILabel alloc] init];
-    titleLabel.frame = CGRectMake(14, 42, 300, 16);
-    [infoWindow addSubview:snippetLabel];
-    snippetLabel.text = marker.title;
-    
-    return  infoWindow;
-    
-}
-
-
--(void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
-    
-   
-    
-    GMSMarker *marker = [GMSMarker markerWithPosition:coordinate];
-    //marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
-    marker.title = @"Sydney";
-    marker.snippet = @"Australia";
-    marker.appearAnimation = kGMSMarkerAnimationPop;
-    marker.icon = [GMSMarker markerImageWithColor:[UIColor redColor]];
-   // marker.icon = [UIImage imageNamed:@"emptyObject"];
-    
-    marker.draggable = YES;
-    marker.map = self.mapView;
-
-}
-
--(void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
-    
-//push to another VC here
-
-}*/
-    
-    
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -392,16 +331,18 @@
 
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)annotationView didChangeDragState:(MKAnnotationViewDragState)newState
-   fromOldState:(MKAnnotationViewDragState)oldState
-{
-    if (newState == MKAnnotationViewDragStateEnding)
+   fromOldState:(MKAnnotationViewDragState)oldState {
     
-    {
-        CLLocationCoordinate2D droppedAt = annotationView.annotation.coordinate;
-         MKMapPoint point = MKMapPointForCoordinate(droppedAt);
+    if (newState == MKAnnotationViewDragStateEnding) {
         
-       // [annotationView.annotation setCoordinate:droppedAt];
+        
+        CLLocationCoordinate2D droppedAt = annotationView.annotation.coordinate;
+        MKMapPoint point = MKMapPointForCoordinate(droppedAt);
+        
+        [annotationView.annotation setCoordinate:droppedAt];
     }
+    
+    
 }
 
 
@@ -414,29 +355,29 @@
     }
     
     
-    if ([annotation isKindOfClass:[MapAnnotation class]]) {
+    else if ([annotation isKindOfClass:[MapAnnotation class]]) {
         
         static NSString *identifier = @"Annotation";
         
         MKAnnotationView *annotationView = (MKAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
         
         //Lazy instantation
-        if (annotationView == nil) {
+        if (!annotationView) {
             
             annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
-          
-            annotationView.image = [UIImage imageNamed:@"house"];
+            
+            annotationView.image = [self.pinPhotosArray firstObject];;
+
             annotationView.centerOffset = CGPointMake(0, annotationView.frame.size.height / 2);
             annotationView.canShowCallout = YES;
             annotationView.enabled = YES;
             annotationView.draggable = YES;
             
+        UIImageView *userAvatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 47, 47)];
+        
+        if (self.pinPhotosArray.count ==0) {
             
-            UIImageView *userAvatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 47, 47)];
-            
-            if (self.pinPhotosArray.count ==0) {
-                
-                userAvatar.image = [UIImage imageNamed:@"nophoto"];
+            userAvatar.image = [UIImage imageNamed:@"nophoto"];
                 
             }else{
                 
@@ -467,8 +408,14 @@
         return annotationView;
         
     }
-    
+
     return nil;
+    
+}
+
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    
     
 }
 

@@ -531,8 +531,9 @@
     } else if ([segue.identifier isEqualToString:@"toMapView"]) {
         
         AddToMapVC *mapVC = (AddToMapVC *)segue.destinationViewController;
-        mapVC.pinPhotosArray =  [[NSMutableArray alloc] init];
-        mapVC.pinPhotosArray = self.myPhotosArray;
+       // mapVC.pinPhotosArray =  [[NSMutableArray alloc] init];
+       // mapVC.pinPhotosArray = self.myArrayWithPhotoData;
+        
         
         if ((self.objectNameTextField.text.length == 0)) {
             
@@ -554,9 +555,17 @@
             
             mapVC.subTitleText = self.priceTextField.text;
             
+            
         }
         
     }
+    
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myPhotosArray];
+    detailItem.arrayOfUsersPics = arrayData;
+    
+    NSError *error = nil;
+    [[[DataManager sharedManager] managedObjectContext] save:&error];
+
     
 }
 
