@@ -49,8 +49,8 @@
     /*NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
     self.fetchedObjects = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];*/
-    NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
-    self.sourceArray = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
+   // NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
+    //self.sourceArray = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
 
 }
 
@@ -129,6 +129,10 @@
     
     if ([segue.identifier isEqualToString:@"unwindAndSaveToDetail"]) {
         
+        NSMutableArray *arrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
+        self.sourceArray = [[NSMutableArray alloc] initWithArray:arrayWithUsersPics];
+    
+       
         [self configureView];
         
         
@@ -163,21 +167,20 @@
                     
     }else if ([segue.identifier isEqualToString:@"editFromDetailVC"]) {
         
-                
+        
         NewObjectViewController *newVC = (NewObjectViewController *)segue.destinationViewController;
-               
-        newVC.navigationItem.title = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"discription"]];
         newVC.detailItem = self.detailItem;
+        
+        newVC.navigationItem.title = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"discription"]];
         newVC.navigationItem.rightBarButtonItem = nil;
         newVC.navigationItem.leftBarButtonItem = nil;
         newVC.saveSecondButton.hidden = NO;
         newVC.hideButton = NO;
         
-    
-    
+        
     }else if ([segue.identifier isEqualToString:@"unwindAfterBackButtonFromDetail"]) {
         
-       NewObjectViewController *newVC = (NewObjectViewController *)segue.destinationViewController;
+        NewObjectViewController *newVC = (NewObjectViewController *)segue.destinationViewController;
         
         NSData* pictureData = UIImageJPEGRepresentation([self.sourceArray firstObject],0);
         detailItem.picture = pictureData;

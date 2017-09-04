@@ -127,8 +127,16 @@
 -(void)fetchPhotos {
     
     NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
-    self.myRetrievedPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
     
+    /*if ((self.myRetrievedPics = nil)) {
+        return;
+        
+    }else{*/
+        self.myRetrievedPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
+        
+  //  }
+    
+        
     if ([self.myRetrievedPics containsObject:[UIImage imageNamed:@"emptyObject2"]]) {
         [self.myRetrievedPics removeObject:[UIImage imageNamed:@"emptyObject2"]];
     }
@@ -382,6 +390,12 @@
         
         DetailObjectController *doc = (DetailObjectController*)segue.destinationViewController;
         
+        doc.detailItem = self.detailItem;
+        
+        doc.sourceArray = [[NSMutableArray alloc] init];
+
+        doc.sourceArray = self.myRetrievedPics;
+        
         if (self.detailItem) {
             
             // UPDATING EXISTING OBJECTS.
@@ -397,10 +411,14 @@
             self.detailItem.livingArea = self.livingSquareTextField.text;
             self.detailItem.kitchenArea = self.kitchenSquareTextField.text;
             self.detailItem.roomQuantity = [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]];
+           
             
            
             NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
             detailItem.arrayOfUsersPics = arrayData;
+            
+            [[[DataManager sharedManager] managedObjectContext] save:nil];
+        
         
         }else{
             
@@ -497,6 +515,7 @@
                 
             }
             
+            [[[DataManager sharedManager] managedObjectContext] save:nil];
         }
         
         
@@ -514,7 +533,7 @@
         
         
         
-    
+        
     
     
     } else if ([segue.identifier isEqualToString:@"unwindAndRemoveFromDetail"]) {
