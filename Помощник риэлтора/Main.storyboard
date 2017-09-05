@@ -586,8 +586,7 @@
                                                     <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
                                                     <state key="normal" title="Добавить метку на карту"/>
                                                     <connections>
-                                                        <action selector="addPlaceToMapButton:" destination="nkq-gs-aGa" eventType="touchUpInside" id="ngh-OF-qVA"/>
-                                                        <segue destination="4KP-cY-zt9" kind="show" id="e3d-xa-EWa"/>
+                                                        <segue destination="4KP-cY-zt9" kind="show" identifier="toMapView" id="gYC-j3-l1E"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1916,14 +1915,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Мои объекты" id="nJk-Za-DCg">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Где я" id="kr7-bA-aPx"/>
-                            <barButtonItem image="all" id="gqD-eY-xmM">
-                                <connections>
-                                    <action selector="showAllObjects:" destination="4KP-cY-zt9" id="7p1-0A-clN"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Где я" id="kr7-bA-aPx"/>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
@@ -1976,6 +1968,6 @@
         <image name="trash" width="37" height="45"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gbB-wH-LXY"/>
+        <segue reference="kvY-xV-bMF"/>
     </inferredMetricsTieBreakers>
 </document>

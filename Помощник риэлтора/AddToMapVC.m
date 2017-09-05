@@ -14,7 +14,7 @@
 @end
 
 @implementation AddToMapVC
-@synthesize searchBar, mapView, tableView, searchResults, object;
+@synthesize searchBar, mapView, tableView, searchResults, detailItem;
 
 
 
@@ -49,16 +49,33 @@
     self.mapView.camera = camera;
     [self.view addSubview:self.mapView];*/
 
-   
+    
     
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     
-    self.retrievedArray = [NSKeyedUnarchiver unarchiveObjectWithData:object.arrayOfUsersPics];
-    self.pinPhotosArray = [[NSMutableArray alloc] initWithArray:self.retrievedArray];
+   // self.retrievedArray = [NSKeyedUnarchiver unarchiveObjectWithData:object.arrayOfUsersPics];
+   // self.pinPhotosArray = [[NSMutableArray alloc] initWithArray:self.retrievedArray];
+
+    [self fetchPhotosArray];
 }
+
+
+-(void)fetchPhotosArray {
+    
+    // NSError *error;
+    //NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    // self.retrievedArray = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    NSMutableArray *retrievedArray = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
+    self.pinPhotosArray = [[NSMutableArray alloc] initWithArray:retrievedArray];
+    
+    
+}
+
+
+
 
 
 #pragma mark - UITableView DataSource
@@ -268,7 +285,7 @@
     
     annotation.canShowCallout = YES;
     annotation.coordinate = touchMapCoordinate;
-    annotation.image =  [[UIImage alloc] initWithData:[object valueForKey:@"picture"]];
+    //annotation.image =  [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
     annotation.title = @"fgrgrt";
     annotation.subtitle = @"fvvr";
     
@@ -298,7 +315,7 @@
 
 
 
-- (IBAction)showAllObjects:(UIBarButtonItem *)sender {
+/*- (IBAction)showAllObjects:(UIBarButtonItem *)sender {
 
     MKMapRect zoomRect = MKMapRectNull;
     
@@ -321,7 +338,7 @@
                         edgePadding:UIEdgeInsetsMake(50, 50, 50, 50)
                            animated:YES];
     
-}
+}*/
 
 
 
@@ -359,14 +376,64 @@
         
         static NSString *identifier = @"Annotation";
         
-        MKAnnotationView *annotationView = (MKAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        
+        MKPinAnnotationView *pin = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];;
+        
+        
+        if (!pin) {
+            pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier ];
+            pin.pinTintColor = [UIColor purpleColor];
+            pin.animatesDrop = YES;
+            pin.canShowCallout = YES;
+            pin.draggable = YES;
+            
+           
+            UIImageView *userAvatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 47, 47)];
+            
+            if (self.pinPhotosArray.count == 0) {
+                
+                userAvatar.image = [UIImage imageNamed:@"nophoto"];
+                
+            }else{
+                
+                userAvatar.image = [self.pinPhotosArray firstObject];
+            }
+            
+            UIButton *buttonPic = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 48, 48)];
+            //buttonPic.backgroundColor = [UIColor purpleColor];
+            UIImage *btnImage = [UIImage imageNamed:@"playArrow"];
+            [buttonPic setImage:btnImage forState:UIControlStateNormal];
+            
+            pin.leftCalloutAccessoryView = userAvatar;
+            pin.rightCalloutAccessoryView = buttonPic;
+            
+            userAvatar.contentMode = UIViewContentModeScaleAspectFill;
+            userAvatar.layer.cornerRadius = 4.0;
+            userAvatar.layer.masksToBounds = YES;
+            userAvatar.layer.borderColor = [[UIColor whiteColor] CGColor];
+            userAvatar.layer.borderWidth = 1;
+            
+            
+        }else{
+            
+            pin.annotation = annotation;
+            
+        }
+        
+        return pin;
+        
+        
+    }
+        
+
+       /* MKAnnotationView *annotationView = (MKAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
         
         //Lazy instantation
         if (!annotationView) {
             
             annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
             
-            annotationView.image = [self.pinPhotosArray firstObject];;
+           // annotationView.image = [self.pinPhotosArray firstObject];;
 
             annotationView.centerOffset = CGPointMake(0, annotationView.frame.size.height / 2);
             annotationView.canShowCallout = YES;
@@ -375,7 +442,7 @@
             
         UIImageView *userAvatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 47, 47)];
         
-        if (self.pinPhotosArray.count ==0) {
+        if (self.pinPhotosArray.count == 0) {
             
             userAvatar.image = [UIImage imageNamed:@"nophoto"];
                 
@@ -407,10 +474,10 @@
         
         return annotationView;
         
-    }
+    }*/
 
     return nil;
-    
+
 }
 
 

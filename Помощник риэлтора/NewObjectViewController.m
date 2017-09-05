@@ -526,8 +526,8 @@
         }
         
         
-        NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
-        detailItem.arrayOfUsersPics = arrayData;
+       /* NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
+        detailItem.arrayOfUsersPics = arrayData;*/
         
         [[[DataManager sharedManager] managedObjectContext] save:nil];
         
@@ -552,9 +552,31 @@
         AddToMapVC *mapVC = (AddToMapVC *)segue.destinationViewController;
        // mapVC.pinPhotosArray =  [[NSMutableArray alloc] init];
        // mapVC.pinPhotosArray = self.myArrayWithPhotoData;
+       // mapVC.detailItem = self.detailItem;
+        
+       
+        /*EstateObjectEntity* object =
+        [NSEntityDescription insertNewObjectForEntityForName:@"EstateObjectEntity"
+                                      inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];*/
         
         
-        if ((self.objectNameTextField.text.length == 0)) {
+        if (self.detailItem) {
+            
+            NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
+            detailItem.arrayOfUsersPics = arrayData;
+            mapVC.detailItem = self.detailItem;
+            NSError *error = nil;
+            [[[DataManager sharedManager] managedObjectContext] save:&error];
+            
+        }
+        
+        /*NSError *error = nil;
+        [[[DataManager sharedManager] managedObjectContext] save:&error];*/
+        
+
+        
+        
+       /* if ((self.objectNameTextField.text.length == 0)) {
             
             mapVC.titleText = @"Введите название объекта";
             
@@ -574,18 +596,18 @@
             
             mapVC.subTitleText = self.priceTextField.text;
             
-            
-        }
+        }*/
         
+        
+       /* NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myPhotosArray];
+        detailItem.arrayOfUsersPics = arrayData;
+        
+        NSError *error = nil;
+        [[[DataManager sharedManager] managedObjectContext] save:&error];*/
+    
     }
     
-    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myPhotosArray];
-    detailItem.arrayOfUsersPics = arrayData;
-    
-    NSError *error = nil;
-    [[[DataManager sharedManager] managedObjectContext] save:&error];
-
-    
+     
 }
 
 

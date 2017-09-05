@@ -29,7 +29,7 @@
 @property (strong, nonatomic) HNKGooglePlacesAutocompleteQuery *searchQuery;
 //@property (strong, nonatomic) IBOutlet GMSMapView *mapView;
 
-@property(strong, nonatomic) EstateObjectEntity *object;
+@property(strong, nonatomic) EstateObjectEntity *detailItem;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic)  CLLocationManager* locationManager;
