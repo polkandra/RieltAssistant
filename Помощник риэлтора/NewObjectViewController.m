@@ -32,8 +32,6 @@
     //NSLog(@"my array = %@",self.myData);
     
     
-    
-   
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
@@ -49,6 +47,7 @@
     [self fetchPhotos];
     [self hideShowDeleteSaveButtons];
     [self showHideDeleteButton];
+    [self hideBackButton];
     
     self.myPhotosArray = [[NSMutableArray alloc] init];
     self.selectedPhotos = [[NSMutableArray alloc] init];
@@ -56,9 +55,17 @@
     self.myData1 = [[NSMutableArray alloc] init];
     
     
+   
     
 }
 
+
+
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:YES];
+      
+}
 
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -81,14 +88,39 @@
      self.navigationController.navigationBar.shadowImage = [UIImage new];
      self.navigationController.navigationBar.translucent = YES;*/
     
-    
-    
     /*NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
      self.myRetrievedPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];*/
     
 }
 
 
+
+#pragma mark - Helpers
+
+
+-(void)hideBackButton {
+    
+    if ((!self.navigationItem.leftBarButtonItem)) {
+        
+        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:[detailItem valueForKey:@"discription"] style:UIBarButtonSystemItemCancel target:self action:@selector(back:)];
+        self.navigationItem.leftBarButtonItem = newBackButton;
+        
+    }
+}
+
+
+
+-(void) back:(UIBarButtonItem *)sender {
+    
+    if (self.detailItem) {
+        
+        NSData* pictureData = UIImageJPEGRepresentation([self.myRetrievedPics firstObject],0);
+        detailItem.picture = pictureData;
+        
+        [[[DataManager sharedManager] managedObjectContext] save:nil];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 
 
@@ -127,20 +159,12 @@
 -(void)fetchPhotos {
     
     NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
+    self.myRetrievedPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
     
-    /*if ((self.myRetrievedPics = nil)) {
-        return;
-        
-    }else{*/
-        self.myRetrievedPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
-        
-  //  }
-    
-        
     if ([self.myRetrievedPics containsObject:[UIImage imageNamed:@"emptyObject2"]]) {
         [self.myRetrievedPics removeObject:[UIImage imageNamed:@"emptyObject2"]];
     }
- 
+    
 }
 
 
@@ -391,9 +415,7 @@
         DetailObjectController *doc = (DetailObjectController*)segue.destinationViewController;
         
         doc.detailItem = self.detailItem;
-        
         doc.sourceArray = [[NSMutableArray alloc] init];
-
         doc.sourceArray = self.myRetrievedPics;
         
         if (self.detailItem) {

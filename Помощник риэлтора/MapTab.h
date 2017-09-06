@@ -10,14 +10,20 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "MapAnnotation.h"
-
+#import "DataManager.h"
+#import "EstateObjectEntity+CoreDataProperties.h"
+#import "EstateObject.h"
 
 @interface MapTab : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+//@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @property (strong, nonatomic)  CLLocationManager *locationManager;
+
+@property(strong, nonatomic) EstateObjectEntity *detailItem;
+
+@property (strong, nonatomic) NSMutableArray *coordinatesArray;
 
 - (IBAction)showAllObjects:(UIBarButtonItem *)sender;
 

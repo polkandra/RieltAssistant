@@ -49,8 +49,8 @@
     /*NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
     self.fetchedObjects = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];*/
-   // NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
-    //self.sourceArray = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
+    NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
+    self.sourceArray = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
 
 }
 
@@ -176,11 +176,12 @@
         newVC.navigationItem.leftBarButtonItem = nil;
         newVC.saveSecondButton.hidden = NO;
         newVC.hideButton = NO;
-        
+        newVC.navigationItem.hidesBackButton = YES;
+   
         
     }else if ([segue.identifier isEqualToString:@"unwindAfterBackButtonFromDetail"]) {
         
-        NewObjectViewController *newVC = (NewObjectViewController *)segue.destinationViewController;
+       // MainViewController*newVC = (NewObjectViewController *)segue.destinationViewController;
         
         NSData* pictureData = UIImageJPEGRepresentation([self.sourceArray firstObject],0);
         detailItem.picture = pictureData;

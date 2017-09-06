@@ -16,10 +16,12 @@
 #import "StyleKitName.h"
 #import "EstateObjectEntity+CoreDataProperties.h"
 #import "DataManager.h"
+#import "MapTab.h"
+#import "AppDelegate.h"
+
 
 @import GooglePlaces;
 @interface AddToMapVC : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate,CLLocationManagerDelegate>
-
 
 - (IBAction)searchPlace:(UIBarButtonItem *)sender;
 - (IBAction)showAllObjects:(UIBarButtonItem *)sender;
@@ -38,11 +40,15 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSArray *searchResults;
-@property (strong, nonatomic) NSArray *pinPhotosArray;
+@property (strong, nonatomic) NSMutableArray *pinPhotosArray;
 @property (strong, nonatomic) NSArray *retrievedArray;
+@property (strong, nonatomic) NSMutableArray *coordinatesArray;
 
 @property (strong, nonatomic) NSString *titleText;
 @property (strong, nonatomic) NSString *subTitleText;
 
+
+@property (assign, nonatomic) double longitude;
+@property (assign, nonatomic) double latitude;
 
 @end

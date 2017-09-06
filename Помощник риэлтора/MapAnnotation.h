@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "NewObjectViewController.h"
+#import "AppDelegate.h"
 
 @interface MapAnnotation :  MKAnnotationView <MKAnnotation>
 

@@ -14,13 +14,14 @@
 @end
 
 @implementation AddToMapVC
-@synthesize searchBar, mapView, tableView, searchResults, detailItem;
+@synthesize searchBar, mapView, tableView, searchResults, detailItem, latitude, longitude;
 
 
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
     
     self.searchBar.delegate = self;
     self.tableView.delegate = self;
@@ -35,7 +36,7 @@
     
     [self.locationManager requestWhenInUseAuthorization];
     [self setLocationManager];
-    [self setMKUserTrackingButton];
+  //  [self setMKUserTrackingButton];
     [self setGestureRecognizers];
    
     /* GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:55.7522200 longitude:37.6155600 zoom:10.0];
@@ -56,9 +57,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     
-   // self.retrievedArray = [NSKeyedUnarchiver unarchiveObjectWithData:object.arrayOfUsersPics];
-   // self.pinPhotosArray = [[NSMutableArray alloc] initWithArray:self.retrievedArray];
-
     [self fetchPhotosArray];
 }
 
@@ -175,18 +173,26 @@
 }
 
 
+#pragma mark Actions
+
+- (IBAction)saveMapCoordinates:(UIBarButtonItem *)sender {
+
+    NewObjectViewController *noVC = [self.storyboard instantiateViewControllerWithIdentifier:@"New"];
+    MapTab *mtVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MapTab"];
+    mtVC.detailItem = self.detailItem;
+    
+    [self.navigationController pushViewController:noVC animated:YES];
+}
 
 
 
-#pragma mark - Helpers
 
 
-
--(void)setMKUserTrackingButton {
+/*-(void)setMKUserTrackingButton {
     
     MKUserTrackingBarButtonItem *buttonItem = [[MKUserTrackingBarButtonItem alloc] initWithMapView:self.mapView];
     self.navigationItem.rightBarButtonItem = buttonItem;
-}
+}*/
 
 
 - (void)handleSearchError:(NSError *)error {
@@ -285,10 +291,19 @@
     
     annotation.canShowCallout = YES;
     annotation.coordinate = touchMapCoordinate;
-    //annotation.image =  [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
-    annotation.title = @"fgrgrt";
-    annotation.subtitle = @"fvvr";
+    NSLog(@"pins coordinates are %f  %f",touchMapCoordinate.latitude,touchMapCoordinate.longitude);
     
+    touchMapCoordinate.latitude = detailItem.latitude;
+    touchMapCoordinate.longitude = detailItem.longitude;
+    
+    
+   // [[[DataManager sharedManager] managedObjectContext] save:nil];
+   
+    //annotation.image =  [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
+    annotation.title = [detailItem valueForKey:@"discription"];
+    annotation.subtitle = [detailItem valueForKey:@"price"];
+    
+   // self.coordinatesArray = [[NSMutableArray alloc] initWithObjects:@(touchMapCoordinate.latitude),@(touchMapCoordinate.longitude), nil];
     
     MKAnnotationView *pinView = nil;
     
@@ -300,7 +315,7 @@
             [toRemove addObject:annotation];
     [self.mapView removeAnnotations:toRemove];
     [self.mapView addAnnotation:annotation];
-    
+        
 }
 
 
@@ -311,7 +326,23 @@
 }
 
 
-#pragma mark  Actions
+
+/*-(void)goToDetail {
+    
+    DetailObjectController *dvc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailObjectController"];
+    dvc.detailItem = self.detailItem;
+    
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.pinPhotosArray];
+    detailItem.arrayOfUsersPics = arrayData;
+    
+    [[[DataManager sharedManager] managedObjectContext] save:nil];
+    
+    
+    
+    [self presentViewController:dvc animated:YES completion:nil];
+}*/
+
+
 
 
 
@@ -356,10 +387,11 @@
         CLLocationCoordinate2D droppedAt = annotationView.annotation.coordinate;
         MKMapPoint point = MKMapPointForCoordinate(droppedAt);
         
+        NSLog(@"dragged coordinates %f  %f",droppedAt.longitude,droppedAt.latitude);
+        
         [annotationView.annotation setCoordinate:droppedAt];
     }
-    
-    
+   
 }
 
 
@@ -386,7 +418,7 @@
             pin.animatesDrop = YES;
             pin.canShowCallout = YES;
             pin.draggable = YES;
-            
+          //  pin.image =  [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
            
             UIImageView *userAvatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 47, 47)];
             
@@ -399,13 +431,17 @@
                 userAvatar.image = [self.pinPhotosArray firstObject];
             }
             
-            UIButton *buttonPic = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 48, 48)];
+           // UIButton *buttonPic = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
             //buttonPic.backgroundColor = [UIColor purpleColor];
-            UIImage *btnImage = [UIImage imageNamed:@"playArrow"];
-            [buttonPic setImage:btnImage forState:UIControlStateNormal];
+           // [buttonPic addTarget:self action:@selector(goToDetail) forControlEvents:UIControlEventTouchUpInside];
+           
+            // UIButton *buttonPic = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            // buttonPic.frame = CGRectMake(0, 0, 23, 23);
+           // UIImage *btnImage = [UIImage imageNamed:@"inArrow"];
+            //[buttonPic setImage:btnImage forState:UIControlStateNormal];
             
             pin.leftCalloutAccessoryView = userAvatar;
-            pin.rightCalloutAccessoryView = buttonPic;
+          //  pin.rightCalloutAccessoryView = buttonPic;
             
             userAvatar.contentMode = UIViewContentModeScaleAspectFill;
             userAvatar.layer.cornerRadius = 4.0;
@@ -424,7 +460,7 @@
         
         
     }
-        
+    
 
        /* MKAnnotationView *annotationView = (MKAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
         
@@ -481,10 +517,14 @@
 }
 
 
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+
+
+
+
+/*- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     
     
-}
+}*/
 
 
 
@@ -492,8 +532,8 @@
 #pragma mark - CLLocationManagerDelegate
 
 
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    
     NSLog(@"didFailWithError: %@", error);
     UIAlertView *errorAlert = [[UIAlertView alloc]
                                initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -501,18 +541,18 @@
 }
 
 
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    
     CLLocation *newLocation = locations.lastObject;
 }
 
 
 /*- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-    NSLog(@"didUpdateToLocation: %@", newLocation);
-   CLLocation *newLocation = locations.lastObject;
-    
-}*/
+ {
+ NSLog(@"didUpdateToLocation: %@", newLocation);
+ CLLocation *newLocation = locations.lastObject;
+ 
+ }*/
 
 
 

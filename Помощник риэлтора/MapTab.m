@@ -13,24 +13,58 @@
 @end
 
 @implementation MapTab
-@synthesize mapView, locationManager, searchBar;
+@synthesize mapView, locationManager, detailItem;
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     
-    self.searchBar.delegate = self;
+   // self.searchBar.delegate = self;
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
     
     [self setLocationManager];
-    [self setGestureRecognizers];
+   // [self setGestureRecognizers];
+    
+    /*MapAnnotation *annotation = [[MapAnnotation alloc] init];
+    
+    CLLocationCoordinate2D coordinate;
+    coordinate.longitude = detailItem.longitude;
+    coordinate.latitude = detailItem.latitude;
+    
+    annotation.title = [detailItem valueForKey:@"discription"];
+    annotation.subtitle = [detailItem valueForKey:@"price"];;
+    annotation.canShowCallout = YES;
+    
+    annotation.coordinate = coordinate;
+    
+    [self.mapView addAnnotation:annotation];*/
+
 
 }
 
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    
+    MapAnnotation *annotation = [[MapAnnotation alloc] init];
+    
+    CLLocationCoordinate2D coordinate;
+    coordinate.longitude = detailItem.longitude;
+    coordinate.latitude = detailItem.latitude;
+    
+    annotation.title = [detailItem valueForKey:@"discription"];
+    annotation.subtitle = [detailItem valueForKey:@"price"];;
+    annotation.canShowCallout = YES;
+    
+    annotation.coordinate = coordinate;
+    
+    [self.mapView addAnnotation:annotation];
+    
+    //NSLog(@"coordinates dictionary %@",self.coordinatesArray);
 
+}
 
 
 -(void)setLocationManager {
@@ -44,11 +78,10 @@
 
 
 
-- (void) dismissKeyboard {
-    
+/*- (void) dismissKeyboard {
     
     [self.searchBar resignFirstResponder];
-}
+}*/
 
 
 #pragma mark -- Actions
@@ -80,7 +113,7 @@
 }
 
 
-#pragma mark -- Set GestureRecognisers
+/*#pragma mark -- Set GestureRecognisers
 
 -(void)setGestureRecognizers {
     
@@ -110,7 +143,7 @@
     
     [self.mapView addAnnotation:annotation];
     
-}
+}*/
 
 
 
@@ -138,6 +171,7 @@
     }else{
         
         pin.annotation = annotation;
+        
     }
     
     return pin;
@@ -145,7 +179,7 @@
 
 
 
--(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view didChangeDragState:(MKAnnotationViewDragState)newState fromOldState:(MKAnnotationViewDragState)oldState {
+/*-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view didChangeDragState:(MKAnnotationViewDragState)newState fromOldState:(MKAnnotationViewDragState)oldState {
     
     if (newState == MKAnnotationViewDragStateEnding) {
         
@@ -154,10 +188,10 @@
         NSLog(@"\nlocation = {%f, %f}\npoint = %@", location.latitude, location.longitude, MKStringFromMapPoint(point));
         
     }
-}
+}*/
 
 
-
+/*
 #pragma mark - CLLocationManagerDelegate
 
 
@@ -184,7 +218,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)aSearchBar {
     [searchBar resignFirstResponder];
-}
+}*/
 
 
 

@@ -24,6 +24,10 @@
 @property(strong, nonatomic) NSString* livingArea;
 @property(strong, nonatomic) NSString* kitchenArea;
 
+
+@property(assign, nonatomic) double latitude;
+@property(assign, nonatomic) double longtitude;
+
 @property(strong, nonatomic) NSData* picture;
 
 

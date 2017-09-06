@@ -40,14 +40,6 @@
 }
 
 
-/*- (void)arrayChosen:(NSArray *)array {
-    
-    _arrayFromDetail = [[NSMutableArray alloc]initWithArray:array];
-
-    }*/
-
-
-
 -(void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
