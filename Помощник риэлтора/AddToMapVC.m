@@ -14,7 +14,7 @@
 @end
 
 @implementation AddToMapVC
-@synthesize searchBar, mapView, tableView, searchResults, detailItem, latitude, longitude;
+@synthesize searchBar, mapView, tableView, searchResults, detailItem, latitude, longitude, lpgr;
 
 
 
@@ -37,7 +37,7 @@
     [self.locationManager requestWhenInUseAuthorization];
     [self setLocationManager];
   //  [self setMKUserTrackingButton];
-    [self setGestureRecognizers];
+    //[self setGestureRecognizers];
    
     /* GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:55.7522200 longitude:37.6155600 zoom:10.0];
     self.mapView = [GMSMapView mapWithFrame:CGRectMake(0, 108, 375, 560) camera:camera];
@@ -50,11 +50,19 @@
     self.mapView.camera = camera;
     [self.view addSubview:self.mapView];*/
 
+    self.lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 0.5;
+    lpgr.cancelsTouchesInView = NO;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    tap.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tap];
+    [self.mapView addGestureRecognizer:lpgr];
     
+
     
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
     [self fetchPhotosArray];
@@ -173,17 +181,7 @@
 }
 
 
-#pragma mark Actions
-
-- (IBAction)saveMapCoordinates:(UIBarButtonItem *)sender {
-
-    NewObjectViewController *noVC = [self.storyboard instantiateViewControllerWithIdentifier:@"New"];
-    MapTab *mtVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MapTab"];
-    mtVC.detailItem = self.detailItem;
-    
-    [self.navigationController pushViewController:noVC animated:YES];
-}
-
+#pragma mark Helpers
 
 
 
@@ -262,7 +260,7 @@
 }
 
 
--(void)setGestureRecognizers {
+/*-(void)setGestureRecognizers {
     
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
     lpgr.minimumPressDuration = 0.5;
@@ -272,7 +270,7 @@
     [self.view addGestureRecognizer:tap];
     [self.mapView addGestureRecognizer:lpgr];
     
-}
+}*/
 
 
 
@@ -286,6 +284,9 @@
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
     CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     
+    //touchMapCoordinate.latitude = detailItem.latitude;
+    //touchMapCoordinate.longitude = detailItem.longitude;
+    
     MapAnnotation *annotation = [[MapAnnotation alloc] init];
   
     
@@ -293,13 +294,8 @@
     annotation.coordinate = touchMapCoordinate;
     NSLog(@"pins coordinates are %f  %f",touchMapCoordinate.latitude,touchMapCoordinate.longitude);
     
-    touchMapCoordinate.latitude = detailItem.latitude;
-    touchMapCoordinate.longitude = detailItem.longitude;
-    
-    
-   // [[[DataManager sharedManager] managedObjectContext] save:nil];
    
-    //annotation.image =  [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
+    annotation.image =  [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
     annotation.title = [detailItem valueForKey:@"discription"];
     annotation.subtitle = [detailItem valueForKey:@"price"];
     
@@ -316,6 +312,24 @@
     [self.mapView removeAnnotations:toRemove];
     [self.mapView addAnnotation:annotation];
         
+   
+    
+    
+    
+    
+  /*
+    // share data through TabBarController
+    
+    MapTab *myVc = (MapTab*) [[(UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1] viewControllers] objectAtIndex:0];
+    myVc.detailItem = self.detailItem;
+    
+   
+    
+    
+    
+    [[[DataManager sharedManager] managedObjectContext] save:nil];*/
+
+
 }
 
 
@@ -555,5 +569,28 @@
  }*/
 
 
+#pragma mark - Navigation
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"saveFromAddToMapVC"]) {
+   
+        CGPoint touchPoint = [lpgr locationInView:self.mapView];
+        CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+        touchMapCoordinate.latitude = detailItem.latitude;
+        touchMapCoordinate.longitude = detailItem.longitude;
+        
+        MapTab *myVc = (MapTab*) [[(UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1] viewControllers] objectAtIndex:0];
+        myVc.detailItem = self.detailItem;
+        
+        
+        
+        [[[DataManager sharedManager] managedObjectContext] save:nil];
+        
+
+    
+    }
+    
+}
 
 @end

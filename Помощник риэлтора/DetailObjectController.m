@@ -16,8 +16,11 @@
 @synthesize tableView,  myDetailPhotosArray, detailItem;
 
 
+#pragma mark - VC Lifecycle
+
+
 - (void)viewDidLoad {
-   
+    
     
     [super viewDidLoad];
     
@@ -25,33 +28,25 @@
     
     
     //[self setNavController];
-        
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.allowsSelection = NO;
     
-   }
-
-
-/*- (IBAction)backToMainBarButtonTapped:(UIBarButtonItem *)sender {
-
-    [self.delegate arrayChosen:self.sourceArray];
-    [self dismissViewControllerAnimated:YES completion:nil];
-
-}*/
+}
 
 
 
 -(void)viewWillAppear:(BOOL)animated {
-   
+    
     [super viewWillAppear:YES];
     
     /*NSError *error;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
-    self.fetchedObjects = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];*/
+     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+     self.fetchedObjects = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];*/
     NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
     self.sourceArray = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
-
+    
 }
 
 
@@ -62,6 +57,8 @@
 }
 
 
+
+#pragma mark - Helpers
 
 -(void)configureView {
     
@@ -110,18 +107,23 @@
 
 
 
-- (IBAction)detailMapAddressButton:(id)sender {
+
+
+#pragma mark - Segues
+
+
+
+
+// unwind segue from AddToMapVC with saving
+- (IBAction)saveFromAddToMapVC:(UIStoryboardSegue*)segue {
     
+    if ([segue.identifier isEqualToString:@"saveFromAddToMapVC:"]) {
+      
+    
+    }
     
 }
 
-
-
-- (IBAction)callButton:(UIButton *)sender {
-
-
-
-}
 
 
 // unwind segue from NewObjectVC with saving
@@ -154,9 +156,6 @@
 
 
 
-
-#pragma mark - Segues
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"toPage"]) {
@@ -188,10 +187,83 @@
         
         [[[DataManager sharedManager] managedObjectContext] save:nil];
         
+    
+    } else if ([segue.identifier isEqualToString:@"toMapView"]) {
+        
+        AddToMapVC *mapVC = (AddToMapVC *)segue.destinationViewController;
+        
+        mapVC.detailItem = self.detailItem;
+        
+        
+        
+       /* if (self.myRetrievedPics.count == 0) {
+            
+            [self.myRetrievedPics addObject:[UIImage imageNamed:@"emptyObject2"]];
+            
+        }*/
+        
+        
+      /*  if (!self.detailItem) {
+            
+            
+            
+            NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
+            detailItem.arrayOfUsersPics = arrayData;
+            
+            
+            if ((self.objectNameTextField.text.length == 0)) {
+                
+                detailItem.discription = @"Имя не указано";
+                
+            }else{
+                
+                detailItem.discription = self.objectNameTextField.text;
+                
+            }
+            
+            
+            if ((self.priceTextField.text.length == 0)) {
+                
+                detailItem.price = @"Цена не указана";
+                
+            }else{
+                
+                NSMutableString *concatString = self.priceTextField.text;
+                concatString = [concatString stringByAppendingString:@" Рублей"];
+                
+                detailItem.price = concatString;
+                
+            }
+            
+            NSError *error = nil;
+            [[[DataManager sharedManager] managedObjectContext] save:&error];
+            
+        }*/
+        
     }
+   
+}
+
+
+
+#pragma mark - Actions
+
+
+- (IBAction)addPlaceToMapButton:(UIButton *)sender {
+    
+    AddToMapVC *mapVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AddToMapVC"];
+    mapVC.detailItem = self.detailItem;
+    
+  
     
 }
 
+
+
+- (IBAction)callButton:(UIButton *)sender {
+    
+    
+}
 
 
 

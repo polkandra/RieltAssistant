@@ -23,8 +23,7 @@
 @import GooglePlaces;
 @interface AddToMapVC : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate,CLLocationManagerDelegate>
 
-- (IBAction)searchPlace:(UIBarButtonItem *)sender;
-- (IBAction)showAllObjects:(UIBarButtonItem *)sender;
+
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
@@ -38,6 +37,8 @@
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) UILongPressGestureRecognizer *lpgr;
 
 @property (strong, nonatomic) NSArray *searchResults;
 @property (strong, nonatomic) NSMutableArray *pinPhotosArray;

@@ -173,7 +173,8 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Адрес на карте"/>
                                                     <connections>
-                                                        <action selector="detailMapAddressButton:" destination="CJR-fm-poS" eventType="touchUpInside" id="jzb-0y-swt"/>
+                                                        <action selector="addPlaceToMapButton:" destination="CJR-fm-poS" eventType="touchUpInside" id="BGn-Z1-6Zu"/>
+                                                        <segue destination="4KP-cY-zt9" kind="show" identifier="toMapView" id="R0h-aT-7Ee"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="whole" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NB2-5T-S4A">
@@ -575,21 +576,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HsE-Bm-wKt" id="78h-4d-LDT">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mapPin" translatesAutoresizingMaskIntoConstraints="NO" id="VfG-g8-rHB">
-                                                    <rect key="frame" x="13" y="13" width="50" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bze-xG-RLc">
-                                                    <rect key="frame" x="61" y="0.0" width="232" height="49"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
-                                                    <state key="normal" title="Добавить метку на карту"/>
-                                                    <connections>
-                                                        <segue destination="4KP-cY-zt9" kind="show" identifier="toMapView" id="gYC-j3-l1E"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.76105603730000004" green="0.88952634939999997" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
@@ -968,7 +954,6 @@
                     <size key="freeformSize" width="375" height="1700"/>
                     <connections>
                         <outlet property="actionTypeLabelInCell" destination="GcH-c2-mFR" id="KFx-0l-7Du"/>
-                        <outlet property="addPlaceOnMapButton" destination="Bze-xG-RLc" id="jh9-LY-ow4"/>
                         <outlet property="addressLabel" destination="0C5-Va-oLn" id="YY8-8o-IAP"/>
                         <outlet property="adressTextfield" destination="jFA-ZV-ojF" id="62d-Mi-f1o"/>
                         <outlet property="cancelButton" destination="cWB-u5-e8b" id="TKH-gG-div"/>
@@ -1008,7 +993,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="evj-bj-maC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Jq4-D8-kRU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2857" y="43"/>
+            <point key="canvasLocation" x="2857" y="411"/>
         </scene>
         <!--RoomTypeVC-->
         <scene sceneID="6Jy-7Q-zDF">
@@ -1186,7 +1171,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hvp-fH-ysq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="O0M-1R-jtM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3961" y="-373"/>
+            <point key="canvasLocation" x="3900" y="-714"/>
         </scene>
         <!--MapVC-->
         <scene sceneID="wg7-f3-ORb">
@@ -1324,6 +1309,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="disclaimerLabel" destination="ipz-2h-pSC" id="v9m-EH-E3p"/>
                         <outlet property="tableView" destination="70f-JY-a9Z" id="Dd7-tl-Oxw"/>
@@ -1635,8 +1622,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ODF-EI-j19">
-                                <rect key="frame" x="0.0" y="108" width="375" height="1548"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ODF-EI-j19">
+                                <rect key="frame" x="0.0" y="108" width="375" height="515"/>
                                 <connections>
                                     <outlet property="delegate" destination="HGi-ja-Jut" id="UiP-ep-Rwa"/>
                                 </connections>
@@ -1651,12 +1638,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ODF-EI-j19" firstAttribute="top" secondItem="mbV-1H-unk" secondAttribute="bottom" id="NA5-nC-6Rj"/>
-                            <constraint firstItem="tFo-ZU-svk" firstAttribute="top" secondItem="ODF-EI-j19" secondAttribute="bottom" id="POR-6A-LXf"/>
-                            <constraint firstAttribute="trailing" secondItem="ODF-EI-j19" secondAttribute="trailing" id="Q8f-bl-mbX"/>
+                            <constraint firstAttribute="trailing" secondItem="ODF-EI-j19" secondAttribute="trailing" id="EvT-bf-hG7"/>
+                            <constraint firstItem="tFo-ZU-svk" firstAttribute="top" secondItem="ODF-EI-j19" secondAttribute="bottom" id="NkU-sJ-6J0"/>
                             <constraint firstAttribute="trailing" secondItem="mbV-1H-unk" secondAttribute="trailing" id="Yon-Zh-hgq"/>
-                            <constraint firstItem="ODF-EI-j19" firstAttribute="leading" secondItem="lS6-o0-YqB" secondAttribute="leading" id="a0t-v6-rn2"/>
                             <constraint firstItem="mbV-1H-unk" firstAttribute="leading" secondItem="lS6-o0-YqB" secondAttribute="leading" id="bwh-VK-CIZ"/>
+                            <constraint firstItem="ODF-EI-j19" firstAttribute="leading" secondItem="lS6-o0-YqB" secondAttribute="leading" id="hU8-fU-NI6"/>
+                            <constraint firstItem="ODF-EI-j19" firstAttribute="top" secondItem="mbV-1H-unk" secondAttribute="bottom" id="mIe-ky-uTZ"/>
                             <constraint firstItem="mbV-1H-unk" firstAttribute="top" secondItem="ezv-Xu-dv7" secondAttribute="bottom" id="zrL-yf-Mi8"/>
                         </constraints>
                     </view>
@@ -1713,7 +1700,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Of3-kB-495">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Of3-kB-495">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.74106670389999996" green="0.85528823399999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1784,7 +1771,7 @@
                         <inset key="imageInsets" minX="-5" minY="5" maxX="5" maxY="-5"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="AvC-lN-H3H">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AvC-lN-H3H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1800,7 +1787,7 @@
         <!--Новый объект-->
         <scene sceneID="zF9-Qu-VKp">
             <objects>
-                <viewController id="4KP-cY-zt9" customClass="AddToMapVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddToMapVC" id="4KP-cY-zt9" customClass="AddToMapVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xx8-wU-GcP"/>
                         <viewControllerLayoutGuide type="bottom" id="TET-Yr-7bU"/>
@@ -1815,6 +1802,15 @@
                                     <outlet property="delegate" destination="4KP-cY-zt9" id="GXr-Qb-skS"/>
                                 </connections>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Зажмите место на карте, где хотите установить метку" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9K-BL-umJ">
+                                <rect key="frame" x="3" y="109" width="369" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="HH0-At-Ebz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.059153058981156192" green="0.096099779540417818" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B0k-xd-NUI">
                                 <rect key="frame" x="0.0" y="108" width="375" height="515"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1856,8 +1852,11 @@
                             <constraint firstItem="TET-Yr-7bU" firstAttribute="top" secondItem="B0k-xd-NUI" secondAttribute="bottom" id="HZv-6m-gt7"/>
                             <constraint firstItem="B0k-xd-NUI" firstAttribute="top" secondItem="jRW-aY-gjn" secondAttribute="bottom" id="NcQ-SF-qrv"/>
                             <constraint firstItem="jRW-aY-gjn" firstAttribute="top" secondItem="Xx8-wU-GcP" secondAttribute="bottom" id="S8a-l2-tgS"/>
+                            <constraint firstItem="H9K-BL-umJ" firstAttribute="leading" secondItem="kS0-Vy-Anq" secondAttribute="leading" constant="3" id="Sbm-Dd-bAJ"/>
                             <constraint firstItem="TET-Yr-7bU" firstAttribute="top" secondItem="6zl-Kb-feH" secondAttribute="bottom" id="X7d-qK-n7A"/>
                             <constraint firstItem="6zl-Kb-feH" firstAttribute="leading" secondItem="kS0-Vy-Anq" secondAttribute="leading" id="aqf-AA-dpn"/>
+                            <constraint firstItem="H9K-BL-umJ" firstAttribute="top" secondItem="jRW-aY-gjn" secondAttribute="bottom" constant="1" id="bAq-oZ-kDV"/>
+                            <constraint firstAttribute="trailing" secondItem="H9K-BL-umJ" secondAttribute="trailing" constant="3" id="dHu-Hf-90U"/>
                             <constraint firstItem="6zl-Kb-feH" firstAttribute="top" secondItem="B0k-xd-NUI" secondAttribute="top" id="lXy-1X-DfM"/>
                             <constraint firstAttribute="trailing" secondItem="jRW-aY-gjn" secondAttribute="trailing" id="n5G-7r-zBs"/>
                             <constraint firstAttribute="trailing" secondItem="B0k-xd-NUI" secondAttribute="trailing" id="wj4-xz-7gH"/>
@@ -1869,6 +1868,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Сохранить" id="kr7-bA-aPx">
                             <connections>
                                 <action selector="saveMapCoordinates:" destination="4KP-cY-zt9" id="lz2-3E-A9W"/>
+                                <segue destination="lLx-go-YXY" kind="unwind" identifier="saveFromAddToMapVC" unwindAction="saveFromAddToMapVC:" id="CrJ-lt-UFF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1881,8 +1881,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ilw-S5-hQ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lLx-go-YXY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3961" y="376"/>
+            <point key="canvasLocation" x="3900" y="87"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6kv-gJ-bh0">
@@ -1892,7 +1893,7 @@
                         <inset key="imageInsets" minX="-5" minY="5" maxX="5" maxY="-5"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hqf-KU-2ah">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hqf-KU-2ah">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

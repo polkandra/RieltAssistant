@@ -44,7 +44,7 @@
     [self addGestureRecognizer];
     [self pickerViewWithData];
     
-    [self fetchPhotos];
+    
     [self hideShowDeleteSaveButtons];
     [self showHideDeleteButton];
     [self hideBackButton];
@@ -72,6 +72,8 @@
     
     [super viewWillAppear:animated];
     
+    [self fetchPhotos];
+    
     [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor46]];
     [self.navigationController.navigationBar setTranslucent:NO];
     
@@ -90,7 +92,8 @@
     
     /*NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
      self.myRetrievedPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];*/
-    
+  
+
 }
 
 
@@ -161,6 +164,8 @@
     NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
     self.myRetrievedPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
     
+   // self.itemCount = self.myRetrievedPics.count;
+    
     if ([self.myRetrievedPics containsObject:[UIImage imageNamed:@"emptyObject2"]]) {
         [self.myRetrievedPics removeObject:[UIImage imageNamed:@"emptyObject2"]];
     }
@@ -191,16 +196,6 @@
 
 
 #pragma mark - Actions
-
-
-
-- (IBAction)addPlaceToMapButton:(UIButton *)sender {
-    
-    // MapViewController *mapVC = [self.storyboard instantiateViewControllerWithIdentifier:@"mapVC"];
-     //[self presentViewController:mapVC animated:YES completion:nil];
-    
-}
-
 
 
 - (IBAction)addPhotosButton:(UIButton *)sender {
@@ -289,6 +284,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"toMain"]) {
+        
+        
+        if (self.myRetrievedPics.count == 0) {
+            
+            [self.myRetrievedPics addObject:[UIImage imageNamed:@"emptyObject2"]];
+            
+        }
         
         
         MainViewController *controller = (MainViewController *)segue.destinationViewController;
@@ -417,6 +419,13 @@
         doc.detailItem = self.detailItem;
         doc.sourceArray = [[NSMutableArray alloc] init];
         doc.sourceArray = self.myRetrievedPics;
+        
+        if (self.myRetrievedPics.count == 0) {
+         
+         [self.myRetrievedPics addObject:[UIImage imageNamed:@"emptyObject2"]];
+         
+         }
+        
         
         if (self.detailItem) {
             
@@ -551,6 +560,19 @@
        /* NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
         detailItem.arrayOfUsersPics = arrayData;*/
         
+      
+        
+        if (self.myRetrievedPics.count == 0) {
+            
+            [self.myRetrievedPics addObject:[UIImage imageNamed:@"emptyObject2"]];
+       
+        }else{
+            
+                       
+        }
+        
+        
+        
         [[[DataManager sharedManager] managedObjectContext] save:nil];
         
         
@@ -571,66 +593,62 @@
         
     } else if ([segue.identifier isEqualToString:@"toMapView"]) {
         
-        AddToMapVC *mapVC = (AddToMapVC *)segue.destinationViewController;
+      /*  AddToMapVC *mapVC = (AddToMapVC *)segue.destinationViewController;
        // mapVC.pinPhotosArray =  [[NSMutableArray alloc] init];
        // mapVC.pinPhotosArray = self.myArrayWithPhotoData;
-       // mapVC.detailItem = self.detailItem;
+        mapVC.detailItem = self.detailItem;
         
        
-        /*EstateObjectEntity* object =
-        [NSEntityDescription insertNewObjectForEntityForName:@"EstateObjectEntity"
-                                      inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];*/
         
+        if (self.myRetrievedPics.count == 0) {
+            
+            [self.myRetrievedPics addObject:[UIImage imageNamed:@"emptyObject2"]];
+            
+        }
         
-        if (self.detailItem) {
+               
+        if (!self.detailItem) {
+            
+           
             
             NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
             detailItem.arrayOfUsersPics = arrayData;
-            mapVC.detailItem = self.detailItem;
+
+           
+            if ((self.objectNameTextField.text.length == 0)) {
+                
+                detailItem.discription = @"Имя не указано";
+                
+            }else{
+                
+                detailItem.discription = self.objectNameTextField.text;
+                
+            }
+            
+           
+            if ((self.priceTextField.text.length == 0)) {
+                
+                detailItem.price = @"Цена не указана";
+                
+            }else{
+                
+                NSMutableString *concatString = self.priceTextField.text;
+                concatString = [concatString stringByAppendingString:@" Рублей"];
+                
+                detailItem.price = concatString;
+                
+            }
+           
             NSError *error = nil;
             [[[DataManager sharedManager] managedObjectContext] save:&error];
             
-        }
-        
-        /*NSError *error = nil;
-        [[[DataManager sharedManager] managedObjectContext] save:&error];*/
-        
-
-        
-        
-       /* if ((self.objectNameTextField.text.length == 0)) {
-            
-            mapVC.titleText = @"Введите название объекта";
-            
-        }else{
-            mapVC.titleText = self.objectNameTextField.text;
-        }
-        
-        if ((self.priceTextField.text.length == 0)) {
-            
-            mapVC.subTitleText =  @"Введите цену объекта";
-            
-        }else{
-            
-            NSMutableString *concatString = self.priceTextField.text;
-            concatString = [concatString stringByAppendingString:@" Рублей"];
-            self.priceTextField.text = concatString;
-            
-            mapVC.subTitleText = self.priceTextField.text;
-            
         }*/
         
-        
-       /* NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myPhotosArray];
-        detailItem.arrayOfUsersPics = arrayData;
-        
-        NSError *error = nil;
-        [[[DataManager sharedManager] managedObjectContext] save:&error];*/
-    
     }
     
-     
 }
+
+
 
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
@@ -871,7 +889,7 @@
     }*/
    
     return self.myRetrievedPics.count;
-    
+    return self.itemCount;
 }
 
 
@@ -965,35 +983,32 @@
             
             [self.collectionView performBatchUpdates:^{
                 
-                
                 NSArray* selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
                 NSMutableIndexSet *removeIndexes = [NSMutableIndexSet new];
                 
                 
                 for (NSIndexPath *path in selectedItemsIndexPaths) {
                     [removeIndexes addIndex:path.item];
-                    
-                    
                 }
                 
                 if (self.myRetrievedPics.count > 0) {
                     
-                    [self.myRetrievedPics removeObjectsAtIndexes:removeIndexes];
-                    [self.collectionView deleteItemsAtIndexPaths:selectedItemsIndexPaths];
-                    
+                    [self.collectionView reloadData];
+                
                 }else{
-                    
-                    [self.myRetrievedPics addObject:[UIImage imageNamed:@"emptyObject2"]];
-                    
+                   
+                    [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem: (self.myRetrievedPics.count - 1) inSection:0]]];
                 }
                 
+                [self.myRetrievedPics removeObjectsAtIndexes:removeIndexes];
+                [self.collectionView deleteItemsAtIndexPaths:selectedItemsIndexPaths];
                 
+                               
                 
                 NSManagedObjectContext *context = [[DataManager sharedManager] managedObjectContext];
                 NSError *error = nil;
                 if (![context save:&error]) {
-                    // Replace this implementation with code to handle the error appropriately.
-                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    
                     NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
                     abort();
                     
@@ -1009,7 +1024,6 @@
                 
             }];
         }
-        
         
     }];
     
