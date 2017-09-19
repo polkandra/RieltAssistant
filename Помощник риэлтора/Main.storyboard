@@ -1700,7 +1700,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Of3-kB-495">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Of3-kB-495">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.74106670389999996" green="0.85528823399999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1771,7 +1771,7 @@
                         <inset key="imageInsets" minX="-5" minY="5" maxX="5" maxY="-5"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AvC-lN-H3H">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="AvC-lN-H3H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1893,7 +1893,7 @@
                         <inset key="imageInsets" minX="-5" minY="5" maxX="5" maxY="-5"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hqf-KU-2ah">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hqf-KU-2ah">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

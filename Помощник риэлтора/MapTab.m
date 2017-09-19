@@ -16,31 +16,20 @@
 @synthesize mapView, locationManager, detailItem;
 
 
+
+
+#pragma mark VC Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     
-   // self.searchBar.delegate = self;
+   
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
     
     [self setLocationManager];
-   // [self setGestureRecognizers];
-    
-    /*MapAnnotation *annotation = [[MapAnnotation alloc] init];
-    
-    CLLocationCoordinate2D coordinate;
-    coordinate.longitude = detailItem.longitude;
-    coordinate.latitude = detailItem.latitude;
-    
-    annotation.title = [detailItem valueForKey:@"discription"];
-    annotation.subtitle = [detailItem valueForKey:@"price"];;
-    annotation.canShowCallout = YES;
-    
-    annotation.coordinate = coordinate;
-    
-    [self.mapView addAnnotation:annotation];*/
-
+   
 
 }
 
@@ -48,23 +37,37 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
+    [self getAnnotations];
+}
+
+
+
+#pragma mark Helpers
+
+-(void)getAnnotations {
+    
     MapAnnotation *annotation = [[MapAnnotation alloc] init];
     
-    CLLocationCoordinate2D coordinate;
-    coordinate.longitude = detailItem.longitude;
-    coordinate.latitude = detailItem.latitude;
+   // CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(detailItem.longitude, detailItem.latitude);
     
+   // CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([[detailItem valueForKey:@"latitude"] doubleValue], [[detailItem valueForKey:@"longitude"] doubleValue]);
+   
+    CLLocation *loc = [[CLLocation alloc] initWithLatitude:detailItem.latitude longitude:detailItem.longitude];
+    
+    annotation.image =  [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
     annotation.title = [detailItem valueForKey:@"discription"];
-    annotation.subtitle = [detailItem valueForKey:@"price"];;
+    annotation.subtitle = [detailItem valueForKey:@"price"];
     annotation.canShowCallout = YES;
     
-    annotation.coordinate = coordinate;
+   // annotation.coordinate = coordinate;
+    annotation.coordinate = loc.coordinate;
     
     [self.mapView addAnnotation:annotation];
     
-    //NSLog(@"coordinates dictionary %@",self.coordinatesArray);
-
+    //NSLog(@"MapTab pin coordinates are %f %f",coordinate.latitude, coordinate.latitude);
+    NSLog(@"MapTab pin coordinates are %f %f",loc.coordinate.latitude, loc.coordinate.longitude);
 }
+
 
 
 -(void)setLocationManager {
@@ -77,13 +80,7 @@
 
 
 
-/*- (void) dismissKeyboard {
-    
-    [self.searchBar resignFirstResponder];
-}*/
-
-
-#pragma mark -- Actions
+#pragma mark - Actions
 
 
 - (IBAction)showAllObjects:(UIBarButtonItem *)sender {
@@ -112,42 +109,11 @@
 }
 
 
-/*#pragma mark -- Set GestureRecognisers
-
--(void)setGestureRecognizers {
-    
-    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-    lpgr.minimumPressDuration = 1.0;
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    
-    [self.view addGestureRecognizer:tap];
-    [self.mapView addGestureRecognizer:lpgr];
-    
-}
-
--(void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer {
-    
-    if (gestureRecognizer.state != UIGestureRecognizerStateBegan) {
-        return;
-        
-    }
-    CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
-    CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
-    
-    MapAnnotation *annotation = [[MapAnnotation alloc] init];
-    annotation.coordinate = touchMapCoordinate;
-    annotation.title = @"Title";
-    annotation.subtitle = @"Subtitle";
-    
-    [self.mapView addAnnotation:annotation];
-    
-}*/
 
 
 
 
-#pragma mark -- MKMapViewDelegate
+#pragma mark - MKMapViewDelegate
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     
@@ -162,10 +128,40 @@
     
     if (!pin) {
         pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier ];
-        pin.pinTintColor = [UIColor purpleColor];
+        pin.pinTintColor = [UIColor greenColor];
         pin.animatesDrop = YES;
         pin.canShowCallout = YES;
-        pin.draggable = YES;
+        pin.draggable = NO;
+        
+        UIImageView *userAvatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 47, 47)];
+        
+        if (self.pinPhotosArray.count == 0) {
+            
+            userAvatar.image = [UIImage imageNamed:@"nophoto"];
+            
+        }else{
+            
+            userAvatar.image = [self.pinPhotosArray firstObject];
+        }
+        
+        // UIButton *buttonPic = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        //buttonPic.backgroundColor = [UIColor purpleColor];
+        // [buttonPic addTarget:self action:@selector(goToDetail) forControlEvents:UIControlEventTouchUpInside];
+        
+        // UIButton *buttonPic = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        // buttonPic.frame = CGRectMake(0, 0, 23, 23);
+        // UIImage *btnImage = [UIImage imageNamed:@"inArrow"];
+        //[buttonPic setImage:btnImage forState:UIControlStateNormal];
+        
+        pin.leftCalloutAccessoryView = userAvatar;
+        //  pin.rightCalloutAccessoryView = buttonPic;
+        
+        userAvatar.contentMode = UIViewContentModeScaleAspectFill;
+        userAvatar.layer.cornerRadius = 4.0;
+        userAvatar.layer.masksToBounds = YES;
+        userAvatar.layer.borderColor = [[UIColor whiteColor] CGColor];
+        userAvatar.layer.borderWidth = 1;
+        
         
     }else{
         
@@ -174,50 +170,10 @@
     }
     
     return pin;
-}
-
-
-
-/*-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view didChangeDragState:(MKAnnotationViewDragState)newState fromOldState:(MKAnnotationViewDragState)oldState {
     
-    if (newState == MKAnnotationViewDragStateEnding) {
-        
-        CLLocationCoordinate2D location = view.annotation.coordinate;
-        MKMapPoint point = MKMapPointForCoordinate(location);
-        NSLog(@"\nlocation = {%f, %f}\npoint = %@", location.latitude, location.longitude, MKStringFromMapPoint(point));
-        
-    }
-}*/
-
-
-/*
-#pragma mark - CLLocationManagerDelegate
-
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    NSLog(@"didFailWithError: %@", error);
-    UIAlertView *errorAlert = [[UIAlertView alloc]
-                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [errorAlert show];
-}
-
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-    NSLog(@"didUpdateToLocation: %@", newLocation);
-    CLLocation *currentLocation = newLocation;
     
 }
 
-
-
-#pragma mark -- UISearchBarDelegate
-
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)aSearchBar {
-    [searchBar resignFirstResponder];
-}*/
 
 
 

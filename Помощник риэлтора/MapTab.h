@@ -23,7 +23,7 @@
 
 @property(strong, nonatomic) EstateObjectEntity *detailItem;
 
-@property (strong, nonatomic) NSMutableArray *coordinatesArray;
+@property (strong, nonatomic) NSMutableArray *pinPhotosArray;
 
 - (IBAction)showAllObjects:(UIBarButtonItem *)sender;
 

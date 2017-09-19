@@ -17,7 +17,7 @@
 #import "EstateObjectEntity+CoreDataProperties.h"
 #import "DataManager.h"
 #import "MapTab.h"
-#import "AppDelegate.h"
+
 
 
 @import GooglePlaces;
@@ -39,6 +39,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) UILongPressGestureRecognizer *lpgr;
+@property (assign, nonatomic) CLLocationCoordinate2D touchMapCoordinate;
+
 
 @property (strong, nonatomic) NSArray *searchResults;
 @property (strong, nonatomic) NSMutableArray *pinPhotosArray;

@@ -21,7 +21,7 @@
 @interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, NSKeyedArchiverDelegate>
 
 
-@property (assign, nonatomic) int itemCount;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *objectTypeLabelInCell;
 @property (weak, nonatomic) IBOutlet UILabel *actionTypeLabelInCell;
@@ -60,8 +60,7 @@
 @property (strong, nonatomic) NSIndexPath *expandedIndexPath;
 
 
-@property(nonatomic, assign) id<UINavigationControllerDelegate,
-UIImagePickerControllerDelegate>delegate;
+@property(nonatomic, assign) id<UINavigationControllerDelegate,UIImagePickerControllerDelegate>delegate;
 
 
 

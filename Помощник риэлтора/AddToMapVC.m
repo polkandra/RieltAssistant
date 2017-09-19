@@ -282,24 +282,23 @@
     }
     
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
-    CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+    self.touchMapCoordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     
-    //touchMapCoordinate.latitude = detailItem.latitude;
-    //touchMapCoordinate.longitude = detailItem.longitude;
     
     MapAnnotation *annotation = [[MapAnnotation alloc] init];
   
     
     annotation.canShowCallout = YES;
-    annotation.coordinate = touchMapCoordinate;
-    NSLog(@"pins coordinates are %f  %f",touchMapCoordinate.latitude,touchMapCoordinate.longitude);
+    annotation.coordinate = _touchMapCoordinate;
+   
+    NSLog(@"pins coordinates are %f  %f",_touchMapCoordinate.latitude,_touchMapCoordinate.longitude);
     
    
-    annotation.image =  [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
+    annotation.image = [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
     annotation.title = [detailItem valueForKey:@"discription"];
     annotation.subtitle = [detailItem valueForKey:@"price"];
     
-   // self.coordinatesArray = [[NSMutableArray alloc] initWithObjects:@(touchMapCoordinate.latitude),@(touchMapCoordinate.longitude), nil];
+   
     
     MKAnnotationView *pinView = nil;
     
@@ -308,8 +307,10 @@
     
     for (id annotation in self.mapView.annotations)
         if (annotation != self.mapView.userLocation)
-            [toRemove addObject:annotation];
+    
+    [toRemove addObject:annotation];
     [self.mapView removeAnnotations:toRemove];
+    
     [self.mapView addAnnotation:annotation];
         
    
@@ -341,51 +342,6 @@
 
 
 
-/*-(void)goToDetail {
-    
-    DetailObjectController *dvc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailObjectController"];
-    dvc.detailItem = self.detailItem;
-    
-    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.pinPhotosArray];
-    detailItem.arrayOfUsersPics = arrayData;
-    
-    [[[DataManager sharedManager] managedObjectContext] save:nil];
-    
-    
-    
-    [self presentViewController:dvc animated:YES completion:nil];
-}*/
-
-
-
-
-
-/*- (IBAction)showAllObjects:(UIBarButtonItem *)sender {
-
-    MKMapRect zoomRect = MKMapRectNull;
-    
-    for (id <MKAnnotation> annotation in self.mapView.annotations) {
-        
-        CLLocationCoordinate2D location = annotation.coordinate;
-        
-        MKMapPoint center = MKMapPointForCoordinate(location);
-        
-        static double delta = 20000;
-        
-        MKMapRect rect = MKMapRectMake(center.x - delta, center.y - delta, delta * 2, delta * 2);
-        
-        zoomRect = MKMapRectUnion(zoomRect, rect);
-    }
-    
-    zoomRect = [self.mapView mapRectThatFits:zoomRect];
-    
-    [self.mapView setVisibleMapRect:zoomRect
-                        edgePadding:UIEdgeInsetsMake(50, 50, 50, 50)
-                           animated:YES];
-    
-}*/
-
-
 
 
 
@@ -396,8 +352,6 @@
    fromOldState:(MKAnnotationViewDragState)oldState {
     
     if (newState == MKAnnotationViewDragStateEnding) {
-        
-        
         CLLocationCoordinate2D droppedAt = annotationView.annotation.coordinate;
         MKMapPoint point = MKMapPointForCoordinate(droppedAt);
         
@@ -575,19 +529,28 @@
     
     if ([segue.identifier isEqualToString:@"saveFromAddToMapVC"]) {
    
-        CGPoint touchPoint = [lpgr locationInView:self.mapView];
-        CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
-        touchMapCoordinate.latitude = detailItem.latitude;
-        touchMapCoordinate.longitude = detailItem.longitude;
+        //CGPoint touchPoint = [lpgr locationInView:self.mapView];
+       // CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+       
+        NSLog(@"pins coordinates are %f  %f",_touchMapCoordinate.latitude,_touchMapCoordinate.longitude);
         
-        MapTab *myVc = (MapTab*) [[(UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1] viewControllers] objectAtIndex:0];
-        myVc.detailItem = self.detailItem;
+        if (self.detailItem) {
+            
+            [detailItem setValue:[NSNumber numberWithDouble:_touchMapCoordinate.latitude] forKey:@"latitude"];
+            [detailItem setValue:[NSNumber numberWithDouble:_touchMapCoordinate.longitude] forKey:@"longitude"];
+            
+        }
         
+       [[[DataManager sharedManager] managedObjectContext] save:nil];
         
+        MapTab *mtVc = (MapTab*) [[(UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1] viewControllers] objectAtIndex:0];
+        mtVc.detailItem = self.detailItem;
+        mtVc.pinPhotosArray = [[NSMutableArray alloc] init];
+        mtVc.pinPhotosArray = self.pinPhotosArray;
         
-        [[[DataManager sharedManager] managedObjectContext] save:nil];
+              
         
-
+      
     
     }
     

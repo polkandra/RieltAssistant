@@ -426,25 +426,22 @@
          
          }
         
-        
+         // UPDATING EXISTING OBJECTS.
+       
         if (self.detailItem) {
             
-            // UPDATING EXISTING OBJECTS.
+            detailItem.discription = self.objectNameTextField.text;
+            detailItem.address = self.adressTextfield.text;
+            detailItem.owner = self.ownerNameTextField.text;
+            detailItem.price = self.priceTextField.text;
+            detailItem.phoneNumber = self.phoneTextField.text;
+            detailItem.typeOfProperty = self.objectTypeLabelInCell.text;
+            detailItem.actionByProperty = self.actionTypeLabelInCell.text;
+            detailItem.wholeArea = self.totalSquareTextField.text;
+            detailItem.livingArea = self.livingSquareTextField.text;
+            detailItem.kitchenArea = self.kitchenSquareTextField.text;
+            detailItem.roomQuantity = [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]];
             
-            self.detailItem.discription = self.objectNameTextField.text;
-            self.detailItem.address = self.adressTextfield.text;
-            self.detailItem.owner = self.ownerNameTextField.text;
-            self.detailItem.price = self.priceTextField.text;
-            self.detailItem.phoneNumber = self.phoneTextField.text;
-            self.detailItem.typeOfProperty = self.objectTypeLabelInCell.text;
-            self.detailItem.actionByProperty = self.actionTypeLabelInCell.text;
-            self.detailItem.wholeArea = self.totalSquareTextField.text;
-            self.detailItem.livingArea = self.livingSquareTextField.text;
-            self.detailItem.kitchenArea = self.kitchenSquareTextField.text;
-            self.detailItem.roomQuantity = [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]];
-           
-            
-           
             NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
             detailItem.arrayOfUsersPics = arrayData;
             
@@ -718,7 +715,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
-    UIImage* image = info[UIImagePickerControllerOriginalImage];
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
     NSData *data = UIImageJPEGRepresentation(image,0);
     
     [self.myRetrievedPics addObject:image];
@@ -854,8 +851,8 @@
 }
 
 
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+
     NSString *title;
     
     if (pickerView == _roomPicker) {
@@ -876,36 +873,33 @@
 
 
 
-
-
 #pragma mark - UICollectionViewDataSource
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-  /*  if (self.myRetrievedPics.count > 1) {
+  /* if (self.myRetrievedPics.count > 1) {
         
         self.deleteButton.hidden = NO;
     }*/
    
     return self.myRetrievedPics.count;
-    return self.itemCount;
+    
 }
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"CVcell";
+    static NSString *cellIdentifier = @"CVcell";
     
-    CollectionViewCell *cell = (CollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    CollectionViewCell *cell = (CollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
     if (cell == nil) {
+        
         cell = [[CollectionViewCell alloc] init];
     }
     
     cell.objectView.image = [self.myRetrievedPics objectAtIndex:indexPath.row];
-    
-   
     
     return cell;
 }
@@ -918,18 +912,23 @@
 
 
 
+
+#pragma mark - UICollectionViewDelegate
+
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     //[self showAppropriateView];
-   
+    
     NSArray* selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
-   
-    if(selectedItemsIndexPaths.count > 0) {
+    
+    if (selectedItemsIndexPaths.count > 0) {
         
         self.deleteButton.hidden = NO;
         
     }else{
+        
         self.deleteButton.hidden = YES;
     }
     
@@ -946,11 +945,12 @@
     
     NSArray* selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
     
-    if(selectedItemsIndexPaths.count > 0) {
+    if (selectedItemsIndexPaths.count > 0) {
         
         self.deleteButton.hidden = NO;
         
     }else{
+        
         self.deleteButton.hidden = YES;
     }
    
@@ -1003,7 +1003,7 @@
                 [self.myRetrievedPics removeObjectsAtIndexes:removeIndexes];
                 [self.collectionView deleteItemsAtIndexPaths:selectedItemsIndexPaths];
                 
-                               
+                
                 
                 NSManagedObjectContext *context = [[DataManager sharedManager] managedObjectContext];
                 NSError *error = nil;
