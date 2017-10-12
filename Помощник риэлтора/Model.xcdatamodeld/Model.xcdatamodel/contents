@@ -5,6 +5,7 @@
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="arrayOfUsersPics" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="discription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="globalPictureArray" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="kitchenArea" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="livingArea" optional="YES" attributeType="String" syncable="YES"/>
@@ -28,7 +29,7 @@
         <relationship name="estateObjects" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EstateObjectEntity" inverseName="meetings" inverseEntity="EstateObjectEntity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="EstateObjectEntity" positionX="1719" positionY="2316" width="128" height="283"/>
+        <element name="EstateObjectEntity" positionX="1719" positionY="2316" width="128" height="298"/>
         <element name="MeetingObjectEntity" positionX="1987" positionY="2304" width="128" height="148"/>
     </elements>
 </model>

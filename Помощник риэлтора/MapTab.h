@@ -16,14 +16,19 @@
 
 @interface MapTab : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
 
-//@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @property (strong, nonatomic)  CLLocationManager *locationManager;
 
 @property(strong, nonatomic) EstateObjectEntity *detailItem;
 
-@property (strong, nonatomic) NSMutableArray *pinPhotosArray;
+@property (strong, nonatomic) NSArray *pinPhotosArray;
+@property(strong, nonatomic) NSArray* fetchedData;
+@property(strong, nonatomic) NSMutableArray* coordinatesArray;
+@property(strong, nonatomic) NSArray *retrievedArray;
+
+@property(strong, nonatomic) NSMutableArray* photoFromDictionary;
 
 - (IBAction)showAllObjects:(UIBarButtonItem *)sender;
 

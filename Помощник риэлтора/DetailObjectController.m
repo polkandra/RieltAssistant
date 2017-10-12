@@ -165,11 +165,9 @@
         
                     
     }else if ([segue.identifier isEqualToString:@"editFromDetailVC"]) {
-        
-        
+                
         NewObjectViewController *newVC = (NewObjectViewController *)segue.destinationViewController;
         newVC.detailItem = self.detailItem;
-        
         newVC.navigationItem.title = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"discription"]];
         newVC.navigationItem.rightBarButtonItem = nil;
         newVC.navigationItem.leftBarButtonItem = nil;
@@ -191,55 +189,9 @@
     } else if ([segue.identifier isEqualToString:@"toMapView"]) {
         
         AddToMapVC *mapVC = (AddToMapVC *)segue.destinationViewController;
-        
         mapVC.detailItem = self.detailItem;
-        
-        
-        
-       /* if (self.myRetrievedPics.count == 0) {
-            
-            [self.myRetrievedPics addObject:[UIImage imageNamed:@"emptyObject2"]];
-            
-        }*/
-        
-        
-      /*  if (!self.detailItem) {
-            
-            
-            
-            NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
-            detailItem.arrayOfUsersPics = arrayData;
-            
-            
-            if ((self.objectNameTextField.text.length == 0)) {
                 
-                detailItem.discription = @"Имя не указано";
-                
-            }else{
-                
-                detailItem.discription = self.objectNameTextField.text;
-                
-            }
-            
-            
-            if ((self.priceTextField.text.length == 0)) {
-                
-                detailItem.price = @"Цена не указана";
-                
-            }else{
-                
-                NSMutableString *concatString = self.priceTextField.text;
-                concatString = [concatString stringByAppendingString:@" Рублей"];
-                
-                detailItem.price = concatString;
-                
-            }
-            
-            NSError *error = nil;
-            [[[DataManager sharedManager] managedObjectContext] save:&error];
-            
-        }*/
-        
+        mapVC.pinPhotosArray = self.sourceArray;
     }
    
 }
@@ -251,8 +203,8 @@
 
 - (IBAction)addPlaceToMapButton:(UIButton *)sender {
     
-    AddToMapVC *mapVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AddToMapVC"];
-    mapVC.detailItem = self.detailItem;
+   // AddToMapVC *mapVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AddToMapVC"];
+   // mapVC.detailItem = self.detailItem;
     
   
     

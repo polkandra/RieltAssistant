@@ -2,7 +2,7 @@
 //  EstateObjectEntity+CoreDataProperties.h
 //  RieltAssistant
 //
-//  Created by Mikhail Kozlyukov on 06.09.17.
+//  Created by Mikhail Kozlyukov on 04.10.17.
 //  Copyright © 2017 Chebahatt. All rights reserved.
 //
 
@@ -20,7 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSObject *arrayOfUsersPics;
 @property (nullable, nonatomic, copy) NSString *discription;
 @property (nullable, nonatomic, copy) NSString *kitchenArea;
+@property (nonatomic) double latitude;
 @property (nullable, nonatomic, copy) NSString *livingArea;
+@property (nonatomic) double longitude;
 @property (nullable, nonatomic, copy) NSString *owner;
 @property (nullable, nonatomic, copy) NSString *phoneNumber;
 @property (nullable, nonatomic, retain) NSData *picture;
@@ -28,8 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *roomQuantity;
 @property (nullable, nonatomic, copy) NSString *typeOfProperty;
 @property (nullable, nonatomic, copy) NSString *wholeArea;
-@property (nonatomic) double longitude;
-@property (nonatomic) double latitude;
+@property (nullable, nonatomic, retain) NSObject *globalPictureArray;
 @property (nullable, nonatomic, retain) NSSet<MeetingObjectEntity *> *meetings;
 
 @end

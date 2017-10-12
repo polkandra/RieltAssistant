@@ -12,7 +12,7 @@
 #import "NewObjectViewController.h"
 #import "AppDelegate.h"
 
-@interface MapAnnotation :  MKAnnotationView <MKAnnotation>
+@interface MapAnnotation : MKAnnotationView 
 
 
 @property(nonatomic,assign) CLLocationCoordinate2D coordinate;

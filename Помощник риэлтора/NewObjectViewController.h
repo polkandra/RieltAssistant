@@ -18,7 +18,7 @@
 #import "DataManager.h"
 #import "MapViewController.h"
 
-@interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, NSKeyedArchiverDelegate>
+@interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 
 
@@ -46,6 +46,7 @@
 
 @property(strong, nonatomic) NSMutableArray* pickerViewArrayCity;
 @property(strong, nonatomic) NSMutableArray* pickerViewArrayRoomQuantity;
+
 
 @property(strong, nonatomic) NSMutableArray *myArrayWithPhotoData;
 @property(strong, nonatomic) NSMutableArray* myPhotosArray;

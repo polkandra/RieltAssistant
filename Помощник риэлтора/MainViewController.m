@@ -8,16 +8,13 @@
 
 #import "MainViewController.h"
 
-
-
-
 @interface MainViewController ()
 @end
 
 
 @implementation MainViewController
 
-@synthesize  myPhotosData, fetchedResultsController, tableView, object, fetchedData;
+@synthesize  myPhotosData, fetchedResultsController, tableView, detailItem, fetchedData;
 
 
 #pragma mark - VC Lyficycle
@@ -29,9 +26,6 @@
     [super viewDidLoad];
     
     self.emptyDataBaseLabel.hidden = YES;
-        
-   // NSLog(@"all my photos in myPhotosData = %@",self.myPhotosData);
-   
     
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -40,12 +34,37 @@
 }
 
 
+
 -(void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
     
     [self setNavigationController];
     
+ /*   MapTab *mtVc = (MapTab*) [[(UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1] viewControllers] objectAtIndex:0];
+
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    self.fetchedData = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    
+    if (self.fetchedData.count == 0) {
+        
+       // mtVc.detailItem = self.object;
+        
+    }else{
+    
+        for (id object in self.fetchedData) {
+            if ([object isKindOfClass:[EstateObjectEntity class]]) {
+               
+                self.detailItem = ((EstateObjectEntity *)object);
+                
+            }
+           
+            mtVc.detailItem = self.detailItem;
+            
+        }
+    }*/
 }
 
 
@@ -54,10 +73,7 @@
     
     [super viewDidAppear:animated];
    
-    /*NSError *error;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
-    self.fetchedData = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];*/
-  
+
 }
 
 
@@ -123,20 +139,7 @@
 // unwind segue from NewObjectVC with deletion
 - (IBAction)removeButtonTaped:(UIStoryboardSegue*)segue {
     
-   /* NSManagedObjectContext *moc = [[DataManager sharedManager] managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    [fetchRequest setEntity:[NSEntityDescription entityForName:@"EstateObjectEntity" inManagedObjectContext:moc]];
-    
-    NSError *error = nil;
-    NSArray *objects = [moc executeFetchRequest:fetchRequest error:&error];
-    
-    for (NSManagedObject *object in objects) {
-        [moc deleteObject:object];
-    }
-    NSError *error2 = nil;
-    [moc save:&error2];*/
-    
-
+   
 }
 
 #pragma mark  Navigation
@@ -156,7 +159,8 @@
         NewObjectViewController *newVC = (NewObjectViewController *)segue.destinationViewController;
         newVC.navigationItem.title = @" Новый объект";
         newVC.hideButton = YES;
-        
+       // newVC.detailItem = self.detailItem;
+    
     }
 }
 

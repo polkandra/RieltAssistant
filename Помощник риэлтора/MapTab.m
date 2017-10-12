@@ -29,45 +29,79 @@
     self.mapView.showsUserLocation = YES;
     
     [self setLocationManager];
-   
+    //[self getAnnotations];
 
-}
+   }
 
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+    [self.mapView removeAnnotations:self.mapView.annotations];
     
     [self getAnnotations];
+   // [self fetchPhotosArray];
+
 }
+
 
 
 
 #pragma mark Helpers
 
+
+/*-(void)fetchPhotosArray {
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    self.retrievedArray = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    NSArray *retrievedArray = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
+    self.pinPhotosArray = [[NSMutableArray alloc] initWithArray:retrievedArray];
+ 
+    NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData*)(detailItem.globalPictureArray)];
+    self.pinPhotosArray = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
+ 
+}*/
+
+
+
+
 -(void)getAnnotations {
     
-    MapAnnotation *annotation = [[MapAnnotation alloc] init];
-    
-   // CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(detailItem.longitude, detailItem.latitude);
-    
-   // CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([[detailItem valueForKey:@"latitude"] doubleValue], [[detailItem valueForKey:@"longitude"] doubleValue]);
+    //  Fetching specific properties of entity (latitude, longtitude and so on);
    
-    CLLocation *loc = [[CLLocation alloc] initWithLatitude:detailItem.latitude longitude:detailItem.longitude];
+    NSEntityDescription *entity = [NSEntityDescription  entityForName:@"EstateObjectEntity" inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
     
-    annotation.image =  [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
-    annotation.title = [detailItem valueForKey:@"discription"];
-    annotation.subtitle = [detailItem valueForKey:@"price"];
-    annotation.canShowCallout = YES;
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    [request setResultType:NSDictionaryResultType];
+    [request setReturnsDistinctResults:YES];
+    [request setPropertiesToFetch:@[@"longitude", @"latitude", @"picture", @"discription", @"price"]];
     
-   // annotation.coordinate = coordinate;
-    annotation.coordinate = loc.coordinate;
+    NSError *error;
     
-    [self.mapView addAnnotation:annotation];
+    self.fetchedData = [[[DataManager sharedManager] managedObjectContext] executeFetchRequest:request error:&error];
     
-    //NSLog(@"MapTab pin coordinates are %f %f",coordinate.latitude, coordinate.latitude);
-    NSLog(@"MapTab pin coordinates are %f %f",loc.coordinate.latitude, loc.coordinate.longitude);
+    if (self.fetchedData == nil) {
+        
+    }
+    
+    for (NSDictionary *location in self.fetchedData) {
+        
+        MapAnnotation *annotation = [[MapAnnotation alloc] init];
+        
+        CLLocationCoordinate2D  point;
+        point.latitude  = [location[@"latitude"] doubleValue];
+        point.longitude = [location[@"longitude"] doubleValue];
+        annotation.pinImage = [[UIImage alloc] initWithData:location[@"picture"]];
+        annotation.coordinate = point;
+        annotation.title = location[@"discription"];
+        annotation.subtitle = location[@"price"];
+    
+        [self.mapView addAnnotation:annotation];
+    
+    }
+  
 }
-
 
 
 -(void)setLocationManager {
@@ -115,62 +149,42 @@
 
 #pragma mark - MKMapViewDelegate
 
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    
     
     if ([annotation isKindOfClass:[MKUserLocation class]]) {
         return nil;
     }
-    
+
     static NSString *identifier = @"Annotation";
     
-    MKPinAnnotationView *pin = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];;
-    
+    MKPinAnnotationView *pin = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
     
     if (!pin) {
+       
         pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier ];
         pin.pinTintColor = [UIColor greenColor];
         pin.animatesDrop = YES;
         pin.canShowCallout = YES;
         pin.draggable = NO;
-        
+       
         UIImageView *userAvatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 47, 47)];
-        
-        if (self.pinPhotosArray.count == 0) {
-            
-            userAvatar.image = [UIImage imageNamed:@"nophoto"];
-            
-        }else{
-            
-            userAvatar.image = [self.pinPhotosArray firstObject];
-        }
-        
-        // UIButton *buttonPic = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        //buttonPic.backgroundColor = [UIColor purpleColor];
-        // [buttonPic addTarget:self action:@selector(goToDetail) forControlEvents:UIControlEventTouchUpInside];
-        
-        // UIButton *buttonPic = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        // buttonPic.frame = CGRectMake(0, 0, 23, 23);
-        // UIImage *btnImage = [UIImage imageNamed:@"inArrow"];
-        //[buttonPic setImage:btnImage forState:UIControlStateNormal];
-        
-        pin.leftCalloutAccessoryView = userAvatar;
-        //  pin.rightCalloutAccessoryView = buttonPic;
-        
         userAvatar.contentMode = UIViewContentModeScaleAspectFill;
         userAvatar.layer.cornerRadius = 4.0;
         userAvatar.layer.masksToBounds = YES;
         userAvatar.layer.borderColor = [[UIColor whiteColor] CGColor];
         userAvatar.layer.borderWidth = 1;
-        
-        
+        pin.leftCalloutAccessoryView = userAvatar;
+       
     }else{
-        
         pin.annotation = annotation;
-        
     }
     
-    return pin;
+    MapAnnotation *mvAnn = (MapAnnotation *)annotation;
+    [(UIImageView*)(pin.leftCalloutAccessoryView) setImage:mvAnn.pinImage];
     
+    return pin;
     
 }
 

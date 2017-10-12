@@ -17,10 +17,12 @@
 #import "DataManager.h"
 #import "CoreDataTableVC.h"
 
+
+
 //@class DetailObjectController;
 //@protocol AddArrayDelegate;
 
-@interface MainViewController : CoreDataTableVC  <UITableViewDataSource, UITableViewDataSource, NSKeyedArchiverDelegate>
+@interface MainViewController : CoreDataTableVC  <UITableViewDataSource, UITableViewDataSource>
 
 
 @property(strong, nonatomic) NSMutableArray* arrayFromDetail;
@@ -28,12 +30,14 @@
 @property(strong, nonatomic) NSMutableArray* fetchedData;
 @property(strong, nonatomic) NSMutableArray* fetchedArrayWithUsersPics;
 
+
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UILabel *emptyDataBaseLabel;
 
 
-@property(strong, nonatomic) EstateObjectEntity *object;
+@property(strong, nonatomic) EstateObjectEntity *detailItem;
 
 
 

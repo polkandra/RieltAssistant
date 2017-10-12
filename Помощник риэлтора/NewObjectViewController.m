@@ -43,7 +43,7 @@
     [self setDelegatesForTextFields];
     [self addGestureRecognizer];
     [self pickerViewWithData];
-    
+  
     
     [self hideShowDeleteSaveButtons];
     [self showHideDeleteButton];
@@ -54,17 +54,29 @@
     self.myArrayWithPhotoData = [[NSMutableArray alloc] init];
     self.myData1 = [[NSMutableArray alloc] init];
     
-    
    
+     self.myRetrievedPics = [[NSMutableArray alloc] init];
     
 }
 
 
 
-
--(void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:YES];
-      
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:YES];
+    
+  /*  // Casting detailItem to EstateObjectEntity
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    self.myData1 = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    
+    for (id object in _myData1) {
+        if ([object isKindOfClass:[EstateObjectEntity class]]) {
+            
+            self.detailItem = ((EstateObjectEntity *)object);
+        }
+    }*/
+    
+  
 }
 
 
@@ -90,9 +102,9 @@
      self.navigationController.navigationBar.shadowImage = [UIImage new];
      self.navigationController.navigationBar.translucent = YES;*/
     
-    /*NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
-     self.myRetrievedPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];*/
-  
+    
+    
+ // self.globalArrayOfUsersPics = [[NSMutableArray alloc] init];
 
 }
 
@@ -122,6 +134,7 @@
         
         [[[DataManager sharedManager] managedObjectContext] save:nil];
     }
+   
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -129,8 +142,9 @@
 
 
 - (void) showHideDeleteButton {
-
+    
     NSArray* selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
+    
     if(selectedItemsIndexPaths.count > 0) {
         
         self.deleteButton.hidden = NO;
@@ -141,7 +155,7 @@
 }
 
 
--(void)hideShowDeleteSaveButtons{
+-(void)hideShowDeleteSaveButtons {
     
     if (self.hideButton == YES) {
         
@@ -161,16 +175,16 @@
 
 -(void)fetchPhotos {
     
-    NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
-    self.myRetrievedPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
+    NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData*)(detailItem.arrayOfUsersPics)];
     
-   // self.itemCount = self.myRetrievedPics.count;
+    [self.myRetrievedPics addObjectsFromArray:fetchedArrayWithUsersPics];
     
     if ([self.myRetrievedPics containsObject:[UIImage imageNamed:@"emptyObject2"]]) {
         [self.myRetrievedPics removeObject:[UIImage imageNamed:@"emptyObject2"]];
     }
     
 }
+
 
 
 -(void)updateUI {
@@ -301,7 +315,7 @@
                                       inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
         
         
-        controller.object = object;
+        controller.detailItem = object;
         
         object.roomQuantity = [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]];
         object.phoneNumber = self.phoneTextField.text;
@@ -404,8 +418,25 @@
             
         }
         
+        
         NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myPhotosArray];
         object.arrayOfUsersPics = arrayData;
+        
+       
+        
+       /* NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData*)(object.arrayOfUsersPics)];
+       
+       // if (fetchedArrayWithUsersPics.count > 0) {
+            
+            self.globalArrayOfUsersPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
+            [self.globalArrayOfUsersPics addObject:[self.myPhotosArray firstObject]];
+            
+            NSData *arrayData2 = [NSKeyedArchiver archivedDataWithRootObject:self.globalArrayOfUsersPics];
+            object.globalPictureArray = arrayData2;
+
+        //}*/
+        
+        
         
         [[[DataManager sharedManager] managedObjectContext] save:nil];
         
@@ -562,17 +593,11 @@
         if (self.myRetrievedPics.count == 0) {
             
             [self.myRetrievedPics addObject:[UIImage imageNamed:@"emptyObject2"]];
-       
-        }else{
             
-                       
+            
+            [[[DataManager sharedManager] managedObjectContext] save:nil];
+            
         }
-        
-        
-        
-        [[[DataManager sharedManager] managedObjectContext] save:nil];
-        
-        
         
         
     
@@ -717,6 +742,7 @@
     
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     NSData *data = UIImageJPEGRepresentation(image,0);
+    
     
     [self.myRetrievedPics addObject:image];
     [self.myArrayWithPhotoData addObject:data];
@@ -883,6 +909,8 @@
         self.deleteButton.hidden = NO;
     }*/
    
+   
+    
     return self.myRetrievedPics.count;
     
 }
@@ -899,6 +927,7 @@
         cell = [[CollectionViewCell alloc] init];
     }
     
+      
     cell.objectView.image = [self.myRetrievedPics objectAtIndex:indexPath.row];
     
     return cell;

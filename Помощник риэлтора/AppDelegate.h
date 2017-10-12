@@ -9,11 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteQuery.h>
 #import "StyleKitName.h"
+#import "AddToMapVC.h"
+#import "MapTab.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSMutableArray *delegateMutableArray;
+
+@property(strong, nonatomic) EstateObjectEntity* detailItem;
+
 
 @end
 

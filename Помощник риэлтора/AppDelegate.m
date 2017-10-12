@@ -58,9 +58,35 @@
                                                            [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], UITextAttributeFont, nil]];*/
     
     
+    
+    
+    
+    
+  /*  AddToMapVC *adtVC = (AddToMapVC *)[addToMapStoryboard instantiateViewControllerWithIdentifier: @"AddToMapVC"];
+    MapTab *mtVC = (MapTab *)[addToMapStoryboard instantiateViewControllerWithIdentifier: @"MapTab"];
+    
+    
+    adtVC.detailItem = mtVC.detailItem;
+    
+    
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    MapTab *mtVC = (MapTab *)[addToMapStoryboard instantiateViewControllerWithIdentifier: @"MapTab"];
+    mtVC.detailItem = delegate.detailItem;*/
+    
+  
+    
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     delegate.delegateMutableArray = [NSMutableArray array];
     
+    
+    
+    
+    
+    
+    
+    
+    
+       
     
     
     return YES;

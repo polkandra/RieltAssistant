@@ -17,6 +17,7 @@
 @synthesize searchBar, mapView, tableView, searchResults, detailItem, latitude, longitude, lpgr;
 
 
+#pragma mark - VC lifecycle
 
 - (void)viewDidLoad {
     
@@ -36,7 +37,8 @@
     
     [self.locationManager requestWhenInUseAuthorization];
     [self setLocationManager];
-  //  [self setMKUserTrackingButton];
+   // [self fetchExistingPins];
+    // [self setMKUserTrackingButton];
     //[self setGestureRecognizers];
    
     /* GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:55.7522200 longitude:37.6155600 zoom:10.0];
@@ -65,9 +67,13 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
+    [self fetchExistingPin];
     [self fetchPhotosArray];
 }
 
+
+
+#pragma mark - Helpers
 
 -(void)fetchPhotosArray {
     
@@ -80,7 +86,21 @@
     
 }
 
-
+-(void)fetchExistingPin {
+   
+    MapAnnotation *annotation = [[MapAnnotation alloc] init];
+    
+    CLLocation *loc = [[CLLocation alloc] initWithLatitude:detailItem.latitude longitude:detailItem.longitude];
+    
+    annotation.image =  [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
+    annotation.title = [detailItem valueForKey:@"discription"];
+    annotation.subtitle = [detailItem valueForKey:@"price"];
+    annotation.canShowCallout = YES;
+    annotation.coordinate = loc.coordinate;
+    
+    [self.mapView addAnnotation:annotation];
+    
+}
 
 
 
@@ -181,7 +201,7 @@
 }
 
 
-#pragma mark Helpers
+#pragma mark - Helpers
 
 
 
@@ -314,23 +334,6 @@
     [self.mapView addAnnotation:annotation];
         
    
-    
-    
-    
-    
-  /*
-    // share data through TabBarController
-    
-    MapTab *myVc = (MapTab*) [[(UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1] viewControllers] objectAtIndex:0];
-    myVc.detailItem = self.detailItem;
-    
-   
-    
-    
-    
-    [[[DataManager sharedManager] managedObjectContext] save:nil];*/
-
-
 }
 
 
@@ -345,7 +348,7 @@
 
 
 
-#pragma mark  MKMapViewDelegate
+#pragma mark - MKMapViewDelegate
 
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)annotationView didChangeDragState:(MKAnnotationViewDragState)newState
@@ -377,7 +380,7 @@
         static NSString *identifier = @"Annotation";
         
         
-        MKPinAnnotationView *pin = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];;
+        MKPinAnnotationView *pin = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
         
         
         if (!pin) {
@@ -399,17 +402,17 @@
                 userAvatar.image = [self.pinPhotosArray firstObject];
             }
             
-           // UIButton *buttonPic = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+            // UIButton *buttonPic = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
             //buttonPic.backgroundColor = [UIColor purpleColor];
-           // [buttonPic addTarget:self action:@selector(goToDetail) forControlEvents:UIControlEventTouchUpInside];
-           
+            // [buttonPic addTarget:self action:@selector(goToDetail) forControlEvents:UIControlEventTouchUpInside];
+            
             // UIButton *buttonPic = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
             // buttonPic.frame = CGRectMake(0, 0, 23, 23);
-           // UIImage *btnImage = [UIImage imageNamed:@"inArrow"];
+            // UIImage *btnImage = [UIImage imageNamed:@"inArrow"];
             //[buttonPic setImage:btnImage forState:UIControlStateNormal];
             
             pin.leftCalloutAccessoryView = userAvatar;
-          //  pin.rightCalloutAccessoryView = buttonPic;
+            //  pin.rightCalloutAccessoryView = buttonPic;
             
             userAvatar.contentMode = UIViewContentModeScaleAspectFill;
             userAvatar.layer.cornerRadius = 4.0;
@@ -429,57 +432,7 @@
         
     }
     
-
-       /* MKAnnotationView *annotationView = (MKAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-        
-        //Lazy instantation
-        if (!annotationView) {
-            
-            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
-            
-           // annotationView.image = [self.pinPhotosArray firstObject];;
-
-            annotationView.centerOffset = CGPointMake(0, annotationView.frame.size.height / 2);
-            annotationView.canShowCallout = YES;
-            annotationView.enabled = YES;
-            annotationView.draggable = YES;
-            
-        UIImageView *userAvatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 47, 47)];
-        
-        if (self.pinPhotosArray.count == 0) {
-            
-            userAvatar.image = [UIImage imageNamed:@"nophoto"];
-                
-            }else{
-                
-                userAvatar.image = [self.pinPhotosArray firstObject];
-            }
-            
-            UIButton *buttonPic = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 48, 48)];
-            //buttonPic.backgroundColor = [UIColor purpleColor];
-            UIImage *btnImage = [UIImage imageNamed:@"playArrow"];
-            [buttonPic setImage:btnImage forState:UIControlStateNormal];
-            
-            annotationView.leftCalloutAccessoryView = userAvatar;
-            annotationView.rightCalloutAccessoryView = buttonPic;
-            
-            userAvatar.contentMode = UIViewContentModeScaleAspectFill;
-            userAvatar.layer.cornerRadius = 4.0;
-            userAvatar.layer.masksToBounds = YES;
-            userAvatar.layer.borderColor = [[UIColor whiteColor] CGColor];
-            userAvatar.layer.borderWidth = 1;
-            
-            
-        } else {
-            
-            annotationView.annotation = annotation;
-            
-        }
-        
-        return annotationView;
-        
-    }*/
-
+    
     return nil;
 
 }
@@ -525,33 +478,28 @@
 
 #pragma mark - Navigation
 
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"saveFromAddToMapVC"]) {
-   
-        //CGPoint touchPoint = [lpgr locationInView:self.mapView];
-       // CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
-       
+        
+        
         NSLog(@"pins coordinates are %f  %f",_touchMapCoordinate.latitude,_touchMapCoordinate.longitude);
         
-        if (self.detailItem) {
-            
-            [detailItem setValue:[NSNumber numberWithDouble:_touchMapCoordinate.latitude] forKey:@"latitude"];
-            [detailItem setValue:[NSNumber numberWithDouble:_touchMapCoordinate.longitude] forKey:@"longitude"];
-            
-        }
+        [detailItem setValue:[NSNumber numberWithDouble:_touchMapCoordinate.latitude] forKey:@"latitude"];
+        [detailItem setValue:[NSNumber numberWithDouble:_touchMapCoordinate.longitude] forKey:@"longitude"];
+        [[[DataManager sharedManager] managedObjectContext] save:nil];
         
-       [[[DataManager sharedManager] managedObjectContext] save:nil];
         
-        MapTab *mtVc = (MapTab*) [[(UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1] viewControllers] objectAtIndex:0];
-        mtVc.detailItem = self.detailItem;
-        mtVc.pinPhotosArray = [[NSMutableArray alloc] init];
-        mtVc.pinPhotosArray = self.pinPhotosArray;
-        
-              
-        
-      
     
+        
+//        MapTab *mtVc = (MapTab*) [[(UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1] viewControllers] objectAtIndex:0];
+//        mtVc.detailItem = self.detailItem;
+//       
+//        mtVc.pinPhotosArray = [[NSMutableArray alloc] init];
+//        mtVc.pinPhotosArray = self.pinPhotosArray;
+      
+        
     }
     
 }

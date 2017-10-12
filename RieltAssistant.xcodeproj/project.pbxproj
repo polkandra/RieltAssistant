@@ -14,9 +14,9 @@
 		C63412F41EB4B24800ACE886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63412F31EB4B24800ACE886 /* Assets.xcassets */; };
 		C636778F1EE854FB0098FC90 /* MapTab.m in Sources */ = {isa = PBXBuildFile; fileRef = C636778E1EE854FB0098FC90 /* MapTab.m */; };
 		C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = C64380C61EAD358100D88E01 /* DetailObjectController.m */; };
-		C65236831F60440F00893033 /* EstateObjectEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C65236821F60440F00893033 /* EstateObjectEntity+CoreDataProperties.m */; };
 		C65B20201EEAE304009F8DFA /* AddToMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C65B201F1EEAE304009F8DFA /* AddToMapVC.m */; };
 		C65B20221EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master in Resources */ = {isa = PBXBuildFile; fileRef = C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */; };
+		C65C999C1F8513A70060F2C4 /* EstateObjectEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C65C999B1F8513A70060F2C4 /* EstateObjectEntity+CoreDataProperties.m */; };
 		C673C98E1F018C98008EB01C /* StyleKitName.m in Sources */ = {isa = PBXBuildFile; fileRef = C673C98D1F018C98008EB01C /* StyleKitName.m */; };
 		C67BAADA1E7EBDC1004E9126 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAD91E7EBDC1004E9126 /* main.m */; };
 		C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */; };
@@ -61,11 +61,11 @@
 		C636778E1EE854FB0098FC90 /* MapTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTab.m; sourceTree = "<group>"; };
 		C64380C51EAD358100D88E01 /* DetailObjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailObjectController.h; sourceTree = "<group>"; };
 		C64380C61EAD358100D88E01 /* DetailObjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailObjectController.m; sourceTree = "<group>"; };
-		C65236811F60440F00893033 /* EstateObjectEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EstateObjectEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
-		C65236821F60440F00893033 /* EstateObjectEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EstateObjectEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
 		C65B201E1EEAE304009F8DFA /* AddToMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToMapVC.h; sourceTree = "<group>"; };
 		C65B201F1EEAE304009F8DFA /* AddToMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToMapVC.m; sourceTree = "<group>"; };
 		C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "SPGooglePlacesAutocomplete-master"; sourceTree = "<group>"; };
+		C65C999A1F8513A70060F2C4 /* EstateObjectEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EstateObjectEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C65C999B1F8513A70060F2C4 /* EstateObjectEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EstateObjectEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
 		C673C98C1F018C98008EB01C /* StyleKitName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleKitName.h; sourceTree = "<group>"; };
 		C673C98D1F018C98008EB01C /* StyleKitName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleKitName.m; sourceTree = "<group>"; };
 		C67BAAD51E7EBDC1004E9126 /* RieltAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RieltAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,7 +179,6 @@
 			children = (
 				C6A719611F0FBB2400A5FE9B /* CoreData */,
 				C6DE1CA71E897CE2008F3536 /* Model */,
-				C6DE1CA81E897CF1008F3536 /* Cells */,
 				C67BAB4E1E7EE1CD004E9126 /* ViewControllers */,
 				C67BAB4F1E7EE1EC004E9126 /* Views */,
 				C67BAAD81E7EBDC1004E9126 /* Supporting Files */,
@@ -193,8 +192,8 @@
 				C67BAADB1E7EBDC1004E9126 /* AppDelegate.h */,
 				C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */,
 				C67BAAEC1E7EBDC2004E9126 /* Info.plist */,
-				C67BAAD91E7EBDC1004E9126 /* main.m */,
 				C6B1A14A1F11160E00965F9D /* Model.xcdatamodeld */,
+				C67BAAD91E7EBDC1004E9126 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -232,12 +231,12 @@
 		C67BAB4F1E7EE1EC004E9126 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C67BAB4D1E7EE19E004E9126 /* StyleKit */,
-				C6E35E641E9D08A100235216 /* Main.storyboard */,
-				C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */,
-				C63412F31EB4B24800ACE886 /* Assets.xcassets */,
 				C67BAB551E7EEF59004E9126 /* MainScreenView.h */,
 				C67BAB561E7EEF59004E9126 /* MainScreenView.m */,
+				C6DE1CA81E897CF1008F3536 /* Cells */,
+				C67BAB4D1E7EE19E004E9126 /* StyleKit */,
+				C6D5F9A61F7AB27800D782A9 /* Storyboards */,
+				C6D5F9A71F7AB29400D782A9 /* Assets */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -285,8 +284,8 @@
 		C6A719CC1F0FF86900A5FE9B /* NSManagedObjectSubclasses */ = {
 			isa = PBXGroup;
 			children = (
-				C65236811F60440F00893033 /* EstateObjectEntity+CoreDataProperties.h */,
-				C65236821F60440F00893033 /* EstateObjectEntity+CoreDataProperties.m */,
+				C65C999A1F8513A70060F2C4 /* EstateObjectEntity+CoreDataProperties.h */,
+				C65C999B1F8513A70060F2C4 /* EstateObjectEntity+CoreDataProperties.m */,
 				C685F5291F266A2900A54900 /* MeetingObjectEntity+CoreDataClass.h */,
 				C685F52A1F266A2900A54900 /* MeetingObjectEntity+CoreDataClass.m */,
 				C685F52B1F266A2900A54900 /* MeetingObjectEntity+CoreDataProperties.h */,
@@ -306,6 +305,23 @@
 				C6F14D691EDF0AD800658494 /* EbmeddedImageController.m */,
 			);
 			name = PageViewController;
+			sourceTree = "<group>";
+		};
+		C6D5F9A61F7AB27800D782A9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */,
+				C6E35E641E9D08A100235216 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		C6D5F9A71F7AB29400D782A9 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C63412F31EB4B24800ACE886 /* Assets.xcassets */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 		C6DE1CA71E897CE2008F3536 /* Model */ = {
@@ -478,13 +494,13 @@
 				C6B1A14C1F11160E00965F9D /* Model.xcdatamodeld in Sources */,
 				C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */,
 				C69206121ECB48F600D7210D /* DetailCollectionViewCell.m in Sources */,
+				C65C999C1F8513A70060F2C4 /* EstateObjectEntity+CoreDataProperties.m in Sources */,
 				C6E11F071F0D256100456A4E /* DetailMeetingController.m in Sources */,
 				C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */,
 				C65B20201EEAE304009F8DFA /* AddToMapVC.m in Sources */,
 				C6F14D671EDF08FE00658494 /* UIPageViewControllerScene.m in Sources */,
 				C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */,
 				C636778F1EE854FB0098FC90 /* MapTab.m in Sources */,
-				C65236831F60440F00893033 /* EstateObjectEntity+CoreDataProperties.m in Sources */,
 				C6CDBEBB1F017EC00024B147 /* MeetingsCell.m in Sources */,
 				C685F5271F266A1900A54900 /* EstateObjectEntity+CoreDataClass.m in Sources */,
 				C67BAADA1E7EBDC1004E9126 /* main.m in Sources */,
