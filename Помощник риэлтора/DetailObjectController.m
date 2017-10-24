@@ -134,12 +134,9 @@
         NSMutableArray *arrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
         self.sourceArray = [[NSMutableArray alloc] initWithArray:arrayWithUsersPics];
     
-       
         [self configureView];
         
-        
     }
-    
 }
 
 
@@ -178,8 +175,6 @@
         
     }else if ([segue.identifier isEqualToString:@"unwindAfterBackButtonFromDetail"]) {
         
-       // MainViewController*newVC = (NewObjectViewController *)segue.destinationViewController;
-        
         NSData* pictureData = UIImageJPEGRepresentation([self.sourceArray firstObject],0);
         detailItem.picture = pictureData;
         
@@ -190,7 +185,6 @@
         
         AddToMapVC *mapVC = (AddToMapVC *)segue.destinationViewController;
         mapVC.detailItem = self.detailItem;
-                
         mapVC.pinPhotosArray = self.sourceArray;
     }
    
@@ -205,18 +199,26 @@
     
    // AddToMapVC *mapVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AddToMapVC"];
    // mapVC.detailItem = self.detailItem;
-    
   
-    
 }
 
 
 
 - (IBAction)callButton:(UIButton *)sender {
+    NSString *phoneNumber = [@"telprompt://" stringByAppendingString:self.phoneNumberLabel.text];
+    NSURL *url = [NSURL URLWithString:phoneNumber];
     
-    
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+        
+    }
 }
 
 
 
+- (IBAction)shareButtonTapped:(UIBarButtonItem *)sender {
+
+
+
+}
 @end

@@ -159,8 +159,7 @@
         NewObjectViewController *newVC = (NewObjectViewController *)segue.destinationViewController;
         newVC.navigationItem.title = @" Новый объект";
         newVC.hideButton = YES;
-       // newVC.detailItem = self.detailItem;
-    
+        // newVC.detailItem = self.detailItem;
     }
 }
 

@@ -17,33 +17,20 @@
 #import "DataManager.h"
 
 
-/*@protocol AddArrayDelegate
-
-- (void)arrayChosen:(NSArray *)array;
-
-@end*/
-
-
-
 @interface DetailObjectController : UITableViewController
+- (IBAction)shareButtonTapped:(UIBarButtonItem *)sender;
 
-//@property (nonatomic, weak) id <AddArrayDelegate> delegate;
 
 
 @property(strong, nonatomic) NSMutableArray* fetchedArrayWithUsersPics;
 @property(strong, nonatomic) NSMutableArray* sourceArray;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareBarButtonItem;
 
 
 @property (strong, nonatomic) UIImageView *fullScreenImageView;
 @property (strong, nonatomic) UIImageView *originalImageView;
 
-//@property(strong, nonatomic) EstateObject* myObject;
-
-
-
-
-//@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property(strong, nonatomic) NSMutableArray* myDetailPhotosArray;
@@ -51,10 +38,6 @@
 
 
 @property(strong, nonatomic) EstateObjectEntity* detailItem;
-
-
-
-
 
 @property (weak, nonatomic) IBOutlet UILabel *detailPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailAddressLabel;

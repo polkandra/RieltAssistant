@@ -49,13 +49,14 @@
     [self showHideDeleteButton];
     [self hideBackButton];
     
+    [self fetchPhotos];
+    
     self.myPhotosArray = [[NSMutableArray alloc] init];
     self.selectedPhotos = [[NSMutableArray alloc] init];
     self.myArrayWithPhotoData = [[NSMutableArray alloc] init];
     self.myData1 = [[NSMutableArray alloc] init];
-    
+
    
-     self.myRetrievedPics = [[NSMutableArray alloc] init];
     
 }
 
@@ -84,7 +85,7 @@
     
     [super viewWillAppear:animated];
     
-    [self fetchPhotos];
+   // [self fetchPhotos];
     
     [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor46]];
     [self.navigationController.navigationBar setTranslucent:NO];
@@ -176,9 +177,8 @@
 -(void)fetchPhotos {
     
     NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData*)(detailItem.arrayOfUsersPics)];
-    
-    [self.myRetrievedPics addObjectsFromArray:fetchedArrayWithUsersPics];
-    
+     self.myRetrievedPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
+   
     if ([self.myRetrievedPics containsObject:[UIImage imageNamed:@"emptyObject2"]]) {
         [self.myRetrievedPics removeObject:[UIImage imageNamed:@"emptyObject2"]];
     }

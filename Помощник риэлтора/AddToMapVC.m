@@ -57,6 +57,7 @@
     lpgr.cancelsTouchesInView = NO;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     tap.cancelsTouchesInView = NO;
+    
     [self.view addGestureRecognizer:tap];
     [self.mapView addGestureRecognizer:lpgr];
     
@@ -338,8 +339,6 @@
 
 
 - (void) dismissKeyboard {
-    
-    
     [self.searchBar resignFirstResponder];
 }
 

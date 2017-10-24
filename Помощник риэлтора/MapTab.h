@@ -13,6 +13,7 @@
 #import "DataManager.h"
 #import "EstateObjectEntity+CoreDataProperties.h"
 #import "EstateObject.h"
+#import "DetailObjectController.h"
 
 @interface MapTab : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
 
@@ -22,7 +23,9 @@
 @property (strong, nonatomic)  CLLocationManager *locationManager;
 
 @property(strong, nonatomic) EstateObjectEntity *detailItem;
+@property (assign)  int pinTag;
 
+@property(strong, nonatomic) NSMutableArray* annotationsArray;
 @property (strong, nonatomic) NSArray *pinPhotosArray;
 @property(strong, nonatomic) NSArray* fetchedData;
 @property(strong, nonatomic) NSMutableArray* coordinatesArray;

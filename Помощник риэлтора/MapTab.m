@@ -16,34 +16,45 @@
 @synthesize mapView, locationManager, detailItem;
 
 
-
-
 #pragma mark VC Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-   
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
     
     [self setLocationManager];
     //[self getAnnotations];
-
-   }
+    
+    self.annotationsArray = [[NSMutableArray alloc] init];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    tap.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tap];
+}
 
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    [self.mapView removeAnnotations:self.mapView.annotations];
     
+    [self.mapView removeAnnotations:self.mapView.annotations];
     [self getAnnotations];
    // [self fetchPhotosArray];
 
 }
 
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+    
+    NSMutableArray *toDelete = [NSMutableArray array];
+    for (MapAnnotation *annotations in self.annotationsArray) {
+        [toDelete addObject:annotations];
+    }
+    
+    [self.annotationsArray removeObjectsInArray:toDelete];
+}
 
 
 #pragma mark Helpers
@@ -75,7 +86,7 @@
     [request setEntity:entity];
     [request setResultType:NSDictionaryResultType];
     [request setReturnsDistinctResults:YES];
-    [request setPropertiesToFetch:@[@"longitude", @"latitude", @"picture", @"discription", @"price"]];
+    [request setPropertiesToFetch:@[@"longitude", @"latitude", @"picture", @"discription", @"price", @"actionByProperty", @"address", @"kitchenArea", @"livingArea", @"owner", @"phoneNumber", @"roomQuantity", @"typeOfProperty", @"wholeArea"]];
     
     NSError *error;
     
@@ -96,7 +107,8 @@
         annotation.coordinate = point;
         annotation.title = location[@"discription"];
         annotation.subtitle = location[@"price"];
-    
+       
+        [self.annotationsArray addObject:annotation];
         [self.mapView addAnnotation:annotation];
     
     }
@@ -124,13 +136,9 @@
     for (id <MKAnnotation> annotation in self.mapView.annotations) {
         
         CLLocationCoordinate2D location = annotation.coordinate;
-        
         MKMapPoint center = MKMapPointForCoordinate(location);
-        
         static double delta = 20000;
-        
         MKMapRect rect = MKMapRectMake(center.x - delta, center.y - delta, delta * 2, delta * 2);
-        
         zoomRect = MKMapRectUnion(zoomRect, rect);
     }
     
@@ -141,9 +149,6 @@
                            animated:YES];
     
 }
-
-
-
 
 
 
@@ -168,7 +173,7 @@
         pin.animatesDrop = YES;
         pin.canShowCallout = YES;
         pin.draggable = NO;
-       
+     
         UIImageView *userAvatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 47, 47)];
         userAvatar.contentMode = UIViewContentModeScaleAspectFill;
         userAvatar.layer.cornerRadius = 4.0;
@@ -176,7 +181,15 @@
         userAvatar.layer.borderColor = [[UIColor whiteColor] CGColor];
         userAvatar.layer.borderWidth = 1;
         pin.leftCalloutAccessoryView = userAvatar;
-       
+        
+        UIButton *buttonPic = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        //buttonPic.frame = CGRectMake(0, 0, 55, 55);
+        //buttonPic.backgroundColor = [UIColor purpleColor];
+       // [buttonPic addTarget:self action:@selector(goToDetail) forControlEvents:UIControlEventTouchUpInside];
+       // UIImage *btnImage = [UIImage imageNamed:@"inArrow"];
+        //[buttonPic setImage:btnImage forState:UIControlStateNormal];
+        pin.rightCalloutAccessoryView = buttonPic;
+        
     }else{
         pin.annotation = annotation;
     }
@@ -188,8 +201,61 @@
     
 }
 
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    
+    DetailObjectController *doVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailObjectController"];
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    self.retrievedArray = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    
+    for (id object in self.retrievedArray) {
+        if ([object isKindOfClass:[EstateObjectEntity class]]) {
+            self.detailItem = ((EstateObjectEntity *)object);
+        }
+    }
+    
+    MapAnnotation *annotation = view.annotation;
+    NSInteger index = [self.annotationsArray indexOfObject:annotation];
+    EstateObjectEntity *selectedEntity = [self.retrievedArray objectAtIndex:index];
+    doVC.detailItem = selectedEntity;
+   
+    doVC.navigationItem.hidesBackButton = YES;
+    doVC.navigationItem.leftBarButtonItem = nil;
+    doVC.navigationItem.rightBarButtonItem = nil;
+    //doVC.shareBarButtonItem = nil;
+    
+    
+    UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
+    
+    doVC.navigationItem.rightBarButtonItem = flipButton;
+    
+    [self.navigationController pushViewController:doVC animated:YES];
+
+}
 
 
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+
+  /*  MapAnnotation *annotation = (MapAnnotation *)annotation;
+    NSInteger *myIndex = annotation.myIndex;
+    NSLog(@"index of pin is %d",myIndex);*/
+    
+}
+
+
+#pragma mark - helpers
+
+
+-(void)dismissView {
+
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+- (void) dismissKeyboard {
+    [self.view endEditing:YES];
+}
 
 
 @end

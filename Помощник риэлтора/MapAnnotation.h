@@ -21,7 +21,4 @@
 @property(nonatomic,strong) UIImageView *pinImage;
 
 
-
-
-
 @end
