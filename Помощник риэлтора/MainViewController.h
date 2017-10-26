@@ -53,5 +53,8 @@
 - (IBAction)unwindAfterBackButtonFromDetail:(UIStoryboardSegue*)segue;
 - (IBAction)unwindAfterChangeButtonFromDetail:(UIStoryboardSegue*)segue;
 
+
+- (void)configureCell:(MainScreenCellTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
 @end
 

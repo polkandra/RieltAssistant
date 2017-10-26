@@ -20,9 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
-
-
-    
     self.tableView.backgroundColor = [StyleKitName gradientColor8];
     
    }
@@ -32,7 +29,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"toMeetingsVC"]) {
-        
      
         self.meetingObject = [[MeetingObject alloc] init];
         
@@ -61,6 +57,12 @@
         
     }
  }
+
+
+// unwind segue from SelectMeetingVC
+- (IBAction)unwindFromSelectMeetingVC:(UIStoryboardSegue*)segue {
+    
+}
 
 
 

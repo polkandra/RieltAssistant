@@ -51,13 +51,10 @@
         
         _disclaimerLabel.hidden = YES;
 
-       
         NSLog(@"my aaaaray = %@",self.myMeetingsDetailsData);
         
         
         [self.tableView reloadData];
-        
-        
         
     }
     

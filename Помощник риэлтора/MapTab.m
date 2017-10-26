@@ -40,8 +40,13 @@
     
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self getAnnotations];
-   // [self fetchPhotosArray];
-
+    // [self fetchPhotosArray];
+    if (@available(iOS 11.0, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = YES;
+    } else {
+    
+  }
+    
 }
 
 

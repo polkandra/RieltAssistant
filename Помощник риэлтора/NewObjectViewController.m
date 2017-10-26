@@ -16,7 +16,7 @@
 @end
 
 @implementation NewObjectViewController
-@synthesize  myPhotosArray, tableView, myArrayWithPhotoData, detailItem, hideButton, saveSecondButton, detailItemFromDetailObjectVC,  myRetrievedPics;
+@synthesize  myPhotosArray, tableView, myArrayWithPhotoData, detailItem, hideButton, saveSecondButton, detailItemFromDetailObjectVC,  myRetrievedPics, addPlaceOnMapButton;
 
 
 #pragma mark - VC Lifecycle
@@ -32,10 +32,7 @@
     //NSLog(@"my array = %@",self.myData);
     
     
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
-    
-    self.collectionView.allowsMultipleSelection = YES;
+
     self.tableView.allowsSelection = YES;
     
     [self updateUI];
@@ -46,7 +43,6 @@
   
     
     [self hideShowDeleteSaveButtons];
-    [self showHideDeleteButton];
     [self hideBackButton];
     
     [self fetchPhotos];
@@ -85,27 +81,31 @@
     
     [super viewWillAppear:animated];
     
-   // [self fetchPhotos];
-    
     [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor46]];
     [self.navigationController.navigationBar setTranslucent:NO];
-    
-    //  [self.navigationItem setTitle:@"Новый объект"];
     
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor],
-       NSFontAttributeName:[UIFont fontWithName:@"avenir" size:22]}];
+       NSFontAttributeName:[UIFont fontWithName:@"avenir" size:17]}];
     
-    /*[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-     self.navigationController.navigationBar.shadowImage = [UIImage new];
-     self.navigationController.navigationBar.translucent = YES;*/
+    if (@available(iOS 11.0, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = YES;
+    } else {
+        // Fallback on earlier versions
+    }
+   
     
+    NSMutableString *concatString = [self.priceTextField.text mutableCopy];
+    NSRange replaceRange = [concatString rangeOfString:@"Рублей"];
+    if (replaceRange.location != NSNotFound){
+        NSString* result = [concatString stringByReplacingCharactersInRange:replaceRange withString:@""];
+        self.priceTextField.text = result;
     
+    }
     
- // self.globalArrayOfUsersPics = [[NSMutableArray alloc] init];
 
 }
 
@@ -139,21 +139,6 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
-
-
-- (void) showHideDeleteButton {
-    
-    NSArray* selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
-    
-    if(selectedItemsIndexPaths.count > 0) {
-        
-        self.deleteButton.hidden = NO;
-        
-    }else{
-        self.deleteButton.hidden = YES;
-    }
-}
 
 
 -(void)hideShowDeleteSaveButtons {
@@ -209,89 +194,6 @@
 
 
 
-#pragma mark - Actions
-
-
-- (IBAction)addPhotosButton:(UIButton *)sender {
-    
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    UIAlertAction* firstAction = [UIAlertAction actionWithTitle:@"Сделать снимок" style:UIAlertActionStyleDefault  handler:^(UIAlertAction * _Nonnull action) {
-        
-        UIImagePickerController* picker = [[UIImagePickerController alloc] init];
-        picker.delegate = self;
-        picker.allowsEditing = YES;
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentViewController:picker animated:YES completion:nil];
-        
-        
-    }];
-    
-    UIAlertAction* secondAction = [UIAlertAction actionWithTitle:@"Выбрать из галереи" style:UIAlertActionStyleDefault  handler:^(UIAlertAction * _Nonnull action) {
-        
-        UIImagePickerController* picker = [[UIImagePickerController alloc] init];
-        picker.delegate = self;
-        picker.allowsEditing = YES;
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        [self presentViewController:picker animated:YES completion:nil];
-        
-    }];
-    
-    
-    UIAlertAction* cancellAction = [UIAlertAction actionWithTitle:@"Отмена" style:UIAlertActionStyleDefault  handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"You pressed button cancell");
-    }];
-    
-    
-    [alert addAction:firstAction];
-    [alert addAction:secondAction];
-    [alert addAction:cancellAction];
-    
-    [self presentViewController:alert animated:YES completion:nil];
-}
-
-
-
-
-#pragma mark - UITableViewDelegate
-
-
-/*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
- {
- [tableView beginUpdates];
- 
- 
- if ([indexPath compare:self.expandedIndexPath] == NSOrderedSame) {
- self.expandedIndexPath = nil;
- 
- }else{
- self.expandedIndexPath = indexPath;
- }
- /*[[self tableView] reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForItem: 0 inSection:4]] withRowAnimation:UITableViewRowAnimationAutomatic];
- 
- [tableView endUpdates];
- 
- 
- 
- }
- 
- - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
- 
- {
- if ([indexPath compare:self.expandedIndexPath] == NSOrderedSame) {
- 
- return 200.0; // Expanded height
- 
- }
- 
- return 70.0; // Normal height
- 
- }*/
-
-
-
-
-
 #pragma mark - Navigation
 
 
@@ -299,13 +201,11 @@
     
     if ([segue.identifier isEqualToString:@"toMain"]) {
         
-        
         if (self.myRetrievedPics.count == 0) {
             
             [self.myRetrievedPics addObject:[UIImage imageNamed:@"emptyObject2"]];
             
         }
-        
         
         MainViewController *controller = (MainViewController *)segue.destinationViewController;
         
@@ -392,54 +292,39 @@
             
         }else{
             
-            NSMutableString *concatString = self.priceTextField.text;
-            concatString = [concatString stringByAppendingString:@" Рублей"];
-            
-            object.price = concatString;
+            NSMutableString *concatString = [self.priceTextField.text mutableCopy];
+            NSMutableString *resultString = [concatString stringByAppendingString:@" Рублей"];
+            object.price = resultString;
             
         }
         
-        
+
         if (self.myArrayWithPhotoData.count == 0) {
-            
+
             UIImage *image = [UIImage imageNamed:@"emptyObject2"];
             NSData* pictureData = UIImageJPEGRepresentation(image,0);
-            
+
             [self.myArrayWithPhotoData addObject:pictureData];
             [self.myPhotosArray addObject:image];
-            
-            
-            
+
+
+
             object.picture = [self.myArrayWithPhotoData firstObject];
-            
+
         }else{
-            
+
             object.picture = [self.myArrayWithPhotoData firstObject];
-            
+
         }
-        
-        
+
+
         NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myPhotosArray];
         object.arrayOfUsersPics = arrayData;
-        
-       
-        
-       /* NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData*)(object.arrayOfUsersPics)];
-       
-       // if (fetchedArrayWithUsersPics.count > 0) {
-            
-            self.globalArrayOfUsersPics = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
-            [self.globalArrayOfUsersPics addObject:[self.myPhotosArray firstObject]];
-            
-            NSData *arrayData2 = [NSKeyedArchiver archivedDataWithRootObject:self.globalArrayOfUsersPics];
-            object.globalPictureArray = arrayData2;
 
-        //}*/
-        
-        
-        
+
+
         [[[DataManager sharedManager] managedObjectContext] save:nil];
-        
+
         
         
         
@@ -464,7 +349,18 @@
             detailItem.discription = self.objectNameTextField.text;
             detailItem.address = self.adressTextfield.text;
             detailItem.owner = self.ownerNameTextField.text;
-            detailItem.price = self.priceTextField.text;
+           
+            NSMutableString *concatString = [self.priceTextField.text mutableCopy];
+
+           /* if (([concatString rangeOfString:@" Рублей"].location) != NSNotFound ) {
+                NSString *newString1 = [concatString stringByReplacingOccurrencesOfString:@" Рублей" withString:@""];
+                concatString = newString1;
+            }*/
+            
+            NSMutableString *resultString = [concatString stringByAppendingString:@" Рублей"];
+            detailItem.price = resultString;
+            
+            // detailItem.price = self.priceTextField.text;
             detailItem.phoneNumber = self.phoneTextField.text;
             detailItem.typeOfProperty = self.objectTypeLabelInCell.text;
             detailItem.actionByProperty = self.actionTypeLabelInCell.text;
@@ -514,8 +410,7 @@
                  
                  object.livingArea = self.livingSquareTextField.text;
              }
-             
-             
+            
             
              if (( self.kitchenSquareTextField.text.length == 0 )) {
                  
@@ -525,8 +420,7 @@
                  
                  object.kitchenArea = self.kitchenSquareTextField.text;
              }
-             
-             
+            
             
              if ((self.objectNameTextField.text.length == 0)) {
                  
@@ -547,8 +441,7 @@
                  
                  object.owner = self.ownerNameTextField.text;
              }
-             
-             
+            
             
             if ((self.adressTextfield.text.length == 0)) {
                 
@@ -567,10 +460,11 @@
                 
             }else{
                 
-                NSMutableString *concatString = self.priceTextField.text;
-                concatString = [concatString stringByAppendingString:@" Рублей"];
-                
-                object.price = concatString;
+//                NSMutableString *concatString = [self.priceTextField.text mutableCopy];
+//                NSMutableString *resultString = [concatString stringByAppendingString:@" Рублей"];
+//
+//
+//                object.price = resultString;
                 
             }
             
@@ -585,10 +479,10 @@
         }
         
         
-       /* NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
-        detailItem.arrayOfUsersPics = arrayData;*/
+        NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
+        detailItem.arrayOfUsersPics = arrayData;
         
-      
+        
         
         if (self.myRetrievedPics.count == 0) {
             
@@ -600,9 +494,7 @@
         }
         
         
-    
-    
-    } else if ([segue.identifier isEqualToString:@"unwindAndRemoveFromDetail"]) {
+    }else if ([segue.identifier isEqualToString:@"unwindAndRemoveFromDetail"]) {
         
         
         [[[DataManager sharedManager] managedObjectContext] deleteObject:self.detailItem];
@@ -612,64 +504,15 @@
         
         
         
+    }else if ([segue.identifier isEqualToString:@"toAddPhotosController"]) {
         
-    } else if ([segue.identifier isEqualToString:@"toMapView"]) {
-        
-      /*  AddToMapVC *mapVC = (AddToMapVC *)segue.destinationViewController;
-       // mapVC.pinPhotosArray =  [[NSMutableArray alloc] init];
-       // mapVC.pinPhotosArray = self.myArrayWithPhotoData;
-        mapVC.detailItem = self.detailItem;
-        
-       
-        
-        if (self.myRetrievedPics.count == 0) {
-            
-            [self.myRetrievedPics addObject:[UIImage imageNamed:@"emptyObject2"]];
-            
-        }
-        
-               
-        if (!self.detailItem) {
-            
-           
-            
-            NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
-            detailItem.arrayOfUsersPics = arrayData;
-
-           
-            if ((self.objectNameTextField.text.length == 0)) {
-                
-                detailItem.discription = @"Имя не указано";
-                
-            }else{
-                
-                detailItem.discription = self.objectNameTextField.text;
-                
-            }
-            
-           
-            if ((self.priceTextField.text.length == 0)) {
-                
-                detailItem.price = @"Цена не указана";
-                
-            }else{
-                
-                NSMutableString *concatString = self.priceTextField.text;
-                concatString = [concatString stringByAppendingString:@" Рублей"];
-                
-                detailItem.price = concatString;
-                
-            }
-           
-            NSError *error = nil;
-            [[[DataManager sharedManager] managedObjectContext] save:&error];
-            
-        }*/
-        
+        AddPhotosVC *apVC = (AddPhotosVC *)segue.destinationViewController;
+        apVC.detailItem = self.detailItem;
+      
+   
     }
     
 }
-
 
 
 
@@ -708,7 +551,7 @@
     
     if ([segue.identifier isEqualToString:@"unwindAfterSaveTapped"]) {
         
-        RoomTypeController *controller = segue.sourceViewController;
+        RoomTypeController *controller = (RoomTypeController *)segue.sourceViewController;
         
         
         self.objectTypeLabelInCell.text = [self.myData1 firstObject];
@@ -731,37 +574,11 @@
 }
 
 
+// unwind segue from AddPhotosVC
 
-
-
-#pragma mark - UIImagePickerControllerDelegate
-
-
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+- (IBAction)unwindFromAddPhotosVC:(UIStoryboardSegue *)segue {
     
-    UIImage *image = info[UIImagePickerControllerOriginalImage];
-    NSData *data = UIImageJPEGRepresentation(image,0);
-    
-    
-    [self.myRetrievedPics addObject:image];
-    [self.myArrayWithPhotoData addObject:data];
-    [self.myPhotosArray addObject:image];
-    
-    [self.collectionView reloadData];
-    [picker dismissViewControllerAnimated:YES completion:nil];
 }
-
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    
-    [picker dismissViewControllerAnimated:YES completion:nil];
-}
-
-
-
-
-
 
 
 
@@ -833,7 +650,7 @@
     self.pickerViewArrayRoomQuantity = [[NSMutableArray alloc] initWithObjects:@"1 комната",@" 2 комнаты",@"3 комнаты",@"4 комнаты",@"5 комнат и более", nil];
     self.pickerViewArrayCity = [[NSMutableArray alloc] initWithObjects:@"Москва",@"Санкт-Петербург",@"Екатеринбург",@"Сочи", nil];
     
-    self.myPhotosArray = [[NSMutableArray alloc] init];
+   // self.myPhotosArray = [[NSMutableArray alloc] init];
     self.selectedPhotos = [[NSMutableArray alloc] init];
     
 }
@@ -849,251 +666,42 @@
     
 }
 
-
-
-
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;
-    
-    
 }
 
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     
     NSInteger quantity;
-    
     if (pickerView == _roomPicker) {
         
         quantity = [_pickerViewArrayRoomQuantity count];
-    }
-    
-    else {
+   
+    }else {
         quantity = [_pickerViewArrayCity count];
         
     }
-    
     return quantity;
 }
 
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-
+    
     NSString *title;
     
     if (pickerView == _roomPicker) {
         
-        
         title = [_pickerViewArrayRoomQuantity objectAtIndex:row];
-    }
-    
-    else if (pickerView == _cityPicker) {
+        
+    }else if (pickerView == _cityPicker) {
         
         title = [_pickerViewArrayCity objectAtIndex:row];
-        
     }
-    
     return title;
-    
 }
 
 
-
-#pragma mark - UICollectionViewDataSource
-
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
-  /* if (self.myRetrievedPics.count > 1) {
-        
-        self.deleteButton.hidden = NO;
-    }*/
-   
-   
-    
-    return self.myRetrievedPics.count;
-    
-}
-
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *cellIdentifier = @"CVcell";
-    
-    CollectionViewCell *cell = (CollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    
-    if (cell == nil) {
-        
-        cell = [[CollectionViewCell alloc] init];
-    }
-    
-      
-    cell.objectView.image = [self.myRetrievedPics objectAtIndex:indexPath.row];
-    
-    return cell;
-}
-
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionView *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-
-    return 30;
-}
-
-
-
-
-#pragma mark - UICollectionViewDelegate
-
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    //[self showAppropriateView];
-    
-    NSArray* selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
-    
-    if (selectedItemsIndexPaths.count > 0) {
-        
-        self.deleteButton.hidden = NO;
-        
-    }else{
-        
-        self.deleteButton.hidden = YES;
-    }
-    
-    
-    [self animateZoomforCell:cell];
-    
-}
-
-
-
--(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    CollectionViewCell *cell = (CollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    
-    NSArray* selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
-    
-    if (selectedItemsIndexPaths.count > 0) {
-        
-        self.deleteButton.hidden = NO;
-        
-    }else{
-        
-        self.deleteButton.hidden = YES;
-    }
-   
-    
-    
-    [self animateZoomOutforCell:cell];
-    
-}
-
-
-- (IBAction)deletePhotosButton:(UIButton *)sender {
-    
-    
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Удаление фото" message:@"Правда удалить???" preferredStyle:UIAlertControllerStyleActionSheet];
-    
-   
-   /* NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"Удаление фото"];
-    [string addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:30.0] range:NSMakeRange(8, 5)];
-    [alert setValue:string forKey:@"attributedTitle"];
-
-    
-    NSMutableAttributedString *string2 = [[NSMutableAttributedString alloc] initWithString:@"Правда удалить???"];
-    [string addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20.0] range:NSMakeRange(15, 2)];
-    [alert setValue:string2 forKey:@"attributedMessage"];*/
-
-    
-    UIAlertAction* deleteAction = [UIAlertAction actionWithTitle:@"Удалить" style:UIAlertActionStyleDefault  handler:^(UIAlertAction * _Nonnull action) {
-        
-        if (self.collectionView) {
-            
-            [self.collectionView performBatchUpdates:^{
-                
-                NSArray* selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
-                NSMutableIndexSet *removeIndexes = [NSMutableIndexSet new];
-                
-                
-                for (NSIndexPath *path in selectedItemsIndexPaths) {
-                    [removeIndexes addIndex:path.item];
-                }
-                
-                if (self.myRetrievedPics.count > 0) {
-                    
-                    [self.collectionView reloadData];
-                
-                }else{
-                   
-                    [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem: (self.myRetrievedPics.count - 1) inSection:0]]];
-                }
-                
-                [self.myRetrievedPics removeObjectsAtIndexes:removeIndexes];
-                [self.collectionView deleteItemsAtIndexPaths:selectedItemsIndexPaths];
-                
-                
-                
-                NSManagedObjectContext *context = [[DataManager sharedManager] managedObjectContext];
-                NSError *error = nil;
-                if (![context save:&error]) {
-                    
-                    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-                    abort();
-                    
-                }
-                
-                
-            } completion:^(BOOL finished) {
-                int numberOfItemsInCollection = [self.collectionView numberOfItemsInSection:0];
-                if( numberOfItemsInCollection == 0 ) {
-                    
-                    self.deleteButton.hidden = YES;
-                }
-                
-            }];
-        }
-        
-    }];
-    
-    UIAlertAction* cancellAction = [UIAlertAction actionWithTitle:@"Отменить" style:UIAlertActionStyleDefault  handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"You pressed button cancell");
-    }];
-    
-    [alert addAction:deleteAction];
-    [alert addAction:cancellAction];
-    [self presentViewController:alert animated:YES completion:nil];
-    
-}
-
-
-
-
-#pragma mark - Helper for UICollectionView
-
--(void)animateZoomforCell:(CollectionViewCell*)zoomCell
-{
-    [UIView animateWithDuration:0.2
-                          delay:0
-                        options:UIViewAnimationOptionCurveEaseOut animations:^{
-                            
-                            zoomCell.transform = CGAffineTransformMakeScale(1.3,1.3);
-                        } completion:^(BOOL finished){
-                        }];
-}
-
-
--(void)animateZoomOutforCell:(CollectionViewCell*)zoomCell
-{
-    [UIView animateWithDuration:0.2
-                          delay:0
-                        options:UIViewAnimationOptionCurveEaseOut animations:^{
-                            
-                            zoomCell.transform = CGAffineTransformMakeScale(1,1);
-                        } completion:^(BOOL finished){
-                        }];
-    
-}
 
 
 

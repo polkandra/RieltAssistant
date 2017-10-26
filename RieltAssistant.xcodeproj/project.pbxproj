@@ -14,6 +14,10 @@
 		C63412F41EB4B24800ACE886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63412F31EB4B24800ACE886 /* Assets.xcassets */; };
 		C636778F1EE854FB0098FC90 /* MapTab.m in Sources */ = {isa = PBXBuildFile; fileRef = C636778E1EE854FB0098FC90 /* MapTab.m */; };
 		C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = C64380C61EAD358100D88E01 /* DetailObjectController.m */; };
+		C64A91C61FA243E700C995A8 /* SelectMeetingOblectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C64A91C51FA243E700C995A8 /* SelectMeetingOblectVC.m */; };
+		C64A91C91FA2447400C995A8 /* SelectMeetingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C64A91C81FA2447400C995A8 /* SelectMeetingCell.m */; };
+		C6592CAE1FA0B24000CF60EE /* AddPhotosVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6592CAD1FA0B24000CF60EE /* AddPhotosVC.m */; };
+		C6592CB11FA0B48D00CF60EE /* AddPhotoCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6592CB01FA0B48D00CF60EE /* AddPhotoCVCell.m */; };
 		C65B20201EEAE304009F8DFA /* AddToMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C65B201F1EEAE304009F8DFA /* AddToMapVC.m */; };
 		C65B20221EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master in Resources */ = {isa = PBXBuildFile; fileRef = C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */; };
 		C65C999C1F8513A70060F2C4 /* EstateObjectEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C65C999B1F8513A70060F2C4 /* EstateObjectEntity+CoreDataProperties.m */; };
@@ -61,6 +65,14 @@
 		C636778E1EE854FB0098FC90 /* MapTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTab.m; sourceTree = "<group>"; };
 		C64380C51EAD358100D88E01 /* DetailObjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailObjectController.h; sourceTree = "<group>"; };
 		C64380C61EAD358100D88E01 /* DetailObjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailObjectController.m; sourceTree = "<group>"; };
+		C64A91C41FA243E700C995A8 /* SelectMeetingOblectVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectMeetingOblectVC.h; sourceTree = "<group>"; };
+		C64A91C51FA243E700C995A8 /* SelectMeetingOblectVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectMeetingOblectVC.m; sourceTree = "<group>"; };
+		C64A91C71FA2447400C995A8 /* SelectMeetingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectMeetingCell.h; sourceTree = "<group>"; };
+		C64A91C81FA2447400C995A8 /* SelectMeetingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectMeetingCell.m; sourceTree = "<group>"; };
+		C6592CAC1FA0B24000CF60EE /* AddPhotosVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddPhotosVC.h; sourceTree = "<group>"; };
+		C6592CAD1FA0B24000CF60EE /* AddPhotosVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddPhotosVC.m; sourceTree = "<group>"; };
+		C6592CAF1FA0B48D00CF60EE /* AddPhotoCVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddPhotoCVCell.h; sourceTree = "<group>"; };
+		C6592CB01FA0B48D00CF60EE /* AddPhotoCVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddPhotoCVCell.m; sourceTree = "<group>"; };
 		C65B201E1EEAE304009F8DFA /* AddToMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToMapVC.h; sourceTree = "<group>"; };
 		C65B201F1EEAE304009F8DFA /* AddToMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToMapVC.m; sourceTree = "<group>"; };
 		C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "SPGooglePlacesAutocomplete-master"; sourceTree = "<group>"; };
@@ -214,6 +226,8 @@
 				C692060F1ECB40B900D7210D /* Tabs */,
 				C6E11F051F0D256100456A4E /* DetailMeetingController.h */,
 				C6E11F061F0D256100456A4E /* DetailMeetingController.m */,
+				C64A91C41FA243E700C995A8 /* SelectMeetingOblectVC.h */,
+				C64A91C51FA243E700C995A8 /* SelectMeetingOblectVC.m */,
 				C64380C51EAD358100D88E01 /* DetailObjectController.h */,
 				C64380C61EAD358100D88E01 /* DetailObjectController.m */,
 				C6D33CD01F029CBA00F7C82B /* NewMeetingDetailViewController.h */,
@@ -222,6 +236,8 @@
 				C60FFA431E895B560054F83D /* NewObjectViewController.m */,
 				C6DF6B391EAF673C007F1CB9 /* RoomTypeController.h */,
 				C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */,
+				C6592CAC1FA0B24000CF60EE /* AddPhotosVC.h */,
+				C6592CAD1FA0B24000CF60EE /* AddPhotosVC.m */,
 				C65B201D1EEAE2C4009F8DFA /* MapsControllers */,
 				C6CAB5D51EE1E91D00078A32 /* PageViewController */,
 			);
@@ -339,12 +355,16 @@
 		C6DE1CA81E897CF1008F3536 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				C64A91C71FA2447400C995A8 /* SelectMeetingCell.h */,
+				C64A91C81FA2447400C995A8 /* SelectMeetingCell.m */,
 				C60702371E8E7A64007933F0 /* MainScreenCellTableViewCell.h */,
 				C60702381E8E7A64007933F0 /* MainScreenCellTableViewCell.m */,
 				C6CDBEB81F017EC00024B147 /* MeetingsCell.h */,
 				C6CDBEB91F017EC00024B147 /* MeetingsCell.m */,
 				C6A36DA31E9A827B00A00F04 /* CollectionViewCell.h */,
 				C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */,
+				C6592CAF1FA0B48D00CF60EE /* AddPhotoCVCell.h */,
+				C6592CB01FA0B48D00CF60EE /* AddPhotoCVCell.m */,
 				C69206101ECB48F600D7210D /* DetailCollectionViewCell.h */,
 				C69206111ECB48F600D7210D /* DetailCollectionViewCell.m */,
 			);
@@ -483,11 +503,14 @@
 				C67BAB571E7EEF59004E9126 /* MainScreenView.m in Sources */,
 				C673C98E1F018C98008EB01C /* StyleKitName.m in Sources */,
 				C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */,
+				C64A91C91FA2447400C995A8 /* SelectMeetingCell.m in Sources */,
 				C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */,
+				C6592CB11FA0B48D00CF60EE /* AddPhotoCVCell.m in Sources */,
 				C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */,
 				C685F52D1F266A2900A54900 /* MeetingObjectEntity+CoreDataClass.m in Sources */,
 				C6D33CCF1F02973500F7C82B /* MeetingObject.m in Sources */,
 				C6F14D6A1EDF0AD800658494 /* EbmeddedImageController.m in Sources */,
+				C64A91C61FA243E700C995A8 /* SelectMeetingOblectVC.m in Sources */,
 				C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */,
 				C6D33CD21F029CBA00F7C82B /* NewMeetingDetailViewController.m in Sources */,
 				C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */,
@@ -499,6 +522,7 @@
 				C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */,
 				C65B20201EEAE304009F8DFA /* AddToMapVC.m in Sources */,
 				C6F14D671EDF08FE00658494 /* UIPageViewControllerScene.m in Sources */,
+				C6592CAE1FA0B24000CF60EE /* AddPhotosVC.m in Sources */,
 				C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */,
 				C636778F1EE854FB0098FC90 /* MapTab.m in Sources */,
 				C6CDBEBB1F017EC00024B147 /* MeetingsCell.m in Sources */,

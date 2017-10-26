@@ -41,30 +41,7 @@
     
     [self setNavigationController];
     
- /*   MapTab *mtVc = (MapTab*) [[(UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1] viewControllers] objectAtIndex:0];
 
-    
-    NSError *error;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
-    self.fetchedData = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
-    
-    if (self.fetchedData.count == 0) {
-        
-       // mtVc.detailItem = self.object;
-        
-    }else{
-    
-        for (id object in self.fetchedData) {
-            if ([object isKindOfClass:[EstateObjectEntity class]]) {
-               
-                self.detailItem = ((EstateObjectEntity *)object);
-                
-            }
-           
-            mtVc.detailItem = self.detailItem;
-            
-        }
-    }*/
 }
 
 
@@ -94,6 +71,12 @@
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor],
        NSFontAttributeName:[UIFont fontWithName:@"avenir" size:19]}];
+    
+    if (@available(iOS 11.0, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = NO;
+    } else {
+        // Fallback on earlier versions
+    }
     
     // making nav bar translucent
     /*[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
@@ -243,6 +226,40 @@
 }
 
 
+
+
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
+
+
+
+#pragma mark - UITableViewDataSource
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    MainScreenCellTableViewCell *cell = (MainScreenCellTableViewCell*) [self.tableView dequeueReusableCellWithIdentifier:@"MainScreenCell" forIndexPath:indexPath];
+    
+    [self configureCell:cell atIndexPath:indexPath];
+    
+    return cell;
+}
 
 
 

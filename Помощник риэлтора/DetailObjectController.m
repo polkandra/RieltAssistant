@@ -25,7 +25,7 @@
     [super viewDidLoad];
     
     [self configureView];
-    
+    [self setNavController];
     
     //[self setNavController];
     
@@ -81,28 +81,26 @@
 }
 
 
-/*-(void)setNavController
-{
-    
-    UINavigationBar *navbar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, 375, 64)];
-    
-    //do something like background color, title, etc you self
-    [self.view addSubview:navbar];
-    
-    UINavigationItem *navItem = [[UINavigationItem alloc] init];
-    
-    
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Назад" style:UIBarButtonSystemItemDone target:self action:@selector(cancel:)];
-    navItem.leftBarButtonItem = leftButton;
-    
-   
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Изменить" style:UIBarButtonSystemItemEdit target:self action:@selector(edit:)];
-    navItem.rightBarButtonItem = rightButton;
-    navbar.
-   
-    // navbar.items = @[ navItem ];
-       // [self.view addSubview:navbar];
-}*/
+-(void)setNavController {
+
+ [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor46]];
+ [self.navigationController.navigationBar setTranslucent:NO];
+ 
+ //  [self.navigationItem setTitle:@"Новый объект"];
+ 
+ [self.navigationController.navigationBar
+ setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+ 
+ [self.navigationController.navigationBar setTitleTextAttributes:
+ @{NSForegroundColorAttributeName:[UIColor whiteColor],
+ NSFontAttributeName:[UIFont fontWithName:@"avenir" size:19]}];
+ 
+ if (@available(iOS 11.0, *)) {
+ self.navigationController.navigationBar.prefersLargeTitles = NO;
+ } else {
+ // Fallback on earlier versions
+ }
+}
 
 
 
@@ -110,9 +108,6 @@
 
 
 #pragma mark - Segues
-
-
-
 
 // unwind segue from AddToMapVC with saving
 - (IBAction)saveFromAddToMapVC:(UIStoryboardSegue*)segue {
@@ -173,6 +168,7 @@
         newVC.navigationItem.hidesBackButton = YES;
    
         
+    
     }else if ([segue.identifier isEqualToString:@"unwindAfterBackButtonFromDetail"]) {
         
         NSData* pictureData = UIImageJPEGRepresentation([self.sourceArray firstObject],0);

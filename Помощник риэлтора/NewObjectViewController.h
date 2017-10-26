@@ -17,8 +17,9 @@
 #import "EstateObjectEntity+CoreDataProperties.h"
 #import "DataManager.h"
 #import "MapViewController.h"
+#import "AddPhotosVC.h"
 
-@interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIPickerViewDelegate>
 
 
 
@@ -56,26 +57,22 @@
 @property(strong, nonatomic) NSMutableArray* myData1;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+//@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (strong, nonatomic) NSIndexPath *expandedIndexPath;
 
 
 @property(nonatomic, assign) id<UINavigationControllerDelegate,UIImagePickerControllerDelegate>delegate;
 
-
-
 - (IBAction)unwindToNewObjectVCAfterSaveButtonTaped:(UIStoryboardSegue*)segue;
 - (IBAction)unwindToNewObjectVCAfterBackButtonTapped:(UIStoryboardSegue *)segue;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *addPlaceOnMapButton;
-- (IBAction)addPlaceToMapButton:(UIButton *)sender;
+
+/*- (IBAction)addPlaceToMapButton:(UIButton *)sender;
 - (IBAction)addPhotosButton:(UIButton *)sender;
-- (IBAction)deletePhotosButton:(UIButton *)sender;
-
-
-
+- (IBAction)deletePhotosButton:(UIButton *)sender;*/
 
 @property (weak, nonatomic) IBOutlet UILabel *objectTypeLabel;
 
