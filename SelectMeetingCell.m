@@ -15,6 +15,25 @@
     // Initialization code
 }
 
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    
+    [self makeItCircle];
+}
+
+
+-(void)makeItCircle {
+    
+    self.meetingPicture.layer.masksToBounds = YES;
+    self.meetingPicture.layer.cornerRadius  = self.meetingPicture.frame.size.width/2.0;
+}
+
+
+
+
+
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

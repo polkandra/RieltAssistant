@@ -16,7 +16,7 @@
 #import "EstateObjectEntity+CoreDataProperties.h"
 #import "DataManager.h"
 #import "CoreDataTableVC.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 
 //@class DetailObjectController;
@@ -36,6 +36,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *emptyDataBaseLabel;
 
+@property (weak, nonatomic) IBOutlet UIImageView *justImage;
 
 @property(strong, nonatomic) EstateObjectEntity *detailItem;
 

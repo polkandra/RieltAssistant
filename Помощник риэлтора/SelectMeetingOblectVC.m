@@ -21,10 +21,10 @@
     [super viewDidLoad];
     [self setNavigationController];
 
-    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.backgroundColor = [StyleKitName gradientColor46];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
-    self.view.backgroundColor = [StyleKitName gradientColor7];
+    //self.view.backgroundColor = [StyleKitName gradientColor46];
 }
 
 
@@ -35,13 +35,51 @@
     
     if ([segue.identifier isEqualToString:@"unwindFromSelectMeetingVC"]) {
         
-        DetailMeetingController *dmVC = (DetailMeetingController *)segue.destinationViewController;
+        NewMeetingDetailViewController *dmVC = (NewMeetingDetailViewController *)segue.destinationViewController;
         NSIndexPath *selectedPath = [self.tableView indexPathForSelectedRow];
+        EstateObjectEntity *selectedEntity = [[self fetchedResultsController] objectAtIndexPath:selectedPath];
+        dmVC.detailItem = selectedEntity;
+        dmVC.chooseObjectLabel.hidden = YES;
+        dmVC.nameLabel.hidden = NO;
+        dmVC.addressLabel.hidden = NO;
+        dmVC.priceLabel.hidden = NO;
+        
        
-        // [self.navigationController pushViewController:dmVC animated:YES];
-    
-      //  [self performSegueWithIdentifier:@"unwindFromSelectMeetingVC" sender:self];
     }
+    
+}
+
+
+
+
+#pragma mark - Helpers
+
+
+-(void)setNavigationController {
+    
+    [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor52]];
+    [self.navigationController.navigationBar setTranslucent:YES];
+    
+    [self.navigationItem setTitle:@"Мои объекты"];
+    
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor],
+       NSFontAttributeName:[UIFont fontWithName:@"avenir" size:19]}];
+    
+    if (@available(iOS 11.0, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = NO;
+    } else {
+        // Fallback on earlier versions
+    }
+    
+    // making nav bar translucent
+    /*[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+     self.navigationController.navigationBar.shadowImage = [UIImage new];
+     self.navigationController.navigationBar.translucent = YES;*/
+    //
     
 }
 
@@ -101,10 +139,6 @@
 
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return 90;
-}
 
 
 #pragma mark - UITableViewDataSource
@@ -118,6 +152,10 @@
     return cell;
 }
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 130;
+}
 
 #pragma mark - cell configuring
 
@@ -133,50 +171,18 @@
     cell.addressOfMeeting.textColor = [UIColor whiteColor];
     
     cell.meetingPicture.image = [[UIImage alloc] initWithData:[object valueForKey:@"picture"]];
-    
+   /* cell.meetingPicture.layer.masksToBounds = YES;
+    cell.meetingPicture.layer.cornerRadius = self.meetingPicture.frame.size.width/2.0;
+   // cell.meetingPicture.clipsToBounds = YES;*/
     cell.backgroundColor = [UIColor clearColor];
-    
-    /*UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 140, 374, 30)];
-     
-     view.backgroundColor = [UIColor clearColor];
-     [cell.contentView addSubview:view];*/
-    
+   
 }
 
 
 
-#pragma mark - Helpers
-
-
--(void)setNavigationController {
-    
-    [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor52]];
-    [self.navigationController.navigationBar setTranslucent:YES];
-    
-    [self.navigationItem setTitle:@"Мои объекты"];
-    
-    [self.navigationController.navigationBar
-     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-    
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSForegroundColorAttributeName:[UIColor whiteColor],
-       NSFontAttributeName:[UIFont fontWithName:@"avenir" size:19]}];
-    
-    if (@available(iOS 11.0, *)) {
-        self.navigationController.navigationBar.prefersLargeTitles = NO;
-    } else {
-        // Fallback on earlier versions
-    }
-    
-    // making nav bar translucent
-    /*[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-     self.navigationController.navigationBar.shadowImage = [UIImage new];
-     self.navigationController.navigationBar.translucent = YES;*/
-    //
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
-
-
 
 
 

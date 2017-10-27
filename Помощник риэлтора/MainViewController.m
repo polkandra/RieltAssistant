@@ -169,10 +169,7 @@
 
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return 150;
-}
+
 
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -261,14 +258,16 @@
     return cell;
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 170;
+}
 
 #pragma mark - cell configuring
 
 - (void)configureCell:(MainScreenCellTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
     EstateObjectEntity *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-       
+  
     cell.nameCellLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"discription"]];
     cell.nameCellLabel.textColor = [UIColor whiteColor];
     cell.priceCellLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"price"]];

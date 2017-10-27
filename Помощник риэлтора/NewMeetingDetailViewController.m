@@ -13,18 +13,19 @@
 @end
 
 @implementation NewMeetingDetailViewController
-@synthesize tableView;
+@synthesize tableView, detailItem;
 
-
+#pragma mark - VC Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
   
     self.tableView.backgroundColor = [StyleKitName gradientColor8];
     
-   }
+    [self hideLabels];
+}
 
-
+#pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
@@ -61,16 +62,35 @@
 
 // unwind segue from SelectMeetingVC
 - (IBAction)unwindFromSelectMeetingVC:(UIStoryboardSegue*)segue {
+   
+    [self updateUI];
+
+}
+
+#pragma mark - Helpers
+
+
+-(void)updateUI {
     
+    self.nameLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"discription"]];
+    self.addressLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"address"]];
+    self.priceLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"price"]];
+    self.pictureImageView.image = [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
 }
 
 
+-(void)hideLabels {
+    self.nameLabel.hidden = YES;
+    self.addressLabel.hidden = YES;
+    self.priceLabel.hidden = YES;
+
+}
+
+#pragma mark - Actions
 
 - (IBAction)datePickerValueChanged:(id)sender {
 
  NSDate *selectedDate = [sender date];
-
-
 
 }
 @end

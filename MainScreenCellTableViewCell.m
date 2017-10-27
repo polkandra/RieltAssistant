@@ -14,8 +14,23 @@
 
 -(void)drawRect:(CGRect)rect {
     
-    //[StyleKitName drawTableViewCell];
+    //[StyleKitName drawVeryNewCell];
 
+}
+
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    
+    [self makeItCircle];
+}
+
+
+-(void)makeItCircle {
+    
+    self.imageViewCell.layer.masksToBounds = YES;
+   // self.imageViewCell.layer.cornerRadius  = self.imageViewCell.frame.size.width/2.0;
+    self.imageViewCell.layer.cornerRadius  = 15;
 
 }
 

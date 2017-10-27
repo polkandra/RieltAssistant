@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "MeetingObject.h"
+#import "EstateObjectEntity+CoreDataProperties.h"
+#import "EstateObject.h"
 
 @interface DetailMeetingController : UITableViewController
 
 @property(strong, nonatomic) MeetingObject* myMeetingObject;
+
+@property (strong, nonatomic) EstateObjectEntity* detailItem;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailNameOfObject;
 @property (weak, nonatomic) IBOutlet UILabel *detailTimeOfMeeting;

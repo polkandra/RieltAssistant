@@ -14,6 +14,8 @@
 #import "SelectMeetingCell.h"
 #import "EstateObject.h"
 #import "StyleKitName.h"
+#import "NewMeetingDetailViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface SelectMeetingOblectVC : CoreDataTableVC <UITableViewDataSource, UITableViewDataSource>
 
