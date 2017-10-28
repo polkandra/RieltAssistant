@@ -19,7 +19,9 @@
 
 -(void)drawRect:(CGRect)rect {
 
-   //  [StyleKitName drawMeetingCell];
+     [StyleKitName gradientColor55];
+    
+
 }
 
 

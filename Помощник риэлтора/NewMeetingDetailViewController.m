@@ -15,6 +15,8 @@
 @implementation NewMeetingDetailViewController
 @synthesize tableView, detailItem;
 
+
+
 #pragma mark - VC Lifecycle
 
 - (void)viewDidLoad {
@@ -25,18 +27,14 @@
     [self hideLabels];
 }
 
+
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"toMeetingsVC"]) {
      
-        self.meetingObject = [[MeetingObject alloc] init];
-        
-        
-        self.meetingObject.personName = self.personNameTextField.text;
-        self.meetingObject.phoneNumber = self.personPhoneTextField.text;
-        
         NSDate *myDate = _datePicker.date;
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         //[dateFormat setDateFormat:@"hh:mm a"];
@@ -51,11 +49,37 @@
         NSLocale *locale2 = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
         [dateFormat2 setLocale:locale];;
         NSString *timeString2 = [dateFormat2 stringFromDate:myDate2];
+        NSString *dateAndTime = [timeString stringByAppendingString:timeString2];
         
+        MeetingObjectEntity* object =
+        [NSEntityDescription insertNewObjectForEntityForName:@"MeetingObjectEntity"
+                                      inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
         
-        self.meetingObject.time = timeString;
-        self.meetingObject.date = timeString2;
+        MeetingsViewController *mVC = (MeetingsViewController *)segue.destinationViewController;
+        //DetailMeetingController *dmVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailMeeting"];
+        //dmVC.detailItem = self.detailItem;
+        mVC.detailItem = self.detailItem;
         
+        object.time = timeString;
+        object.date = timeString2;
+        object.objectName = self.nameLabel.text;
+        object.personName = self.personNameTextField.text;
+        object.dateAndTime = dateAndTime;
+        object.phoneNumber = self.personPhoneTextField.text;
+        object.meetDetails = self.meetDetailsTextView.text;
+        
+        if (self.meetDetailsTextView.text.length > 0) {
+        
+        object.meetDetails = self.meetDetailsTextView.text;
+        
+        }else{
+            
+            object.meetDetails = @"Нет заметок по встрече";
+            
+        }
+        
+            
+            [[[DataManager sharedManager] managedObjectContext] save:nil];
     }
  }
 
@@ -80,10 +104,10 @@
 
 
 -(void)hideLabels {
+    
     self.nameLabel.hidden = YES;
     self.addressLabel.hidden = YES;
     self.priceLabel.hidden = YES;
-
 }
 
 #pragma mark - Actions

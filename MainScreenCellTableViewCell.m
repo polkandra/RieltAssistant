@@ -15,13 +15,12 @@
 -(void)drawRect:(CGRect)rect {
     
     //[StyleKitName drawVeryNewCell];
-
 }
 
 
 -(void)layoutSubviews{
-    [super layoutSubviews];
     
+    [super layoutSubviews];
     [self makeItCircle];
 }
 
@@ -34,34 +33,6 @@
 
 }
 
-
-/*
-
- - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    
- 
- 
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])
- {
-  imageViewCell = [[UIImageView alloc] initWithFrame:(CGRectMake(0, 0, 99, 79))];
- 
-  nameCellLabel = [[UILabel alloc] initWithFrame:(CGRectMake(107, 8, 173, 42))];
-  nameCellLabel = [UIFont systemFontOfSize:17];
-  nameCellLabel.textAlignment = NSTextAlignmentCenter;
- 
- priceCellLabel = [[UILabel alloc] initWithFrame:(CGRectMake(137, 49, 113, 21))];
- priceCellLabel.font = [UIFont systemFontOfSize:13];
- priceCellLabel.textAlignment = NSTextAlignmentCenter;
- 
- [self.contentView addSubview:nameCellLabel];
- [self.contentView addSubview:priceCellLabel];
- [self.contentView addSubview:priceCellLabel];
- }
- 
- return self;
-}
-*/
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

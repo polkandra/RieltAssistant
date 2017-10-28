@@ -15,6 +15,9 @@
 @end
 
 @implementation MeetingsViewController
+@synthesize fetchedResultsController, tableView, meetingObject;
+
+#pragma mark - VC Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,42 +26,35 @@
 
     self.myMeetingsDetailsData = [[NSMutableArray alloc] init];
     
-    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.backgroundColor = [UIColor greenColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
-
 
 
    
 }
 
-
-
-
-#pragma mark - Unwind segue from NewMeetingVC
-
-
+// Unwind segue from NewMeetingVC
 
 - (IBAction)unwindFromNewMeetengsDetailVC:(UIStoryboardSegue*)segue {
     
     if ([segue.identifier isEqualToString:@"toMeetingsVC"]) {
         
-        NewMeetingDetailViewController *controller = segue.sourceViewController;
-        
-        MeetingObject* newObject = controller.meetingObject;
-        
-        [self.myMeetingsDetailsData addObject:newObject];
+        /* NewMeetingDetailViewController *controller = segue.sourceViewController;
+         
+         MeetingObject* newObject = controller.meetingObject;
+         
+         [self.myMeetingsDetailsData addObject:newObject];*/
         
         _disclaimerLabel.hidden = YES;
-
-        NSLog(@"my aaaaray = %@",self.myMeetingsDetailsData);
         
-        
-        [self.tableView reloadData];
+        //   [self.tableView reloadData];
         
     }
-    
 }
+
+
+
+#pragma mark - Navigation
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -67,10 +63,90 @@
         
         DetailMeetingController *controller = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        controller.myMeetingObject = [self.myMeetingsDetailsData objectAtIndex:indexPath.row];
+        MeetingObjectEntity *selectedEntity = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        controller.myMeetingObject = selectedEntity;
+        // controller.detailItem = self.detailItem;
+        
+        
+        //        EstateObjectEntity *selectedEntity1 = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        //        controller.detailItem = selectedEntity1;
+        //
+//        NSError *error;
+//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+//        self.retrievedArray = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
+//        
+//        for (id object in self.retrievedArray) {
+//            if ([object isKindOfClass:[EstateObjectEntity class]]) {
+//                self.detailItem = ((EstateObjectEntity *)object);
+//            }
+//        }
+//         self.detailItem = controller.detailItem;
+        
+        
+        //        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        //
+        //
         
     }
 }
+
+
+
+
+#pragma  mark - FRC
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (fetchedResultsController != nil) {
+        return fetchedResultsController;
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MeetingObjectEntity"
+                                              inManagedObjectContext:self.managedObjectContext];
+    
+  
+    [fetchRequest setEntity:entity];
+    
+    [fetchRequest setFetchBatchSize:10];
+    
+    // Edit the sort key as appropriate.
+    NSSortDescriptor *discription = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+    NSSortDescriptor *price = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES];
+    
+    NSArray *sortDescriptors = @[discription, price];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // Edit the section name key path and cache name if appropriate.
+    // nil for section name key path means "no sections".
+    NSFetchedResultsController *aFetchedResultsController =
+    [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                        managedObjectContext:self.managedObjectContext
+                                          sectionNameKeyPath:nil
+                                                   cacheName:nil];
+    
+    //    [NSFetchedResultsController deleteCacheWithName:@"Master"];
+    //    [NSFetchedResultsController load];
+    
+    aFetchedResultsController.delegate = self;
+    self.fetchedResultsController = aFetchedResultsController;
+    
+    
+    
+    NSError *error = nil;
+    if (![self.fetchedResultsController performFetch:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    return fetchedResultsController;
+}
+
+
 
 
 
@@ -78,30 +154,13 @@
 #pragma mark - UITableViewDataSource
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return [self.myMeetingsDetailsData count] ;
-
-    
-}
-
-
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
-    return 100;
+    return 120;
 }
 
 
-/*- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return [self.sections count];
-}
-
-
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+/*- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSDate *dateRepresentingThisDay = [self.sortedDays objectAtIndex:section];
     return [self.sectionDateFormatter stringFromDate:dateRepresentingThisDay];
@@ -109,61 +168,43 @@
 
 
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *cellIdentifier = @"MeetingCell";
+    
+    MeetingsCell *cell = (MeetingsCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    [self configureCell:cell atIndexPath:indexPath];
+
+    return cell;
+}
+
+
+-(void)configureCell:(MeetingsCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
+    MeetingObjectEntity* object = [self.fetchedResultsController objectAtIndexPath:indexPath];
    
-    
-   static NSString *CellIdentifier = @"MeetingCell";
-   
-    MeetingsCell *cell = (MeetingsCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (cell == nil) {
-        
-        cell = [[MeetingsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    MeetingObject* object = [self.myMeetingsDetailsData objectAtIndex:indexPath.row];
-    
-    cell.dateLabel.text = object.date;
+    cell.dateLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"date"]];
     cell.dateLabel.textColor = [UIColor whiteColor];
-   
-    cell.timeLabel.text = object.time;
+    
+    cell.timeLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"time"]];
     cell.timeLabel.textColor = [UIColor whiteColor];
     
-    cell.objectNameLabel.text = object.objectName;
+    cell.objectNameLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"objectName"]];;
     cell.objectNameLabel.textColor = [UIColor whiteColor];
     
-    cell.personNameLabel.text = object.personName;
+    cell.personNameLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"personName"]];;
     cell.personNameLabel.textColor = [UIColor whiteColor];
     
     
-    
-    return cell;
-
-  
 }
+
 
 #pragma mark - UITableViewDelegate
 
-
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-
-}
-
-
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        [self.myMeetingsDetailsData removeObjectAtIndex:indexPath.row];
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
-    }
 }
 
 

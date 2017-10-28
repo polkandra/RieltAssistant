@@ -46,7 +46,6 @@
         
        
     }
-    
 }
 
 
@@ -60,7 +59,7 @@
     [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor52]];
     [self.navigationController.navigationBar setTranslucent:YES];
     
-    [self.navigationItem setTitle:@"Мои объекты"];
+   // [self.navigationItem setTitle:@"Мои объекты"];
     
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
@@ -157,6 +156,7 @@
     return 130;
 }
 
+
 #pragma mark - cell configuring
 
 - (void)configureCell:(SelectMeetingCell *)cell atIndexPath:(NSIndexPath *)indexPath {
@@ -171,9 +171,7 @@
     cell.addressOfMeeting.textColor = [UIColor whiteColor];
     
     cell.meetingPicture.image = [[UIImage alloc] initWithData:[object valueForKey:@"picture"]];
-   /* cell.meetingPicture.layer.masksToBounds = YES;
-    cell.meetingPicture.layer.cornerRadius = self.meetingPicture.frame.size.width/2.0;
-   // cell.meetingPicture.clipsToBounds = YES;*/
+   
     cell.backgroundColor = [UIColor clearColor];
    
 }

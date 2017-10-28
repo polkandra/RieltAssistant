@@ -10,7 +10,7 @@
 #import "DetailObjectController.h"
 #import "NewObjectViewController.h"
 #import "DataManager.h"
-#import "EstateObjectEntity+CoreDataClass.h"
+//#import "EstateObjectEntity+CoreDataClass.h"
 
 
 @interface EbmeddedImageController : UIViewController

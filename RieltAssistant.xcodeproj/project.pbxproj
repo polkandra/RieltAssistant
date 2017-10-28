@@ -22,15 +22,15 @@
 		C6592CB11FA0B48D00CF60EE /* AddPhotoCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6592CB01FA0B48D00CF60EE /* AddPhotoCVCell.m */; };
 		C65B20201EEAE304009F8DFA /* AddToMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C65B201F1EEAE304009F8DFA /* AddToMapVC.m */; };
 		C65B20221EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master in Resources */ = {isa = PBXBuildFile; fileRef = C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */; };
-		C65C999C1F8513A70060F2C4 /* EstateObjectEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C65C999B1F8513A70060F2C4 /* EstateObjectEntity+CoreDataProperties.m */; };
+		C662270A1FA4C00A000854A4 /* MeetingObjectEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C66227031FA4C008000854A4 /* MeetingObjectEntity+CoreDataClass.m */; };
+		C662270B1FA4C00A000854A4 /* EstateObjectEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C66227051FA4C009000854A4 /* EstateObjectEntity+CoreDataProperties.m */; };
+		C662270C1FA4C00A000854A4 /* MeetingObjectEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C66227061FA4C009000854A4 /* MeetingObjectEntity+CoreDataProperties.m */; };
+		C662270D1FA4C00A000854A4 /* EstateObjectEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C66227081FA4C009000854A4 /* EstateObjectEntity+CoreDataClass.m */; };
 		C67BAADA1E7EBDC1004E9126 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAD91E7EBDC1004E9126 /* main.m */; };
 		C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */; };
 		C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADF1E7EBDC1004E9126 /* MainViewController.m */; };
 		C67BAAE31E7EBDC1004E9126 /* MeetingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAE21E7EBDC1004E9126 /* MeetingsViewController.m */; };
 		C67BAB571E7EEF59004E9126 /* MainScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAB561E7EEF59004E9126 /* MainScreenView.m */; };
-		C685F5271F266A1900A54900 /* EstateObjectEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C685F5241F266A1900A54900 /* EstateObjectEntity+CoreDataClass.m */; };
-		C685F52D1F266A2900A54900 /* MeetingObjectEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C685F52A1F266A2900A54900 /* MeetingObjectEntity+CoreDataClass.m */; };
-		C685F52E1F266A2900A54900 /* MeetingObjectEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C685F52C1F266A2900A54900 /* MeetingObjectEntity+CoreDataProperties.m */; };
 		C69206121ECB48F600D7210D /* DetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C69206111ECB48F600D7210D /* DetailCollectionViewCell.m */; };
 		C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */; };
 		C6A36DAB1E9A98EC00A00F04 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */; };
@@ -80,8 +80,14 @@
 		C65B201E1EEAE304009F8DFA /* AddToMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToMapVC.h; sourceTree = "<group>"; };
 		C65B201F1EEAE304009F8DFA /* AddToMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToMapVC.m; sourceTree = "<group>"; };
 		C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "SPGooglePlacesAutocomplete-master"; sourceTree = "<group>"; };
-		C65C999A1F8513A70060F2C4 /* EstateObjectEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EstateObjectEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
-		C65C999B1F8513A70060F2C4 /* EstateObjectEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EstateObjectEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C66227021FA4C007000854A4 /* EstateObjectEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EstateObjectEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C66227031FA4C008000854A4 /* MeetingObjectEntity+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MeetingObjectEntity+CoreDataClass.m"; sourceTree = "<group>"; };
+		C66227041FA4C008000854A4 /* MeetingObjectEntity+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MeetingObjectEntity+CoreDataClass.h"; sourceTree = "<group>"; };
+		C66227051FA4C009000854A4 /* EstateObjectEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EstateObjectEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C66227061FA4C009000854A4 /* MeetingObjectEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MeetingObjectEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C66227071FA4C009000854A4 /* EstateObjectEntity+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EstateObjectEntity+CoreDataClass.h"; sourceTree = "<group>"; };
+		C66227081FA4C009000854A4 /* EstateObjectEntity+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EstateObjectEntity+CoreDataClass.m"; sourceTree = "<group>"; };
+		C66227091FA4C009000854A4 /* MeetingObjectEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MeetingObjectEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
 		C67BAAD51E7EBDC1004E9126 /* RieltAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RieltAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67BAAD91E7EBDC1004E9126 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C67BAADB1E7EBDC1004E9126 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -93,12 +99,6 @@
 		C67BAAEC1E7EBDC2004E9126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C67BAB551E7EEF59004E9126 /* MainScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenView.h; sourceTree = "<group>"; };
 		C67BAB561E7EEF59004E9126 /* MainScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenView.m; sourceTree = "<group>"; };
-		C685F5231F266A1900A54900 /* EstateObjectEntity+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EstateObjectEntity+CoreDataClass.h"; sourceTree = "<group>"; };
-		C685F5241F266A1900A54900 /* EstateObjectEntity+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EstateObjectEntity+CoreDataClass.m"; sourceTree = "<group>"; };
-		C685F5291F266A2900A54900 /* MeetingObjectEntity+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MeetingObjectEntity+CoreDataClass.h"; sourceTree = "<group>"; };
-		C685F52A1F266A2900A54900 /* MeetingObjectEntity+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MeetingObjectEntity+CoreDataClass.m"; sourceTree = "<group>"; };
-		C685F52B1F266A2900A54900 /* MeetingObjectEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MeetingObjectEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
-		C685F52C1F266A2900A54900 /* MeetingObjectEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MeetingObjectEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
 		C69206101ECB48F600D7210D /* DetailCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCollectionViewCell.h; sourceTree = "<group>"; };
 		C69206111ECB48F600D7210D /* DetailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCollectionViewCell.m; sourceTree = "<group>"; };
 		C6A36DA31E9A827B00A00F04 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
@@ -304,14 +304,14 @@
 		C6A719CC1F0FF86900A5FE9B /* NSManagedObjectSubclasses */ = {
 			isa = PBXGroup;
 			children = (
-				C65C999A1F8513A70060F2C4 /* EstateObjectEntity+CoreDataProperties.h */,
-				C65C999B1F8513A70060F2C4 /* EstateObjectEntity+CoreDataProperties.m */,
-				C685F5291F266A2900A54900 /* MeetingObjectEntity+CoreDataClass.h */,
-				C685F52A1F266A2900A54900 /* MeetingObjectEntity+CoreDataClass.m */,
-				C685F52B1F266A2900A54900 /* MeetingObjectEntity+CoreDataProperties.h */,
-				C685F52C1F266A2900A54900 /* MeetingObjectEntity+CoreDataProperties.m */,
-				C685F5231F266A1900A54900 /* EstateObjectEntity+CoreDataClass.h */,
-				C685F5241F266A1900A54900 /* EstateObjectEntity+CoreDataClass.m */,
+				C66227071FA4C009000854A4 /* EstateObjectEntity+CoreDataClass.h */,
+				C66227081FA4C009000854A4 /* EstateObjectEntity+CoreDataClass.m */,
+				C66227021FA4C007000854A4 /* EstateObjectEntity+CoreDataProperties.h */,
+				C66227051FA4C009000854A4 /* EstateObjectEntity+CoreDataProperties.m */,
+				C66227041FA4C008000854A4 /* MeetingObjectEntity+CoreDataClass.h */,
+				C66227031FA4C008000854A4 /* MeetingObjectEntity+CoreDataClass.m */,
+				C66227091FA4C009000854A4 /* MeetingObjectEntity+CoreDataProperties.h */,
+				C66227061FA4C009000854A4 /* MeetingObjectEntity+CoreDataProperties.m */,
 			);
 			name = NSManagedObjectSubclasses;
 			sourceTree = "<group>";
@@ -501,8 +501,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C67BAAE31E7EBDC1004E9126 /* MeetingsViewController.m in Sources */,
-				C685F52E1F266A2900A54900 /* MeetingObjectEntity+CoreDataProperties.m in Sources */,
+				C662270A1FA4C00A000854A4 /* MeetingObjectEntity+CoreDataClass.m in Sources */,
 				C6A7196A1F0FD98B00A5FE9B /* DataManager.m in Sources */,
+				C662270D1FA4C00A000854A4 /* EstateObjectEntity+CoreDataClass.m in Sources */,
+				C662270B1FA4C00A000854A4 /* EstateObjectEntity+CoreDataProperties.m in Sources */,
 				C6D0E08F1EE8030B00E0FF26 /* MapAnnotation.m in Sources */,
 				C67BAB571E7EEF59004E9126 /* MainScreenView.m in Sources */,
 				C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */,
@@ -510,7 +512,6 @@
 				C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */,
 				C6592CB11FA0B48D00CF60EE /* AddPhotoCVCell.m in Sources */,
 				C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */,
-				C685F52D1F266A2900A54900 /* MeetingObjectEntity+CoreDataClass.m in Sources */,
 				C6D33CCF1F02973500F7C82B /* MeetingObject.m in Sources */,
 				C6F14D6A1EDF0AD800658494 /* EbmeddedImageController.m in Sources */,
 				C64A91C61FA243E700C995A8 /* SelectMeetingOblectVC.m in Sources */,
@@ -521,16 +522,15 @@
 				C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */,
 				C69206121ECB48F600D7210D /* DetailCollectionViewCell.m in Sources */,
 				C60D384B1FA365E400BD96AD /* StyleKitName.m in Sources */,
-				C65C999C1F8513A70060F2C4 /* EstateObjectEntity+CoreDataProperties.m in Sources */,
 				C6E11F071F0D256100456A4E /* DetailMeetingController.m in Sources */,
 				C60702391E8E7A64007933F0 /* MainScreenCellTableViewCell.m in Sources */,
 				C65B20201EEAE304009F8DFA /* AddToMapVC.m in Sources */,
 				C6F14D671EDF08FE00658494 /* UIPageViewControllerScene.m in Sources */,
 				C6592CAE1FA0B24000CF60EE /* AddPhotosVC.m in Sources */,
 				C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */,
+				C662270C1FA4C00A000854A4 /* MeetingObjectEntity+CoreDataProperties.m in Sources */,
 				C636778F1EE854FB0098FC90 /* MapTab.m in Sources */,
 				C6CDBEBB1F017EC00024B147 /* MeetingsCell.m in Sources */,
-				C685F5271F266A1900A54900 /* EstateObjectEntity+CoreDataClass.m in Sources */,
 				C67BAADA1E7EBDC1004E9126 /* main.m in Sources */,
 				C6A719D01F1005C500A5FE9B /* CoreDataTableVC.m in Sources */,
 			);

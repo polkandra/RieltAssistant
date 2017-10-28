@@ -2,8 +2,9 @@
 //  MeetingObjectEntity+CoreDataProperties.m
 //  RieltAssistant
 //
-//  Created by Mikhail Kozlyukov on 06.09.17.
+//  Created by Mikhail Kozlyukov on 28.10.2017.
 //  Copyright © 2017 Chebahatt. All rights reserved.
+//
 //
 
 #import "MeetingObjectEntity+CoreDataProperties.h"
@@ -16,6 +17,7 @@
 
 @dynamic date;
 @dynamic dateAndTime;
+@dynamic meetDetails;
 @dynamic objectName;
 @dynamic personName;
 @dynamic phoneNumber;

@@ -7,26 +7,31 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <EventKit/EventKit.h>
 #import "MeetingsCell.h"
 #import "MeetingObject.h"
 #import "StyleKitName.h"
 #import "NewMeetingDetailViewController.h"
 #import "DetailMeetingController.h"
-#import <EventKit/EventKit.h>
+#import "CoreDataTableVC.h"
+#import "MeetingObjectEntity+CoreDataProperties.h"
+#import "DataManager.h"
+#import "MeetingsCell.h"
 
-@interface MeetingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@interface MeetingsViewController : CoreDataTableVC <UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property(strong, nonatomic) NSMutableArray* myMeetingsDetailsData;
 
 @property (weak, nonatomic) IBOutlet UILabel *disclaimerLabel;
+@property(strong, nonatomic) NSMutableArray *retrievedArray;
 
+@property(strong, nonatomic) MeetingObjectEntity* meetingObject;
+@property(strong, nonatomic) EstateObjectEntity* detailItem;
 
-@property(strong, nonatomic) MeetingObject* meetingObject;
-
-
-
+- (void)configureCell:(MeetingsCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 
 

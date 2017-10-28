@@ -2,8 +2,9 @@
 //  EstateObjectEntity+CoreDataProperties.m
 //  RieltAssistant
 //
-//  Created by Mikhail Kozlyukov on 04.10.17.
+//  Created by Mikhail Kozlyukov on 28.10.2017.
 //  Copyright © 2017 Chebahatt. All rights reserved.
+//
 //
 
 #import "EstateObjectEntity+CoreDataProperties.h"
@@ -18,6 +19,7 @@
 @dynamic address;
 @dynamic arrayOfUsersPics;
 @dynamic discription;
+@dynamic globalPictureArray;
 @dynamic kitchenArea;
 @dynamic latitude;
 @dynamic livingArea;
@@ -29,7 +31,6 @@
 @dynamic roomQuantity;
 @dynamic typeOfProperty;
 @dynamic wholeArea;
-@dynamic globalPictureArray;
 @dynamic meetings;
 
 @end
