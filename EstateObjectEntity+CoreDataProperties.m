@@ -2,7 +2,7 @@
 //  EstateObjectEntity+CoreDataProperties.m
 //  RieltAssistant
 //
-//  Created by Mikhail Kozlyukov on 28.10.2017.
+//  Created by Mikhail Kozlyukov on 30.10.2017.
 //  Copyright © 2017 Chebahatt. All rights reserved.
 //
 //
@@ -31,6 +31,6 @@
 @dynamic roomQuantity;
 @dynamic typeOfProperty;
 @dynamic wholeArea;
-@dynamic meetings;
+@dynamic meetingObjects;
 
 @end

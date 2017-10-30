@@ -22,6 +22,8 @@
 		C6592CB11FA0B48D00CF60EE /* AddPhotoCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6592CB01FA0B48D00CF60EE /* AddPhotoCVCell.m */; };
 		C65B20201EEAE304009F8DFA /* AddToMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C65B201F1EEAE304009F8DFA /* AddToMapVC.m */; };
 		C65B20221EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master in Resources */ = {isa = PBXBuildFile; fileRef = C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */; };
+		C65E58281FA60565004734B5 /* AbstractEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C65E58261FA60565004734B5 /* AbstractEntity+CoreDataClass.m */; };
+		C65E58291FA60565004734B5 /* AbstractEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C65E58271FA60565004734B5 /* AbstractEntity+CoreDataProperties.m */; };
 		C662270A1FA4C00A000854A4 /* MeetingObjectEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C66227031FA4C008000854A4 /* MeetingObjectEntity+CoreDataClass.m */; };
 		C662270B1FA4C00A000854A4 /* EstateObjectEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C66227051FA4C009000854A4 /* EstateObjectEntity+CoreDataProperties.m */; };
 		C662270C1FA4C00A000854A4 /* MeetingObjectEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C66227061FA4C009000854A4 /* MeetingObjectEntity+CoreDataProperties.m */; };
@@ -80,6 +82,10 @@
 		C65B201E1EEAE304009F8DFA /* AddToMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToMapVC.h; sourceTree = "<group>"; };
 		C65B201F1EEAE304009F8DFA /* AddToMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToMapVC.m; sourceTree = "<group>"; };
 		C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "SPGooglePlacesAutocomplete-master"; sourceTree = "<group>"; };
+		C65E58241FA60565004734B5 /* AbstractEntity+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AbstractEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C65E58251FA60565004734B5 /* AbstractEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AbstractEntity+CoreDataClass.h"; sourceTree = "<group>"; };
+		C65E58261FA60565004734B5 /* AbstractEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AbstractEntity+CoreDataClass.m"; sourceTree = "<group>"; };
+		C65E58271FA60565004734B5 /* AbstractEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AbstractEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
 		C66227021FA4C007000854A4 /* EstateObjectEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EstateObjectEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
 		C66227031FA4C008000854A4 /* MeetingObjectEntity+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MeetingObjectEntity+CoreDataClass.m"; sourceTree = "<group>"; };
 		C66227041FA4C008000854A4 /* MeetingObjectEntity+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MeetingObjectEntity+CoreDataClass.h"; sourceTree = "<group>"; };
@@ -304,6 +310,10 @@
 		C6A719CC1F0FF86900A5FE9B /* NSManagedObjectSubclasses */ = {
 			isa = PBXGroup;
 			children = (
+				C65E58241FA60565004734B5 /* AbstractEntity+CoreDataProperties.h */,
+				C65E58271FA60565004734B5 /* AbstractEntity+CoreDataProperties.m */,
+				C65E58251FA60565004734B5 /* AbstractEntity+CoreDataClass.h */,
+				C65E58261FA60565004734B5 /* AbstractEntity+CoreDataClass.m */,
 				C66227071FA4C009000854A4 /* EstateObjectEntity+CoreDataClass.h */,
 				C66227081FA4C009000854A4 /* EstateObjectEntity+CoreDataClass.m */,
 				C66227021FA4C007000854A4 /* EstateObjectEntity+CoreDataProperties.h */,
@@ -516,10 +526,12 @@
 				C6F14D6A1EDF0AD800658494 /* EbmeddedImageController.m in Sources */,
 				C64A91C61FA243E700C995A8 /* SelectMeetingOblectVC.m in Sources */,
 				C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */,
+				C65E58291FA60565004734B5 /* AbstractEntity+CoreDataProperties.m in Sources */,
 				C6D33CD21F029CBA00F7C82B /* NewMeetingDetailViewController.m in Sources */,
 				C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */,
 				C6B1A14C1F11160E00965F9D /* Model.xcdatamodeld in Sources */,
 				C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */,
+				C65E58281FA60565004734B5 /* AbstractEntity+CoreDataClass.m in Sources */,
 				C69206121ECB48F600D7210D /* DetailCollectionViewCell.m in Sources */,
 				C60D384B1FA365E400BD96AD /* StyleKitName.m in Sources */,
 				C6E11F071F0D256100456A4E /* DetailMeetingController.m in Sources */,

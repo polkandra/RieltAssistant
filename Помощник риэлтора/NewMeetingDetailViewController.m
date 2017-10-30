@@ -13,7 +13,7 @@
 @end
 
 @implementation NewMeetingDetailViewController
-@synthesize tableView, detailItem;
+@synthesize tableView, detailItem, meetingObject;
 
 
 
@@ -24,10 +24,19 @@
   
     self.tableView.backgroundColor = [StyleKitName gradientColor8];
     
-    [self hideLabels];
+ 
+
+    
+    [self hideShowDeleteSaveButtons];
 }
 
-
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:YES];
+    [self updateLabels];
+    [self updateUIWithMeetingObject];
+    [self updateUIWithDetailItem];
+}
 
 #pragma mark - Navigation
 
@@ -37,12 +46,11 @@
      
         NSDate *myDate = _datePicker.date;
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        //[dateFormat setDateFormat:@"hh:mm a"];
         [dateFormat setDateFormat:@"HH:mm"];
         NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
         [dateFormat setLocale:locale];
         NSString *timeString = [dateFormat stringFromDate:myDate];
-    
+
         NSDate *myDate2 = _datePicker.date;
         NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
         [dateFormat2 setDateFormat:@"MMM d,ccc"];
@@ -50,14 +58,15 @@
         [dateFormat2 setLocale:locale];;
         NSString *timeString2 = [dateFormat2 stringFromDate:myDate2];
         NSString *dateAndTime = [timeString stringByAppendingString:timeString2];
+
+       
         
         MeetingObjectEntity* object =
         [NSEntityDescription insertNewObjectForEntityForName:@"MeetingObjectEntity"
                                       inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
         
         MeetingsViewController *mVC = (MeetingsViewController *)segue.destinationViewController;
-        //DetailMeetingController *dmVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailMeeting"];
-        //dmVC.detailItem = self.detailItem;
+        
         mVC.detailItem = self.detailItem;
         
         object.time = timeString;
@@ -67,48 +76,196 @@
         object.dateAndTime = dateAndTime;
         object.phoneNumber = self.personPhoneTextField.text;
         object.meetDetails = self.meetDetailsTextView.text;
+        object.estateObject = self.detailItem;
         
         if (self.meetDetailsTextView.text.length > 0) {
-        
-        object.meetDetails = self.meetDetailsTextView.text;
-        
+            
+            object.meetDetails = self.meetDetailsTextView.text;
+            
         }else{
             
             object.meetDetails = @"Нет заметок по встрече";
             
         }
         
+        [[[DataManager sharedManager] managedObjectContext] save:nil];
+        
+        
+    }else if ([segue.identifier isEqualToString:@"saveSecondButtonTapedInNewMeetingDetailVC"]) {
+        
+        DetailMeetingController *dvc = (DetailMeetingController *)segue.destinationViewController;
+        dvc.myMeetingObject = self.meetingObject;
+        dvc.detailItem = self.detailItem;
+        
+        if (self.meetingObject) {
+            
+            NSDate *myDate = _datePicker.date;
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"HH:mm"];
+            NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
+            [dateFormat setLocale:locale];
+            NSString *timeString = [dateFormat stringFromDate:myDate];
+            
+            NSDate *myDate2 = _datePicker.date;
+            NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
+            [dateFormat2 setDateFormat:@"MMM d,ccc"];
+            NSLocale *locale2 = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
+            [dateFormat2 setLocale:locale];;
+            NSString *timeString2 = [dateFormat2 stringFromDate:myDate2];
+            NSString *dateAndTime = [timeString stringByAppendingString:timeString2];
+            
+            
+            meetingObject.time = timeString;
+            meetingObject.date = timeString2;
+            meetingObject.objectName = self.nameLabel.text;
+            meetingObject.personName = self.personNameTextField.text;
+            meetingObject.dateAndTime = dateAndTime;
+            meetingObject.phoneNumber = self.personPhoneTextField.text;
+            meetingObject.meetDetails = self.meetDetailsTextView.text;
+            meetingObject.estateObject = self.detailItem;
+            
+            if (self.meetDetailsTextView.text.length > 0) {
+                
+                meetingObject.meetDetails = self.meetDetailsTextView.text;
+                
+            }else{
+                
+                meetingObject.meetDetails = @"Нет заметок по встрече";
+                
+            }
             
             [[[DataManager sharedManager] managedObjectContext] save:nil];
+            
+        }else{
+            
+            MeetingObjectEntity* object =
+            [NSEntityDescription insertNewObjectForEntityForName:@"MeetingObjectEntity"
+                                          inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
+            
+            MeetingsViewController *mVC = (MeetingsViewController *)segue.destinationViewController;
+            mVC.meetingObject = self.meetingObject;
+            
+            NSDate *myDate = _datePicker.date;
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"HH:mm"];
+            NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
+            [dateFormat setLocale:locale];
+            NSString *timeString = [dateFormat stringFromDate:myDate];
+            
+            NSDate *myDate2 = _datePicker.date;
+            NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
+            [dateFormat2 setDateFormat:@"MMM d,ccc"];
+            NSLocale *locale2 = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
+            [dateFormat2 setLocale:locale];;
+            NSString *timeString2 = [dateFormat2 stringFromDate:myDate2];
+            NSString *dateAndTime = [timeString stringByAppendingString:timeString2];
+            
+            object.time = timeString;
+            object.date = timeString2;
+            object.objectName = self.nameLabel.text;
+            object.personName = self.personNameTextField.text;
+            object.dateAndTime = dateAndTime;
+            object.phoneNumber = self.personPhoneTextField.text;
+            object.meetDetails = self.meetDetailsTextView.text;
+            object.estateObject = self.detailItem;
+            
+            if (self.meetDetailsTextView.text.length > 0) {
+                
+                object.meetDetails = self.meetDetailsTextView.text;
+                
+            }else{
+                
+                object.meetDetails = @"Нет заметок по встрече";
+                
+            }
+            
+            [[[DataManager sharedManager] managedObjectContext] save:nil];
+        }
+        
+        
+    }else if ([segue.identifier isEqualToString:@"deleteButtonTapedInNewMeetingDetailVC"]) {
+        
+        
+        [[[DataManager sharedManager] managedObjectContext] deleteObject:self.meetingObject];
+        
+        NSError *error = nil;
+        [[[DataManager sharedManager] managedObjectContext] save:&error];
+        
+    
+    
     }
- }
+    
+}
+
 
 
 // unwind segue from SelectMeetingVC
 - (IBAction)unwindFromSelectMeetingVC:(UIStoryboardSegue*)segue {
    
-    [self updateUI];
+//    [self updateUIWithDetailItem];
 
 }
 
 #pragma mark - Helpers
 
 
--(void)updateUI {
+
+-(void)hideShowDeleteSaveButtons {
     
-    self.nameLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"discription"]];
-    self.addressLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"address"]];
-    self.priceLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"price"]];
-    self.pictureImageView.image = [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
+    if (self.hideButton == YES) {
+        
+        self.saveSecondButon.hidden = YES;
+        self.deleteButton.hidden = YES;
+      
+        
+    }else{
+        
+        self.saveSecondButon.hidden = NO;
+        self.deleteButton.hidden = NO;
+      
+    }
 }
 
 
--(void)hideLabels {
+
+-(void)updateLabels {
     
-    self.nameLabel.hidden = YES;
-    self.addressLabel.hidden = YES;
-    self.priceLabel.hidden = YES;
+    self.chooseObjectLabel.text = self.chooseObjectString;
+    self.nameLabel.text = self.nameString;
+    self.addressLabel.text = self.addressString;
+    self.priceLabel.text = self.priceString;
+
 }
+
+
+
+-(void)updateUIWithDetailItem {
+    
+    if (self.detailItem) {
+        
+        self.nameLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"discription"]];
+        self.addressLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"address"]];
+        self.priceLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"price"]];
+        self.pictureImageView.image = [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
+    
+      
+    }
+}
+
+
+-(void)updateUIWithMeetingObject {
+    
+    if (self.meetingObject) {
+         
+         // self.datePicker.date =  [NSString stringWithFormat:@"%@",[meetingObject valueForKey:@"time"]];
+         self.personNameTextField.text = [NSString stringWithFormat:@"%@",[meetingObject valueForKey:@"personName"]];
+         self.personPhoneTextField.text = [NSString stringWithFormat:@"%@",[meetingObject valueForKey:@"phoneNumber"]];
+         self.meetDetailsTextView.text = [NSString stringWithFormat:@"%@",[meetingObject valueForKey:@"meetDetails"]];
+     
+     }
+}
+
+
 
 #pragma mark - Actions
 

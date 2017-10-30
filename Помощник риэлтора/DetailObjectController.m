@@ -43,9 +43,9 @@
     
     /*NSError *error;
      NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
-     self.fetchedObjects = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];*/
+     self.fetchedObjects = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
     NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
-    self.sourceArray = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
+    self.sourceArray = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];*/
     
 }
 

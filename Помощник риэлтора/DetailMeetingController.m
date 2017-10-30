@@ -17,10 +17,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureView];
+    
   
    
 
+}
+
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    [self configureView];
 }
 
 
@@ -43,7 +49,8 @@
 
 - (IBAction)editButtonTapped:(UIBarButtonItem *)sender {
 
-
+    NewMeetingDetailViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"NewMeetingDetailViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
@@ -62,46 +69,45 @@
 
 #pragma mark - Navigation
 
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"fromDetalMeetingToDetailObject"]) {
-        
-        NSError *error;
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
-        self.retrievedArray = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
-        
-        for (id object in self.retrievedArray) {
-            if ([object isKindOfClass:[EstateObjectEntity class]]) {
-                self.detailItem = ((EstateObjectEntity *)object);
-            }
-        }
-    
-        
+       
         DetailObjectController *doVC = segue.destinationViewController;
         doVC.navigationItem.hidesBackButton = YES;
         doVC.navigationItem.leftBarButtonItem = nil;
         doVC.navigationItem.rightBarButtonItem = nil;
-        //doVC.shareBarButtonItem = nil;
-        
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        NSInteger index = [self.retrievedArray indexOfObject:self.detailItem];
-        EstateObjectEntity *estateEntity = [self.retrievedArray objectAtIndex:index];
-        self.detailItem = [self.retrievedArray objectAtIndex:index];
-        
-        
-        
-        
-        doVC.detailItem = estateEntity;
+       
+        doVC.detailItem = self.detailItem;
         
         UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
         
         doVC.navigationItem.rightBarButtonItem = flipButton;
         
+    
+    }else if ([segue.identifier isEqualToString:@"editFromDetailMeetingVC"]) {
+        
+        NewMeetingDetailViewController *nmdVC = (NewMeetingDetailViewController *)segue.destinationViewController;
+        nmdVC.meetingObject = self.myMeetingObject;
+        nmdVC.detailItem = self.detailItem;
+       
+        nmdVC.chooseObjectLabel.text = @"";
+        nmdVC.nameLabel.hidden = NO;
+        nmdVC.addressLabel.hidden = NO;
+        nmdVC.priceLabel.hidden = NO;
+        nmdVC.navigationItem.rightBarButtonItem = nil;
+    
     }
 }
 
 
-#pragma mark - Helpers
+// unwind segues from NewMeetingDetailVC with saving
+- (IBAction)saveSecondButtonTapedInNewMeetingDetailVC:(UIStoryboardSegue*)segue {
+    
+    
+}
+
+
+
 
 -(void)dismissView {
     

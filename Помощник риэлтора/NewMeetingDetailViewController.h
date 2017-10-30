@@ -11,13 +11,18 @@
 #import "MeetingsViewController.h"
 #import "StyleKitName.h"
 #import "EstateObjectEntity+CoreDataProperties.h"
+#import "MeetingObjectEntity+CoreDataProperties.h"
 #import "EstateObject.h"
 #import "DataManager.h"
 #import "DetailMeetingController.h"
 
+
+
+
 @interface NewMeetingDetailViewController : UITableViewController 
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBarButtonItem;
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UITextField *personNameTextField;
@@ -25,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *meetDetailsTextView;
 
 @property (strong, nonatomic) EstateObjectEntity* detailItem;
-@property(strong, nonatomic) MeetingObject *meetingObject;
+@property(strong, nonatomic) MeetingObjectEntity *meetingObject;
 
 @property (weak, nonatomic) IBOutlet UILabel *chooseObjectLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -33,6 +38,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
 
+@property (weak, nonatomic) NSString *chooseObjectString;
+@property (weak, nonatomic) NSString *nameString;
+@property (weak, nonatomic) NSString *addressString;
+@property (weak, nonatomic) NSString *priceString;
+
+@property (weak, nonatomic) IBOutlet UIButton *saveSecondButon;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property (nonatomic, assign) BOOL hideButton;
 
 - (IBAction)datePickerValueChanged:(id)sender;
 

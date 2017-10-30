@@ -22,16 +22,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
+   
 
 
-    self.myMeetingsDetailsData = [[NSMutableArray alloc] init];
     
     self.tableView.backgroundColor = [UIColor greenColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
-
-   
 }
+
+
+
+#pragma mark - Navigation
 
 // Unwind segue from NewMeetingVC
 
@@ -52,41 +54,33 @@
     }
 }
 
+// unwind segues from NewMeetingDetailVC with deletion
+- (IBAction)deleteButtonTapedInNewMeetingDetailVC:(UIStoryboardSegue*)segue {
+    
+    
+}
 
-
-#pragma mark - Navigation
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"toDetailMeetingVC"]) {
         
-        DetailMeetingController *controller = segue.destinationViewController;
+        DetailMeetingController *controller = (DetailMeetingController  *)segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         MeetingObjectEntity *selectedEntity = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         controller.myMeetingObject = selectedEntity;
-        // controller.detailItem = self.detailItem;
+        controller.detailItem = selectedEntity.estateObject;
         
+    }else if ([segue.identifier isEqualToString:@"toNewMeetingDetailVC"]) {
         
-        //        EstateObjectEntity *selectedEntity1 = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        //        controller.detailItem = selectedEntity1;
-        //
-//        NSError *error;
-//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
-//        self.retrievedArray = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
-//        
-//        for (id object in self.retrievedArray) {
-//            if ([object isKindOfClass:[EstateObjectEntity class]]) {
-//                self.detailItem = ((EstateObjectEntity *)object);
-//            }
-//        }
-//         self.detailItem = controller.detailItem;
-        
-        
-        //        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        //
-        //
-        
+        NewMeetingDetailViewController *nmdVC = (NewMeetingDetailViewController *)segue.destinationViewController;
+        nmdVC.nameLabel.text = @"";
+        nmdVC.priceLabel.text = @"";
+        nmdVC.addressLabel.text = @"";
+        nmdVC.chooseObjectString = @"Выберите объект";
+        nmdVC.hideButton = YES;
+   
     }
 }
 
@@ -106,16 +100,16 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"MeetingObjectEntity"
                                               inManagedObjectContext:self.managedObjectContext];
     
-  
+   // [fetchRequest setIncludesSubentities:YES];
     [fetchRequest setEntity:entity];
     
     [fetchRequest setFetchBatchSize:10];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *discription = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
-    NSSortDescriptor *price = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES];
+    NSSortDescriptor *date = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+    NSSortDescriptor *time = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES];
     
-    NSArray *sortDescriptors = @[discription, price];
+    NSArray *sortDescriptors = @[date, time];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     
@@ -145,8 +139,6 @@
     
     return fetchedResultsController;
 }
-
-
 
 
 
