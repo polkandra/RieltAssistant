@@ -41,11 +41,11 @@
     
     [super viewWillAppear:YES];
     
-    /*NSError *error;
+    NSError *error;
      NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
      self.fetchedObjects = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
     NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
-    self.sourceArray = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];*/
+    self.sourceArray = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
     
 }
 
@@ -112,8 +112,9 @@
 // unwind segue from AddToMapVC with saving
 - (IBAction)saveFromAddToMapVC:(UIStoryboardSegue*)segue {
     
-    if ([segue.identifier isEqualToString:@"saveFromAddToMapVC:"]) {
-      
+    if ([segue.identifier isEqualToString:@"saveFromAddToMapVC"]) {
+       
+       // [self.goToMap setTitle:[NSString stringWithFormat:@"%@",[detailItem valueForKey:@"address"]] forState:UIControlStateNormal ];
     
     }
     

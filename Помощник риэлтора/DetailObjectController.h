@@ -36,6 +36,7 @@
 @property(strong, nonatomic) NSMutableArray* myDetailPhotosArray;
 @property(strong, nonatomic) NSMutableArray* fetchedObjects;
 
+@property (weak, nonatomic) IBOutlet UIButton *goToMap;
 
 @property(strong, nonatomic) EstateObjectEntity* detailItem;
 
@@ -46,9 +47,6 @@
 
 - (IBAction)detailMapAddressButton:(id)sender;
 - (IBAction)callButton:(UIButton *)sender;
-
-//- (IBAction)backBarButtonItem:(UIBarButtonItem *)sender;
-//- (IBAction)changeDetailItemBurButtonItem:(UIBarButtonItem *)sender;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *actionLabel;

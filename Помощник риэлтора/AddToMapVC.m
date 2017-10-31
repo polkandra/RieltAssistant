@@ -90,9 +90,7 @@
 -(void)fetchExistingPin {
    
     MapAnnotation *annotation = [[MapAnnotation alloc] init];
-    
     CLLocation *loc = [[CLLocation alloc] initWithLatitude:detailItem.latitude longitude:detailItem.longitude];
-    
     annotation.image =  [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
     annotation.title = [detailItem valueForKey:@"discription"];
     annotation.subtitle = [detailItem valueForKey:@"price"];
@@ -173,8 +171,8 @@
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
     if (searchText.length > 0) {
-        
-        [self.tableView setHidden:NO];
+        self.disclaimerLabel.hidden = YES;
+        self.tableView.hidden = NO;
         [self.searchQuery fetchPlacesForSearchQuery: searchText
                                          completion:^(NSArray *places, NSError *error) {
                                              if (error) {
@@ -482,11 +480,14 @@
     
     if ([segue.identifier isEqualToString:@"saveFromAddToMapVC"]) {
         
+        DetailObjectController *doVC = (DetailObjectController *)segue.destinationViewController;
+        
         
         NSLog(@"pins coordinates are %f  %f",_touchMapCoordinate.latitude,_touchMapCoordinate.longitude);
         
         [detailItem setValue:[NSNumber numberWithDouble:_touchMapCoordinate.latitude] forKey:@"latitude"];
         [detailItem setValue:[NSNumber numberWithDouble:_touchMapCoordinate.longitude] forKey:@"longitude"];
+        
         [[[DataManager sharedManager] managedObjectContext] save:nil];
         
         

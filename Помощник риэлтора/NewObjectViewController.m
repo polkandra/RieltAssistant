@@ -224,7 +224,7 @@
         
         if (( self.totalSquareTextField.text.length == 0 )){
             
-            object.wholeArea = @"--";
+            object.wholeArea = @"не указана";
             
         }else{
             
@@ -234,7 +234,7 @@
         
         if (( self.livingSquareTextField.text.length == 0 )){
             
-            object.livingArea = @"--";
+            object.livingArea = @"не указана";
             
         }else{
             
@@ -244,7 +244,7 @@
         
         if (( self.kitchenSquareTextField.text.length == 0 )) {
             
-            object.kitchenArea = @"--";
+            object.kitchenArea = @"не указана";
             
         }else{
         
@@ -394,7 +394,7 @@
             
             if (( self.totalSquareTextField.text.length == 0 )){
                 
-                object.wholeArea = @"--";
+                object.wholeArea = @"не указана";
                 
             }else{
                 
@@ -404,7 +404,7 @@
             
             if (( self.livingSquareTextField.text.length == 0 )){
                 
-                 object.livingArea = @"--";
+                 object.livingArea = @"не указана";
                  
              }else{
                  
@@ -414,7 +414,7 @@
             
              if (( self.kitchenSquareTextField.text.length == 0 )) {
                  
-                 object.kitchenArea = @"--";
+                 object.kitchenArea = @"не указана";
                  
              }else{
                  

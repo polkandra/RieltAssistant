@@ -33,7 +33,7 @@
 @property(strong, nonatomic) EstateObjectEntity *detailItem;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (strong, nonatomic)  CLLocationManager* locationManager;
+@property (strong, nonatomic)  CLLocationManager *locationManager;
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -49,6 +49,7 @@
 
 @property (strong, nonatomic) NSString *titleText;
 @property (strong, nonatomic) NSString *subTitleText;
+@property (weak, nonatomic) IBOutlet UILabel *disclaimerLabel;
 
 
 @property (assign, nonatomic) double longitude;
