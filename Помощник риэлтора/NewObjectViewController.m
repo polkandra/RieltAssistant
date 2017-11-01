@@ -81,22 +81,7 @@
     
     [super viewWillAppear:animated];
     
-    [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor46]];
-    [self.navigationController.navigationBar setTranslucent:NO];
-    
-    [self.navigationController.navigationBar
-     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-    
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSForegroundColorAttributeName:[UIColor whiteColor],
-       NSFontAttributeName:[UIFont fontWithName:@"avenir" size:17]}];
-    
-    if (@available(iOS 11.0, *)) {
-        self.navigationController.navigationBar.prefersLargeTitles = YES;
-    } else {
-        // Fallback on earlier versions
-    }
-   
+    [self setNavController];
     
     NSMutableString *concatString = [self.priceTextField.text mutableCopy];
     NSRange replaceRange = [concatString rangeOfString:@"Рублей"];
@@ -112,6 +97,27 @@
 
 
 #pragma mark - Helpers
+
+
+
+-(void)setNavController {
+    
+    [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor52]];
+    [self.navigationController.navigationBar setTranslucent:NO];
+    
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor redColor]}];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor],
+       NSFontAttributeName:[UIFont fontWithName:@"avenir" size:17]}];
+    
+    if (@available(iOS 11.0, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = YES;
+    } else {
+        // Fallback on earlier versions
+    }
+}
 
 
 -(void)hideBackButton {
@@ -191,6 +197,67 @@
         
     }
 }
+
+
+#pragma mark - UITableViewDelegate
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height)];
+
+    [headerView setBackgroundColor:[UIColor whiteColor]];
+   // [headerView setBackgroundColor:[StyleKitName gold]];
+    
+    if (section == 0) {
+        [headerView setBackgroundColor:[UIColor whiteColor]];
+        UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
+        titleLabel.text = @"Общие";
+        titleLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:18];
+        titleLabel.textColor = [UIColor grayColor];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        [headerView addSubview:titleLabel];
+    }else if (section == 1){
+        [headerView setBackgroundColor:[UIColor whiteColor]];
+        UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
+        titleLabel.text = @"Координаты";
+        titleLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:18];
+        titleLabel.textColor = [UIColor grayColor];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        [headerView addSubview:titleLabel];
+        
+    }else if (section == 2){
+        
+        [headerView setBackgroundColor:[UIColor whiteColor]];
+        UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
+        titleLabel.text = @"Параметры";
+        titleLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:18];
+        titleLabel.textColor = [UIColor grayColor];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        [headerView addSubview:titleLabel];
+    }else if (section == 3){
+        [headerView setBackgroundColor:[UIColor whiteColor]];
+        UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
+        titleLabel.text = @"Фото объекта";
+        titleLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:18];
+        titleLabel.textColor = [UIColor grayColor];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        [headerView addSubview:titleLabel];
+        
+    }else if (section == 3){
+        [headerView setBackgroundColor:[UIColor whiteColor]];
+        UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
+        titleLabel.text = @"Контакты";
+        titleLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:18];
+        titleLabel.textColor = [UIColor grayColor];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        [headerView addSubview:titleLabel];
+        
+    }
+    
+    return headerView;
+}
+
+
 
 
 
