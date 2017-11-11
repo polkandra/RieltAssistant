@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="efU-Df-iTV">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--MapTab-->
+        <scene sceneID="272-rJ-1vX">
+            <objects>
+                <viewController storyboardIdentifier="MapTab" title="MapTab" id="HGi-ja-Jut" customClass="MapTab" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ezv-Xu-dv7"/>
+                        <viewControllerLayoutGuide type="bottom" id="tFo-ZU-svk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lS6-o0-YqB" userLabel="justView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ODF-EI-j19">
+                                <rect key="frame" x="0.0" y="68" width="375" height="506"/>
+                                <connections>
+                                    <outlet property="delegate" destination="HGi-ja-Jut" id="UiP-ep-Rwa"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ODF-EI-j19" firstAttribute="leading" secondItem="lS6-o0-YqB" secondAttribute="leading" id="1eE-qs-PIv"/>
+                            <constraint firstItem="tFo-ZU-svk" firstAttribute="top" secondItem="ODF-EI-j19" secondAttribute="bottom" id="IS2-tF-FKP"/>
+                            <constraint firstAttribute="trailing" secondItem="ODF-EI-j19" secondAttribute="trailing" id="MQd-wT-DQa"/>
+                            <constraint firstItem="ODF-EI-j19" firstAttribute="top" secondItem="ezv-Xu-dv7" secondAttribute="bottom" id="vaW-VZ-5lQ"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="rlT-T4-Bxp"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Мои объекты" id="oI0-JR-Vsb">
+                        <barButtonItem key="rightBarButtonItem" image="all" id="l6b-f3-Fux">
+                            <connections>
+                                <action selector="showAllObjects:" destination="HGi-ja-Jut" id="0IF-KK-TtM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="mapView" destination="ODF-EI-j19" id="2GR-bc-DkP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7g7-mT-Qj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1317.5999999999999" y="429.53523238380814"/>
+        </scene>
+        <!--DetailObjectController-->
+        <scene sceneID="AVS-e7-T4S">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DetailObjectController" storyboardName="Object" referencedIdentifier="DetailObjectController" id="laR-GC-5XD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g3X-Fv-XHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2243" y="448"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fYS-cU-pGA">
+            <objects>
+                <navigationController storyboardIdentifier="Map" automaticallyAdjustsScrollViewInsets="NO" id="efU-Df-iTV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="map3" selectedImage="map3" id="cPa-gy-q4n" userLabel="Map">
+                        <inset key="imageInsets" minX="-5" minY="5" maxX="5" maxY="-5"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AvC-lN-H3H">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HGi-ja-Jut" kind="relationship" relationship="rootViewController" id="cHb-wP-C7w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eCg-uQ-s4M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="465" y="430"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="all" width="50" height="50"/>
+        <image name="map3" width="24" height="30"/>
+    </resources>
+</document>

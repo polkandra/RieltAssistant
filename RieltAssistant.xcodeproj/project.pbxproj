@@ -21,7 +21,6 @@
 		C6592CAE1FA0B24000CF60EE /* AddPhotosVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6592CAD1FA0B24000CF60EE /* AddPhotosVC.m */; };
 		C6592CB11FA0B48D00CF60EE /* AddPhotoCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6592CB01FA0B48D00CF60EE /* AddPhotoCVCell.m */; };
 		C65B20201EEAE304009F8DFA /* AddToMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C65B201F1EEAE304009F8DFA /* AddToMapVC.m */; };
-		C65B20221EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master in Resources */ = {isa = PBXBuildFile; fileRef = C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */; };
 		C65E58281FA60565004734B5 /* AbstractEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C65E58261FA60565004734B5 /* AbstractEntity+CoreDataClass.m */; };
 		C65E58291FA60565004734B5 /* AbstractEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C65E58271FA60565004734B5 /* AbstractEntity+CoreDataProperties.m */; };
 		C662270A1FA4C00A000854A4 /* MeetingObjectEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C66227031FA4C008000854A4 /* MeetingObjectEntity+CoreDataClass.m */; };
@@ -39,6 +38,9 @@
 		C6A7195D1F0FB6DC00A5FE9B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A7195C1F0FB6DC00A5FE9B /* CoreData.framework */; };
 		C6A7196A1F0FD98B00A5FE9B /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A719691F0FD98B00A5FE9B /* DataManager.m */; };
 		C6A719D01F1005C500A5FE9B /* CoreDataTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A719CF1F1005C500A5FE9B /* CoreDataTableVC.m */; };
+		C6AFF7D71FB7504F004A7995 /* Meetings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6AFF7D61FB7504F004A7995 /* Meetings.storyboard */; };
+		C6AFF7D91FB7514C004A7995 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6AFF7D81FB7514C004A7995 /* Map.storyboard */; };
+		C6AFF7DB1FB75218004A7995 /* Object.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6AFF7DA1FB75218004A7995 /* Object.storyboard */; };
 		C6B1A14C1F11160E00965F9D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6B1A14A1F11160E00965F9D /* Model.xcdatamodeld */; };
 		C6CDBEBB1F017EC00024B147 /* MeetingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CDBEB91F017EC00024B147 /* MeetingsCell.m */; };
 		C6D0E08F1EE8030B00E0FF26 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D0E08E1EE8030B00E0FF26 /* MapAnnotation.m */; };
@@ -52,6 +54,15 @@
 		C6E37E961EE2F0E30013DDD5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E37E951EE2F0E30013DDD5 /* MapKit.framework */; };
 		C6F14D671EDF08FE00658494 /* UIPageViewControllerScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F14D661EDF08FE00658494 /* UIPageViewControllerScene.m */; };
 		C6F14D6A1EDF0AD800658494 /* EbmeddedImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F14D691EDF0AD800658494 /* EbmeddedImageController.m */; };
+		C6FF87C01FB77BD600CFBE4A /* Blogger_Sans-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C6FF87B71FB77A5100CFBE4A /* Blogger_Sans-Light.otf */; };
+		C6FF87C11FB77BD600CFBE4A /* Blogger_Sans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C6FF87B81FB77A7600CFBE4A /* Blogger_Sans-Bold.otf */; };
+		C6FF87C21FB77BD600CFBE4A /* Blogger_Sans-Bold_Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C6FF87B91FB77A9D00CFBE4A /* Blogger_Sans-Bold_Italic.otf */; };
+		C6FF87C31FB77BD600CFBE4A /* Blogger_Sans-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C6FF87BA1FB77AC400CFBE4A /* Blogger_Sans-Italic.otf */; };
+		C6FF87C41FB77BD600CFBE4A /* Blogger_Sans-Light_Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C6FF87BB1FB77AEC00CFBE4A /* Blogger_Sans-Light_Italic.otf */; };
+		C6FF87C51FB77BD600CFBE4A /* Blogger_Sans.otf in Resources */ = {isa = PBXBuildFile; fileRef = C6FF87BC1FB77B1500CFBE4A /* Blogger_Sans.otf */; };
+		C6FF87C61FB77BD600CFBE4A /* clip.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6FF87BD1FB77B4200CFBE4A /* clip.ttf */; };
+		C6FF87C71FB77BD600CFBE4A /* Blogger_Sans-Medium_Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C6FF87BE1FB77B7000CFBE4A /* Blogger_Sans-Medium_Italic.otf */; };
+		C6FF87C81FB77BD600CFBE4A /* Blogger_Sans-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C6FF87BF1FB77B9F00CFBE4A /* Blogger_Sans-Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,7 +92,6 @@
 		C6592CB01FA0B48D00CF60EE /* AddPhotoCVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddPhotoCVCell.m; sourceTree = "<group>"; };
 		C65B201E1EEAE304009F8DFA /* AddToMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToMapVC.h; sourceTree = "<group>"; };
 		C65B201F1EEAE304009F8DFA /* AddToMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToMapVC.m; sourceTree = "<group>"; };
-		C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "SPGooglePlacesAutocomplete-master"; sourceTree = "<group>"; };
 		C65E58241FA60565004734B5 /* AbstractEntity+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AbstractEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
 		C65E58251FA60565004734B5 /* AbstractEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AbstractEntity+CoreDataClass.h"; sourceTree = "<group>"; };
 		C65E58261FA60565004734B5 /* AbstractEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AbstractEntity+CoreDataClass.m"; sourceTree = "<group>"; };
@@ -115,6 +125,9 @@
 		C6A719691F0FD98B00A5FE9B /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		C6A719CE1F1005C500A5FE9B /* CoreDataTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableVC.h; sourceTree = "<group>"; };
 		C6A719CF1F1005C500A5FE9B /* CoreDataTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableVC.m; sourceTree = "<group>"; };
+		C6AFF7D61FB7504F004A7995 /* Meetings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Meetings.storyboard; sourceTree = "<group>"; };
+		C6AFF7D81FB7514C004A7995 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		C6AFF7DA1FB75218004A7995 /* Object.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Object.storyboard; sourceTree = "<group>"; };
 		C6B1A14B1F11160E00965F9D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C6CDBEB81F017EC00024B147 /* MeetingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingsCell.h; sourceTree = "<group>"; };
 		C6CDBEB91F017EC00024B147 /* MeetingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingsCell.m; sourceTree = "<group>"; };
@@ -137,6 +150,15 @@
 		C6F14D661EDF08FE00658494 /* UIPageViewControllerScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPageViewControllerScene.m; sourceTree = "<group>"; };
 		C6F14D681EDF0AD800658494 /* EbmeddedImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EbmeddedImageController.h; sourceTree = "<group>"; };
 		C6F14D691EDF0AD800658494 /* EbmeddedImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EbmeddedImageController.m; sourceTree = "<group>"; };
+		C6FF87B71FB77A5100CFBE4A /* Blogger_Sans-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger_Sans-Light.otf"; sourceTree = "<group>"; };
+		C6FF87B81FB77A7600CFBE4A /* Blogger_Sans-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger_Sans-Bold.otf"; sourceTree = "<group>"; };
+		C6FF87B91FB77A9D00CFBE4A /* Blogger_Sans-Bold_Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger_Sans-Bold_Italic.otf"; sourceTree = "<group>"; };
+		C6FF87BA1FB77AC400CFBE4A /* Blogger_Sans-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger_Sans-Italic.otf"; sourceTree = "<group>"; };
+		C6FF87BB1FB77AEC00CFBE4A /* Blogger_Sans-Light_Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger_Sans-Light_Italic.otf"; sourceTree = "<group>"; };
+		C6FF87BC1FB77B1500CFBE4A /* Blogger_Sans.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Blogger_Sans.otf; sourceTree = "<group>"; };
+		C6FF87BD1FB77B4200CFBE4A /* clip.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = clip.ttf; sourceTree = "<group>"; };
+		C6FF87BE1FB77B7000CFBE4A /* Blogger_Sans-Medium_Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger_Sans-Medium_Italic.otf"; sourceTree = "<group>"; };
+		C6FF87BF1FB77B9F00CFBE4A /* Blogger_Sans-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger_Sans-Medium.otf"; sourceTree = "<group>"; };
 		DF636865D7E19A7A836332AF /* Pods-RieltAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RieltAssistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-RieltAssistant/Pods-RieltAssistant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -285,7 +307,6 @@
 				C60D384C1FA371BA00BD96AD /* QuartzCore.framework */,
 				C6A7195C1F0FB6DC00A5FE9B /* CoreData.framework */,
 				C63542451F0D62FE0034149E /* EventKit.framework */,
-				C65B20211EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master */,
 				C6E37E951EE2F0E30013DDD5 /* MapKit.framework */,
 				C6E37E931EE2F0D80013DDD5 /* CoreLocation.framework */,
 				C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */,
@@ -326,6 +347,22 @@
 			name = NSManagedObjectSubclasses;
 			sourceTree = "<group>";
 		};
+		C6AFF7DC1FB7562B004A7995 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C6FF87B91FB77A9D00CFBE4A /* Blogger_Sans-Bold_Italic.otf */,
+				C6FF87B81FB77A7600CFBE4A /* Blogger_Sans-Bold.otf */,
+				C6FF87BA1FB77AC400CFBE4A /* Blogger_Sans-Italic.otf */,
+				C6FF87BB1FB77AEC00CFBE4A /* Blogger_Sans-Light_Italic.otf */,
+				C6FF87B71FB77A5100CFBE4A /* Blogger_Sans-Light.otf */,
+				C6FF87BE1FB77B7000CFBE4A /* Blogger_Sans-Medium_Italic.otf */,
+				C6FF87BF1FB77B9F00CFBE4A /* Blogger_Sans-Medium.otf */,
+				C6FF87BC1FB77B1500CFBE4A /* Blogger_Sans.otf */,
+				C6FF87BD1FB77B4200CFBE4A /* clip.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		C6CAB5D51EE1E91D00078A32 /* PageViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +379,9 @@
 			children = (
 				C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */,
 				C6E35E641E9D08A100235216 /* Main.storyboard */,
+				C6AFF7DA1FB75218004A7995 /* Object.storyboard */,
+				C6AFF7D81FB7514C004A7995 /* Map.storyboard */,
+				C6AFF7D61FB7504F004A7995 /* Meetings.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -349,6 +389,7 @@
 		C6D5F9A71F7AB29400D782A9 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				C6AFF7DC1FB7562B004A7995 /* Fonts */,
 				C63412F31EB4B24800ACE886 /* Assets.xcassets */,
 			);
 			name = Assets;
@@ -448,9 +489,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C65B20221EEB4D40009F8DFA /* SPGooglePlacesAutocomplete-master in Resources */,
+				C6FF87C71FB77BD600CFBE4A /* Blogger_Sans-Medium_Italic.otf in Resources */,
+				C6FF87C21FB77BD600CFBE4A /* Blogger_Sans-Bold_Italic.otf in Resources */,
+				C6FF87C11FB77BD600CFBE4A /* Blogger_Sans-Bold.otf in Resources */,
+				C6FF87C41FB77BD600CFBE4A /* Blogger_Sans-Light_Italic.otf in Resources */,
+				C6FF87C61FB77BD600CFBE4A /* clip.ttf in Resources */,
+				C6FF87C01FB77BD600CFBE4A /* Blogger_Sans-Light.otf in Resources */,
 				C609EE7A1EBA13E300B6F9D8 /* LaunchScreen.storyboard in Resources */,
+				C6FF87C51FB77BD600CFBE4A /* Blogger_Sans.otf in Resources */,
 				C63412F41EB4B24800ACE886 /* Assets.xcassets in Resources */,
+				C6FF87C31FB77BD600CFBE4A /* Blogger_Sans-Italic.otf in Resources */,
+				C6AFF7D91FB7514C004A7995 /* Map.storyboard in Resources */,
+				C6AFF7DB1FB75218004A7995 /* Object.storyboard in Resources */,
+				C6FF87C81FB77BD600CFBE4A /* Blogger_Sans-Medium.otf in Resources */,
+				C6AFF7D71FB7504F004A7995 /* Meetings.storyboard in Resources */,
 				C6E35E651E9D08A100235216 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,13 +516,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RieltAssistant-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B52AE9581EA921A00F06ADD3 /* [CP] Copy Pods Resources */ = {
@@ -479,9 +534,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RieltAssistant/Pods-RieltAssistant-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
