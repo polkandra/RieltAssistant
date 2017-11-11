@@ -131,7 +131,7 @@
         <!--Object-->
         <scene sceneID="zYu-rT-Bzk">
             <objects>
-                <viewControllerPlaceholder storyboardName="Object" referencedIdentifier="Object" id="rau-Z7-59e" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="Objects" storyboardName="Object" referencedIdentifier="Object" id="rau-Z7-59e" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="RC8-zH-LFj"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KCa-sw-CzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
