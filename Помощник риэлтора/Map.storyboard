@@ -21,8 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ODF-EI-j19">
-                                <rect key="frame" x="0.0" y="68" width="375" height="506"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ODF-EI-j19">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <connections>
                                     <outlet property="delegate" destination="HGi-ja-Jut" id="UiP-ep-Rwa"/>
                                 </connections>
@@ -30,10 +30,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ODF-EI-j19" firstAttribute="leading" secondItem="lS6-o0-YqB" secondAttribute="leading" id="1eE-qs-PIv"/>
-                            <constraint firstItem="tFo-ZU-svk" firstAttribute="top" secondItem="ODF-EI-j19" secondAttribute="bottom" id="IS2-tF-FKP"/>
-                            <constraint firstAttribute="trailing" secondItem="ODF-EI-j19" secondAttribute="trailing" id="MQd-wT-DQa"/>
-                            <constraint firstItem="ODF-EI-j19" firstAttribute="top" secondItem="ezv-Xu-dv7" secondAttribute="bottom" id="vaW-VZ-5lQ"/>
+                            <constraint firstItem="ODF-EI-j19" firstAttribute="top" secondItem="ezv-Xu-dv7" secondAttribute="bottom" id="0dA-nm-cVb"/>
+                            <constraint firstItem="ODF-EI-j19" firstAttribute="leading" secondItem="lS6-o0-YqB" secondAttribute="leading" id="e8w-Qi-Mng"/>
+                            <constraint firstItem="tFo-ZU-svk" firstAttribute="top" secondItem="ODF-EI-j19" secondAttribute="bottom" id="h3Q-bN-aRz"/>
+                            <constraint firstAttribute="trailing" secondItem="ODF-EI-j19" secondAttribute="trailing" id="yjG-rK-QaF"/>
                         </constraints>
                     </view>
                     <toolbarItems>
@@ -63,7 +63,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="DetailObjectController" storyboardName="Object" referencedIdentifier="DetailObjectController" id="laR-GC-5XD" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3X-Fv-XHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2243" y="448"/>
+            <point key="canvasLocation" x="1858" y="433"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fYS-cU-pGA">

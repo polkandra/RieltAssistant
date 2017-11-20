@@ -33,6 +33,7 @@
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.allowsSelection = NO;
     
+
 }
 
 
@@ -65,7 +66,7 @@
     if (self.detailItem) {
         
         self.title = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"discription"]];
-       
+        
         self.detailPriceLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"price"]];
         self.detailAddressLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"address"]];
         self.detailOwnerLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"owner"]];
@@ -76,24 +77,24 @@
         self.phoneNumberLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"phoneNumber"]];
         self.actionLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"typeOfProperty"]];
         self.typeLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"actionByProperty"]];
-       
+        self.detailInfoLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"detailInformation"]];
     }
 }
 
 
 -(void)setNavController {
 
- [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor46]];
+ [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor52]];
  [self.navigationController.navigationBar setTranslucent:NO];
  
  //  [self.navigationItem setTitle:@"Новый объект"];
  
  [self.navigationController.navigationBar
- setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+ setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
  
  [self.navigationController.navigationBar setTitleTextAttributes:
  @{NSForegroundColorAttributeName:[UIColor whiteColor],
- NSFontAttributeName:[UIFont fontWithName:@"avenir" size:19]}];
+ NSFontAttributeName:[UIFont fontWithName:@"BloggerSans-BoldItalic" size:21]}];
  
  if (@available(iOS 11.0, *)) {
  self.navigationController.navigationBar.prefersLargeTitles = NO;
@@ -124,6 +125,8 @@
 
 // unwind segue from NewObjectVC with saving
 - (IBAction)saveSecondButtonTaped:(UIStoryboardSegue*)segue {
+    
+   
     
     if ([segue.identifier isEqualToString:@"unwindAndSaveToDetail"]) {
         
@@ -167,7 +170,7 @@
         newVC.saveSecondButton.hidden = NO;
         newVC.hideButton = NO;
         newVC.navigationItem.hidesBackButton = YES;
-   
+  // newVC.navigationController.navigationBar.backItem.
         
     
     }else if ([segue.identifier isEqualToString:@"unwindAfterBackButtonFromDetail"]) {

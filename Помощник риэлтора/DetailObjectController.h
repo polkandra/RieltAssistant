@@ -18,6 +18,10 @@
 
 
 @interface DetailObjectController : UITableViewController
+
+
+
+
 - (IBAction)shareButtonTapped:(UIBarButtonItem *)sender;
 
 
@@ -57,10 +61,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *detailLivingSquareLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailKitchenSquareLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailOwnerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *detailInfoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 
 
 
-@property (weak, nonatomic) IBOutlet UIImageView *handsetImageView;
 
 
 

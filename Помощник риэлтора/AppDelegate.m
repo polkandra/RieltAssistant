@@ -19,7 +19,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+   
     
     
     
@@ -31,10 +31,10 @@
     
     
     
-    UIImage *tabBarBackground = [UIImage imageNamed:@"imageOfGradient2"];
-    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-    [[UITabBar appearance] setTintColor:[UIColor redColor]];
-    
+   // UIImage *tabBarBackground = [UIImage imageNamed:@"imageOfGradient2"];
+    //[[UITabBar appearance] setBackgroundImage:tabBarBackground];
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UITabBar appearance] setBarTintColor:[StyleKitName gradientColor52]];
    
     
     /* // setting navigation bar translucent
@@ -59,24 +59,6 @@
     
     
     
-    
-    
-    
-  /*  AddToMapVC *adtVC = (AddToMapVC *)[addToMapStoryboard instantiateViewControllerWithIdentifier: @"AddToMapVC"];
-    MapTab *mtVC = (MapTab *)[addToMapStoryboard instantiateViewControllerWithIdentifier: @"MapTab"];
-    
-    
-    adtVC.detailItem = mtVC.detailItem;
-    
-    
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    MapTab *mtVC = (MapTab *)[addToMapStoryboard instantiateViewControllerWithIdentifier: @"MapTab"];
-    mtVC.detailItem = delegate.detailItem;*/
-    
-  
-    
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    delegate.delegateMutableArray = [NSMutableArray array];
     
     
     return YES;

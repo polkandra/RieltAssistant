@@ -27,6 +27,9 @@
         <array key="Blogger_Sans-Medium_Italic.otf">
             <string>BloggerSans-MediumItalic</string>
         </array>
+        <array key="Blogger_Sans.otf">
+            <string>BloggerSans</string>
+        </array>
         <array key="TrebuchetMS.ttf">
             <string>TrebuchetMS</string>
         </array>
@@ -35,6 +38,120 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Search Results Table View Controller-->
+        <scene sceneID="jdq-Fw-aWt">
+            <objects>
+                <tableViewController storyboardIdentifier="SearchResultsTableViewController" id="Uns-bg-zEL" customClass="SearchResultsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7wf-iZ-4iS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="SearchResultCell" rowHeight="170" id="nyv-hv-U5J" customClass="FilteredResultCellTableViewCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="170"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nyv-hv-U5J" id="bg9-vc-XEr">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="169.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CHq-lX-cCP">
+                                            <rect key="frame" x="0.0" y="0.0" width="378" height="154"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="378" id="IGo-AC-ydI"/>
+                                                <constraint firstAttribute="height" constant="154" id="XrI-42-9t7"/>
+                                            </constraints>
+                                        </imageView>
+                                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eOh-Ty-QPJ" userLabel="bottomView">
+                                            <rect key="frame" x="0.0" y="154" width="375" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="375" id="A6K-MI-VtD"/>
+                                                <constraint firstAttribute="height" constant="16" id="P2h-DR-pg3"/>
+                                            </constraints>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellDarken" translatesAutoresizingMaskIntoConstraints="NO" id="svO-iE-XRT">
+                                            <rect key="frame" x="0.0" y="75" width="375" height="87"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="375" id="WFR-oA-PtP"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AddressLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7h-SD-2TC">
+                                            <rect key="frame" x="5" y="126" width="98.5" height="17"/>
+                                            <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ownerLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geD-yI-OIj">
+                                            <rect key="frame" x="5" y="105" width="215" height="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="215" id="aT5-J5-Wn8"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NameLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6V-iy-Shf">
+                                            <rect key="frame" x="5" y="77" width="370" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="DaV-Pq-pyg"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена не указана" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oh7-PY-KhQ">
+                                            <rect key="frame" x="228" y="105" width="142" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="E5K-qr-sef"/>
+                                                <constraint firstAttribute="width" constant="142" id="VPk-eP-wEq"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="16"/>
+                                            <color key="textColor" red="1" green="0.46666666670000001" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="eOh-Ty-QPJ" firstAttribute="leading" secondItem="bg9-vc-XEr" secondAttribute="leading" id="19G-Yq-9Nn"/>
+                                        <constraint firstItem="eOh-Ty-QPJ" firstAttribute="top" secondItem="Oh7-PY-KhQ" secondAttribute="bottom" constant="33" id="2zz-G8-X87"/>
+                                        <constraint firstAttribute="trailing" secondItem="svO-iE-XRT" secondAttribute="trailing" constant="-33" id="3kr-Mv-9DI"/>
+                                        <constraint firstItem="eOh-Ty-QPJ" firstAttribute="top" secondItem="L7h-SD-2TC" secondAttribute="bottom" constant="11" id="8Ul-am-bZW"/>
+                                        <constraint firstItem="L7h-SD-2TC" firstAttribute="top" secondItem="geD-yI-OIj" secondAttribute="bottom" constant="4" id="8j6-34-0c0"/>
+                                        <constraint firstAttribute="trailing" secondItem="CHq-lX-cCP" secondAttribute="trailing" constant="-37" id="AXy-AG-Bfi"/>
+                                        <constraint firstItem="l6V-iy-Shf" firstAttribute="trailing" secondItem="svO-iE-XRT" secondAttribute="trailing" id="BrZ-NI-CPc"/>
+                                        <constraint firstItem="L7h-SD-2TC" firstAttribute="leading" secondItem="bg9-vc-XEr" secondAttribute="leading" constant="5" id="SBI-YL-tR4"/>
+                                        <constraint firstItem="CHq-lX-cCP" firstAttribute="leading" secondItem="bg9-vc-XEr" secondAttribute="leading" id="UKq-4C-SFZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="eOh-Ty-QPJ" secondAttribute="bottom" id="ZnW-8B-uQw"/>
+                                        <constraint firstItem="l6V-iy-Shf" firstAttribute="centerY" secondItem="bg9-vc-XEr" secondAttribute="centerY" id="bpC-9P-pqI"/>
+                                        <constraint firstAttribute="trailing" secondItem="L7h-SD-2TC" secondAttribute="trailing" constant="-28" id="cbh-T7-W4e"/>
+                                        <constraint firstItem="geD-yI-OIj" firstAttribute="leading" secondItem="bg9-vc-XEr" secondAttribute="leading" constant="5" id="f2U-V3-JUT"/>
+                                        <constraint firstItem="CHq-lX-cCP" firstAttribute="top" secondItem="bg9-vc-XEr" secondAttribute="top" id="lt4-Sl-7Hf"/>
+                                        <constraint firstItem="l6V-iy-Shf" firstAttribute="leading" secondItem="geD-yI-OIj" secondAttribute="leading" id="qXQ-FL-cwd"/>
+                                        <constraint firstItem="svO-iE-XRT" firstAttribute="top" secondItem="bg9-vc-XEr" secondAttribute="top" constant="75" id="tzf-sG-ZQp"/>
+                                        <constraint firstAttribute="bottom" secondItem="svO-iE-XRT" secondAttribute="bottom" constant="7.5" id="vqJ-nd-8Vw"/>
+                                        <constraint firstItem="eOh-Ty-QPJ" firstAttribute="top" secondItem="CHq-lX-cCP" secondAttribute="bottom" id="wXn-se-Uix"/>
+                                        <constraint firstItem="Oh7-PY-KhQ" firstAttribute="leading" secondItem="geD-yI-OIj" secondAttribute="trailing" constant="8" symbolic="YES" id="x5Z-qQ-QAB"/>
+                                        <constraint firstItem="svO-iE-XRT" firstAttribute="leading" secondItem="bg9-vc-XEr" secondAttribute="leading" id="yJy-a9-b2d"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="addressCellLabel" destination="L7h-SD-2TC" id="PHP-Na-1dV"/>
+                                    <outlet property="imageViewCell" destination="CHq-lX-cCP" id="Mk3-bB-2ZG"/>
+                                    <outlet property="nameCellLabel" destination="l6V-iy-Shf" id="bPr-jk-abr"/>
+                                    <outlet property="ownerCellLabel" destination="geD-yI-OIj" id="AdD-bY-6Br"/>
+                                    <outlet property="priceCellLabel" destination="Oh7-PY-KhQ" id="ABo-kO-AWO"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Uns-bg-zEL" id="srq-ad-JkB"/>
+                            <outlet property="delegate" destination="Uns-bg-zEL" id="7g4-JR-4pz"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Px5-kT-sxp"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LaG-0X-ocG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1213.5999999999999" y="-1052.0239880059971"/>
+        </scene>
         <!--DetailObjectVC-->
         <scene sceneID="HK7-DQ-paw">
             <objects>
@@ -90,24 +207,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0a-ba-2OS">
-                                                    <rect key="frame" x="10" y="14" width="349" height="15.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Нижегородская 123 владение 12" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0a-ba-2OS">
+                                                    <rect key="frame" x="10" y="14" width="370" height="25"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="349" id="BcK-Os-knB"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="19"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9d-O1-4cP">
-                                                    <rect key="frame" x="10" y="60.5" width="245" height="23.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="245" id="lT0-2a-4KL"/>
+                                                        <constraint firstAttribute="height" constant="25" id="lDB-rd-l9e"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="20"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена не указана" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9d-O1-4cP">
+                                                    <rect key="frame" x="10" y="64" width="196" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="196" id="caD-pX-ieu"/>
+                                                        <constraint firstAttribute="height" constant="26" id="eed-r3-Mz2"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="22"/>
                                                     <color key="textColor" red="1" green="0.46666666666666667" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Аренда" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTy-8F-ZNI">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Аренда" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTy-8F-ZNI">
                                                     <rect key="frame" x="187" y="50" width="178" height="16.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="178" id="2rK-5f-i0R"/>
@@ -116,29 +234,25 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Квартира" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYI-9B-1pJ">
-                                                    <rect key="frame" x="187" y="68.5" width="178" height="16.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="178" id="85q-Bs-mx2"/>
-                                                    </constraints>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Нежилое помещение" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYI-9B-1pJ">
+                                                    <rect key="frame" x="187" y="69" width="178" height="17"/>
                                                     <fontDescription key="fontDescription" name="Clip-Condensed" family="Clip " pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="jTy-8F-ZNI" firstAttribute="top" secondItem="Q0a-ba-2OS" secondAttribute="bottom" constant="17" id="0qu-8I-Nfc"/>
-                                                <constraint firstItem="fYI-9B-1pJ" firstAttribute="top" secondItem="jTy-8F-ZNI" secondAttribute="bottom" constant="2" id="Dac-zW-rXP"/>
-                                                <constraint firstAttribute="trailing" secondItem="fYI-9B-1pJ" secondAttribute="trailing" constant="10" id="N7P-PH-mlY"/>
-                                                <constraint firstItem="z9d-O1-4cP" firstAttribute="leading" secondItem="Pqn-0R-eH0" secondAttribute="leading" constant="10" id="Zey-Bx-Myt"/>
-                                                <constraint firstItem="z9d-O1-4cP" firstAttribute="top" secondItem="Q0a-ba-2OS" secondAttribute="bottom" constant="31" id="dcM-UI-NrI"/>
-                                                <constraint firstAttribute="bottom" secondItem="fYI-9B-1pJ" secondAttribute="bottom" constant="15" id="eyu-VP-ACY"/>
-                                                <constraint firstItem="Q0a-ba-2OS" firstAttribute="top" secondItem="Pqn-0R-eH0" secondAttribute="top" constant="14" id="i00-3F-Svc"/>
-                                                <constraint firstItem="fYI-9B-1pJ" firstAttribute="top" secondItem="jTy-8F-ZNI" secondAttribute="bottom" constant="2" id="iCY-6P-rcg"/>
+                                                <constraint firstItem="z9d-O1-4cP" firstAttribute="leading" secondItem="Pqn-0R-eH0" secondAttribute="leading" constant="10" id="6Mh-LM-jtf"/>
+                                                <constraint firstItem="Q0a-ba-2OS" firstAttribute="leading" secondItem="z9d-O1-4cP" secondAttribute="leading" id="E34-Hi-n7r"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="fYI-9B-1pJ" secondAttribute="bottom" constant="3" id="EmV-u6-ggT"/>
+                                                <constraint firstItem="fYI-9B-1pJ" firstAttribute="leading" secondItem="jTy-8F-ZNI" secondAttribute="leading" id="I0w-yG-BHJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="z9d-O1-4cP" secondAttribute="bottom" constant="10" id="OcD-CT-mmg"/>
+                                                <constraint firstItem="fYI-9B-1pJ" firstAttribute="trailing" secondItem="jTy-8F-ZNI" secondAttribute="trailing" id="fBR-BW-bvz"/>
                                                 <constraint firstAttribute="trailing" secondItem="jTy-8F-ZNI" secondAttribute="trailing" constant="10" id="kf8-sK-RHH"/>
-                                                <constraint firstItem="Q0a-ba-2OS" firstAttribute="leading" secondItem="Pqn-0R-eH0" secondAttribute="leading" constant="10" id="m04-6a-SB9"/>
-                                                <constraint firstAttribute="bottom" secondItem="z9d-O1-4cP" secondAttribute="bottom" constant="16" id="sDw-aL-VQw"/>
-                                                <constraint firstAttribute="trailing" secondItem="Q0a-ba-2OS" secondAttribute="trailing" constant="16" id="ugl-zb-qvY"/>
+                                                <constraint firstItem="fYI-9B-1pJ" firstAttribute="centerY" secondItem="z9d-O1-4cP" secondAttribute="centerY" id="nLg-io-SBQ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Q0a-ba-2OS" secondAttribute="trailing" constant="-21" id="oKY-sv-5pW"/>
+                                                <constraint firstItem="Q0a-ba-2OS" firstAttribute="top" secondItem="Pqn-0R-eH0" secondAttribute="topMargin" constant="3" id="t8l-sI-LNx"/>
+                                                <constraint firstItem="jTy-8F-ZNI" firstAttribute="top" secondItem="Q0a-ba-2OS" secondAttribute="bottom" constant="11" id="zAP-ok-ptJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
@@ -156,25 +270,24 @@
                                                         <constraint firstAttribute="width" constant="12" id="sp9-tX-yjF"/>
                                                         <constraint firstAttribute="height" constant="20" id="vCN-br-H4X"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="BloggerSans-Bold" family="Blogger Sans" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Bold" family="Blogger Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="69" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5J-zH-ynd">
-                                                    <rect key="frame" x="227" y="40" width="30" height="20"/>
+                                                    <rect key="frame" x="227" y="40" width="40" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="Hsw-FW-lra"/>
-                                                        <constraint firstAttribute="width" constant="30" id="vnw-cI-PpP"/>
+                                                        <constraint firstAttribute="width" constant="40" id="9dE-YQ-h12"/>
+                                                        <constraint firstAttribute="height" constant="20" id="oyi-ds-wNE"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="BloggerSans-Bold" family="Blogger Sans" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Bold" family="Blogger Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Комнат" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKe-Dk-FvA">
-                                                    <rect key="frame" x="19" y="67" width="60" height="20"/>
+                                                    <rect key="frame" x="19" y="63" width="60" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="A94-6P-gjd"/>
-                                                        <constraint firstAttribute="width" constant="60" id="An2-HI-Bby"/>
+                                                        <constraint firstAttribute="width" constant="60" id="4S0-UA-jqH"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <color key="textColor" red="0.70338837860000003" green="0.70840363319999999" blue="0.72344939720000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -191,12 +304,12 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MO4-bD-quq">
-                                                    <rect key="frame" x="129" y="40" width="30" height="20"/>
+                                                    <rect key="frame" x="129" y="40" width="33" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="XVJ-UE-6E8"/>
-                                                        <constraint firstAttribute="width" constant="30" id="a8v-Db-8Fz"/>
+                                                        <constraint firstAttribute="height" constant="20" id="QGP-xX-wdi"/>
+                                                        <constraint firstAttribute="width" constant="33" id="hVk-Ox-7f0"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="BloggerSans-Bold" family="Blogger Sans" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Bold" family="Blogger Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -206,11 +319,11 @@
                                                         <constraint firstAttribute="height" constant="20" id="5sU-vf-bFf"/>
                                                         <constraint firstAttribute="width" constant="30" id="mDy-JD-sus"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="BloggerSans-Bold" family="Blogger Sans" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Bold" family="Blogger Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gzH-wg-yFs">
+                                                <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gzH-wg-yFs">
                                                     <rect key="frame" x="7" y="23" width="360" height="1"/>
                                                     <color key="backgroundColor" red="0.70338837860000003" green="0.70840363319999999" blue="0.72344939720000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="tintColor" red="0.70338837860000003" green="0.70840363319999999" blue="0.72344939720000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -219,11 +332,14 @@
                                                         <constraint firstAttribute="height" constant="1" id="rJZ-a7-L9m"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mS6-VO-Ytu">
+                                                <imageView userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mS6-VO-Ytu">
                                                     <rect key="frame" x="189" y="33" width="1" height="45"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.70338837860000003" green="0.70840363319999999" blue="0.72344939720000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="1" id="D40-CW-7fa"/>
+                                                        <constraint firstAttribute="height" constant="45" id="XWT-OP-pOY"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="otd-2z-4vO">
                                                     <rect key="frame" x="281" y="34" width="1" height="45"/>
@@ -248,7 +364,7 @@
                                                         <constraint firstAttribute="height" constant="20" id="ZBp-bw-JTC"/>
                                                         <constraint firstAttribute="width" constant="247" id="kjb-HQ-vnG"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="BloggerSans-Medium" family="Blogger Sans" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Medium" family="Blogger Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -258,17 +374,10 @@
                                                         <constraint firstAttribute="height" constant="20" id="CRo-bT-4iv"/>
                                                         <constraint firstAttribute="width" constant="261" id="Ixb-T1-zIA"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="BloggerSans-Medium" family="Blogger Sans" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Medium" family="Blogger Sans" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="handset" translatesAutoresizingMaskIntoConstraints="NO" id="iqp-hK-p4O">
-                                                    <rect key="frame" x="304" y="183" width="66" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="0So-1g-ZIO"/>
-                                                        <constraint firstAttribute="width" constant="66" id="5Gq-sm-Hax"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="HuO-5y-dI6">
                                                     <rect key="frame" x="10" y="105" width="29" height="35"/>
                                                     <constraints>
@@ -277,10 +386,10 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8r-Mc-j0v">
-                                                    <rect key="frame" x="42" y="107" width="123" height="32"/>
+                                                    <rect key="frame" x="45" y="125" width="123" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="32" id="WyK-Xh-JnX"/>
-                                                        <constraint firstAttribute="width" constant="123" id="gOU-hb-a7q"/>
+                                                        <constraint firstAttribute="width" constant="123" id="NXr-tI-W7b"/>
+                                                        <constraint firstAttribute="height" constant="20" id="Rem-fZ-hAt"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="BloggerSans-MediumItalic" family="Blogger Sans" pointSize="17"/>
                                                     <state key="normal" title="Адрес на карте">
@@ -302,73 +411,126 @@
                                                         <constraint firstAttribute="height" constant="1" id="dDa-xP-u9q"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEm-wU-neL">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEm-wU-neL">
                                                     <rect key="frame" x="304" y="183" width="66" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="QkG-Te-Xgw"/>
                                                         <constraint firstAttribute="width" constant="66" id="s1p-y8-ab3"/>
                                                     </constraints>
+                                                    <state key="normal" image="callButton"/>
                                                     <connections>
                                                         <action selector="callButton:" destination="H5D-tJ-NL8" eventType="touchUpInside" id="6HT-b4-CYb"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Жилая" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RaU-qW-spn">
-                                                    <rect key="frame" x="205" y="67" width="55" height="17"/>
+                                                    <rect key="frame" x="213" y="67" width="47" height="17"/>
                                                     <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <color key="textColor" red="0.70338837860000003" green="0.70840363319999999" blue="0.72344939720000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Общая" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbi-cq-PqB">
-                                                    <rect key="frame" x="116" y="66" width="56" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Общая" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbi-cq-PqB">
+                                                    <rect key="frame" x="116" y="66" width="56" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="56" id="i97-oR-9Qo"/>
+                                                        <constraint firstAttribute="height" constant="17" id="kKC-1d-PLn"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <color key="textColor" red="0.70338837860000003" green="0.70840363319999999" blue="0.72344939720000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Москва" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wr0-Xq-9kt">
+                                                    <rect key="frame" x="49" y="103" width="150" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="rX7-PB-VwJ"/>
+                                                        <constraint firstAttribute="height" constant="17" id="zyG-Rj-fag"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-MediumItalic" family="Blogger Sans" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.46666666670000001" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="pKe-Dk-FvA" firstAttribute="leading" secondItem="cj8-OI-MJQ" secondAttribute="leading" constant="19" id="11H-HY-Egn"/>
+                                                <constraint firstItem="otd-2z-4vO" firstAttribute="leading" secondItem="x5J-zH-ynd" secondAttribute="trailing" constant="14" id="09d-eT-XCV"/>
+                                                <constraint firstItem="vpi-CO-aXu" firstAttribute="leading" secondItem="pKe-Dk-FvA" secondAttribute="trailing" constant="19" id="2vL-ww-fba"/>
                                                 <constraint firstItem="cIw-gv-Cpl" firstAttribute="top" secondItem="gzH-wg-yFs" secondAttribute="bottom" constant="16" id="3Wy-Dh-69O"/>
-                                                <constraint firstItem="vpi-CO-aXu" firstAttribute="leading" secondItem="pKe-Dk-FvA" secondAttribute="trailing" constant="19" id="5VX-Pv-b1L"/>
+                                                <constraint firstItem="MO4-bD-quq" firstAttribute="top" secondItem="gzH-wg-yFs" secondAttribute="bottom" constant="16" id="3gO-gq-ZQb"/>
+                                                <constraint firstItem="pKe-Dk-FvA" firstAttribute="baseline" secondItem="lbi-cq-PqB" secondAttribute="baseline" id="5IN-ba-62O"/>
                                                 <constraint firstItem="HuO-5y-dI6" firstAttribute="leading" secondItem="cj8-OI-MJQ" secondAttribute="leading" constant="10" id="6gP-lw-yOq"/>
-                                                <constraint firstItem="E8r-Mc-j0v" firstAttribute="top" secondItem="pKe-Dk-FvA" secondAttribute="bottom" constant="20" id="7JT-bJ-cAP"/>
                                                 <constraint firstAttribute="trailing" secondItem="XIq-Ii-EsL" secondAttribute="trailing" constant="25" id="9Kf-jx-AgA"/>
+                                                <constraint firstItem="pKe-Dk-FvA" firstAttribute="top" secondItem="cIw-gv-Cpl" secondAttribute="bottom" constant="3" id="DaU-Ps-HVl"/>
                                                 <constraint firstItem="XIq-Ii-EsL" firstAttribute="top" secondItem="gzH-wg-yFs" secondAttribute="bottom" constant="16" id="F67-5O-Brp"/>
                                                 <constraint firstAttribute="trailing" secondItem="dXt-i7-zO5" secondAttribute="trailing" constant="8" id="FEK-xU-5d2"/>
+                                                <constraint firstItem="MO4-bD-quq" firstAttribute="leading" secondItem="vpi-CO-aXu" secondAttribute="trailing" constant="30" id="FHS-tx-BCR"/>
+                                                <constraint firstItem="Wr0-Xq-9kt" firstAttribute="leading" secondItem="HuO-5y-dI6" secondAttribute="trailing" constant="10" id="FlK-Ax-2u4"/>
+                                                <constraint firstItem="mS6-VO-Ytu" firstAttribute="leading" secondItem="lbi-cq-PqB" secondAttribute="trailing" constant="17" id="HO2-pm-PXe"/>
+                                                <constraint firstItem="Wr0-Xq-9kt" firstAttribute="top" secondItem="pKe-Dk-FvA" secondAttribute="bottom" constant="20" id="HaX-KE-o9T"/>
                                                 <constraint firstAttribute="trailing" secondItem="gzH-wg-yFs" secondAttribute="trailing" constant="8" id="Hbi-i9-J0x"/>
-                                                <constraint firstItem="dXt-i7-zO5" firstAttribute="top" secondItem="E8r-Mc-j0v" secondAttribute="bottom" constant="23" id="Hcj-cj-OAM"/>
+                                                <constraint firstItem="x5J-zH-ynd" firstAttribute="top" secondItem="gzH-wg-yFs" secondAttribute="bottom" constant="16" id="IXZ-pv-B7l"/>
+                                                <constraint firstItem="lbi-cq-PqB" firstAttribute="leading" secondItem="vpi-CO-aXu" secondAttribute="trailing" constant="17" id="IoW-VT-Ung"/>
                                                 <constraint firstAttribute="trailing" secondItem="zEm-wU-neL" secondAttribute="trailing" constant="5" id="KEo-Ug-mo7"/>
                                                 <constraint firstItem="gzH-wg-yFs" firstAttribute="top" secondItem="cj8-OI-MJQ" secondAttribute="top" constant="23" id="L0L-Pb-RA2"/>
                                                 <constraint firstItem="TxM-3E-jg3" firstAttribute="top" secondItem="Q9O-Dv-KGC" secondAttribute="bottom" constant="10" id="Lyb-gJ-ubM"/>
-                                                <constraint firstItem="MO4-bD-quq" firstAttribute="leading" secondItem="vpi-CO-aXu" secondAttribute="trailing" constant="30" id="ODD-38-0GW"/>
+                                                <constraint firstItem="lbi-cq-PqB" firstAttribute="top" secondItem="MO4-bD-quq" secondAttribute="bottom" constant="6" id="NbP-n6-KDo"/>
                                                 <constraint firstItem="TxM-3E-jg3" firstAttribute="leading" secondItem="cj8-OI-MJQ" secondAttribute="leading" constant="10" id="OEV-Xi-9gG"/>
                                                 <constraint firstItem="Q9O-Dv-KGC" firstAttribute="top" secondItem="dXt-i7-zO5" secondAttribute="bottom" constant="20" id="OnI-LG-ZPB"/>
                                                 <constraint firstItem="zEm-wU-neL" firstAttribute="top" secondItem="dXt-i7-zO5" secondAttribute="bottom" constant="20" id="QJf-BY-5ie"/>
-                                                <constraint firstItem="pKe-Dk-FvA" firstAttribute="top" secondItem="cIw-gv-Cpl" secondAttribute="bottom" constant="7" id="Qou-pR-POk"/>
-                                                <constraint firstItem="x5J-zH-ynd" firstAttribute="top" secondItem="gzH-wg-yFs" secondAttribute="bottom" constant="16" id="TZd-2V-FAf"/>
+                                                <constraint firstItem="lbi-cq-PqB" firstAttribute="top" secondItem="MO4-bD-quq" secondAttribute="bottom" constant="6" id="Qpx-rc-ofx"/>
                                                 <constraint firstAttribute="trailing" secondItem="EFd-0l-uPp" secondAttribute="trailing" constant="20" id="Tk6-dC-1be"/>
-                                                <constraint firstAttribute="trailing" secondItem="iqp-hK-p4O" secondAttribute="trailing" constant="5" id="Tkx-ff-Fzw"/>
+                                                <constraint firstAttribute="bottom" secondItem="mS6-VO-Ytu" secondAttribute="bottom" constant="172" id="UGr-zA-7wJ"/>
                                                 <constraint firstItem="otd-2z-4vO" firstAttribute="leading" secondItem="RaU-qW-spn" secondAttribute="trailing" constant="21" id="Vp0-dy-Oq6"/>
+                                                <constraint firstItem="RaU-qW-spn" firstAttribute="top" secondItem="x5J-zH-ynd" secondAttribute="bottom" constant="7" id="W8Y-A4-Llb"/>
                                                 <constraint firstItem="gzH-wg-yFs" firstAttribute="leading" secondItem="cj8-OI-MJQ" secondAttribute="leading" constant="7" id="WG5-W2-oqn"/>
                                                 <constraint firstItem="dXt-i7-zO5" firstAttribute="leading" secondItem="cj8-OI-MJQ" secondAttribute="leading" constant="7" id="Wi9-v7-Q4c"/>
                                                 <constraint firstItem="EFd-0l-uPp" firstAttribute="top" secondItem="XIq-Ii-EsL" secondAttribute="bottom" constant="7" id="ZgO-4y-w0A"/>
                                                 <constraint firstItem="Q9O-Dv-KGC" firstAttribute="leading" secondItem="cj8-OI-MJQ" secondAttribute="leading" constant="10" id="bNG-Un-mxA"/>
-                                                <constraint firstItem="iqp-hK-p4O" firstAttribute="top" secondItem="dXt-i7-zO5" secondAttribute="bottom" constant="20" id="bSP-zB-ZNW"/>
-                                                <constraint firstItem="otd-2z-4vO" firstAttribute="leading" secondItem="x5J-zH-ynd" secondAttribute="trailing" constant="24" id="cfp-br-xcP"/>
+                                                <constraint firstItem="E8r-Mc-j0v" firstAttribute="top" secondItem="Wr0-Xq-9kt" secondAttribute="bottom" constant="5" id="coD-ce-gFS"/>
                                                 <constraint firstItem="dXt-i7-zO5" firstAttribute="top" secondItem="HuO-5y-dI6" secondAttribute="bottom" constant="22" id="dMi-L9-IBo"/>
-                                                <constraint firstItem="pKe-Dk-FvA" firstAttribute="top" secondItem="cIw-gv-Cpl" secondAttribute="bottom" constant="7" id="eYl-d8-jkR"/>
-                                                <constraint firstItem="RaU-qW-spn" firstAttribute="top" secondItem="x5J-zH-ynd" secondAttribute="bottom" constant="7" id="f0P-Tz-bJ3"/>
                                                 <constraint firstItem="EFd-0l-uPp" firstAttribute="leading" secondItem="otd-2z-4vO" secondAttribute="trailing" constant="25" id="fmW-fB-aYR"/>
                                                 <constraint firstItem="cIw-gv-Cpl" firstAttribute="leading" secondItem="cj8-OI-MJQ" secondAttribute="leading" constant="44" id="gFW-0W-yY8"/>
                                                 <constraint firstItem="otd-2z-4vO" firstAttribute="top" secondItem="cj8-OI-MJQ" secondAttribute="top" constant="34" id="gVT-sf-JR9"/>
                                                 <constraint firstItem="dXt-i7-zO5" firstAttribute="top" secondItem="RaU-qW-spn" secondAttribute="bottom" constant="78" id="gXE-Ac-Sr9"/>
-                                                <constraint firstItem="E8r-Mc-j0v" firstAttribute="leading" secondItem="HuO-5y-dI6" secondAttribute="trailing" constant="3" id="hpz-hw-8XM"/>
                                                 <constraint firstItem="vpi-CO-aXu" firstAttribute="top" secondItem="cj8-OI-MJQ" secondAttribute="top" constant="34" id="iMm-QT-aO0"/>
                                                 <constraint firstItem="dXt-i7-zO5" firstAttribute="top" secondItem="EFd-0l-uPp" secondAttribute="bottom" constant="78" id="ih1-q8-zPJ"/>
-                                                <constraint firstAttribute="bottom" secondItem="iqp-hK-p4O" secondAttribute="bottom" constant="17" id="j8k-kW-be7"/>
+                                                <constraint firstItem="dXt-i7-zO5" firstAttribute="top" secondItem="E8r-Mc-j0v" secondAttribute="bottom" constant="17" id="k6G-x1-Ofg"/>
                                                 <constraint firstAttribute="bottom" secondItem="TxM-3E-jg3" secondAttribute="bottom" constant="17" id="lWu-fH-vfW"/>
-                                                <constraint firstItem="MO4-bD-quq" firstAttribute="top" secondItem="gzH-wg-yFs" secondAttribute="bottom" constant="16" id="m9b-mJ-Hs0"/>
+                                                <constraint firstItem="mS6-VO-Ytu" firstAttribute="top" secondItem="cj8-OI-MJQ" secondAttribute="top" constant="33" id="nmt-b0-H10"/>
+                                                <constraint firstItem="pKe-Dk-FvA" firstAttribute="leading" secondItem="cj8-OI-MJQ" secondAttribute="leadingMargin" constant="3" id="txa-un-PAZ"/>
+                                                <constraint firstItem="E8r-Mc-j0v" firstAttribute="leading" secondItem="HuO-5y-dI6" secondAttribute="trailing" constant="6" id="yj4-TR-zSJ"/>
                                                 <constraint firstAttribute="bottom" secondItem="zEm-wU-neL" secondAttribute="bottom" constant="17" id="zHl-D2-Tvj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="130" id="Tzn-IY-DYI" userLabel="DetailInfoCell">
+                                        <rect key="frame" x="0.0" y="665" width="375" height="130"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tzn-IY-DYI" id="2Cn-Ld-pUH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LFR-Te-fBs">
+                                                    <rect key="frame" x="8" y="19" width="360" height="1"/>
+                                                    <color key="backgroundColor" red="0.70338837860000003" green="0.70840363319999999" blue="0.72344939720000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" red="0.70338837860000003" green="0.70840363319999999" blue="0.72344939720000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="360" id="E74-D3-ltl"/>
+                                                        <constraint firstAttribute="height" constant="1" id="WbH-i4-mzz"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqh-5d-WhF">
+                                                    <rect key="frame" x="10" y="30" width="355" height="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LFR-Te-fBs" firstAttribute="top" secondItem="2Cn-Ld-pUH" secondAttribute="topMargin" constant="8" id="3B1-yZ-MmK"/>
+                                                <constraint firstAttribute="bottom" secondItem="cqh-5d-WhF" secondAttribute="bottom" constant="10" id="C4G-1S-Ykt"/>
+                                                <constraint firstAttribute="trailing" secondItem="cqh-5d-WhF" secondAttribute="trailing" constant="10" id="CVZ-pY-bfO"/>
+                                                <constraint firstItem="cqh-5d-WhF" firstAttribute="top" secondItem="LFR-Te-fBs" secondAttribute="bottom" constant="10" id="EiF-EX-kHQ"/>
+                                                <constraint firstItem="LFR-Te-fBs" firstAttribute="centerX" secondItem="2Cn-Ld-pUH" secondAttribute="centerX" id="KuE-f0-6Fu"/>
+                                                <constraint firstItem="cqh-5d-WhF" firstAttribute="leading" secondItem="2Cn-Ld-pUH" secondAttribute="leading" constant="10" id="VJz-xP-7jQ"/>
+                                                <constraint firstItem="LFR-Te-fBs" firstAttribute="leading" secondItem="2Cn-Ld-pUH" secondAttribute="leadingMargin" constant="-8" id="nJB-Jf-Oi3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -400,7 +562,9 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="actionLabel" destination="jTy-8F-ZNI" id="cFa-gX-cY2"/>
+                        <outlet property="cityLabel" destination="Wr0-Xq-9kt" id="GwB-fd-ZG5"/>
                         <outlet property="detailAddressLabel" destination="Q0a-ba-2OS" id="q0o-Af-dAn"/>
+                        <outlet property="detailInfoLabel" destination="cqh-5d-WhF" id="Fal-kB-o89"/>
                         <outlet property="detailKitchenSquareLabel" destination="XIq-Ii-EsL" id="I3d-sY-Gsq"/>
                         <outlet property="detailLivingSquareLabel" destination="x5J-zH-ynd" id="51r-gD-q2t"/>
                         <outlet property="detailOwnerLabel" destination="Q9O-Dv-KGC" id="trK-50-6bk"/>
@@ -409,7 +573,6 @@
                         <outlet property="detailRoomLabel" destination="cIw-gv-Cpl" id="gjw-hF-oT9"/>
                         <outlet property="detailWholeSquareLabel" destination="MO4-bD-quq" id="XM5-mN-hgo"/>
                         <outlet property="goToMap" destination="E8r-Mc-j0v" id="sX1-Hk-NUh"/>
-                        <outlet property="handsetImageView" destination="iqp-hK-p4O" id="bQQ-71-nDM"/>
                         <outlet property="phoneNumberLabel" destination="TxM-3E-jg3" id="GkL-rg-WqZ"/>
                         <outlet property="tableView" destination="own-8A-hm6" id="MR7-K4-mdR"/>
                         <outlet property="typeLabel" destination="fYI-9B-1pJ" id="8Ze-Pq-Z3E"/>
@@ -418,7 +581,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abt-bC-zgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lxk-8D-bg0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2029.5999999999999" y="-1125.3373313343329"/>
+            <point key="canvasLocation" x="2368.8000000000002" y="-1125.3373313343329"/>
         </scene>
         <!--MainScreenVC-->
         <scene sceneID="WwK-P1-bqF">
@@ -466,60 +629,35 @@
                                                         <constraint firstAttribute="width" constant="375" id="WTa-CQ-czI"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyx-7t-Rr6">
-                                                    <rect key="frame" x="5" y="123" width="365" height="20"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="AddressLabel">
-                                                            <attributes>
-                                                                <font key="NSFont" size="17" name="SFUIText-Regular"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AddressLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyx-7t-Rr6">
+                                                    <rect key="frame" x="5" y="126" width="365" height="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98V-S1-xgl">
-                                                    <rect key="frame" x="5" y="99" width="215" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ownerLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98V-S1-xgl">
+                                                    <rect key="frame" x="5" y="105" width="215" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="215" id="D14-Ax-GXc"/>
                                                     </constraints>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="ownerLabel">
-                                                            <attributes>
-                                                                <font key="NSFont" size="17" name="SFUIText-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEc-x4-RcU">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NameLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEc-x4-RcU">
                                                     <rect key="frame" x="5" y="77" width="370" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="8zj-X9-Hg0"/>
                                                     </constraints>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="NameLabel">
-                                                            <attributes>
-                                                                <font key="NSFont" size="17" name="SFUIText-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ON-2b-Ttb">
-                                                    <rect key="frame" x="228" y="99" width="142" height="19"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="142" id="Jje-jA-9Ue"/>
-                                                    </constraints>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="price">
-                                                            <attributes>
-                                                                <font key="NSFont" size="16" name="SFUIText-MediumItalic"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Цена не указана" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ON-2b-Ttb">
+                                                    <rect key="frame" x="228" y="105" width="142" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="0.46666666670000001" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -529,18 +667,15 @@
                                                 <constraint firstAttribute="trailing" secondItem="qDb-ca-hNB" secondAttribute="trailing" constant="-33" id="7Pf-KB-VNz"/>
                                                 <constraint firstItem="2LK-TF-0jk" firstAttribute="top" secondItem="1NH-r6-sJs" secondAttribute="top" constant="75" id="7ml-mq-Ns6"/>
                                                 <constraint firstItem="mdD-nF-EcA" firstAttribute="top" secondItem="qDb-ca-hNB" secondAttribute="bottom" constant="4" id="Bpf-WH-REy"/>
-                                                <constraint firstItem="hyx-7t-Rr6" firstAttribute="top" secondItem="8ON-2b-Ttb" secondAttribute="bottom" constant="5" id="CcE-EK-yIV"/>
                                                 <constraint firstItem="MEc-x4-RcU" firstAttribute="leading" secondItem="98V-S1-xgl" secondAttribute="leading" id="FlL-uR-eHf"/>
                                                 <constraint firstItem="qDb-ca-hNB" firstAttribute="top" secondItem="1NH-r6-sJs" secondAttribute="top" id="Ggw-Ms-nh9"/>
                                                 <constraint firstAttribute="trailing" secondItem="hyx-7t-Rr6" secondAttribute="trailing" constant="-28" id="HG5-Eu-We4"/>
-                                                <constraint firstAttribute="trailing" secondItem="8ON-2b-Ttb" secondAttribute="trailing" constant="-28" id="Ixw-lK-djb"/>
                                                 <constraint firstItem="hyx-7t-Rr6" firstAttribute="leading" secondItem="1NH-r6-sJs" secondAttribute="leading" constant="5" id="KB8-ge-EoB"/>
                                                 <constraint firstItem="MEc-x4-RcU" firstAttribute="trailing" secondItem="2LK-TF-0jk" secondAttribute="trailing" id="L6c-Ns-NdS"/>
                                                 <constraint firstItem="2LK-TF-0jk" firstAttribute="leading" secondItem="1NH-r6-sJs" secondAttribute="leading" id="NG1-xv-PDg"/>
                                                 <constraint firstAttribute="bottom" secondItem="mdD-nF-EcA" secondAttribute="bottom" id="PO6-LA-Qsx"/>
                                                 <constraint firstAttribute="trailing" secondItem="2LK-TF-0jk" secondAttribute="trailing" constant="-33" id="S7Z-Ac-Tft"/>
                                                 <constraint firstItem="mdD-nF-EcA" firstAttribute="top" secondItem="hyx-7t-Rr6" secondAttribute="bottom" constant="11" id="WCu-Es-bal"/>
-                                                <constraint firstItem="8ON-2b-Ttb" firstAttribute="leading" secondItem="98V-S1-xgl" secondAttribute="trailing" constant="8" id="bhl-Dw-2UD"/>
                                                 <constraint firstItem="98V-S1-xgl" firstAttribute="leading" secondItem="1NH-r6-sJs" secondAttribute="leading" constant="5" id="dbQ-ne-WoO"/>
                                                 <constraint firstItem="qDb-ca-hNB" firstAttribute="leading" secondItem="1NH-r6-sJs" secondAttribute="leading" id="hNY-7E-kSZ"/>
                                                 <constraint firstAttribute="bottom" secondItem="2LK-TF-0jk" secondAttribute="bottom" constant="7.5" id="huP-an-hPL"/>
@@ -598,11 +733,20 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="emptyDataBaseLabel" destination="s3F-K3-8zG" id="8tg-3P-l12"/>
+                        <outlet property="searchDisplayController" destination="y1H-9z-eiP" id="wS0-jB-XIU"/>
                         <outlet property="tableView" destination="jVi-xr-bd7" id="ohd-sC-r0Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ygl-na-MYY" sceneMemberID="firstResponder"/>
                 <exit id="H9b-V5-VxE" userLabel="Exit" sceneMemberID="exit"/>
+                <searchDisplayController id="y1H-9z-eiP">
+                    <connections>
+                        <outlet property="delegate" destination="1by-3d-imN" id="SwS-JB-fch"/>
+                        <outlet property="searchContentsController" destination="1by-3d-imN" id="Tew-xZ-z7g"/>
+                        <outlet property="searchResultsDataSource" destination="1by-3d-imN" id="MYn-DD-Ow0"/>
+                        <outlet property="searchResultsDelegate" destination="1by-3d-imN" id="YG3-yV-bQT"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1341.5999999999999" y="-322.48875562218893"/>
         </scene>
@@ -627,7 +771,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тип объекта" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfX-Pl-kx7">
                                                     <rect key="frame" x="10" y="13" width="98" height="42.5"/>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -636,7 +780,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="193" id="FcL-DN-ObD"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-MediumItalic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -645,7 +789,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="193" id="d8Y-WT-iy1"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-MediumItalic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -683,16 +827,17 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="143" id="d5G-tN-buV"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Введите название" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Llc-be-dZY">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите название" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Llc-be-dZY">
                                                     <rect key="frame" x="175" y="20" width="190" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="190" id="d0s-Fe-e8i"/>
                                                     </constraints>
-                                                    <attributedString key="attributedText"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" returnKeyType="next" textContentType="name"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="wT1-B5-u4v" id="iSq-p5-MOX"/>
@@ -718,8 +863,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Город" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXY-Hf-102">
-                                                    <rect key="frame" x="10" y="13" width="52" height="42.5"/>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                    <rect key="frame" x="10" y="13" width="43" height="42.5"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -761,16 +906,17 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="51" id="6H6-T8-Ga6"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Введите адрес" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zCi-mv-b7s">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите адрес" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zCi-mv-b7s">
                                                     <rect key="frame" x="137" y="19" width="185" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="185" id="o2e-94-LhN"/>
                                                     </constraints>
-                                                    <attributedString key="attributedText"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" returnKeyType="next" textContentType="street-address"/>
                                                 </textField>
                                             </subviews>
@@ -784,58 +930,23 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="Xuk-8N-dOg">
-                                        <rect key="frame" x="0.0" y="336" width="375" height="70"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xuk-8N-dOg" id="SIr-ub-9v6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Метро,этаж,квартира" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lby-mg-d3z">
-                                                    <rect key="frame" x="10" y="24" width="174" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="174" id="rmP-Pn-eqg"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="метро, квартира, этаж" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Tqj-Cl-iHc">
-                                                    <rect key="frame" x="213" y="20" width="152" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="152" id="JX5-WX-Vex"/>
-                                                    </constraints>
-                                                    <attributedString key="attributedText"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="Tqj-Cl-iHc" secondAttribute="bottom" constant="19.5" id="Kpt-Os-5Br"/>
-                                                <constraint firstAttribute="bottom" secondItem="lby-mg-d3z" secondAttribute="bottom" constant="24.5" id="Shi-nw-j4b"/>
-                                                <constraint firstAttribute="trailing" secondItem="Tqj-Cl-iHc" secondAttribute="trailing" constant="10" id="aV7-nB-bGX"/>
-                                                <constraint firstItem="lby-mg-d3z" firstAttribute="top" secondItem="SIr-ub-9v6" secondAttribute="top" constant="24" id="sVx-SQ-XEo"/>
-                                                <constraint firstItem="lby-mg-d3z" firstAttribute="leading" secondItem="SIr-ub-9v6" secondAttribute="leading" constant="10" id="xfm-0E-dPo"/>
-                                                <constraint firstItem="Tqj-Cl-iHc" firstAttribute="top" secondItem="SIr-ub-9v6" secondAttribute="top" constant="20" id="zPy-71-HyY"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Параметры" id="RO1-XR-BKt">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="3l7-Wz-ASv">
-                                        <rect key="frame" x="0.0" y="434" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="364" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3l7-Wz-ASv" id="Xd7-s5-CCy">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Комнат" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yz7-Rq-yM8">
-                                                    <rect key="frame" x="10" y="24" width="60" height="20"/>
+                                                    <rect key="frame" x="10" y="24" width="60" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="kfd-QK-ziD"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -862,7 +973,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="TJp-F3-caS">
-                                        <rect key="frame" x="0.0" y="504" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="434" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TJp-F3-caS" id="rGs-5z-sg9">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
@@ -873,16 +984,17 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="UQ8-1z-ftr"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="кв.м" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tAu-VB-90y">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="кв.м" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tAu-VB-90y">
                                                     <rect key="frame" x="240" y="20" width="120" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="GXe-1d-uMZ"/>
                                                     </constraints>
-                                                    <attributedString key="attributedText"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                                 </textField>
                                             </subviews>
@@ -897,7 +1009,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="WHV-Ed-fI4">
-                                        <rect key="frame" x="0.0" y="574" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="504" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WHV-Ed-fI4" id="j6f-QF-3sI">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
@@ -908,16 +1020,17 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="vxk-qd-5ae"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="кв.м" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4wS-3Q-6lK">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="кв.м" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4wS-3Q-6lK">
                                                     <rect key="frame" x="240" y="20" width="120" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="9Ei-f0-jRm"/>
                                                     </constraints>
-                                                    <attributedString key="attributedText"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                                 </textField>
                                             </subviews>
@@ -932,7 +1045,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="nOZ-DQ-0dY">
-                                        <rect key="frame" x="0.0" y="644" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="574" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nOZ-DQ-0dY" id="9Oc-mB-sJR">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
@@ -943,16 +1056,17 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="DLQ-Wb-cba"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="кв.м" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="K44-Rg-87R">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="кв.м" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="K44-Rg-87R">
                                                     <rect key="frame" x="240" y="20" width="120" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="SNl-OA-Ydx"/>
                                                     </constraints>
-                                                    <attributedString key="attributedText"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                                 </textField>
                                             </subviews>
@@ -967,7 +1081,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="CdQ-OJ-YDD">
-                                        <rect key="frame" x="0.0" y="714" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="644" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CdQ-OJ-YDD" id="y9M-l5-8G0">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
@@ -978,16 +1092,17 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="qxb-sv-eBR"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="введите цену" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0r1-gE-1eL">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="введите цену" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0r1-gE-1eL">
                                                     <rect key="frame" x="210" y="20" width="157" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="157" id="jGl-vJ-gx8"/>
                                                     </constraints>
-                                                    <attributedString key="attributedText"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="wT1-B5-u4v" id="VQ0-RT-3oE"/>
@@ -1009,24 +1124,38 @@
                             <tableViewSection headerTitle="Фото объекта" id="rrd-dg-olc">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="70" id="ecP-8h-U4l">
-                                        <rect key="frame" x="0.0" y="812" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="742" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ecP-8h-U4l" id="FVG-QR-sY9">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="DLO-wJ-5ni">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="DLO-wJ-5ni">
                                                     <rect key="frame" x="8" y="6" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="3HP-eW-TVC"/>
+                                                        <constraint firstAttribute="width" constant="50" id="A0o-MZ-vBG"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Добавить фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqa-Wm-oHr">
-                                                    <rect key="frame" x="60" y="32" width="120" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавить фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqa-Wm-oHr">
+                                                    <rect key="frame" x="62" y="32" width="120" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="1vk-HM-pJ2"/>
+                                                        <constraint firstAttribute="height" constant="21" id="RQn-tu-Vz5"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aqa-Wm-oHr" firstAttribute="top" secondItem="FVG-QR-sY9" secondAttribute="top" constant="32" id="4lU-25-tW5"/>
+                                                <constraint firstAttribute="bottom" secondItem="DLO-wJ-5ni" secondAttribute="bottom" constant="13.5" id="9v0-bR-RLu"/>
+                                                <constraint firstAttribute="bottom" secondItem="aqa-Wm-oHr" secondAttribute="bottom" constant="16.5" id="LgO-Yf-9gM"/>
+                                                <constraint firstItem="DLO-wJ-5ni" firstAttribute="top" secondItem="FVG-QR-sY9" secondAttribute="top" constant="6" id="OoK-e2-rii"/>
+                                                <constraint firstItem="aqa-Wm-oHr" firstAttribute="leading" secondItem="DLO-wJ-5ni" secondAttribute="trailing" constant="4" id="OsD-Oh-wqq"/>
+                                                <constraint firstItem="DLO-wJ-5ni" firstAttribute="leading" secondItem="FVG-QR-sY9" secondAttribute="leading" constant="8" id="zVQ-d6-Pk7"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="dgI-Lb-e4S" kind="show" identifier="toAddPhotosController" id="H1q-JV-827">
@@ -1039,7 +1168,7 @@
                             <tableViewSection headerTitle="Контакты" id="TSh-gQ-HIA">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="onZ-Pi-AYg">
-                                        <rect key="frame" x="0.0" y="910" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="840" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="onZ-Pi-AYg" id="IVK-oH-26O">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
@@ -1050,16 +1179,17 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="102" id="umO-HE-hX4"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="введите владельца" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9z4-71-Z2l">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="введите владельца" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9z4-71-Z2l">
                                                     <rect key="frame" x="168" y="20" width="200" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="hW1-yz-4R7"/>
                                                     </constraints>
-                                                    <attributedString key="attributedText"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" keyboardType="numbersAndPunctuation"/>
                                                 </textField>
                                             </subviews>
@@ -1074,7 +1204,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="S1D-OM-dCF">
-                                        <rect key="frame" x="0.0" y="980" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="910" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S1D-OM-dCF" id="2WK-WZ-wvq">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
@@ -1085,78 +1215,79 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="78" id="Ba3-pU-3sv"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="введите телефон" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2JC-fA-uFg">
-                                                    <rect key="frame" x="168" y="20" width="200" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="введите телефон" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2JC-fA-uFg">
+                                                    <rect key="frame" x="175" y="20" width="180" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="ReG-4a-heb"/>
+                                                        <constraint firstAttribute="width" constant="180" id="4ko-RE-S52"/>
+                                                        <constraint firstAttribute="height" constant="30" id="CRO-IR-pFR"/>
                                                     </constraints>
-                                                    <attributedString key="attributedText"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="zBJ-gB-c2O" firstAttribute="top" secondItem="2WK-WZ-wvq" secondAttribute="top" constant="24" id="2DG-TY-tRX"/>
-                                                <constraint firstAttribute="bottom" secondItem="2JC-fA-uFg" secondAttribute="bottom" constant="19.5" id="8CN-QL-OJE"/>
-                                                <constraint firstItem="2JC-fA-uFg" firstAttribute="top" secondItem="2WK-WZ-wvq" secondAttribute="top" constant="20" id="BGH-Qi-8vU"/>
+                                                <constraint firstAttribute="trailing" secondItem="2JC-fA-uFg" secondAttribute="trailing" constant="20" id="4c7-m3-rc3"/>
                                                 <constraint firstItem="zBJ-gB-c2O" firstAttribute="leading" secondItem="2WK-WZ-wvq" secondAttribute="leading" constant="10" id="CUm-tV-60u"/>
-                                                <constraint firstAttribute="trailing" secondItem="2JC-fA-uFg" secondAttribute="trailing" constant="7" id="Py5-Mv-ZlW"/>
+                                                <constraint firstAttribute="bottom" secondItem="2JC-fA-uFg" secondAttribute="bottom" constant="19.5" id="HjQ-VO-OBV"/>
+                                                <constraint firstItem="2JC-fA-uFg" firstAttribute="top" secondItem="2WK-WZ-wvq" secondAttribute="top" constant="20" id="RHk-Ww-1P5"/>
                                                 <constraint firstAttribute="bottom" secondItem="zBJ-gB-c2O" secondAttribute="bottom" constant="24.5" id="tAp-Xd-jrs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="ClA-ik-grb">
-                                        <rect key="frame" x="0.0" y="1050" width="375" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="130" id="ClA-ik-grb">
+                                        <rect key="frame" x="0.0" y="980" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ClA-ik-grb" id="92S-Fm-i8a">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доп.инфо" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0f-tA-3R0">
-                                                    <rect key="frame" x="10" y="24" width="78" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="78" id="qcm-XZ-8fv"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54l-Mz-a25">
+                                                    <rect key="frame" x="10" y="39" width="355" height="71"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дополнительная информация" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cI-Yt-bfs">
+                                                    <rect key="frame" x="20" y="12" width="240" height="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="дополнительная информация" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="b7J-qf-Swc">
-                                                    <rect key="frame" x="120" y="19" width="229" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="229" id="Xdd-kz-itn"/>
-                                                    </constraints>
-                                                    <attributedString key="attributedText"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" returnKeyType="next"/>
-                                                </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="b7J-qf-Swc" firstAttribute="top" secondItem="92S-Fm-i8a" secondAttribute="top" constant="19" id="9dZ-Ya-Imt"/>
-                                                <constraint firstAttribute="trailing" secondItem="b7J-qf-Swc" secondAttribute="trailing" constant="26" id="CZK-xY-wtf"/>
-                                                <constraint firstAttribute="bottom" secondItem="b7J-qf-Swc" secondAttribute="bottom" constant="20.5" id="chK-7C-EB0"/>
-                                                <constraint firstAttribute="bottom" secondItem="t0f-tA-3R0" secondAttribute="bottom" constant="24.5" id="jgp-9F-xfK"/>
-                                                <constraint firstItem="t0f-tA-3R0" firstAttribute="top" secondItem="92S-Fm-i8a" secondAttribute="top" constant="24" id="kRT-Qe-nCp"/>
-                                                <constraint firstItem="t0f-tA-3R0" firstAttribute="leading" secondItem="92S-Fm-i8a" secondAttribute="leading" constant="10" id="tc1-bw-aqm"/>
+                                                <constraint firstItem="54l-Mz-a25" firstAttribute="top" secondItem="6cI-Yt-bfs" secondAttribute="bottom" constant="10" id="4Y0-Re-e6x"/>
+                                                <constraint firstItem="6cI-Yt-bfs" firstAttribute="top" secondItem="92S-Fm-i8a" secondAttribute="topMargin" constant="1" id="L6p-q8-NGT"/>
+                                                <constraint firstAttribute="trailing" secondItem="54l-Mz-a25" secondAttribute="trailing" constant="10" id="PrZ-fJ-pNi"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6cI-Yt-bfs" secondAttribute="trailing" constant="99" id="Qzj-ze-pcz"/>
+                                                <constraint firstItem="6cI-Yt-bfs" firstAttribute="leading" secondItem="92S-Fm-i8a" secondAttribute="leadingMargin" constant="4" id="SUh-83-DGB"/>
+                                                <constraint firstItem="54l-Mz-a25" firstAttribute="leading" secondItem="92S-Fm-i8a" secondAttribute="leading" constant="10" id="rFV-pg-DmA"/>
+                                                <constraint firstAttribute="bottom" secondItem="54l-Mz-a25" secondAttribute="bottom" constant="19.5" id="uUH-cw-ldo"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="200" id="egf-wh-ePy">
-                                        <rect key="frame" x="0.0" y="1120" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="1110" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="egf-wh-ePy" id="Jbz-5E-7O9">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JqS-U8-R74">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JqS-U8-R74" customClass="MyButtons">
                                                     <rect key="frame" x="25" y="8" width="326" height="74"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="326" id="GQB-z3-5ri"/>
                                                         <constraint firstAttribute="height" constant="74" id="WId-bo-fHp"/>
                                                     </constraints>
                                                     <state key="normal" title="Сохранить" backgroundImage="saveButton"/>
+                                                    <state key="highlighted" backgroundImage="saveBlurButton">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
                                                     <connections>
                                                         <segue destination="P9r-bX-5hM" kind="unwind" identifier="unwindAndSaveToDetail" unwindAction="saveSecondButtonTaped:" id="LS7-dg-XA2"/>
                                                     </connections>
@@ -1180,6 +1311,9 @@
                                                         <constraint firstAttribute="height" constant="74" id="wJr-Us-Pni"/>
                                                     </constraints>
                                                     <state key="normal" title="Удалить" backgroundImage="deleteButton"/>
+                                                    <state key="highlighted" backgroundImage="blurButton">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
                                                     <connections>
                                                         <segue destination="H9b-V5-VxE" kind="unwind" identifier="unwindAndRemoveFromDetail" unwindAction="removeButtonTaped:" id="TC8-wn-4Gq"/>
                                                     </connections>
@@ -1235,14 +1369,12 @@
                         <outlet property="cityLabel" destination="UXY-Hf-102" id="VIV-N5-VHU"/>
                         <outlet property="cityPicker" destination="5Tz-RK-ZZB" id="Ras-tD-FXT"/>
                         <outlet property="deleteSecondButton" destination="GM8-JW-9XI" id="Rmq-P0-dtj"/>
-                        <outlet property="extraInfoLabel" destination="t0f-tA-3R0" id="fWC-kZ-qDQ"/>
-                        <outlet property="extraInfoTextField" destination="b7J-qf-Swc" id="DQt-0F-NxL"/>
+                        <outlet property="detailInfoLabel" destination="6cI-Yt-bfs" id="7xZ-bg-LuN"/>
+                        <outlet property="detailInfoTextView" destination="54l-Mz-a25" id="2WB-Ll-be6"/>
                         <outlet property="kitchenMetersLabel" destination="AlY-CR-rPc" id="f2W-b4-JsN"/>
                         <outlet property="kitchenSquareTextField" destination="K44-Rg-87R" id="nOx-F6-6UF"/>
                         <outlet property="livingSquareLabel" destination="ORM-eh-Udq" id="m9V-hC-Jfi"/>
                         <outlet property="livingSquareTextField" destination="4wS-3Q-6lK" id="cgG-8j-Z7i"/>
-                        <outlet property="metroFloorLabel" destination="lby-mg-d3z" id="70M-Km-UIn"/>
-                        <outlet property="metroFloorTextField" destination="Tqj-Cl-iHc" id="VOj-Dj-ZPL"/>
                         <outlet property="objectNameLabel" destination="k1I-eh-JmI" id="2oY-ps-107"/>
                         <outlet property="objectNameTextField" destination="Llc-be-dZY" id="BHb-Zh-VNm"/>
                         <outlet property="objectTypeLabel" destination="YfX-Pl-kx7" id="TS4-ub-YdJ"/>
@@ -1265,7 +1397,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcW-4E-YCX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="P9r-bX-5hM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2537" y="354"/>
+            <point key="canvasLocation" x="2536.8000000000002" y="353.52323838080963"/>
         </scene>
         <!--RoomTypeVC-->
         <scene sceneID="3pv-gU-y2X">
@@ -1274,7 +1406,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cPl-oD-hJb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
                             <tableViewSection headerTitle="Тип объекта" id="LPj-sm-SuI">
                                 <cells>
@@ -1288,7 +1420,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Квартира" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5y8-Ta-nl6">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1302,10 +1434,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Комната" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q9J-g7-wHy">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Комната" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q9J-g7-wHy">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1322,7 +1454,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Дом" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wXp-m7-jTS">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1339,7 +1471,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Нежилое помещение" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Az9-tT-UAG">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1356,7 +1488,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Земельный участок" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BBn-zZ-r7C">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1377,7 +1509,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Аренда" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BKY-FJ-wbC">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1394,7 +1526,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Продажа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="guQ-FW-FlS">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1410,12 +1542,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Объект по типу" id="uBG-pZ-IB4">
-                        <barButtonItem key="leftBarButtonItem" title="Назад" id="Ta4-Bh-t1b">
+                        <barButtonItem key="leftBarButtonItem" title="Назад" image="back" id="Ta4-Bh-t1b">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="zTa-bE-5zn" kind="unwind" identifier="unwindAfterBackTapped" unwindAction="unwindToNewObjectVCAfterBackButtonTapped:" id="mSu-5T-plB"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="yEs-Ny-55H">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="yEs-Ny-55H">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="zTa-bE-5zn" kind="unwind" identifier="unwindAfterSaveTapped" unwindAction="unwindToNewObjectVCAfterSaveButtonTaped:" id="C7p-5p-H0R"/>
                             </connections>
@@ -1478,7 +1612,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hK-U5-QZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2857" y="-1232"/>
+            <point key="canvasLocation" x="3196" y="-1232.3838080959522"/>
         </scene>
         <!--Ebmedded Image Controller-->
         <scene sceneID="4yY-q4-PRy">
@@ -1517,7 +1651,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KxR-cN-mGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3590" y="-1232"/>
+            <point key="canvasLocation" x="3928.8000000000002" y="-1232.3838080959522"/>
         </scene>
         <!--Новый объект-->
         <scene sceneID="wGT-Ww-lhZ">
@@ -1601,7 +1735,8 @@
                         <viewLayoutGuide key="safeArea" id="1rT-gH-zLk"/>
                     </view>
                     <navigationItem key="navigationItem" title="Новый объект" id="eI0-Pk-28U">
-                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="D7C-yA-6MV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="D7C-yA-6MV">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="saveMapCoordinates:" destination="bBp-q1-ovY" id="hvf-pC-oHq"/>
                                 <segue destination="hTZ-a1-zcU" kind="unwind" identifier="saveFromAddToMapVC" unwindAction="saveFromAddToMapVC:" id="cTr-eG-aS5"/>
@@ -1715,7 +1850,8 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Добавить фото" id="GVO-NU-mV5">
-                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="Bqi-BS-k2m">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Bqi-BS-k2m">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="5Ye-s7-oLM" kind="unwind" identifier="unwindFromAddPhotosVC" unwindAction="unwindFromAddPhotosVC:" id="e6x-WR-JbX"/>
                             </connections>
@@ -1736,22 +1872,24 @@
     <resources>
         <image name="Image" width="50" height="50"/>
         <image name="back" width="30" height="24"/>
+        <image name="blurButton" width="342" height="91"/>
+        <image name="callButton" width="50" height="50"/>
         <image name="cellDarken" width="375" height="87"/>
         <image name="deleteButton" width="338" height="86"/>
         <image name="edit" width="30" height="30"/>
         <image name="filter" width="30" height="30"/>
-        <image name="handset" width="55" height="55"/>
         <image name="ownerRect" width="353" height="112"/>
         <image name="pin" width="38" height="50"/>
         <image name="plus" width="70" height="70"/>
         <image name="plus-1" width="30" height="30"/>
         <image name="rent3" width="30" height="30"/>
+        <image name="saveBlurButton" width="351" height="100"/>
         <image name="saveButton" width="338" height="86"/>
         <image name="settings-1" width="30" height="30"/>
         <image name="share" width="16" height="16"/>
         <image name="trash" width="37" height="45"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IV5-Pa-9TW"/>
+        <segue reference="SPm-pf-LVc"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,20 +17,21 @@
 #import "DataManager.h"
 #import "CoreDataTableVC.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SearchResultsTableViewController.h"
 
 
 //@class DetailObjectController;
 //@protocol AddArrayDelegate;
 
-@interface MainViewController : CoreDataTableVC  <UITableViewDataSource, UITableViewDataSource>
+@interface MainViewController : CoreDataTableVC  <UITableViewDataSource, UITableViewDataSource, UISearchControllerDelegate, UISearchResultsUpdating>
 
 
 @property(strong, nonatomic) NSMutableArray* arrayFromDetail;
 @property(strong, nonatomic) NSMutableArray* myPhotosData;
 @property(strong, nonatomic) NSMutableArray* fetchedData;
 @property(strong, nonatomic) NSMutableArray* fetchedArrayWithUsersPics;
-
-
+@property(strong, nonatomic) NSMutableArray* filteredResults;
+@property(strong, nonatomic) NSMutableArray* entities;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
@@ -41,6 +42,9 @@
 @property(strong, nonatomic) EstateObjectEntity *detailItem;
 
 
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property(strong, nonatomic) UISearchController *searchController;
+@property (nullable, nonatomic, weak) id <UISearchControllerDelegate> delegate;
 
 @property (assign, nonatomic) BOOL hidden;
 

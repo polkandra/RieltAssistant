@@ -44,7 +44,7 @@ static NSString * const reuseIdentifier = @"collectionCell";
     
     // [self fetchPhotos];
     
-    [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor46]];
+    [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor52]];
     [self.navigationController.navigationBar setTranslucent:NO];
     
     //  [self.navigationItem setTitle:@"Новый объект"];
@@ -54,7 +54,7 @@ static NSString * const reuseIdentifier = @"collectionCell";
     
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor],
-       NSFontAttributeName:[UIFont fontWithName:@"avenir" size:17]}];
+       NSFontAttributeName:[UIFont fontWithName:@"BloggerSans-BoldItalic" size:21]}];
     
     if (@available(iOS 11.0, *)) {
         self.navigationController.navigationBar.prefersLargeTitles = NO;

@@ -15,6 +15,7 @@
 		C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FFA431E895B560054F83D /* NewObjectViewController.m */; };
 		C63412F41EB4B24800ACE886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63412F31EB4B24800ACE886 /* Assets.xcassets */; };
 		C636778F1EE854FB0098FC90 /* MapTab.m in Sources */ = {isa = PBXBuildFile; fileRef = C636778E1EE854FB0098FC90 /* MapTab.m */; };
+		C639E0661FBDF38200AD7109 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C639E0651FBDF37400AD7109 /* UserNotifications.framework */; };
 		C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = C64380C61EAD358100D88E01 /* DetailObjectController.m */; };
 		C64A91C61FA243E700C995A8 /* SelectMeetingOblectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C64A91C51FA243E700C995A8 /* SelectMeetingOblectVC.m */; };
 		C64A91C91FA2447400C995A8 /* SelectMeetingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C64A91C81FA2447400C995A8 /* SelectMeetingCell.m */; };
@@ -27,6 +28,7 @@
 		C662270B1FA4C00A000854A4 /* EstateObjectEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C66227051FA4C009000854A4 /* EstateObjectEntity+CoreDataProperties.m */; };
 		C662270C1FA4C00A000854A4 /* MeetingObjectEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C66227061FA4C009000854A4 /* MeetingObjectEntity+CoreDataProperties.m */; };
 		C662270D1FA4C00A000854A4 /* EstateObjectEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C66227081FA4C009000854A4 /* EstateObjectEntity+CoreDataClass.m */; };
+		C67425191FC30AD200F5EA49 /* SearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67425181FC30AD200F5EA49 /* SearchResultsTableViewController.m */; };
 		C67BAADA1E7EBDC1004E9126 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAD91E7EBDC1004E9126 /* main.m */; };
 		C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */; };
 		C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADF1E7EBDC1004E9126 /* MainViewController.m */; };
@@ -43,6 +45,7 @@
 		C6AFF7DB1FB75218004A7995 /* Object.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6AFF7DA1FB75218004A7995 /* Object.storyboard */; };
 		C6B1A14C1F11160E00965F9D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6B1A14A1F11160E00965F9D /* Model.xcdatamodeld */; };
 		C6CDBEBB1F017EC00024B147 /* MeetingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CDBEB91F017EC00024B147 /* MeetingsCell.m */; };
+		C6CDE9BD1FC33B63006F2DA9 /* FilteredResultCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CDE9BC1FC33B63006F2DA9 /* FilteredResultCellTableViewCell.m */; };
 		C6D0E08F1EE8030B00E0FF26 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D0E08E1EE8030B00E0FF26 /* MapAnnotation.m */; };
 		C6D33CCF1F02973500F7C82B /* MeetingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D33CCE1F02973500F7C82B /* MeetingObject.m */; };
 		C6D33CD21F029CBA00F7C82B /* NewMeetingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D33CD11F029CBA00F7C82B /* NewMeetingDetailViewController.m */; };
@@ -80,6 +83,7 @@
 		C63542451F0D62FE0034149E /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		C636778D1EE854FB0098FC90 /* MapTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTab.h; sourceTree = "<group>"; };
 		C636778E1EE854FB0098FC90 /* MapTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTab.m; sourceTree = "<group>"; };
+		C639E0651FBDF37400AD7109 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		C64380C51EAD358100D88E01 /* DetailObjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailObjectController.h; sourceTree = "<group>"; };
 		C64380C61EAD358100D88E01 /* DetailObjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailObjectController.m; sourceTree = "<group>"; };
 		C64A91C41FA243E700C995A8 /* SelectMeetingOblectVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectMeetingOblectVC.h; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 		C66227071FA4C009000854A4 /* EstateObjectEntity+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EstateObjectEntity+CoreDataClass.h"; sourceTree = "<group>"; };
 		C66227081FA4C009000854A4 /* EstateObjectEntity+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EstateObjectEntity+CoreDataClass.m"; sourceTree = "<group>"; };
 		C66227091FA4C009000854A4 /* MeetingObjectEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MeetingObjectEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C67425171FC30AD200F5EA49 /* SearchResultsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResultsTableViewController.h; sourceTree = "<group>"; };
+		C67425181FC30AD200F5EA49 /* SearchResultsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultsTableViewController.m; sourceTree = "<group>"; };
 		C67BAAD51E7EBDC1004E9126 /* RieltAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RieltAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67BAAD91E7EBDC1004E9126 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C67BAADB1E7EBDC1004E9126 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -131,6 +137,8 @@
 		C6B1A14B1F11160E00965F9D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C6CDBEB81F017EC00024B147 /* MeetingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingsCell.h; sourceTree = "<group>"; };
 		C6CDBEB91F017EC00024B147 /* MeetingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingsCell.m; sourceTree = "<group>"; };
+		C6CDE9BB1FC33B63006F2DA9 /* FilteredResultCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilteredResultCellTableViewCell.h; sourceTree = "<group>"; };
+		C6CDE9BC1FC33B63006F2DA9 /* FilteredResultCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilteredResultCellTableViewCell.m; sourceTree = "<group>"; };
 		C6D0E08D1EE8030B00E0FF26 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
 		C6D0E08E1EE8030B00E0FF26 /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 		C6D33CCD1F02973500F7C82B /* MeetingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingObject.h; sourceTree = "<group>"; };
@@ -167,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C639E0661FBDF38200AD7109 /* UserNotifications.framework in Frameworks */,
 				C60D384D1FA371D300BD96AD /* QuartzCore.framework in Frameworks */,
 				C6A7195D1F0FB6DC00A5FE9B /* CoreData.framework in Frameworks */,
 				C6E37E961EE2F0E30013DDD5 /* MapKit.framework in Frameworks */,
@@ -235,7 +244,6 @@
 				C67BAADB1E7EBDC1004E9126 /* AppDelegate.h */,
 				C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */,
 				C67BAAEC1E7EBDC2004E9126 /* Info.plist */,
-				C6B1A14A1F11160E00965F9D /* Model.xcdatamodeld */,
 				C67BAAD91E7EBDC1004E9126 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -269,6 +277,8 @@
 				C6DF6B3A1EAF673C007F1CB9 /* RoomTypeController.m */,
 				C6592CAC1FA0B24000CF60EE /* AddPhotosVC.h */,
 				C6592CAD1FA0B24000CF60EE /* AddPhotosVC.m */,
+				C67425171FC30AD200F5EA49 /* SearchResultsTableViewController.h */,
+				C67425181FC30AD200F5EA49 /* SearchResultsTableViewController.m */,
 				C65B201D1EEAE2C4009F8DFA /* MapsControllers */,
 				C6CAB5D51EE1E91D00078A32 /* PageViewController */,
 			);
@@ -304,6 +314,7 @@
 		C6A36DA91E9A98EB00A00F04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C639E0651FBDF37400AD7109 /* UserNotifications.framework */,
 				C60D384C1FA371BA00BD96AD /* QuartzCore.framework */,
 				C6A7195C1F0FB6DC00A5FE9B /* CoreData.framework */,
 				C63542451F0D62FE0034149E /* EventKit.framework */,
@@ -323,6 +334,7 @@
 				C6A719CF1F1005C500A5FE9B /* CoreDataTableVC.m */,
 				C6A719681F0FD98B00A5FE9B /* DataManager.h */,
 				C6A719691F0FD98B00A5FE9B /* DataManager.m */,
+				C6B1A14A1F11160E00965F9D /* Model.xcdatamodeld */,
 			);
 			name = CoreData;
 			path = ..;
@@ -422,6 +434,8 @@
 				C6592CB01FA0B48D00CF60EE /* AddPhotoCVCell.m */,
 				C69206101ECB48F600D7210D /* DetailCollectionViewCell.h */,
 				C69206111ECB48F600D7210D /* DetailCollectionViewCell.m */,
+				C6CDE9BB1FC33B63006F2DA9 /* FilteredResultCellTableViewCell.h */,
+				C6CDE9BC1FC33B63006F2DA9 /* FilteredResultCellTableViewCell.m */,
 			);
 			name = Cells;
 			path = ..;
@@ -574,12 +588,14 @@
 				C662270A1FA4C00A000854A4 /* MeetingObjectEntity+CoreDataClass.m in Sources */,
 				C6A7196A1F0FD98B00A5FE9B /* DataManager.m in Sources */,
 				C662270D1FA4C00A000854A4 /* EstateObjectEntity+CoreDataClass.m in Sources */,
+				C67425191FC30AD200F5EA49 /* SearchResultsTableViewController.m in Sources */,
 				C662270B1FA4C00A000854A4 /* EstateObjectEntity+CoreDataProperties.m in Sources */,
 				C6D0E08F1EE8030B00E0FF26 /* MapAnnotation.m in Sources */,
 				C67BAB571E7EEF59004E9126 /* MainScreenView.m in Sources */,
 				C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */,
 				C64A91C91FA2447400C995A8 /* SelectMeetingCell.m in Sources */,
 				C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */,
+				C6CDE9BD1FC33B63006F2DA9 /* FilteredResultCellTableViewCell.m in Sources */,
 				C6592CB11FA0B48D00CF60EE /* AddPhotoCVCell.m in Sources */,
 				C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */,
 				C6D33CCF1F02973500F7C82B /* MeetingObject.m in Sources */,
@@ -721,6 +737,7 @@
 				ENABLE_BITCODE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "Помощник риэлтора/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -783,6 +800,7 @@
 				ENABLE_BITCODE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "Помощник риэлтора/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

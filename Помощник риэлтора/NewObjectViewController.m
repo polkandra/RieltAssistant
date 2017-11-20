@@ -52,7 +52,9 @@
     self.myArrayWithPhotoData = [[NSMutableArray alloc] init];
     self.myData1 = [[NSMutableArray alloc] init];
 
-   
+    [self.saveSecondButton setTitleColor:[UIColor blackColor]
+                       forState:UIControlStateHighlighted];
+     
     
 }
 
@@ -110,10 +112,10 @@
     
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor],
-       NSFontAttributeName:[UIFont fontWithName:@"avenir" size:17]}];
+       NSFontAttributeName:[UIFont fontWithName:@"BloggerSans-BoldItalic" size:21]}];
     
     if (@available(iOS 11.0, *)) {
-        self.navigationController.navigationBar.prefersLargeTitles = YES;
+        //self.navigationController.navigationBar.prefersLargeTitles = YES;
     } else {
         // Fallback on earlier versions
     }
@@ -173,7 +175,6 @@
     if ([self.myRetrievedPics containsObject:[UIImage imageNamed:@"emptyObject2"]]) {
         [self.myRetrievedPics removeObject:[UIImage imageNamed:@"emptyObject2"]];
     }
-    
 }
 
 
@@ -193,8 +194,7 @@
         [self.totalSquareTextField setText:[self.detailItem valueForKey:@"wholeArea"]];
         [self.livingSquareTextField setText:[self.detailItem valueForKey:@"livingArea"]];
         [self.kitchenSquareTextField setText:[self.detailItem valueForKey:@"kitchenArea"]];
-        
-        
+        [self.detailInfoTextView setText:[self.detailItem valueForKey:@"detailInformation"]];
     }
 }
 
@@ -204,54 +204,47 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height)];
-
-    [headerView setBackgroundColor:[UIColor whiteColor]];
-   // [headerView setBackgroundColor:[StyleKitName gold]];
     
     if (section == 0) {
-        [headerView setBackgroundColor:[UIColor whiteColor]];
-        UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
+        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"Общие";
-        titleLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:18];
-        titleLabel.textColor = [UIColor grayColor];
+        titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
+        titleLabel.textColor = [UIColor whiteColor];
         titleLabel.backgroundColor = [UIColor clearColor];
         [headerView addSubview:titleLabel];
     }else if (section == 1){
-        [headerView setBackgroundColor:[UIColor whiteColor]];
-        UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
+        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"Координаты";
-        titleLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:18];
-        titleLabel.textColor = [UIColor grayColor];
+        titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
+        titleLabel.textColor = [UIColor whiteColor];
         titleLabel.backgroundColor = [UIColor clearColor];
         [headerView addSubview:titleLabel];
-        
     }else if (section == 2){
-        
-        [headerView setBackgroundColor:[UIColor whiteColor]];
-        UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
+        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"Параметры";
-        titleLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:18];
-        titleLabel.textColor = [UIColor grayColor];
+        titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
+        titleLabel.textColor = [UIColor whiteColor];
         titleLabel.backgroundColor = [UIColor clearColor];
         [headerView addSubview:titleLabel];
     }else if (section == 3){
-        [headerView setBackgroundColor:[UIColor whiteColor]];
-        UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
+        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"Фото объекта";
-        titleLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:18];
-        titleLabel.textColor = [UIColor grayColor];
+        titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
+        titleLabel.textColor = [UIColor whiteColor];
         titleLabel.backgroundColor = [UIColor clearColor];
         [headerView addSubview:titleLabel];
-        
-    }else if (section == 3){
-        [headerView setBackgroundColor:[UIColor whiteColor]];
-        UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
+    }else if (section == 4){
+        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"Контакты";
-        titleLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:18];
-        titleLabel.textColor = [UIColor grayColor];
+        titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
+        titleLabel.textColor = [UIColor whiteColor];
         titleLabel.backgroundColor = [UIColor clearColor];
         [headerView addSubview:titleLabel];
-        
     }
     
     return headerView;
@@ -291,7 +284,7 @@
         
         if (( self.totalSquareTextField.text.length == 0 )){
             
-            object.wholeArea = @"не указана";
+            object.wholeArea = @"--";
             
         }else{
             
@@ -301,7 +294,7 @@
         
         if (( self.livingSquareTextField.text.length == 0 )){
             
-            object.livingArea = @"не указана";
+            object.livingArea = @"--";
             
         }else{
             
@@ -311,7 +304,7 @@
         
         if (( self.kitchenSquareTextField.text.length == 0 )) {
             
-            object.kitchenArea = @"не указана";
+            object.kitchenArea = @"--";
             
         }else{
         
@@ -360,12 +353,16 @@
         }else{
             
             NSMutableString *concatString = [self.priceTextField.text mutableCopy];
-            NSMutableString *resultString = [concatString stringByAppendingString:@" Рублей"];
-            object.price = resultString;
+           // NSMutableString *resultString = [concatString stringByAppendingString:@" Ꝑ"];
             
+            NSMutableString *resultString = [concatString stringByAppendingString:@" \u20BD"];
+            object.price = resultString;
         }
         
-
+        object.detailInformation = self.detailInfoTextView.text;
+       
+        
+        
         if (self.myArrayWithPhotoData.count == 0) {
 
             UIImage *image = [UIImage imageNamed:@"emptyObject2"];
@@ -395,7 +392,7 @@
         
         
         
-    } else if ([segue.identifier isEqualToString:@"unwindAndSaveToDetail"]) {
+    }else if ([segue.identifier isEqualToString:@"unwindAndSaveToDetail"]) {
         
         DetailObjectController *doc = (DetailObjectController*)segue.destinationViewController;
         
@@ -418,14 +415,17 @@
             detailItem.owner = self.ownerNameTextField.text;
            
             NSMutableString *concatString = [self.priceTextField.text mutableCopy];
-
-           /* if (([concatString rangeOfString:@" Рублей"].location) != NSNotFound ) {
-                NSString *newString1 = [concatString stringByReplacingOccurrencesOfString:@" Рублей" withString:@""];
-                concatString = newString1;
-            }*/
             
-            NSMutableString *resultString = [concatString stringByAppendingString:@" Рублей"];
-            detailItem.price = resultString;
+            if ([concatString rangeOfString:@"\u20BD"].location == NSNotFound) {
+              
+                NSMutableString *resultString = [concatString stringByAppendingString:@" \u20BD"];
+                detailItem.price = resultString;
+            } else {
+                detailItem.price = concatString;
+            }
+            
+//            NSMutableString *resultString = [concatString stringByAppendingString:@" \u20BD"];
+//            detailItem.price = resultString;
             
             // detailItem.price = self.priceTextField.text;
             detailItem.phoneNumber = self.phoneTextField.text;
@@ -435,6 +435,7 @@
             detailItem.livingArea = self.livingSquareTextField.text;
             detailItem.kitchenArea = self.kitchenSquareTextField.text;
             detailItem.roomQuantity = [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]];
+            detailItem.detailInformation = self.detailInfoTextView.text;
             
             NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
             detailItem.arrayOfUsersPics = arrayData;
@@ -459,9 +460,9 @@
             object.typeOfProperty = self.objectTypeLabelInCell.text;
             object.actionByProperty = self.actionTypeLabelInCell.text;
             
-            if (( self.totalSquareTextField.text.length == 0 )){
+            if (self.totalSquareTextField.text.length == 0 ) {
                 
-                object.wholeArea = @"не указана";
+                object.wholeArea = @"--";
                 
             }else{
                 
@@ -469,9 +470,9 @@
             }
             
             
-            if (( self.livingSquareTextField.text.length == 0 )){
+            if (self.livingSquareTextField.text.length == 0 ){
                 
-                 object.livingArea = @"не указана";
+                 object.livingArea = @"--";
                  
              }else{
                  
@@ -479,9 +480,9 @@
              }
             
             
-             if (( self.kitchenSquareTextField.text.length == 0 )) {
+             if (self.kitchenSquareTextField.text.length == 0) {
                  
-                 object.kitchenArea = @"не указана";
+                 object.kitchenArea = @"--";
                  
              }else{
                  
@@ -489,7 +490,7 @@
              }
             
             
-             if ((self.objectNameTextField.text.length == 0)) {
+             if (self.objectNameTextField.text.length == 0) {
                  
                  object.discription = @"Имя не указано";
                  
@@ -500,7 +501,7 @@
              }
              
              
-            if ((self.ownerNameTextField.text.length == 0)) {
+            if (self.ownerNameTextField.text.length == 0) {
                  
                  object.owner = @"Собственник не указан";
                  
@@ -510,7 +511,7 @@
              }
             
             
-            if ((self.adressTextfield.text.length == 0)) {
+            if (self.adressTextfield.text.length == 0) {
                 
                 object.address = @"Адрес не указан";
                 
@@ -520,18 +521,24 @@
             }
             
             
+             object.detailInformation = self.detailInfoTextView.text;
+           
             
-            if ((self.priceTextField.text.length == 0)) {
+            if (self.priceTextField.text.length == 0) {
                 
                 object.price = @"Цена не указана";
                 
             }else{
                 
-//                NSMutableString *concatString = [self.priceTextField.text mutableCopy];
-//                NSMutableString *resultString = [concatString stringByAppendingString:@" Рублей"];
-//
-//
-//                object.price = resultString;
+                NSMutableString *concatString = [self.priceTextField.text mutableCopy];
+                
+                if ([concatString rangeOfString:@"\u20BD"].location == NSNotFound) {
+                    
+                    NSMutableString *resultString = [concatString stringByAppendingString:@" \u20BD"];
+                    object.price = resultString;
+                }else{
+                    object.price = concatString;
+                }
                 
             }
             
@@ -668,7 +675,7 @@
     self.metroFloorTextField.delegate = self;
     self.ownerNameTextField.delegate = self;
     self.phoneTextField.delegate = self;
-    self.extraInfoTextField.delegate = self;
+  
     
 }
 
@@ -684,7 +691,7 @@
     [self.metroFloorTextField resignFirstResponder];
     [self.ownerNameTextField resignFirstResponder];
     [self.phoneTextField resignFirstResponder];
-    [self.extraInfoTextField resignFirstResponder];
+   
     
     return NO;
     

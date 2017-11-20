@@ -2,7 +2,7 @@
 //  EstateObjectEntity+CoreDataProperties.h
 //  RieltAssistant
 //
-//  Created by Mikhail Kozlyukov on 30.10.2017.
+//  Created by Mikhail Kozlyukov on 15.11.2017.
 //  Copyright © 2017 Chebahatt. All rights reserved.
 //
 //
@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *roomQuantity;
 @property (nullable, nonatomic, copy) NSString *typeOfProperty;
 @property (nullable, nonatomic, copy) NSString *wholeArea;
+@property (nullable, nonatomic, copy) NSString *detailInformation;
 @property (nullable, nonatomic, retain) NSSet<MeetingObjectEntity *> *meetingObjects;
 
 @end

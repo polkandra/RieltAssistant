@@ -60,10 +60,12 @@
     
     [self.view addGestureRecognizer:tap];
     [self.mapView addGestureRecognizer:lpgr];
-    
 
+    self.disclaimerLabel.hidden = NO;
     
 }
+
+
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
@@ -138,14 +140,11 @@
                                        if (placemark) {
                                            [self.tableView setHidden: YES];
                                            
-                                          //uncomment to be able after selecting row in search results go to place and put a placemark.
-                                          
+                                           //uncomment to be able after selecting row in search results go to place and put a placemark.
+                                           
                                            // [self addPlacemarkAnnotationToMap:placemark addressString:addressString];
                                            
                                            [self recenterMapToPlacemark:placemark];
-                                           
-                                         
-                                           
                                            [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
                                        }
                                    }];
@@ -158,6 +157,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)aSearchBar {
     [searchBar resignFirstResponder];
+    
 }
 
 
@@ -196,6 +196,7 @@
     
     [searchBar setShowsCancelButton:NO animated:YES];
     [searchBar resignFirstResponder];
+    self.disclaimerLabel.hidden = NO;
     [self.tableView setHidden:YES];
 }
 
@@ -203,7 +204,10 @@
 #pragma mark - Helpers
 
 
-
+-(void)setNavigationController {
+    
+    
+}
 
 /*-(void)setMKUserTrackingButton {
     
@@ -239,9 +243,6 @@
 
 
 
-
-
-
 - (void)recenterMapToPlacemark:(CLPlacemark *)placemark
 {
     MKCoordinateRegion region;
@@ -253,14 +254,9 @@
     region.span = span;
     region.center = placemark.location.coordinate;
     
-   
+    self.disclaimerLabel.hidden = NO;
     [self.mapView setRegion:region animated:YES];
 }
-
-
-
-
-
 
 
 -(void)setLocationManager {
@@ -290,8 +286,6 @@
     [self.mapView addGestureRecognizer:lpgr];
     
 }*/
-
-
 
 
 -(void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer {
@@ -339,10 +333,6 @@
 - (void) dismissKeyboard {
     [self.searchBar resignFirstResponder];
 }
-
-
-
-
 
 
 #pragma mark - MKMapViewDelegate
@@ -426,25 +416,11 @@
         
         return pin;
         
-        
     }
-    
     
     return nil;
 
 }
-
-
-
-
-
-
-/*- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
-    
-    
-}*/
-
-
 
 
 #pragma mark - CLLocationManagerDelegate
@@ -465,12 +441,6 @@
 }
 
 
-/*- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
- {
- NSLog(@"didUpdateToLocation: %@", newLocation);
- CLLocation *newLocation = locations.lastObject;
- 
- }*/
 
 
 #pragma mark - Navigation
@@ -490,15 +460,7 @@
         
         [[[DataManager sharedManager] managedObjectContext] save:nil];
         
-        
     
-        
-//        MapTab *mtVc = (MapTab*) [[(UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1] viewControllers] objectAtIndex:0];
-//        mtVc.detailItem = self.detailItem;
-//       
-//        mtVc.pinPhotosArray = [[NSMutableArray alloc] init];
-//        mtVc.pinPhotosArray = self.pinPhotosArray;
-      
         
     }
     
