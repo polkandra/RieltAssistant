@@ -10,10 +10,11 @@
 #import "EstateObjectEntity+CoreDataProperties.h"
 #import "EstateObject.h"
 #import "DataManager.h"
-#import "MainScreenCellTableViewCell.h"
 #import "SearchResultsTableViewController.h"
 #import "FilteredResultCellTableViewCell.h"
 #import "MainViewController.h"
+#import "StyleKitName.h"
+#import "DetailObjectController.h"
 
 @interface SearchResultsTableViewController : UITableViewController
 

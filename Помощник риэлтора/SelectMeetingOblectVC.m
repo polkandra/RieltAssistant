@@ -38,20 +38,14 @@
         NewMeetingDetailViewController *dmVC = (NewMeetingDetailViewController *)segue.destinationViewController;
         NSIndexPath *selectedPath = [self.tableView indexPathForSelectedRow];
         EstateObjectEntity *selectedEntity = [[self fetchedResultsController] objectAtIndexPath:selectedPath];
-       
         dmVC.detailItem = selectedEntity;
-        
-
         dmVC.chooseObjectString = @"";
 //        dmVC.nameLabel.hidden = NO;
 //        dmVC.addressLabel.hidden = NO;
 //        dmVC.priceLabel.hidden = NO;
         
-       
     }
 }
-
-
 
 
 #pragma mark - Helpers
@@ -160,7 +154,7 @@
 }
 
 
-#pragma mark - cell configuring
+#pragma mark - Cell configuring
 
 - (void)configureCell:(SelectMeetingCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     

@@ -14,7 +14,7 @@
 
 @implementation MainViewController
 
-@synthesize  myPhotosData, fetchedResultsController, tableView, detailItem, fetchedData, searchBar, searchController, delegate, filteredResults;
+@synthesize  myPhotosData, fetchedResultsController, tableView, detailItem, fetchedData, searchController, delegate, filteredResults;
 
 
 #pragma mark - VC Lyficycle
@@ -24,7 +24,7 @@
     
         
     [super viewDidLoad];
-    [self setSearchController];
+    //[self setSearchController];
    
    // [self filter:@""];
    
@@ -34,7 +34,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
    
     SearchResultsTableViewController *searchResults = (SearchResultsTableViewController *)self.searchController.searchResultsController;
-    [self addObserver:searchResults forKeyPath:@"results" options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:searchResults forKeyPath:@"entities" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 
@@ -43,167 +43,71 @@
     
     [super viewWillAppear:animated];
     [self setNavigationController];
-    
-    NSEntityDescription *entity = [NSEntityDescription  entityForName:@"EstateObjectEntity" inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entity];
-    [request setResultType:NSDictionaryResultType];
-    [request setReturnsDistinctResults:YES];
-    [request setPropertiesToFetch:@[@"discription"]];
+  
     
     NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    self.filteredResults = [[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error];
     
-    self.filteredResults = [[[DataManager sharedManager] managedObjectContext] executeFetchRequest:request error:&error];
-    
-}
+    for (id object in self.filteredResults) {
+        if ([object isKindOfClass:[EstateObjectEntity class]]) {
+            self.detailItem = ((EstateObjectEntity *)object);
+        }
+    }
+ }
 
 
 
 -(void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
-   
-
+  
 }
-
-#pragma mark - UISearchControllerDelegate
-
-
-
-
-
-
 
 
 #pragma mark - UISearchResultsUpdatingDelegate
 
-
 -(void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    
-    // filter the search results
-   
-    
-   // NSString* filter = @"%K CONTAINS[cd] %@";
-   // NSPredicate *predicate = [NSPredicate predicateWithFormat:@"EstateObjectEntity LIKE[c] %@", self.searchController.searchBar.text];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.discription contains [cd] %@", self.searchController.searchBar.text];
     self.entities = [self.filteredResults filteredArrayUsingPredicate:predicate];
     
-    
-    
-    /*NSString *searchString = self.searchController.searchBar.text;
-    [self updateFilteredContentForAirlineName:searchString];
-    
-    if (self.searchController.searchResultsController) {
-        
-        UINavigationController *navController = (UINavigationController *)self.searchController.searchResultsController;
-        SearchResultsTableViewController *vc = (SearchResultsTableViewController *)navController.topViewController;
-        
-        
-        vc.searchResults = filteredResults;
-        
-        
-        [vc.tableView reloadData];
-    }*/
-    
-}
-
-/*- (void)updateFilteredContentForAirlineName:(NSString *)entityName {
-
-    if (entityName == nil) {
-        
-        self.entities = [self.filteredResults mutableCopy];
-    
-    } else {
-        
-        NSMutableArray *searchResults = [[NSMutableArray alloc] init];
-               
-        for (NSDictionary *entity in self.filteredResults) {
-            if ([entity[@"discription"] containsString:entityName]) {
-                
-                NSString *str = [NSString stringWithFormat:@"%@", entity[@"discription"]];
-                [searchResults addObject:str];
-            }
-            
-            self.entities = searchResults;
-        }
-    }
-}*/
-
-
-
-
-/*-(void)filter:(NSString*)text {
-    
-    self.entities = [[NSMutableArray alloc] init];
-    
-    // Create our fetch request
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    
-    // Define the entity we are looking for
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EstateObjectEntity" inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
-    [fetchRequest setEntity:entity];
-    
-    // Define how we want our entities to be sorted
-    NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc]
-                                        initWithKey:@"discription" ascending:YES];
-    NSArray* sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    // If we are searching for anything...
-    if(text.length > 0) {
-    
-        // Define how we want our entities to be filtered
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(name CONTAINS[c] %@)",text];
-        [fetchRequest setPredicate:predicate];
-    }
-    
-    NSError *error;
-    
-    // Finally, perform the load
-    NSArray* loadedEntities = [[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error];
-    self.filteredResults = [[NSMutableArray alloc] initWithArray:loadedEntities];
-    
-    [self.tableView reloadData];
 }
 
 
-#pragma mark - UITextFieldDelegate
+#pragma mark - UISearchController
 
--(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)text {
+- (UISearchController *)searchController {
+    
+    if (!searchController) {
+        
+        SearchResultsTableViewController *resultsController = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResultsTableViewController"];
+        
+        searchController = [[UISearchController alloc]initWithSearchResultsController:resultsController];
+        searchController.searchResultsUpdater = self;
+        
+        searchController.delegate = self;
+        searchController.obscuresBackgroundDuringPresentation = NO;
+        searchController.definesPresentationContext = YES;
+        searchController.searchBar.placeholder = @"введите имя объекта";
+        searchController.searchBar.barTintColor = [StyleKitName gradientColor52];
+        //        searchController.searchBar.frame = CGRectMake(searchController.searchBar.frame.origin.x,
+        //                                                      searchController.searchBar.frame.origin.y,
+        //                                                      searchController.searchBar.frame.size.width, 44.0);
+        //        if (@available(iOS 11.0, *)) {
+        //            self.navigationItem.searchController = searchController;
+        //        } else {
+        //
+        //        }
+        
+        
+    }
+    return searchController;
+}
 
-    [self filter:text];
-}*/
 
 
 #pragma mark - Helpers
-
--(void)setSearchController {
-    
-    SearchResultsTableViewController *searchResultNC = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResultsTableViewController"];
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultNC];
-    self.searchController.searchResultsUpdater = self;
-    self.searchBar.delegate = self;
-    self.searchBar.barTintColor = [StyleKitName gradientColor7];
-    self.searchController.obscuresBackgroundDuringPresentation = NO;
-    self.searchController.searchBar.placeholder = @"введите имя объекта";
-    if (@available(iOS 11.0, *)) {
-        self.navigationItem.searchController = searchController;
-    } else {
-        
-    }
-    self.searchController.definesPresentationContext = YES;
-    self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x,
-                                                       self.searchController.searchBar.frame.origin.y,
-                                                       self.searchController.searchBar.frame.size.width, 44.0);
-    //self.tableView.tableHeaderView = self.searchController.searchBar;
-    
-}
-
-
-
-
 
 -(void)setNavigationController {
    
@@ -317,9 +221,16 @@
 }
 
 
+- (IBAction)searchButtonTapped:(UIBarButtonItem *)sender {
+   
+    SearchResultsTableViewController *srTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResultsTableViewController"];
+       srTVC.detailItem = self.detailItem;
+    [self presentViewController:self.searchController animated:YES completion:nil];
+}
 
 
 
+#pragma mark - NSFetchedResultsController
 
 - (NSFetchedResultsController *)fetchedResultsController
 {

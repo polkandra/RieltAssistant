@@ -12,7 +12,16 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    [self makeItCircle];
+}
+
+
+-(void)makeItCircle {
+    
+    self.imageViewCell.layer.masksToBounds = YES;
+    // self.imageViewCell.layer.cornerRadius  = self.imageViewCell.frame.size.width/2.0;
+    self.imageViewCell.layer.cornerRadius  = 15;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

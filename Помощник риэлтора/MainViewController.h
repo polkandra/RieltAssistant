@@ -23,7 +23,7 @@
 //@class DetailObjectController;
 //@protocol AddArrayDelegate;
 
-@interface MainViewController : CoreDataTableVC  <UITableViewDataSource, UITableViewDataSource, UISearchControllerDelegate, UISearchResultsUpdating>
+@interface MainViewController : CoreDataTableVC  <UITableViewDataSource, UISearchControllerDelegate, UISearchResultsUpdating>
 
 
 @property(strong, nonatomic) NSMutableArray* arrayFromDetail;
@@ -42,7 +42,7 @@
 @property(strong, nonatomic) EstateObjectEntity *detailItem;
 
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+//@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property(strong, nonatomic) UISearchController *searchController;
 @property (nullable, nonatomic, weak) id <UISearchControllerDelegate> delegate;
 
