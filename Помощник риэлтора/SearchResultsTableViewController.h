@@ -16,9 +16,13 @@
 #import "StyleKitName.h"
 #import "DetailObjectController.h"
 
-@interface SearchResultsTableViewController : UITableViewController
+@interface SearchResultsTableViewController : UIViewController
 
 @property (nonatomic, strong) NSMutableArray *searchResults;
 @property(strong, nonatomic) EstateObjectEntity *detailItem;
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property(strong, nonatomic) SearchResultsTableViewController *srTVC;;
+@property(strong, nonatomic) UINavigationController *nc;
+@property(strong,nonatomic) UIViewController *top;
 @end

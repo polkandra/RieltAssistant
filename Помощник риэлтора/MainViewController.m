@@ -14,7 +14,7 @@
 
 @implementation MainViewController
 
-@synthesize  myPhotosData, fetchedResultsController, tableView, detailItem, fetchedData, searchController, delegate, filteredResults;
+@synthesize  myPhotosData, fetchedResultsController, tableView, detailItem, fetchedData, searchController, filteredResults;
 
 
 #pragma mark - VC Lyficycle
@@ -33,8 +33,12 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
    
-    SearchResultsTableViewController *searchResults = (SearchResultsTableViewController *)self.searchController.searchResultsController;
-    [self addObserver:searchResults forKeyPath:@"entities" options:NSKeyValueObservingOptionNew context:nil];
+    SearchResultsTableViewController *searchResultsVC = (SearchResultsTableViewController *)self.searchController.searchResultsController;
+    [self addObserver:searchResultsVC forKeyPath:@"entities" options:NSKeyValueObservingOptionNew context:nil];
+    
+    
+    
+    
 }
 
 
@@ -43,7 +47,7 @@
     
     [super viewWillAppear:animated];
     [self setNavigationController];
-  
+   
     
     NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
@@ -72,6 +76,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.discription contains [cd] %@", self.searchController.searchBar.text];
     self.entities = [self.filteredResults filteredArrayUsingPredicate:predicate];
     
+    
 }
 
 
@@ -84,21 +89,16 @@
         SearchResultsTableViewController *resultsController = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResultsTableViewController"];
         
         searchController = [[UISearchController alloc]initWithSearchResultsController:resultsController];
+               
         searchController.searchResultsUpdater = self;
+        searchController.hidesNavigationBarDuringPresentation = NO;
         
         searchController.delegate = self;
         searchController.obscuresBackgroundDuringPresentation = NO;
         searchController.definesPresentationContext = YES;
         searchController.searchBar.placeholder = @"введите имя объекта";
         searchController.searchBar.barTintColor = [StyleKitName gradientColor52];
-        //        searchController.searchBar.frame = CGRectMake(searchController.searchBar.frame.origin.x,
-        //                                                      searchController.searchBar.frame.origin.y,
-        //                                                      searchController.searchBar.frame.size.width, 44.0);
-        //        if (@available(iOS 11.0, *)) {
-        //            self.navigationItem.searchController = searchController;
-        //        } else {
-        //
-        //        }
+       
         
         
     }
@@ -222,10 +222,12 @@
 
 
 - (IBAction)searchButtonTapped:(UIBarButtonItem *)sender {
-   
+    
     SearchResultsTableViewController *srTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResultsTableViewController"];
-       srTVC.detailItem = self.detailItem;
+    srTVC.detailItem = self.detailItem;
+    
     [self presentViewController:self.searchController animated:YES completion:nil];
+    
 }
 
 
@@ -284,9 +286,6 @@
 
 
 
-
-
-
 #pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -298,9 +297,11 @@
     return cell;
 }
 
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 170;
 }
+
 
 #pragma mark - cell configuring
 

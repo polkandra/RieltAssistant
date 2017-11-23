@@ -33,6 +33,10 @@
 @property(strong, nonatomic) NSMutableArray* filteredResults;
 @property(strong, nonatomic) NSMutableArray* entities;
 
+
+@property(strong, nonatomic) UINavigationController *nc;
+
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UILabel *emptyDataBaseLabel;
@@ -44,7 +48,7 @@
 
 //@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property(strong, nonatomic) UISearchController *searchController;
-@property (nullable, nonatomic, weak) id <UISearchControllerDelegate> delegate;
+
 
 @property (assign, nonatomic) BOOL hidden;
 
