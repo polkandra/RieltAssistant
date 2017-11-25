@@ -213,7 +213,7 @@
         titleLabel.textColor = [UIColor whiteColor];
         titleLabel.backgroundColor = [UIColor clearColor];
         [headerView addSubview:titleLabel];
-    }else if (section == 1){
+    }else if (section == 1) {
         [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"Координаты";
@@ -221,7 +221,7 @@
         titleLabel.textColor = [UIColor whiteColor];
         titleLabel.backgroundColor = [UIColor clearColor];
         [headerView addSubview:titleLabel];
-    }else if (section == 2){
+    }else if (section == 2) {
         [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"Параметры";
@@ -229,7 +229,7 @@
         titleLabel.textColor = [UIColor whiteColor];
         titleLabel.backgroundColor = [UIColor clearColor];
         [headerView addSubview:titleLabel];
-    }else if (section == 3){
+    }else if (section == 3) {
         [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"Фото объекта";
@@ -237,7 +237,7 @@
         titleLabel.textColor = [UIColor whiteColor];
         titleLabel.backgroundColor = [UIColor clearColor];
         [headerView addSubview:titleLabel];
-    }else if (section == 4){
+    }else if (section == 4) {
         [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"Контакты";

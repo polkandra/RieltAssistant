@@ -234,8 +234,8 @@
 
 #pragma mark - NSFetchedResultsController
 
-- (NSFetchedResultsController *)fetchedResultsController
-{
+- (NSFetchedResultsController *)fetchedResultsController {
+
     if (fetchedResultsController != nil) {
         return fetchedResultsController;
     }

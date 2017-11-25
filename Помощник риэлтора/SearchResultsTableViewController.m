@@ -77,6 +77,8 @@
 
 #pragma mark - UITableViewDelegate
 
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -92,28 +94,7 @@
     controller.goToMap.hidden = YES;
     
     
-    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-    navBar.backgroundColor = [StyleKitName gradientColor52];
-    [controller.view addSubview:navBar];
-    
-    NSString * myTitle = [NSString stringWithFormat:@"%@",[selectedEntity valueForKey:@"discription"]];
-    UINavigationItem *navigItem = [[UINavigationItem alloc] initWithTitle:myTitle];
-    
-    UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
-    
-    
-    UIImage* imageBack = [UIImage imageNamed:@"back"];
-    CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
-    
-    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
-    [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
-    [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-    [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
-    [flipButton initWithCustomView:someButton];
-    
-    navigItem.leftBarButtonItem = flipButton;
-    
-    navBar.items = @[navigItem];
+   [self controllerWhereCreateNavBar:controller titleWithSelectedEntity:selectedEntity];
     
     
     [self.top presentViewController:controller animated:YES completion: nil];
@@ -134,10 +115,38 @@
 
 #pragma mark - Helper
 
--(void)customNavBarCreation {
+- (void)controllerWhereCreateNavBar:(DetailObjectController *)controller titleWithSelectedEntity:(EstateObjectEntity *)selectedEntity {
+    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 45)];
+   
+    navBar.backgroundColor = [StyleKitName gradientColor52];
+   
     
+    [navBar setBackgroundImage:[UIImage new] forBarPosition:UIBarPositionTopAttached barMetrics:UIBarMetricsDefault];
+    [navBar setShadowImage:[UIImage new]];
+    [navBar setTranslucent:YES];
+   
+  
+    [controller.view addSubview:navBar];
     
+    NSString * myTitle = [NSString stringWithFormat:@"%@",[selectedEntity valueForKey:@"discription"]];
+    UINavigationItem *navigItem = [[UINavigationItem alloc] initWithTitle:myTitle];
+    
+    UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
+    
+    UIImage* imageBack = [UIImage imageNamed:@"back"];
+    CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
+    
+    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
+    [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
+    [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
+    
+    [flipButton initWithCustomView:someButton];
+    
+    navigItem.leftBarButtonItem = flipButton;
+    navBar.items = @[navigItem];
 }
+
 
 
 

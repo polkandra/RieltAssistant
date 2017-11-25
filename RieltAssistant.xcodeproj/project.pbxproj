@@ -34,6 +34,11 @@
 		C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADF1E7EBDC1004E9126 /* MainViewController.m */; };
 		C67BAAE31E7EBDC1004E9126 /* MeetingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAE21E7EBDC1004E9126 /* MeetingsViewController.m */; };
 		C67BAB571E7EEF59004E9126 /* MainScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAB561E7EEF59004E9126 /* MainScreenView.m */; };
+		C67DE89D1FC9C2590004150D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67DE89C1FC9C2590004150D /* SettingsViewController.m */; };
+		C67DE89F1FC9C8EF0004150D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C67DE89E1FC9C8EF0004150D /* Settings.storyboard */; };
+		C67DE8A21FC9CBF50004150D /* CurrencyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67DE8A11FC9CBF50004150D /* CurrencyTableViewController.m */; };
+		C67DE8A51FC9CC5A0004150D /* NotificationsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C67DE8A41FC9CC5A0004150D /* NotificationsVC.m */; };
+		C67DE8A81FC9D36D0004150D /* FilteringVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C67DE8A71FC9D36D0004150D /* FilteringVC.m */; };
 		C69206121ECB48F600D7210D /* DetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C69206111ECB48F600D7210D /* DetailCollectionViewCell.m */; };
 		C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A36DA41E9A827B00A00F04 /* CollectionViewCell.m */; };
 		C6A36DAB1E9A98EC00A00F04 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A36DAA1E9A98EC00A00F04 /* AssetsLibrary.framework */; };
@@ -121,6 +126,15 @@
 		C67BAAEC1E7EBDC2004E9126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C67BAB551E7EEF59004E9126 /* MainScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenView.h; sourceTree = "<group>"; };
 		C67BAB561E7EEF59004E9126 /* MainScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenView.m; sourceTree = "<group>"; };
+		C67DE89B1FC9C2590004150D /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		C67DE89C1FC9C2590004150D /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		C67DE89E1FC9C8EF0004150D /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		C67DE8A01FC9CBF50004150D /* CurrencyTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrencyTableViewController.h; sourceTree = "<group>"; };
+		C67DE8A11FC9CBF50004150D /* CurrencyTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrencyTableViewController.m; sourceTree = "<group>"; };
+		C67DE8A31FC9CC5A0004150D /* NotificationsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationsVC.h; sourceTree = "<group>"; };
+		C67DE8A41FC9CC5A0004150D /* NotificationsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationsVC.m; sourceTree = "<group>"; };
+		C67DE8A61FC9D36D0004150D /* FilteringVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilteringVC.h; sourceTree = "<group>"; };
+		C67DE8A71FC9D36D0004150D /* FilteringVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilteringVC.m; sourceTree = "<group>"; };
 		C69206101ECB48F600D7210D /* DetailCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCollectionViewCell.h; sourceTree = "<group>"; };
 		C69206111ECB48F600D7210D /* DetailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCollectionViewCell.m; sourceTree = "<group>"; };
 		C6A36DA31E9A827B00A00F04 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
@@ -279,6 +293,14 @@
 				C6592CAD1FA0B24000CF60EE /* AddPhotosVC.m */,
 				C67425171FC30AD200F5EA49 /* SearchResultsTableViewController.h */,
 				C67425181FC30AD200F5EA49 /* SearchResultsTableViewController.m */,
+				C67DE89B1FC9C2590004150D /* SettingsViewController.h */,
+				C67DE89C1FC9C2590004150D /* SettingsViewController.m */,
+				C67DE8A61FC9D36D0004150D /* FilteringVC.h */,
+				C67DE8A71FC9D36D0004150D /* FilteringVC.m */,
+				C67DE8A01FC9CBF50004150D /* CurrencyTableViewController.h */,
+				C67DE8A11FC9CBF50004150D /* CurrencyTableViewController.m */,
+				C67DE8A31FC9CC5A0004150D /* NotificationsVC.h */,
+				C67DE8A41FC9CC5A0004150D /* NotificationsVC.m */,
 				C65B201D1EEAE2C4009F8DFA /* MapsControllers */,
 				C6CAB5D51EE1E91D00078A32 /* PageViewController */,
 			);
@@ -392,6 +414,7 @@
 				C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */,
 				C6E35E641E9D08A100235216 /* Main.storyboard */,
 				C6AFF7DA1FB75218004A7995 /* Object.storyboard */,
+				C67DE89E1FC9C8EF0004150D /* Settings.storyboard */,
 				C6AFF7D81FB7514C004A7995 /* Map.storyboard */,
 				C6AFF7D61FB7504F004A7995 /* Meetings.storyboard */,
 			);
@@ -514,6 +537,7 @@
 				C63412F41EB4B24800ACE886 /* Assets.xcassets in Resources */,
 				C6FF87C31FB77BD600CFBE4A /* Blogger_Sans-Italic.otf in Resources */,
 				C6AFF7D91FB7514C004A7995 /* Map.storyboard in Resources */,
+				C67DE89F1FC9C8EF0004150D /* Settings.storyboard in Resources */,
 				C6AFF7DB1FB75218004A7995 /* Object.storyboard in Resources */,
 				C6FF87C81FB77BD600CFBE4A /* Blogger_Sans-Medium.otf in Resources */,
 				C6AFF7D71FB7504F004A7995 /* Meetings.storyboard in Resources */,
@@ -595,6 +619,7 @@
 				C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */,
 				C64A91C91FA2447400C995A8 /* SelectMeetingCell.m in Sources */,
 				C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */,
+				C67DE89D1FC9C2590004150D /* SettingsViewController.m in Sources */,
 				C6CDE9BD1FC33B63006F2DA9 /* FilteredResultCellTableViewCell.m in Sources */,
 				C6592CB11FA0B48D00CF60EE /* AddPhotoCVCell.m in Sources */,
 				C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */,
@@ -603,6 +628,7 @@
 				C64A91C61FA243E700C995A8 /* SelectMeetingOblectVC.m in Sources */,
 				C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */,
 				C65E58291FA60565004734B5 /* AbstractEntity+CoreDataProperties.m in Sources */,
+				C67DE8A21FC9CBF50004150D /* CurrencyTableViewController.m in Sources */,
 				C6D33CD21F029CBA00F7C82B /* NewMeetingDetailViewController.m in Sources */,
 				C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */,
 				C6B1A14C1F11160E00965F9D /* Model.xcdatamodeld in Sources */,
@@ -616,8 +642,10 @@
 				C6F14D671EDF08FE00658494 /* UIPageViewControllerScene.m in Sources */,
 				C6592CAE1FA0B24000CF60EE /* AddPhotosVC.m in Sources */,
 				C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */,
+				C67DE8A81FC9D36D0004150D /* FilteringVC.m in Sources */,
 				C662270C1FA4C00A000854A4 /* MeetingObjectEntity+CoreDataProperties.m in Sources */,
 				C636778F1EE854FB0098FC90 /* MapTab.m in Sources */,
+				C67DE8A51FC9CC5A0004150D /* NotificationsVC.m in Sources */,
 				C6CDBEBB1F017EC00024B147 /* MeetingsCell.m in Sources */,
 				C67BAADA1E7EBDC1004E9126 /* main.m in Sources */,
 				C6A719D01F1005C500A5FE9B /* CoreDataTableVC.m in Sources */,
