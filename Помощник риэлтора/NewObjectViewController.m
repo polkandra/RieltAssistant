@@ -275,10 +275,13 @@
                                       inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
         
         
+      
+        
         controller.detailItem = object;
         
         object.roomQuantity = [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]];
         object.phoneNumber = self.phoneTextField.text;
+        
         object.typeOfProperty = self.objectTypeLabelInCell.text;
         object.actionByProperty = self.actionTypeLabelInCell.text;
         
@@ -353,8 +356,6 @@
         }else{
             
             NSMutableString *concatString = [self.priceTextField.text mutableCopy];
-           // NSMutableString *resultString = [concatString stringByAppendingString:@" Ꝑ"];
-            
             NSMutableString *resultString = [concatString stringByAppendingString:@" \u20BD"];
             object.price = resultString;
         }

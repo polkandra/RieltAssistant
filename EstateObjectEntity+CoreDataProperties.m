@@ -2,7 +2,7 @@
 //  EstateObjectEntity+CoreDataProperties.m
 //  RieltAssistant
 //
-//  Created by Mikhail Kozlyukov on 15.11.2017.
+//  Created by Mikhail Kozlyukov on 26.11.2017.
 //  Copyright © 2017 Chebahatt. All rights reserved.
 //
 //
@@ -18,6 +18,7 @@
 @dynamic actionByProperty;
 @dynamic address;
 @dynamic arrayOfUsersPics;
+@dynamic detailInformation;
 @dynamic discription;
 @dynamic globalPictureArray;
 @dynamic kitchenArea;
@@ -31,7 +32,8 @@
 @dynamic roomQuantity;
 @dynamic typeOfProperty;
 @dynamic wholeArea;
-@dynamic detailInformation;
 @dynamic meetingObjects;
+@dynamic objectType;
+@dynamic actionType;
 
 @end

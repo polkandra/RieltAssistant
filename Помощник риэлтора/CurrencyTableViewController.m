@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.tableView.backgroundColor = [UIColor clearColor];
+    //self.tableView.backgroundColor = [UIColor clearColor];
 }
 
 

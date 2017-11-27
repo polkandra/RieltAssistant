@@ -15,7 +15,7 @@
 #import "UIPageViewControllerScene.h"
 #import "EstateObjectEntity+CoreDataProperties.h"
 #import "DataManager.h"
-
+#import "ActionTypeEntity+CoreDataProperties.h"
 
 @interface DetailObjectController : UITableViewController
 
@@ -43,6 +43,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *goToMap;
 
 @property(strong, nonatomic) EstateObjectEntity* detailItem;
+@property(strong, nonatomic) ActionTypeEntity* detailItem2;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailAddressLabel;

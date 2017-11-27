@@ -19,7 +19,6 @@
 
 @property(strong, nonatomic) MeetingObjectEntity* myMeetingObject;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-
 @property (strong, nonatomic) EstateObjectEntity* detailItem;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailNameOfObject;

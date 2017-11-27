@@ -22,10 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-   
-
-
-    
     self.tableView.backgroundColor = [UIColor greenColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 

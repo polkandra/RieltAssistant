@@ -16,7 +16,6 @@
 #import "DataManager.h"
 #import "MeetingsCell.h"
 #import "MeetingObjectEntity+CoreDataProperties.h"
-#import "AbstractEntity+CoreDataProperties.h"
 #import "EstateObjectEntity+CoreDataProperties.h"
 
 @interface MeetingsViewController : CoreDataTableVC <UITableViewDelegate, UITableViewDataSource>

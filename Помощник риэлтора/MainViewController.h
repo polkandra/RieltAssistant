@@ -23,7 +23,7 @@
 //@class DetailObjectController;
 //@protocol AddArrayDelegate;
 
-@interface MainViewController : CoreDataTableVC  <UITableViewDataSource, UISearchControllerDelegate, UISearchResultsUpdating>
+@interface MainViewController : CoreDataTableVC  <UISearchControllerDelegate, UISearchResultsUpdating>
 
 
 @property(strong, nonatomic) NSMutableArray* arrayFromDetail;

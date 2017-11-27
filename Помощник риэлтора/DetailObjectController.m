@@ -13,7 +13,7 @@
 @end
 
 @implementation DetailObjectController
-@synthesize tableView,  myDetailPhotosArray, detailItem;
+@synthesize tableView,  myDetailPhotosArray, detailItem, detailItem2;
 
 
 #pragma mark - VC Lifecycle
@@ -78,6 +78,7 @@
         self.actionLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"typeOfProperty"]];
         self.typeLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"actionByProperty"]];
         self.detailInfoLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"detailInformation"]];
+   
     }
 }
 

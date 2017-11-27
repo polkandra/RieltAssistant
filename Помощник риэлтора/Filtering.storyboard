@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y2U-aK-gCB">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Blogger_Sans-Bold_Italic.otf">
+            <string>BloggerSans-BoldItalic</string>
+        </array>
+        <array key="Blogger_Sans.otf">
+            <string>BloggerSans</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Фильтр-->
+        <scene sceneID="M9f-t7-t1d">
+            <objects>
+                <tableViewController storyboardIdentifier="filteringVC" id="Y2U-aK-gCB" customClass="FilteringVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GeD-jd-AcB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection headerTitle="Кол-во комнат" id="vC9-64-3CM">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="v6r-TZ-AtV">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v6r-TZ-AtV" id="EoX-xS-slH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4FM-lX-gTj">
+                                                    <rect key="frame" x="23" y="8" width="330" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <segments>
+                                                        <segment title="Все"/>
+                                                        <segment title="1"/>
+                                                        <segment title="2"/>
+                                                        <segment title="3"/>
+                                                        <segment title="4+"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="По типу действия" id="8Qp-I5-hAj">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="7RJ-gk-ycF">
+                                        <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7RJ-gk-ycF" id="cpg-LF-szy">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Аренда" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9d-mH-fVA">
+                                                    <rect key="frame" x="10" y="11" width="60" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DGv-sP-Wna">
+                                        <rect key="frame" x="0.0" y="144" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DGv-sP-Wna" id="P5H-7e-M38">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Продажа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dd4-gp-NNC">
+                                                    <rect key="frame" x="10" y="11" width="74" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="По типу объекта" id="MzQ-wV-Yrd">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="1rr-qs-rGn">
+                                        <rect key="frame" x="0.0" y="216" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1rr-qs-rGn" id="2ij-hb-Raw">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Квартиры" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfk-li-4vY">
+                                                    <rect key="frame" x="10" y="11" width="79" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="LZP-1k-YtI">
+                                        <rect key="frame" x="0.0" y="260" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LZP-1k-YtI" id="qcT-Hh-to2">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Дома" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Olq-Kf-IQL">
+                                                    <rect key="frame" x="10" y="11" width="54" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uPJ-Qe-Wak">
+                                        <rect key="frame" x="0.0" y="304" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uPJ-Qe-Wak" id="6xr-ya-fVX">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Нежилые помещения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="or1-KV-z2n">
+                                                    <rect key="frame" x="10" y="11" width="173" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cVp-Xq-Npx">
+                                        <rect key="frame" x="0.0" y="348" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cVp-Xq-Npx" id="IDu-fg-QF7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Комнаты" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCe-LC-ErZ">
+                                                    <rect key="frame" x="10" y="11" width="72" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZFy-X1-0mS">
+                                        <rect key="frame" x="0.0" y="392" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZFy-X1-0mS" id="rPr-JN-qH2">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Земельные участки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5F-ZY-BHJ">
+                                                    <rect key="frame" x="10" y="11" width="158" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Y2U-aK-gCB" id="4JO-IN-f0V"/>
+                            <outlet property="delegate" destination="Y2U-aK-gCB" id="X7T-Dd-we6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Фильтр" id="oYx-yg-syf">
+                        <barButtonItem key="rightBarButtonItem" title="Искать!" id="LIE-bx-Mj5">
+                            <connections>
+                                <action selector="startSearch:" destination="Y2U-aK-gCB" id="rA9-fb-FKK"/>
+                                <segue destination="Bvk-V1-DXM" kind="show" identifier="toFilteredResultsVC" id="ree-eD-rx5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="4FM-lX-gTj" id="eLb-nv-rOB"/>
+                        <outlet property="tableView" destination="GeD-jd-AcB" id="uyB-24-b8N"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G2e-6I-tN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="127.2" y="875.71214392803608"/>
+        </scene>
+        <!--Объекты поиска-->
+        <scene sceneID="erN-Yg-yRe">
+            <objects>
+                <tableViewController storyboardIdentifier="ResultsTableViewController" id="Bvk-V1-DXM" customClass="FilteredResultsVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="OLR-Ig-uU7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="ResultCell" rowHeight="170" id="tCZ-vk-vYU" customClass="FilteredCell">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="170"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tCZ-vk-vYU" id="bGr-l9-U7z">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="170"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l54-bn-ci8">
+                                            <rect key="frame" x="0.0" y="0.0" width="378" height="154"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="154" id="4Zd-oC-JX2"/>
+                                                <constraint firstAttribute="width" constant="378" id="wQw-a8-zhT"/>
+                                            </constraints>
+                                        </imageView>
+                                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qaX-g6-MIk" userLabel="bottomView">
+                                            <rect key="frame" x="0.0" y="154" width="375" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="375" id="Sbl-ap-eDf"/>
+                                                <constraint firstAttribute="height" constant="16" id="hYm-7c-r0I"/>
+                                            </constraints>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellDarken" translatesAutoresizingMaskIntoConstraints="NO" id="wO9-Q2-1bh">
+                                            <rect key="frame" x="0.0" y="75" width="375" height="87"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="375" id="zXo-YG-Ykd"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AddressLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lh5-Hu-XAC">
+                                            <rect key="frame" x="5" y="126" width="98.5" height="17"/>
+                                            <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ownerLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggY-e2-SSJ">
+                                            <rect key="frame" x="5" y="105" width="215" height="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="215" id="gbR-LR-xTn"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NameLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6e-Qv-fAM">
+                                            <rect key="frame" x="5" y="77" width="370" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="F02-IU-h2s"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена не указана" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mk9-EL-Vk6">
+                                            <rect key="frame" x="228" y="105" width="142" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="142" id="Hrb-gP-8fN"/>
+                                                <constraint firstAttribute="height" constant="16" id="wA1-5C-DIT"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="16"/>
+                                            <color key="textColor" red="1" green="0.46666666670000001" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="qaX-g6-MIk" firstAttribute="top" secondItem="l54-bn-ci8" secondAttribute="bottom" id="0sm-gm-Y0A"/>
+                                        <constraint firstItem="l54-bn-ci8" firstAttribute="top" secondItem="bGr-l9-U7z" secondAttribute="top" id="0wK-6I-a2r"/>
+                                        <constraint firstAttribute="bottom" secondItem="qaX-g6-MIk" secondAttribute="bottom" id="2dg-Y2-xxb"/>
+                                        <constraint firstItem="Mk9-EL-Vk6" firstAttribute="leading" secondItem="ggY-e2-SSJ" secondAttribute="trailing" constant="8" symbolic="YES" id="3NK-0Z-tHm"/>
+                                        <constraint firstItem="lh5-Hu-XAC" firstAttribute="top" secondItem="ggY-e2-SSJ" secondAttribute="bottom" constant="4" id="4Vn-Uh-OeM"/>
+                                        <constraint firstItem="lh5-Hu-XAC" firstAttribute="leading" secondItem="bGr-l9-U7z" secondAttribute="leading" constant="5" id="6W3-XS-h3c"/>
+                                        <constraint firstAttribute="trailing" secondItem="wO9-Q2-1bh" secondAttribute="trailing" constant="-33" id="CSB-8d-GzM"/>
+                                        <constraint firstItem="qaX-g6-MIk" firstAttribute="top" secondItem="Mk9-EL-Vk6" secondAttribute="bottom" constant="33" id="HhF-WY-SL0"/>
+                                        <constraint firstItem="V6e-Qv-fAM" firstAttribute="centerY" secondItem="bGr-l9-U7z" secondAttribute="centerY" id="QcE-To-KXu"/>
+                                        <constraint firstAttribute="trailing" secondItem="lh5-Hu-XAC" secondAttribute="trailing" constant="-28" id="SW4-Gz-5mq"/>
+                                        <constraint firstItem="wO9-Q2-1bh" firstAttribute="leading" secondItem="bGr-l9-U7z" secondAttribute="leading" id="Ulc-ES-8JM"/>
+                                        <constraint firstItem="wO9-Q2-1bh" firstAttribute="top" secondItem="bGr-l9-U7z" secondAttribute="top" constant="75" id="XQm-sv-LNc"/>
+                                        <constraint firstItem="ggY-e2-SSJ" firstAttribute="leading" secondItem="bGr-l9-U7z" secondAttribute="leading" constant="5" id="Zbe-fY-LVv"/>
+                                        <constraint firstItem="V6e-Qv-fAM" firstAttribute="leading" secondItem="ggY-e2-SSJ" secondAttribute="leading" id="aQ6-9s-b1y"/>
+                                        <constraint firstAttribute="trailing" secondItem="l54-bn-ci8" secondAttribute="trailing" constant="-37" id="iCE-TE-icP"/>
+                                        <constraint firstItem="V6e-Qv-fAM" firstAttribute="trailing" secondItem="wO9-Q2-1bh" secondAttribute="trailing" id="jda-D9-JVN"/>
+                                        <constraint firstAttribute="bottom" secondItem="wO9-Q2-1bh" secondAttribute="bottom" constant="7.5" id="kqf-aP-5wA"/>
+                                        <constraint firstItem="l54-bn-ci8" firstAttribute="leading" secondItem="bGr-l9-U7z" secondAttribute="leading" id="nOg-Da-jfx"/>
+                                        <constraint firstItem="qaX-g6-MIk" firstAttribute="leading" secondItem="bGr-l9-U7z" secondAttribute="leading" id="wks-LP-Reu"/>
+                                        <constraint firstItem="qaX-g6-MIk" firstAttribute="top" secondItem="lh5-Hu-XAC" secondAttribute="bottom" constant="11" id="xIw-WR-Ihh"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="addressCellLabel" destination="lh5-Hu-XAC" id="kMy-qN-Gk7"/>
+                                    <outlet property="imageViewCell" destination="l54-bn-ci8" id="y1D-wA-NHy"/>
+                                    <outlet property="nameCellLabel" destination="V6e-Qv-fAM" id="byp-Mg-cZb"/>
+                                    <outlet property="ownerCellLabel" destination="ggY-e2-SSJ" id="L1H-u6-jis"/>
+                                    <outlet property="priceCellLabel" destination="Mk9-EL-Vk6" id="gbe-6e-yH9"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Bvk-V1-DXM" id="t54-qw-dR7"/>
+                            <outlet property="delegate" destination="Bvk-V1-DXM" id="43S-3H-ri9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Объекты поиска" id="RNg-Jg-K4h" userLabel="Объекты фильтрации"/>
+                    <connections>
+                        <outlet property="tableView" destination="OLR-Ig-uU7" id="fWb-RP-4jT"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VrV-NR-3nW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1210" y="879"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cellDarken" width="375" height="87"/>
+    </resources>
+</document>

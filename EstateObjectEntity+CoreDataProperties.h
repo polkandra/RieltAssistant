@@ -2,13 +2,14 @@
 //  EstateObjectEntity+CoreDataProperties.h
 //  RieltAssistant
 //
-//  Created by Mikhail Kozlyukov on 15.11.2017.
+//  Created by Mikhail Kozlyukov on 26.11.2017.
 //  Copyright © 2017 Chebahatt. All rights reserved.
 //
 //
 
 #import "EstateObjectEntity+CoreDataClass.h"
-
+#import "EstateTypeEntity+CoreDataClass.h"
+#import "ActionTypeEntity+CoreDataClass.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *actionByProperty;
 @property (nullable, nonatomic, copy) NSString *address;
 @property (nullable, nonatomic, retain) NSObject *arrayOfUsersPics;
+@property (nullable, nonatomic, copy) NSString *detailInformation;
 @property (nullable, nonatomic, copy) NSString *discription;
 @property (nullable, nonatomic, retain) NSObject *globalPictureArray;
 @property (nullable, nonatomic, copy) NSString *kitchenArea;
@@ -32,8 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *roomQuantity;
 @property (nullable, nonatomic, copy) NSString *typeOfProperty;
 @property (nullable, nonatomic, copy) NSString *wholeArea;
-@property (nullable, nonatomic, copy) NSString *detailInformation;
 @property (nullable, nonatomic, retain) NSSet<MeetingObjectEntity *> *meetingObjects;
+@property (nullable, nonatomic, retain) EstateTypeEntity *objectType;
+@property (nullable, nonatomic, retain) ActionTypeEntity *actionType;
 
 @end
 

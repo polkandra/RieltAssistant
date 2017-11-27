@@ -22,8 +22,6 @@
 		C6592CAE1FA0B24000CF60EE /* AddPhotosVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6592CAD1FA0B24000CF60EE /* AddPhotosVC.m */; };
 		C6592CB11FA0B48D00CF60EE /* AddPhotoCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6592CB01FA0B48D00CF60EE /* AddPhotoCVCell.m */; };
 		C65B20201EEAE304009F8DFA /* AddToMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C65B201F1EEAE304009F8DFA /* AddToMapVC.m */; };
-		C65E58281FA60565004734B5 /* AbstractEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C65E58261FA60565004734B5 /* AbstractEntity+CoreDataClass.m */; };
-		C65E58291FA60565004734B5 /* AbstractEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C65E58271FA60565004734B5 /* AbstractEntity+CoreDataProperties.m */; };
 		C662270A1FA4C00A000854A4 /* MeetingObjectEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C66227031FA4C008000854A4 /* MeetingObjectEntity+CoreDataClass.m */; };
 		C662270B1FA4C00A000854A4 /* EstateObjectEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C66227051FA4C009000854A4 /* EstateObjectEntity+CoreDataProperties.m */; };
 		C662270C1FA4C00A000854A4 /* MeetingObjectEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C66227061FA4C009000854A4 /* MeetingObjectEntity+CoreDataProperties.m */; };
@@ -71,6 +69,13 @@
 		C6FF87C61FB77BD600CFBE4A /* clip.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6FF87BD1FB77B4200CFBE4A /* clip.ttf */; };
 		C6FF87C71FB77BD600CFBE4A /* Blogger_Sans-Medium_Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C6FF87BE1FB77B7000CFBE4A /* Blogger_Sans-Medium_Italic.otf */; };
 		C6FF87C81FB77BD600CFBE4A /* Blogger_Sans-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C6FF87BF1FB77B9F00CFBE4A /* Blogger_Sans-Medium.otf */; };
+		C6FFFD641FCAE4770007C823 /* FilteredResultsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FFFD631FCAE4770007C823 /* FilteredResultsVC.m */; };
+		C6FFFD661FCAE4CB0007C823 /* Filtering.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6FFFD651FCAE4CB0007C823 /* Filtering.storyboard */; };
+		C6FFFD691FCAE9610007C823 /* FilteredCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FFFD681FCAE9610007C823 /* FilteredCell.m */; };
+		C6FFFD7E1FCB22050007C823 /* EstateTypeEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FFFD781FCB22040007C823 /* EstateTypeEntity+CoreDataClass.m */; };
+		C6FFFD7F1FCB22050007C823 /* EstateTypeEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FFFD791FCB22040007C823 /* EstateTypeEntity+CoreDataProperties.m */; };
+		C6FFFD801FCB22050007C823 /* ActionTypeEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FFFD7C1FCB22050007C823 /* ActionTypeEntity+CoreDataClass.m */; };
+		C6FFFD811FCB22050007C823 /* ActionTypeEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FFFD7D1FCB22050007C823 /* ActionTypeEntity+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,10 +106,6 @@
 		C6592CB01FA0B48D00CF60EE /* AddPhotoCVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddPhotoCVCell.m; sourceTree = "<group>"; };
 		C65B201E1EEAE304009F8DFA /* AddToMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToMapVC.h; sourceTree = "<group>"; };
 		C65B201F1EEAE304009F8DFA /* AddToMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToMapVC.m; sourceTree = "<group>"; };
-		C65E58241FA60565004734B5 /* AbstractEntity+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AbstractEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
-		C65E58251FA60565004734B5 /* AbstractEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AbstractEntity+CoreDataClass.h"; sourceTree = "<group>"; };
-		C65E58261FA60565004734B5 /* AbstractEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AbstractEntity+CoreDataClass.m"; sourceTree = "<group>"; };
-		C65E58271FA60565004734B5 /* AbstractEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AbstractEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
 		C66227021FA4C007000854A4 /* EstateObjectEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EstateObjectEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
 		C66227031FA4C008000854A4 /* MeetingObjectEntity+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MeetingObjectEntity+CoreDataClass.m"; sourceTree = "<group>"; };
 		C66227041FA4C008000854A4 /* MeetingObjectEntity+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MeetingObjectEntity+CoreDataClass.h"; sourceTree = "<group>"; };
@@ -181,6 +182,19 @@
 		C6FF87BD1FB77B4200CFBE4A /* clip.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = clip.ttf; sourceTree = "<group>"; };
 		C6FF87BE1FB77B7000CFBE4A /* Blogger_Sans-Medium_Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger_Sans-Medium_Italic.otf"; sourceTree = "<group>"; };
 		C6FF87BF1FB77B9F00CFBE4A /* Blogger_Sans-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger_Sans-Medium.otf"; sourceTree = "<group>"; };
+		C6FFFD621FCAE4770007C823 /* FilteredResultsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilteredResultsVC.h; sourceTree = "<group>"; };
+		C6FFFD631FCAE4770007C823 /* FilteredResultsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilteredResultsVC.m; sourceTree = "<group>"; };
+		C6FFFD651FCAE4CB0007C823 /* Filtering.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Filtering.storyboard; sourceTree = "<group>"; };
+		C6FFFD671FCAE9610007C823 /* FilteredCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilteredCell.h; sourceTree = "<group>"; };
+		C6FFFD681FCAE9610007C823 /* FilteredCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilteredCell.m; sourceTree = "<group>"; };
+		C6FFFD761FCB22040007C823 /* EstateTypeEntity+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EstateTypeEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C6FFFD771FCB22040007C823 /* EstateTypeEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EstateTypeEntity+CoreDataClass.h"; sourceTree = "<group>"; };
+		C6FFFD781FCB22040007C823 /* EstateTypeEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "EstateTypeEntity+CoreDataClass.m"; sourceTree = "<group>"; };
+		C6FFFD791FCB22040007C823 /* EstateTypeEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "EstateTypeEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C6FFFD7A1FCB22050007C823 /* ActionTypeEntity+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ActionTypeEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C6FFFD7B1FCB22050007C823 /* ActionTypeEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ActionTypeEntity+CoreDataClass.h"; sourceTree = "<group>"; };
+		C6FFFD7C1FCB22050007C823 /* ActionTypeEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ActionTypeEntity+CoreDataClass.m"; sourceTree = "<group>"; };
+		C6FFFD7D1FCB22050007C823 /* ActionTypeEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ActionTypeEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
 		DF636865D7E19A7A836332AF /* Pods-RieltAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RieltAssistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-RieltAssistant/Pods-RieltAssistant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -301,6 +315,8 @@
 				C67DE8A11FC9CBF50004150D /* CurrencyTableViewController.m */,
 				C67DE8A31FC9CC5A0004150D /* NotificationsVC.h */,
 				C67DE8A41FC9CC5A0004150D /* NotificationsVC.m */,
+				C6FFFD621FCAE4770007C823 /* FilteredResultsVC.h */,
+				C6FFFD631FCAE4770007C823 /* FilteredResultsVC.m */,
 				C65B201D1EEAE2C4009F8DFA /* MapsControllers */,
 				C6CAB5D51EE1E91D00078A32 /* PageViewController */,
 			);
@@ -365,18 +381,22 @@
 		C6A719CC1F0FF86900A5FE9B /* NSManagedObjectSubclasses */ = {
 			isa = PBXGroup;
 			children = (
-				C65E58241FA60565004734B5 /* AbstractEntity+CoreDataProperties.h */,
-				C65E58271FA60565004734B5 /* AbstractEntity+CoreDataProperties.m */,
-				C65E58251FA60565004734B5 /* AbstractEntity+CoreDataClass.h */,
-				C65E58261FA60565004734B5 /* AbstractEntity+CoreDataClass.m */,
-				C66227071FA4C009000854A4 /* EstateObjectEntity+CoreDataClass.h */,
-				C66227081FA4C009000854A4 /* EstateObjectEntity+CoreDataClass.m */,
+				C6FFFD761FCB22040007C823 /* EstateTypeEntity+CoreDataProperties.h */,
+				C6FFFD791FCB22040007C823 /* EstateTypeEntity+CoreDataProperties.m */,
+				C6FFFD771FCB22040007C823 /* EstateTypeEntity+CoreDataClass.h */,
+				C6FFFD781FCB22040007C823 /* EstateTypeEntity+CoreDataClass.m */,
+				C6FFFD7A1FCB22050007C823 /* ActionTypeEntity+CoreDataProperties.h */,
+				C6FFFD7D1FCB22050007C823 /* ActionTypeEntity+CoreDataProperties.m */,
+				C6FFFD7B1FCB22050007C823 /* ActionTypeEntity+CoreDataClass.h */,
+				C6FFFD7C1FCB22050007C823 /* ActionTypeEntity+CoreDataClass.m */,
 				C66227021FA4C007000854A4 /* EstateObjectEntity+CoreDataProperties.h */,
 				C66227051FA4C009000854A4 /* EstateObjectEntity+CoreDataProperties.m */,
-				C66227041FA4C008000854A4 /* MeetingObjectEntity+CoreDataClass.h */,
-				C66227031FA4C008000854A4 /* MeetingObjectEntity+CoreDataClass.m */,
+				C66227071FA4C009000854A4 /* EstateObjectEntity+CoreDataClass.h */,
+				C66227081FA4C009000854A4 /* EstateObjectEntity+CoreDataClass.m */,
 				C66227091FA4C009000854A4 /* MeetingObjectEntity+CoreDataProperties.h */,
 				C66227061FA4C009000854A4 /* MeetingObjectEntity+CoreDataProperties.m */,
+				C66227041FA4C008000854A4 /* MeetingObjectEntity+CoreDataClass.h */,
+				C66227031FA4C008000854A4 /* MeetingObjectEntity+CoreDataClass.m */,
 			);
 			name = NSManagedObjectSubclasses;
 			sourceTree = "<group>";
@@ -414,6 +434,7 @@
 				C67BAAE91E7EBDC2004E9126 /* LaunchScreen.storyboard */,
 				C6E35E641E9D08A100235216 /* Main.storyboard */,
 				C6AFF7DA1FB75218004A7995 /* Object.storyboard */,
+				C6FFFD651FCAE4CB0007C823 /* Filtering.storyboard */,
 				C67DE89E1FC9C8EF0004150D /* Settings.storyboard */,
 				C6AFF7D81FB7514C004A7995 /* Map.storyboard */,
 				C6AFF7D61FB7504F004A7995 /* Meetings.storyboard */,
@@ -459,6 +480,8 @@
 				C69206111ECB48F600D7210D /* DetailCollectionViewCell.m */,
 				C6CDE9BB1FC33B63006F2DA9 /* FilteredResultCellTableViewCell.h */,
 				C6CDE9BC1FC33B63006F2DA9 /* FilteredResultCellTableViewCell.m */,
+				C6FFFD671FCAE9610007C823 /* FilteredCell.h */,
+				C6FFFD681FCAE9610007C823 /* FilteredCell.m */,
 			);
 			name = Cells;
 			path = ..;
@@ -532,6 +555,7 @@
 				C6FF87C41FB77BD600CFBE4A /* Blogger_Sans-Light_Italic.otf in Resources */,
 				C6FF87C61FB77BD600CFBE4A /* clip.ttf in Resources */,
 				C6FF87C01FB77BD600CFBE4A /* Blogger_Sans-Light.otf in Resources */,
+				C6FFFD661FCAE4CB0007C823 /* Filtering.storyboard in Resources */,
 				C609EE7A1EBA13E300B6F9D8 /* LaunchScreen.storyboard in Resources */,
 				C6FF87C51FB77BD600CFBE4A /* Blogger_Sans.otf in Resources */,
 				C63412F41EB4B24800ACE886 /* Assets.xcassets in Resources */,
@@ -614,8 +638,10 @@
 				C662270D1FA4C00A000854A4 /* EstateObjectEntity+CoreDataClass.m in Sources */,
 				C67425191FC30AD200F5EA49 /* SearchResultsTableViewController.m in Sources */,
 				C662270B1FA4C00A000854A4 /* EstateObjectEntity+CoreDataProperties.m in Sources */,
+				C6FFFD691FCAE9610007C823 /* FilteredCell.m in Sources */,
 				C6D0E08F1EE8030B00E0FF26 /* MapAnnotation.m in Sources */,
 				C67BAB571E7EEF59004E9126 /* MainScreenView.m in Sources */,
+				C6FFFD641FCAE4770007C823 /* FilteredResultsVC.m in Sources */,
 				C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */,
 				C64A91C91FA2447400C995A8 /* SelectMeetingCell.m in Sources */,
 				C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */,
@@ -626,14 +652,15 @@
 				C6D33CCF1F02973500F7C82B /* MeetingObject.m in Sources */,
 				C6F14D6A1EDF0AD800658494 /* EbmeddedImageController.m in Sources */,
 				C64A91C61FA243E700C995A8 /* SelectMeetingOblectVC.m in Sources */,
+				C6FFFD801FCB22050007C823 /* ActionTypeEntity+CoreDataClass.m in Sources */,
+				C6FFFD811FCB22050007C823 /* ActionTypeEntity+CoreDataProperties.m in Sources */,
 				C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */,
-				C65E58291FA60565004734B5 /* AbstractEntity+CoreDataProperties.m in Sources */,
 				C67DE8A21FC9CBF50004150D /* CurrencyTableViewController.m in Sources */,
 				C6D33CD21F029CBA00F7C82B /* NewMeetingDetailViewController.m in Sources */,
+				C6FFFD7F1FCB22050007C823 /* EstateTypeEntity+CoreDataProperties.m in Sources */,
 				C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */,
 				C6B1A14C1F11160E00965F9D /* Model.xcdatamodeld in Sources */,
 				C6DB4FD21E8FD9A400CD4AE2 /* EstateObject.m in Sources */,
-				C65E58281FA60565004734B5 /* AbstractEntity+CoreDataClass.m in Sources */,
 				C69206121ECB48F600D7210D /* DetailCollectionViewCell.m in Sources */,
 				C60D384B1FA365E400BD96AD /* StyleKitName.m in Sources */,
 				C6E11F071F0D256100456A4E /* DetailMeetingController.m in Sources */,
@@ -642,6 +669,7 @@
 				C6F14D671EDF08FE00658494 /* UIPageViewControllerScene.m in Sources */,
 				C6592CAE1FA0B24000CF60EE /* AddPhotosVC.m in Sources */,
 				C6DF6B3B1EAF673C007F1CB9 /* RoomTypeController.m in Sources */,
+				C6FFFD7E1FCB22050007C823 /* EstateTypeEntity+CoreDataClass.m in Sources */,
 				C67DE8A81FC9D36D0004150D /* FilteringVC.m in Sources */,
 				C662270C1FA4C00A000854A4 /* MeetingObjectEntity+CoreDataProperties.m in Sources */,
 				C636778F1EE854FB0098FC90 /* MapTab.m in Sources */,

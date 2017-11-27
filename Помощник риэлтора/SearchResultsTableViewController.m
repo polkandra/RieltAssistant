@@ -28,7 +28,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
    
-    //self.nc = [self.storyboard instantiateViewControllerWithIdentifier:@"Object3"];
+    
      self.nc = [[UINavigationController alloc] initWithRootViewController:self];
 
 
@@ -84,7 +84,7 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     self.top = [UIApplication sharedApplication].keyWindow.rootViewController;
-  
+    
     
     DetailObjectController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailObjectController"];
     NSIndexPath *indexPath2 = [self.tableView indexPathForSelectedRow];
@@ -94,8 +94,7 @@
     controller.goToMap.hidden = YES;
     
     
-   [self controllerWhereCreateNavBar:controller titleWithSelectedEntity:selectedEntity];
-    
+    [self controllerWhereCreateNavBar:controller titleWithSelectedEntity:selectedEntity];
     
     [self.top presentViewController:controller animated:YES completion: nil];
 }
@@ -116,16 +115,15 @@
 #pragma mark - Helper
 
 - (void)controllerWhereCreateNavBar:(DetailObjectController *)controller titleWithSelectedEntity:(EstateObjectEntity *)selectedEntity {
+   
     UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 45)];
    
     navBar.backgroundColor = [StyleKitName gradientColor52];
    
-    
-    [navBar setBackgroundImage:[UIImage new] forBarPosition:UIBarPositionTopAttached barMetrics:UIBarMetricsDefault];
+        [navBar setBackgroundImage:[UIImage new] forBarPosition:UIBarPositionTopAttached barMetrics:UIBarMetricsDefault];
     [navBar setShadowImage:[UIImage new]];
     [navBar setTranslucent:YES];
    
-  
     [controller.view addSubview:navBar];
     
     NSString * myTitle = [NSString stringWithFormat:@"%@",[selectedEntity valueForKey:@"discription"]];

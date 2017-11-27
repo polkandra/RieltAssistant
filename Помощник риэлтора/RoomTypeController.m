@@ -21,11 +21,10 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.allowsMultipleSelection = YES;
    
+    
+    self.tableView.allowsMultipleSelection = YES;
     self.cellSelectedArray = [[NSMutableArray alloc] init];
-    
-    
    
 }
 

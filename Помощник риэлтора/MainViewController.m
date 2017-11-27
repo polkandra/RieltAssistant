@@ -24,9 +24,6 @@
     
         
     [super viewDidLoad];
-    //[self setSearchController];
-   
-   // [self filter:@""];
    
     self.emptyDataBaseLabel.hidden = YES;
     
@@ -75,8 +72,6 @@
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.discription contains [cd] %@", self.searchController.searchBar.text];
     self.entities = [self.filteredResults filteredArrayUsingPredicate:predicate];
-    
-    
 }
 
 
@@ -89,7 +84,7 @@
         SearchResultsTableViewController *resultsController = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResultsTableViewController"];
         
         searchController = [[UISearchController alloc]initWithSearchResultsController:resultsController];
-               
+        
         searchController.searchResultsUpdater = self;
         searchController.hidesNavigationBarDuringPresentation = NO;
         
@@ -98,7 +93,7 @@
         searchController.definesPresentationContext = YES;
         searchController.searchBar.placeholder = @"введите имя объекта";
         searchController.searchBar.barTintColor = [StyleKitName gradientColor52];
-       
+        
         
         
     }

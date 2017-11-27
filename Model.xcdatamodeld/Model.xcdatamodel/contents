@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="17B48" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
-    <entity name="AbstractEntity" representedClassName="AbstractEntity" isAbstract="YES" syncable="YES"/>
-    <entity name="EstateObjectEntity" representedClassName="EstateObjectEntity" parentEntity="AbstractEntity" syncable="YES">
+    <entity name="ActionTypeEntity" representedClassName="ActionTypeEntity" syncable="YES">
+        <attribute name="rent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sell" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="estateObject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EstateObjectEntity" inverseName="actionType" inverseEntity="EstateObjectEntity" syncable="YES"/>
+    </entity>
+    <entity name="EstateObjectEntity" representedClassName="EstateObjectEntity" syncable="YES">
         <attribute name="actionByProperty" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="arrayOfUsersPics" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -19,9 +23,19 @@
         <attribute name="roomQuantity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="typeOfProperty" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wholeArea" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="actionType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActionTypeEntity" inverseName="estateObject" inverseEntity="ActionTypeEntity" syncable="YES"/>
         <relationship name="meetingObjects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MeetingObjectEntity" inverseName="estateObject" inverseEntity="MeetingObjectEntity" syncable="YES"/>
+        <relationship name="objectType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EstateTypeEntity" inverseName="estateObjects" inverseEntity="EstateTypeEntity" syncable="YES"/>
     </entity>
-    <entity name="MeetingObjectEntity" representedClassName="MeetingObjectEntity" parentEntity="AbstractEntity" syncable="YES">
+    <entity name="EstateTypeEntity" representedClassName="EstateTypeEntity" syncable="YES">
+        <attribute name="earth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="flat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="house" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nonLiving" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="room" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="estateObjects" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EstateObjectEntity" inverseName="objectType" inverseEntity="EstateObjectEntity" syncable="YES"/>
+    </entity>
+    <entity name="MeetingObjectEntity" representedClassName="MeetingObjectEntity" syncable="YES">
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateAndTime" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="meetDetails" optional="YES" attributeType="String" syncable="YES"/>
@@ -32,8 +46,9 @@
         <relationship name="estateObject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EstateObjectEntity" inverseName="meetingObjects" inverseEntity="EstateObjectEntity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AbstractEntity" positionX="1845" positionY="2187" width="128" height="43"/>
-        <element name="EstateObjectEntity" positionX="1719" positionY="2316" width="128" height="315"/>
+        <element name="EstateObjectEntity" positionX="1764" positionY="2280" width="128" height="343"/>
         <element name="MeetingObjectEntity" positionX="1987" positionY="2304" width="128" height="163"/>
+        <element name="ActionTypeEntity" positionX="1512" positionY="2502" width="128" height="90"/>
+        <element name="EstateTypeEntity" positionX="1521" positionY="2286" width="128" height="133"/>
     </elements>
 </model>

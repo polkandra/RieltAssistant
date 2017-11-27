@@ -2,7 +2,7 @@
 //  MeetingObjectEntity+CoreDataProperties.h
 //  RieltAssistant
 //
-//  Created by Mikhail Kozlyukov on 30.10.2017.
+//  Created by Mikhail Kozlyukov on 26.11.2017.
 //  Copyright © 2017 Chebahatt. All rights reserved.
 //
 //
