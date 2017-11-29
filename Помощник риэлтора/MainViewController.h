@@ -18,6 +18,7 @@
 #import "CoreDataTableVC.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SearchResultsTableViewController.h"
+#import "FilteringVC.h"
 
 
 //@class DetailObjectController;

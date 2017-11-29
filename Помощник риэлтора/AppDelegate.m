@@ -20,8 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
-    
-    
+
     
     //[GMSServices provideAPIKey:@"AIzaSyBLyGSJWcQvDrSdS2opP-BZtwu5WYo7JTE"];
     //[GMSPlacesClient provideAPIKey:@"AIzaSyAqAivv-DgtCZPvnH3josgO_5vLBU0SfoE"];

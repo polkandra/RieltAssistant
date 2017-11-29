@@ -39,12 +39,15 @@
                                                     <rect key="frame" x="23" y="8" width="330" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <segments>
-                                                        <segment title="Все"/>
                                                         <segment title="1"/>
                                                         <segment title="2"/>
                                                         <segment title="3"/>
-                                                        <segment title="4+"/>
+                                                        <segment title="4"/>
+                                                        <segment title="5+"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="segmentedControlValueChanged:" destination="Y2U-aK-gCB" eventType="valueChanged" id="AGI-Kh-5gU"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -193,7 +196,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="earthCell" destination="ZFy-X1-0mS" id="UcH-7J-ftN"/>
+                        <outlet property="flatCell" destination="1rr-qs-rGn" id="xLx-nM-z4I"/>
+                        <outlet property="houseCell" destination="LZP-1k-YtI" id="5Nj-92-VHV"/>
+                        <outlet property="nonLivingCell" destination="uPJ-Qe-Wak" id="vOg-EW-Q49"/>
+                        <outlet property="rentCell" destination="7RJ-gk-ycF" id="e9y-8C-TaU"/>
+                        <outlet property="roomCell" destination="cVp-Xq-Npx" id="Pob-Um-A5v"/>
                         <outlet property="segmentedControl" destination="4FM-lX-gTj" id="eLb-nv-rOB"/>
+                        <outlet property="sellCell" destination="DGv-sP-Wna" id="CyC-L2-STm"/>
                         <outlet property="tableView" destination="GeD-jd-AcB" id="uyB-24-b8N"/>
                     </connections>
                 </tableViewController>
@@ -301,6 +311,7 @@
                                     <outlet property="nameCellLabel" destination="V6e-Qv-fAM" id="byp-Mg-cZb"/>
                                     <outlet property="ownerCellLabel" destination="ggY-e2-SSJ" id="L1H-u6-jis"/>
                                     <outlet property="priceCellLabel" destination="Mk9-EL-Vk6" id="gbe-6e-yH9"/>
+                                    <segue destination="xQh-mN-yM6" kind="presentation" identifier="toDOC" id="QhL-zJ-2jK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -317,6 +328,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VrV-NR-3nW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1210" y="879"/>
+        </scene>
+        <!--DetailObjectController-->
+        <scene sceneID="2M4-1b-C4G">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DetailObjectController" storyboardName="Object" referencedIdentifier="DetailObjectController" id="xQh-mN-yM6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ytj-9W-SqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1941" y="873"/>
         </scene>
     </scenes>
     <resources>

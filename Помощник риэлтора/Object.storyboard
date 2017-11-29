@@ -722,7 +722,7 @@
                             <barButtonItem title="Item" image="filter" id="PZF-3j-Td8">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="6ev-hr-z12" kind="show" id="iOY-7i-hST"/>
+                                    <segue destination="6ev-hr-z12" kind="show" identifier="toFilter" id="iOY-7i-hST"/>
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>

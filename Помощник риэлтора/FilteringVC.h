@@ -18,7 +18,18 @@
 
 @property (strong, nonatomic)  NSMutableArray *cellSelectedArray;
 @property(strong, nonatomic) NSArray* filteredResults;
-@property(strong, nonatomic) NSArray* entities;
+@property(strong, nonatomic) NSMutableArray* entities;
+
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *rentCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *sellCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *flatCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *houseCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *nonLivingCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *roomCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *earthCell;
+
+
 
 
 @property (strong, nonatomic) EstateObjectEntity *detailItem;

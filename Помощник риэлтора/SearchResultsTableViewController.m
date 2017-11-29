@@ -22,7 +22,8 @@
     [super viewDidLoad];
     
     srTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResultsTableViewController"];
-
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -120,10 +121,10 @@
    
     navBar.backgroundColor = [StyleKitName gradientColor52];
    
-        [navBar setBackgroundImage:[UIImage new] forBarPosition:UIBarPositionTopAttached barMetrics:UIBarMetricsDefault];
+    [navBar setBackgroundImage:[UIImage new] forBarPosition:UIBarPositionTopAttached barMetrics:UIBarMetricsDefault];
     [navBar setShadowImage:[UIImage new]];
     [navBar setTranslucent:YES];
-   
+    [self preferredStatusBarStyle];
     [controller.view addSubview:navBar];
     
     NSString * myTitle = [NSString stringWithFormat:@"%@",[selectedEntity valueForKey:@"discription"]];
@@ -144,7 +145,6 @@
     navigItem.leftBarButtonItem = flipButton;
     navBar.items = @[navigItem];
 }
-
 
 
 

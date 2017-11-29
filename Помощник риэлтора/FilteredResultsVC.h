@@ -12,11 +12,12 @@
 #import "DataManager.h"
 #import "EstateObjectEntity+CoreDataProperties.h"
 #import "FilteringVC.h"
+#import "DetailObjectController.h"
 
-@interface FilteredResultsVC : UIViewController 
+@interface FilteredResultsVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-//@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
 @property(strong, nonatomic) EstateObjectEntity *detailItem;
 
 @property (nonatomic, strong) NSArray *searchResults;

@@ -189,6 +189,10 @@
         newVC.navigationItem.title = @" Новый объект";
         newVC.hideButton = YES;
         // newVC.detailItem = self.detailItem;
+    }else if ([segue.identifier isEqualToString:@"toFilter"]) {
+                
+        FilteringVC *fVC = (FilteringVC*)segue.destinationViewController;
+        fVC.detailItem = self.detailItem;
     }
 }
 

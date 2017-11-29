@@ -25,9 +25,7 @@
 
 
 
-
-
-#pragma mark - Table view data source
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -68,22 +66,76 @@
 }
 
 
- /* #pragma mark - Observer
+ #pragma mark - UITableViewDelegate
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    // extract array from observer
-    self.searchResults = [(NSMutableArray *)object valueForKey:@"entities"];
-    FilteringVC *filteringVC = [self.storyboard instantiateViewControllerWithIdentifier:@"filteringVC"];
-    filteringVC.detailItem = self.detailItem;
-   
-    [self.tableView reloadData];
+/*-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    DetailObjectController *doc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailObjectController"];
+    NSIndexPath *indexPath2 = [self.tableView indexPathForSelectedRow];
+    EstateObjectEntity *selectedEntity = [self.searchResults objectAtIndex:indexPath2.row];
+    doc.detailItem = selectedEntity;
+    [self presentViewController:doc animated:YES completion:nil];
 }*/
 
 
+#pragma mark - Navigation
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toDOC"]) {
+        DetailObjectController *doc = segue.destinationViewController;;
+        NSIndexPath *indexPath2 = [self.tableView indexPathForSelectedRow];
+        EstateObjectEntity *selectedEntity = [self.searchResults objectAtIndex:indexPath2.row];
+        doc.detailItem = selectedEntity;
+        [self controllerWhereCreateNavBar:doc titleWithSelectedEntity:selectedEntity];
+        [doc preferredStatusBarStyle];
+    }
+}
+
+#pragma mark - Helper
+
+- (void)controllerWhereCreateNavBar:(DetailObjectController *)controller titleWithSelectedEntity:(EstateObjectEntity *)selectedEntity {
+    
+    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 45)];
+    
+    navBar.backgroundColor = [StyleKitName gradientColor52];
+    
+    [navBar setBackgroundImage:[UIImage new] forBarPosition:UIBarPositionTopAttached barMetrics:UIBarMetricsDefault];
+    [navBar setShadowImage:[UIImage new]];
+    [navBar setTranslucent:YES];
+   
+    [controller.view addSubview:navBar];
+    
+    NSString * myTitle = [NSString stringWithFormat:@"%@",[selectedEntity valueForKey:@"discription"]];
+    UINavigationItem *navigItem = [[UINavigationItem alloc] initWithTitle:myTitle];
+    
+    UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
+    
+    UIImage* imageBack = [UIImage imageNamed:@"back"];
+    CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
+    
+    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
+    [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
+    [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
+    
+    [flipButton initWithCustomView:someButton];
+    
+    navigItem.leftBarButtonItem = flipButton;
+    navBar.items = @[navigItem];
+}
 
 
+-(UIStatusBarStyle) preferredStatusBarStyle {
 
+    return UIStatusBarStyleLightContent;
+}
 
+-(void)dismissView {
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    
+    
+}
 
 
 

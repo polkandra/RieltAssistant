@@ -20,17 +20,25 @@
     [super viewDidLoad];
     
     self.cellSelectedArray = [[NSMutableArray alloc] init];
+  
+    //  self.entities = [[NSMutableArray alloc] init];
+ 
     
- /*   FilteredResultsVC *resultsVC = (FilteredResultsVC *)[self.storyboard instantiateViewControllerWithIdentifier:@"ResultsTableViewController"];;
    
-    [self addObserver:resultsVC forKeyPath:@"entities" options:NSKeyValueObservingOptionNew context:nil];*/
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
-   
     
+    for (UITableViewCell *allCells in [self.tableView visibleCells]) {
+        if ((allCells.accessoryType = UITableViewCellAccessoryCheckmark)) {
+            allCells.accessoryType = UITableViewCellAccessoryNone;
+        }
+        
+    }
+    
+    [self.cellSelectedArray removeAllObjects];
 }
 
 
@@ -40,11 +48,54 @@
 
 - (IBAction)startSearch:(UIBarButtonItem *)sender{
 
-   
-
-
-
 }
+
+
+- (IBAction)segmentedControlValueChanged:(UISegmentedControl *)sender {
+    
+    switch (self.segmentedControl.selectedSegmentIndex) {
+        case 0: {
+            self.segmentedControl.selectedSegmentIndex == 0;
+            NSPredicate *rent0 = [NSPredicate predicateWithFormat:@"roomQuantity contains [cd] %@", @"1 комната"];
+            [self fetchEntitiesWithPredicates:rent0];
+            break;
+        }
+        case 1: {
+            self.segmentedControl.selectedSegmentIndex == 1;
+            NSPredicate *rent1 = [NSPredicate predicateWithFormat:@"roomQuantity contains [cd] %@", @"2 комнаты"];
+            [self fetchEntitiesWithPredicates:rent1];
+            break;
+        }
+            
+        case 2: {
+            self.segmentedControl.selectedSegmentIndex == 2;
+            NSPredicate *rent2 = [NSPredicate predicateWithFormat:@"roomQuantity contains [cd] %@", @"3 комнаты"];
+            [self fetchEntitiesWithPredicates:rent2];
+            break;
+        }
+        case 3: {
+            self.segmentedControl.selectedSegmentIndex == 3;
+            NSPredicate *rent3 = [NSPredicate predicateWithFormat:@"roomQuantity contains [cd] %@", @"4 комнаты"];
+            [self fetchEntitiesWithPredicates:rent3];
+            break;
+        }
+            
+        case 4: {
+            self.segmentedControl.selectedSegmentIndex == 4;
+            NSPredicate *rent4 = [NSPredicate predicateWithFormat:@"roomQuantity contains [cd] %@", @"5 комнат и более"];
+            [self fetchEntitiesWithPredicates:rent4];
+            break;
+        }
+        
+        default:break;
+            
+    }
+    
+}
+
+
+
+
 
 #pragma mark - UITableViewDelegate
 
@@ -80,89 +131,30 @@
     return headerView;
 }
 
+#pragma mark - Helpers
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+-(void)fetchEntitiesWithPredicates:(NSPredicate*)predicates {
     
-    [self tableViewWithIndexPath:indexPath tableView:tableView];
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    [fetchRequest setPredicate:predicates];
     
-  //  NSIndexPath *selectedCell = [tableView indexPathForSelectedRow];
+    self.filteredResults = [[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    // self.entities = [self.filteredResults  sortedArrayUsingDescriptors: sortDescriptors];
+    self.entities = [[self.filteredResults filteredArrayUsingPredicate:predicates] mutableCopy];
     
-  
-    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
-    
-    NSMutableArray *selectedArray = [self.tableView indexPathsForSelectedRows];
-    
-    NSIndexPath *row1 = [NSIndexPath indexPathForRow:0 inSection:1];
-    NSIndexPath *row2 = [NSIndexPath indexPathForRow:1 inSection:1];
-    NSIndexPath *row3 = [NSIndexPath indexPathForRow:0 inSection:2];
-    NSIndexPath *row4 = [NSIndexPath indexPathForRow:1 inSection:2];
-    NSIndexPath *row5 = [NSIndexPath indexPathForRow:2 inSection:2];
-    NSIndexPath *row6 = [NSIndexPath indexPathForRow:3 inSection:2];
-    NSIndexPath *row7 = [NSIndexPath indexPathForRow:4 inSection:2];
-    
-   
-   
-    
-    if (indexPath == row1) {
-        
-        NSPredicate *rent = [NSPredicate predicateWithFormat:@"SELF.actionByProperty contains [cd] %@",@"Аренда"];
-        [self fetchEntitiesWithPredicates:rent];
-        
-    }else if (indexPath == row2) {
-        
-        NSPredicate *sell = [NSPredicate predicateWithFormat:@"SELF.actionByProperty contains [cd] %@",@"Продажа"];
-        [self fetchEntitiesWithPredicates:sell];
-        
-    }else if (indexPath == row3) {
-        
-        NSPredicate *flat = [NSPredicate predicateWithFormat:@"SELF.typeOfProperty contains [cd] %@",@"Квартира"];
-        // NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:@[p1, p2]];
-        
-        [self fetchEntitiesWithPredicates:flat];
-        
-    }else if (indexPath == row4) {
-        
-        NSPredicate *house = [NSPredicate predicateWithFormat:@"SELF.typeOfProperty  contains [cd] %@",@"Дом"];
-        [self fetchEntitiesWithPredicates:house];
-        
-    }else if (indexPath == row5) {
-        
-        NSPredicate *nonLiving = [NSPredicate predicateWithFormat:@"SELF.typeOfProperty  contains [cd] %@",@"Нежилое помещение"];
-        [self fetchEntitiesWithPredicates:nonLiving];
-        
-        
-    }else if (indexPath == row6) {
-        NSPredicate *room = [NSPredicate predicateWithFormat:@"SELF.typeOfProperty  contains [cd] %@",@"Комната"];
-        [self fetchEntitiesWithPredicates:room];
-        
-    }else if (indexPath == row7) {
-        
-        NSPredicate *earth = [NSPredicate predicateWithFormat:@"SELF.typeOfProperty  contains [cd] %@",@"Земельный участок"];
-        [self fetchEntitiesWithPredicates:earth];
-        
-//    }else if () {
-//
-//        NSPredicate *rent = [NSPredicate predicateWithFormat:@"SELF.typeOfProperty contains [cd] %@",@"Аренда"];
-//        NSPredicate *house = [NSPredicate predicateWithFormat:@"SELF.typeOfProperty  contains [cd] %@",@"Дом"];
-//        NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:@[rent, house]];
-   // }
-   
-    
-        
-    
+    for (id object in self.filteredResults) {
+        if ([object isKindOfClass:[EstateObjectEntity class]]) {
+            self.detailItem = ((EstateObjectEntity *)object);
+        }
     }
-
-
 }
 
 
 
 
-
-
-#pragma mark - Configuring ticks
-
-- (void)tableViewWithIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView {
+- (void)configureTicksWithIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView {
     
     if (indexPath.section == 1) {
         
@@ -179,17 +171,14 @@
             
         }else{
             
-            //  [cellSelectedArray addObject:selectedCell.textLabel.text];
-            
             [cellSelectedArray addObject:selectedCell];
-            NSLog(@"%lu",(unsigned long)cellSelectedArray.count);
-            
+    
         }
         
         for (UITableViewCell *cell in [tableView visibleCells]) {
             if (cell.accessoryType != UITableViewCellAccessoryNone && cell.tag == indexPath.section ) {
                 cell.accessoryType = UITableViewCellAccessoryNone;
-
+                
             }
         }
         
@@ -212,8 +201,9 @@
             [cellSelectedArray removeObject:selectedCell.textLabel.text];
             
         }else{
-            // [cellSelectedArray addObject:selectedCell.textLabel.text];
+            
             [cellSelectedArray addObject:selectedCell];
+           
         }
         
         
@@ -235,6 +225,63 @@
 
 
 
+- (void)configureSearchParamsWithIndexPaths:(NSIndexPath *)indexPath {
+ 
+    NSIndexPath *row1 = [NSIndexPath indexPathForRow:0 inSection:1];
+    NSIndexPath *row2 = [NSIndexPath indexPathForRow:1 inSection:1];
+    NSIndexPath *row3 = [NSIndexPath indexPathForRow:0 inSection:2];
+    NSIndexPath *row4 = [NSIndexPath indexPathForRow:1 inSection:2];
+    NSIndexPath *row5 = [NSIndexPath indexPathForRow:2 inSection:2];
+    NSIndexPath *row6 = [NSIndexPath indexPathForRow:3 inSection:2];
+    NSIndexPath *row7 = [NSIndexPath indexPathForRow:4 inSection:2];
+    
+    
+    if (indexPath == row1) {
+        NSPredicate *rent = [NSPredicate predicateWithFormat:@"actionByProperty contains [cd] %@",@"Аренда"];
+        [self fetchEntitiesWithPredicates:rent];
+        
+    }else if (indexPath == row2) {
+        NSPredicate *sell = [NSPredicate predicateWithFormat:@"actionByProperty contains [cd] %@",@"Продажа"];
+        [self fetchEntitiesWithPredicates:sell];
+        
+    }else if (indexPath == row3) {
+        NSPredicate *flat = [NSPredicate predicateWithFormat:@"typeOfProperty contains [cd] %@",@"Квартира"];
+        [self fetchEntitiesWithPredicates:flat];
+        
+    }else if (indexPath == row4) {
+        NSPredicate *house = [NSPredicate predicateWithFormat:@"typeOfProperty contains [cd] %@",@"Дом"];
+        [self fetchEntitiesWithPredicates:house];
+        
+    }else if (indexPath == row5) {
+        NSPredicate *nonLiving = [NSPredicate predicateWithFormat:@"typeOfProperty contains [cd] %@",@"Нежилое помещение"];
+        [self fetchEntitiesWithPredicates:nonLiving];
+        
+    }else if (indexPath == row6) {
+        NSPredicate *room = [NSPredicate predicateWithFormat:@"typeOfProperty contains [cd] %@",@"Комната"];
+        [self fetchEntitiesWithPredicates:room];
+        
+   }else if (indexPath == row7) {
+        NSPredicate *earth = [NSPredicate predicateWithFormat:@"typeOfProperty contains [cd] %@",@"Земельный участок"];
+        [self fetchEntitiesWithPredicates:earth];
+        
+
+   }
+}
+
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self configureTicksWithIndexPath:indexPath tableView:tableView];
+    
+    [self configureSearchParamsWithIndexPaths:indexPath];
+   
+   
+}
+
+
+
 #pragma mark - Navigation
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -242,60 +289,93 @@
     if ([segue.identifier isEqualToString:@"toFilteredResultsVC"]) {
         
         FilteredResultsVC *frVC = (FilteredResultsVC*)segue.destinationViewController;
+        frVC.detailItem = self.detailItem;
         frVC.searchResults = [[NSMutableArray alloc] init];
         frVC.searchResults = self.entities;
-        self.detailItem = frVC.detailItem;
+      
+        if ([cellSelectedArray containsObject:self.rentCell] && [cellSelectedArray containsObject:self.flatCell]) {
+            NSPredicate *rent = [NSPredicate predicateWithFormat:@"SELF.actionByProperty contains [cd] %@ AND typeOfProperty contains [cd] %@",@"Аренда", @"Квартира"];
+           
+            [self.entities removeAllObjects];
+            [self fetchEntitiesWithPredicates:rent];
+            frVC.searchResults = [[NSMutableArray alloc] init];
+            frVC.searchResults = self.entities;
+       
+        }else if ([cellSelectedArray containsObject:self.rentCell] && [cellSelectedArray containsObject:self.houseCell]) {
+            NSPredicate *rent = [NSPredicate predicateWithFormat:@"actionByProperty contains [cd] %@ AND typeOfProperty contains [cd] %@",@"Аренда", @"Дом"];
+            [self.entities removeAllObjects];
+            [self fetchEntitiesWithPredicates:rent];
+            frVC.searchResults = [[NSMutableArray alloc] init];
+            frVC.searchResults = self.entities;
         
-        //        NSSortDescriptor *price = [NSSortDescriptor sortDescriptorWithKey:@"price" ascending:YES selector:@selector(localizedStandardCompare:)];
-        //        NSSortDescriptor *address = [NSSortDescriptor sortDescriptorWithKey:@"address" ascending:YES selector:@selector(localizedStandardCompare:)];
-        //        NSSortDescriptor *actionByProperty = [NSSortDescriptor sortDescriptorWithKey:@"actionByProperty" ascending:YES selector:@selector(localizedStandardCompare:)];
-        
-        
-        //        NSPredicate *rent = [NSPredicate predicateWithFormat:@"SELF.actionByProperty contains [cd] %@",@"Аренда"];
-        //        NSPredicate *sell = [NSPredicate predicateWithFormat:@"SELF.actionByProperty contains [cd] %@",@"Продажа"];
-        
-        
-        
-        //        NSIndexPath *indPa = [NSIndexPath indexPathForRow:0 inSection:1];
-        //        NSIndexPath *indPathFor1Row = [NSIndexPath indexPathForRow:1 inSection:1];
-        //
-        //        UITableViewCell *selectedCell = [self.tableView indexPathForSelectedRow];
-        //        NSIndexPath *ipForCell = [self.tableView indexPathForCell:selectedCell];
-        //
-        //NSPredicate *rent = [NSPredicate predicateWithFormat:@"SELF.actionByProperty contains [cd] %@",@"Аренда"];
-        
-        //[self fetchEntitiesWithPredicates:rent];
-        
-        
-    }
-}
-
-
-
-
-
-
-
-
-
-#pragma marl - Helper
-
-
--(void)fetchEntitiesWithPredicates:(NSPredicate*)predicates {
-    
-    NSError *error;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
-    [fetchRequest setPredicate:predicates];
-    
-    self.filteredResults = [[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error];
-    // self.entities = [self.filteredResults  sortedArrayUsingDescriptors: sortDescriptors];
-    self.entities = [self.filteredResults filteredArrayUsingPredicate:predicates];
-    
-    for (id object in self.filteredResults) {
-        if ([object isKindOfClass:[EstateObjectEntity class]]) {
-            self.detailItem = ((EstateObjectEntity *)object);
+        }else if ([cellSelectedArray containsObject:self.rentCell] && [cellSelectedArray containsObject:self.nonLivingCell]) {
+            NSPredicate *rent = [NSPredicate predicateWithFormat:@"actionByProperty  contains [cd] %@ AND typeOfProperty contains [cd] %@",@"Аренда", @"Нежилое помещение"];
+           
+            [self.entities removeAllObjects];
+            [self fetchEntitiesWithPredicates:rent];
+            frVC.searchResults = [[NSMutableArray alloc] init];
+            frVC.searchResults = self.entities;
+            
+        }else if ([cellSelectedArray containsObject:self.rentCell] && [cellSelectedArray containsObject:self.roomCell]) {
+            NSPredicate *rent = [NSPredicate predicateWithFormat:@"actionByProperty contains [cd] %@ AND typeOfProperty contains [cd] %@",@"Аренда", @"Комната"];
+          
+            [self.entities removeAllObjects];
+            [self fetchEntitiesWithPredicates:rent];
+            frVC.searchResults = [[NSMutableArray alloc] init];
+            frVC.searchResults = self.entities;
+            
+        }else if ([cellSelectedArray containsObject:self.rentCell] && [cellSelectedArray containsObject:self.earthCell]) {
+            NSPredicate *rent = [NSPredicate predicateWithFormat:@"actionByProperty  contains [cd] %@ AND typeOfProperty contains [cd] %@",@"Аренда", @"Земельный участок"];
+           
+            [self.entities removeAllObjects];
+            [self fetchEntitiesWithPredicates:rent];
+            frVC.searchResults = [[NSMutableArray alloc] init];
+            frVC.searchResults = self.entities;
+            
+        }else if ([cellSelectedArray containsObject:self.sellCell] && [cellSelectedArray containsObject:self.flatCell]) {
+            NSPredicate *sell = [NSPredicate predicateWithFormat:@"actionByProperty contains [cd] %@ AND typeOfProperty contains [cd] %@",@"Продажа", @"Квартира"];
+           
+            [self.entities removeAllObjects];
+            [self fetchEntitiesWithPredicates:sell];
+            frVC.searchResults = [[NSMutableArray alloc] init];
+            frVC.searchResults = self.entities;
+            
+        }else if ([cellSelectedArray containsObject:self.sellCell] && [cellSelectedArray containsObject:self.houseCell]) {
+            NSPredicate *sell = [NSPredicate predicateWithFormat:@"actionByProperty contains [cd] %@ AND typeOfProperty contains [cd] %@",@"Продажа", @"Дом"];
+           
+            [self.entities removeAllObjects];
+            [self fetchEntitiesWithPredicates:sell];
+            frVC.searchResults = [[NSMutableArray alloc] init];
+            frVC.searchResults = self.entities;
+            
+        }else if ([cellSelectedArray containsObject:self.sellCell] && [cellSelectedArray containsObject:self.nonLivingCell]) {
+            NSPredicate *sell = [NSPredicate predicateWithFormat:@"actionByProperty contains [cd] %@ AND typeOfProperty contains [cd] %@",@"Продажа", @"Нежилое помещение"];
+          
+            [self.entities removeAllObjects];
+            [self fetchEntitiesWithPredicates:sell];
+            frVC.searchResults = [[NSMutableArray alloc] init];
+            frVC.searchResults = self.entities;
+            
+        }else if ([cellSelectedArray containsObject:self.sellCell] && [cellSelectedArray containsObject:self.roomCell]) {
+            NSPredicate *sell = [NSPredicate predicateWithFormat:@"actionByProperty contains [cd] %@ AND typeOfProperty contains [cd] %@",@"Продажа", @"Комната"];
+            
+            [self.entities removeAllObjects];
+            [self fetchEntitiesWithPredicates:sell];
+            frVC.searchResults = [[NSMutableArray alloc] init];
+            frVC.searchResults = self.entities;
+            
+        }else if ([cellSelectedArray containsObject:self.sellCell] && [cellSelectedArray containsObject:self.earthCell]) {
+            NSPredicate *sell = [NSPredicate predicateWithFormat:@"actionByProperty contains [cd] %@ AND typeOfProperty contains [cd] %@",@"Продажа", @"Земельный участок"];
+            
+            [self.entities removeAllObjects];
+            [self fetchEntitiesWithPredicates:sell];
+            frVC.searchResults = [[NSMutableArray alloc] init];
+            frVC.searchResults = self.entities;
+            
         }
+        
     }
 }
+
 
 @end
