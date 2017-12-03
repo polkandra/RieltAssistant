@@ -27,7 +27,18 @@
    
     self.emptyDataBaseLabel.hidden = YES;
     
-    self.tableView.backgroundColor = [UIColor clearColor];
+   
+  
+    // self.tableView.backgroundColor = [StyleKitName backgroundColorGradient];
+   
+//    UIView *view1 = [[UIView alloc] initWithFrame:self.tableView.bounds];
+//    CAGradientLayer *layer = [CAGradientLayer layer];
+//    layer.frame = view1.bounds;
+//    layer.colors = @[(id)StyleKitName.gradientColor.CGColor, (id)StyleKitName.gradientColor2.CGColor];
+//    self.view = view1;
+//    [self.tableView.layer insertSublayer:layer atIndex:0];
+//    
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
    
     SearchResultsTableViewController *searchResultsVC = (SearchResultsTableViewController *)self.searchController.searchResultsController;

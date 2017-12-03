@@ -16,6 +16,8 @@
 #import "EstateObjectEntity+CoreDataProperties.h"
 #import "DataManager.h"
 #import "ActionTypeEntity+CoreDataProperties.h"
+#import "AQSWhatsAppActivity.h"
+
 
 @interface DetailObjectController : UITableViewController
 
@@ -31,7 +33,7 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareBarButtonItem;
 
-
+@property(strong, nonatomic) NSString *telString;
 @property (strong, nonatomic) UIImageView *fullScreenImageView;
 @property (strong, nonatomic) UIImageView *originalImageView;
 

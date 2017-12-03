@@ -2,25 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
-	<key>UIAppFonts</key>
-	<array>
-		<string>clip.ttf</string>
-		<string>Blogger_Sans.otf</string>
-		<string>Blogger_Sans-Medium.otf</string>
-		<string>Blogger_Sans-Medium_Italic.otf</string>
-		<string>Blogger_Sans-Light.otf</string>
-		<string>Blogger_Sans-Light_Italic.otf</string>
-		<string>Blogger_Sans-Italic.otf</string>
-		<string>Blogger_Sans-Bold.otf</string>
-		<string>Blogger_Sans-Bold_Italic.otf</string>
-	</array>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -51,6 +32,11 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) camera use</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -59,6 +45,18 @@
 	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>clip.ttf</string>
+		<string>Blogger_Sans.otf</string>
+		<string>Blogger_Sans-Medium.otf</string>
+		<string>Blogger_Sans-Medium_Italic.otf</string>
+		<string>Blogger_Sans-Light.otf</string>
+		<string>Blogger_Sans-Light_Italic.otf</string>
+		<string>Blogger_Sans-Italic.otf</string>
+		<string>Blogger_Sans-Bold.otf</string>
+		<string>Blogger_Sans-Bold_Italic.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -67,6 +65,10 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<false/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDefault</string>
 	<key>UIStatusBarTintParameters</key>
 	<dict>
 		<key>UINavigationBar</key>
@@ -90,5 +92,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

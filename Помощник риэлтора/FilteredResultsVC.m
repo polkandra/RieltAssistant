@@ -86,23 +86,25 @@
         NSIndexPath *indexPath2 = [self.tableView indexPathForSelectedRow];
         EstateObjectEntity *selectedEntity = [self.searchResults objectAtIndex:indexPath2.row];
         doc.detailItem = selectedEntity;
-        [self controllerWhereCreateNavBar:doc titleWithSelectedEntity:selectedEntity];
-        [doc preferredStatusBarStyle];
+      
+     //   [self controllerWhereCreateNavBar:doc titleWithSelectedEntity:selectedEntity];
+       
     }
 }
 
-#pragma mark - Helper
+/*#pragma mark - Helper
 
-- (void)controllerWhereCreateNavBar:(DetailObjectController *)controller titleWithSelectedEntity:(EstateObjectEntity *)selectedEntity {
+-(void)controllerWhereCreateNavBar:(DetailObjectController *)controller titleWithSelectedEntity:(EstateObjectEntity *)selectedEntity {
     
     UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 45)];
     
     navBar.backgroundColor = [StyleKitName gradientColor52];
     
+    
     [navBar setBackgroundImage:[UIImage new] forBarPosition:UIBarPositionTopAttached barMetrics:UIBarMetricsDefault];
     [navBar setShadowImage:[UIImage new]];
     [navBar setTranslucent:YES];
-   
+    
     [controller.view addSubview:navBar];
     
     NSString * myTitle = [NSString stringWithFormat:@"%@",[selectedEntity valueForKey:@"discription"]];
@@ -124,18 +126,12 @@
     navBar.items = @[navigItem];
 }
 
-
--(UIStatusBarStyle) preferredStatusBarStyle {
-
-    return UIStatusBarStyleLightContent;
-}
-
 -(void)dismissView {
     
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     
     
-}
+}  */
 
 
 

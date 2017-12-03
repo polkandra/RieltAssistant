@@ -52,8 +52,7 @@
     self.myArrayWithPhotoData = [[NSMutableArray alloc] init];
     self.myData1 = [[NSMutableArray alloc] init];
 
-    [self.saveSecondButton setTitleColor:[UIColor blackColor]
-                       forState:UIControlStateHighlighted];
+    [self.saveSecondButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
      
     
 }
@@ -90,10 +89,7 @@
     if (replaceRange.location != NSNotFound){
         NSString* result = [concatString stringByReplacingCharactersInRange:replaceRange withString:@""];
         self.priceTextField.text = result;
-    
-    }
-    
-
+        }
 }
 
 
@@ -206,7 +202,7 @@
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height)];
     
     if (section == 0) {
-        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
+        [headerView setBackgroundColor:[UIColor colorWithRed:184/255.0 green:197/255.0 blue:214/255.0 alpha:1]];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"Общие";
         titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
@@ -214,7 +210,7 @@
         titleLabel.backgroundColor = [UIColor clearColor];
         [headerView addSubview:titleLabel];
     }else if (section == 1) {
-        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
+        [headerView setBackgroundColor:[UIColor colorWithRed:184/255.0 green:197/255.0 blue:214/255.0 alpha:1]];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"Координаты";
         titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
@@ -222,7 +218,7 @@
         titleLabel.backgroundColor = [UIColor clearColor];
         [headerView addSubview:titleLabel];
     }else if (section == 2) {
-        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
+        [headerView setBackgroundColor:[UIColor colorWithRed:184/255.0 green:197/255.0 blue:214/255.0 alpha:1]];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"Параметры";
         titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
@@ -230,7 +226,7 @@
         titleLabel.backgroundColor = [UIColor clearColor];
         [headerView addSubview:titleLabel];
     }else if (section == 3) {
-        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
+        [headerView setBackgroundColor:[UIColor colorWithRed:184/255.0 green:197/255.0 blue:214/255.0 alpha:1]];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"Фото объекта";
         titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
@@ -238,7 +234,7 @@
         titleLabel.backgroundColor = [UIColor clearColor];
         [headerView addSubview:titleLabel];
     }else if (section == 4) {
-        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
+        [headerView setBackgroundColor:[UIColor colorWithRed:184/255.0 green:197/255.0 blue:214/255.0 alpha:1]];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"Контакты";
         titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];

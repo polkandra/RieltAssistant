@@ -13,7 +13,7 @@
 @end
 
 @implementation DetailObjectController
-@synthesize tableView,  myDetailPhotosArray, detailItem, detailItem2;
+@synthesize tableView,  myDetailPhotosArray, detailItem, detailItem2, telString;
 
 
 #pragma mark - VC Lifecycle
@@ -43,8 +43,8 @@
     [super viewWillAppear:YES];
     
     NSError *error;
-     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
-     self.fetchedObjects = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    self.fetchedObjects = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
     NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
     self.sourceArray = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
     
@@ -170,9 +170,8 @@
         newVC.navigationItem.leftBarButtonItem = nil;
         newVC.saveSecondButton.hidden = NO;
         newVC.hideButton = NO;
-        newVC.navigationItem.hidesBackButton = YES;
-  // newVC.navigationController.navigationBar.backItem.
-        
+      //  newVC.navigationItem.hidesBackButton = YES;
+        // newVC.navigationController.navigationBar.backItem.
     
     }else if ([segue.identifier isEqualToString:@"unwindAfterBackButtonFromDetail"]) {
         
@@ -196,6 +195,31 @@
 #pragma mark - Actions
 
 
+
+- (IBAction)editButtonTapped:(UIBarButtonItem *)sender {
+    
+    NewObjectViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"New"];
+    UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
+    
+    UIImage* imageBack = [UIImage imageNamed:@"back"];
+    CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
+    
+    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
+    [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
+    [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
+    
+    [flipButton initWithCustomView:someButton];
+    
+    controller.title = [NSString stringWithFormat:@"%@", [self.detailItem valueForKey:@"discription"]];
+    controller.navigationController.navigationItem.leftBarButtonItem = flipButton;
+   
+    controller.detailItem = self.detailItem;
+    [self.navigationController pushViewController:controller animated:YES];
+
+}
+
+
 - (IBAction)addPlaceToMapButton:(UIButton *)sender {
     
    // AddToMapVC *mapVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AddToMapVC"];
@@ -206,8 +230,14 @@
 
 
 - (IBAction)callButton:(UIButton *)sender {
-    NSString *phoneNumber = [@"telprompt://" stringByAppendingString:self.phoneNumberLabel.text];
-    NSURL *url = [NSURL URLWithString:phoneNumber];
+    
+    if (self.phoneNumberLabel.text.length > 0) {
+        self.telString = [@"telprompt://" stringByAppendingString:self.phoneNumberLabel.text];
+    }else{
+        return;
+    }
+    
+    NSURL *url = [NSURL URLWithString:telString];
     
     if ([[UIApplication sharedApplication] canOpenURL:url]) {
         [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
@@ -216,10 +246,21 @@
 }
 
 
-
 - (IBAction)shareButtonTapped:(UIBarButtonItem *)sender {
-
-
-
+    
+    // activityViewController.excludedActivityTypes = activities;
+    
+    UIActivity *whatsUpActivity = [[AQSWhatsAppActivity alloc] init];
+    // NSString *textToShare = @"viber://forward?text = 1111111111111";
+    // NSURL *viberURL = [NSURL URLWithString:@"viber://forward?text=sdlmfkkanfj"];
+    NSArray *items = @[[self.sourceArray firstObject]];
+    
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:@[whatsUpActivity]];
+    
+    [self presentViewController:activityViewController animated:YES completion:NULL];
+    
+    
 }
+
+
 @end

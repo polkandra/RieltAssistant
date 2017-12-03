@@ -27,6 +27,7 @@
 @interface MainViewController : CoreDataTableVC  <UISearchControllerDelegate, UISearchResultsUpdating>
 
 
+
 @property(strong, nonatomic) NSMutableArray* arrayFromDetail;
 @property(strong, nonatomic) NSMutableArray* myPhotosData;
 @property(strong, nonatomic) NSMutableArray* fetchedData;

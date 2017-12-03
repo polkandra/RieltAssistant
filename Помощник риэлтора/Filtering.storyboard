@@ -248,13 +248,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AddressLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lh5-Hu-XAC">
-                                            <rect key="frame" x="5" y="126" width="98.5" height="17"/>
+                                            <rect key="frame" x="5" y="123" width="104.5" height="20"/>
                                             <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ownerLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggY-e2-SSJ">
-                                            <rect key="frame" x="5" y="105" width="215" height="17"/>
+                                            <rect key="frame" x="5" y="99" width="215" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="215" id="gbR-LR-xTn"/>
                                             </constraints>
@@ -311,7 +311,7 @@
                                     <outlet property="nameCellLabel" destination="V6e-Qv-fAM" id="byp-Mg-cZb"/>
                                     <outlet property="ownerCellLabel" destination="ggY-e2-SSJ" id="L1H-u6-jis"/>
                                     <outlet property="priceCellLabel" destination="Mk9-EL-Vk6" id="gbe-6e-yH9"/>
-                                    <segue destination="xQh-mN-yM6" kind="presentation" identifier="toDOC" id="QhL-zJ-2jK"/>
+                                    <segue destination="xQh-mN-yM6" kind="show" identifier="toDOC" id="QhL-zJ-2jK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -327,7 +327,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VrV-NR-3nW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="879"/>
+            <point key="canvasLocation" x="1038" y="876"/>
         </scene>
         <!--DetailObjectController-->
         <scene sceneID="2M4-1b-C4G">
@@ -335,7 +335,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="DetailObjectController" storyboardName="Object" referencedIdentifier="DetailObjectController" id="xQh-mN-yM6" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ytj-9W-SqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1941" y="873"/>
+            <point key="canvasLocation" x="1792" y="773"/>
         </scene>
     </scenes>
     <resources>
