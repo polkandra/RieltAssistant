@@ -13,7 +13,7 @@
 @end
 
 @implementation DetailObjectController
-@synthesize tableView,  myDetailPhotosArray, detailItem, detailItem2, telString;
+@synthesize tableView,  myDetailPhotosArray, detailItem, detailItem2, telString, documentInteractionController;
 
 
 #pragma mark - VC Lifecycle
@@ -248,18 +248,38 @@
 
 - (IBAction)shareButtonTapped:(UIBarButtonItem *)sender {
     
-    // activityViewController.excludedActivityTypes = activities;
+    NSArray *activities = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypeOpenInIBooks,UIActivityTypeMarkupAsPDF];
     
-    UIActivity *whatsUpActivity = [[AQSWhatsAppActivity alloc] init];
-    // NSString *textToShare = @"viber://forward?text = 1111111111111";
-    // NSURL *viberURL = [NSURL URLWithString:@"viber://forward?text=sdlmfkkanfj"];
     NSArray *items = @[[self.sourceArray firstObject]];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
+    activityViewController.excludedActivityTypes = activities;
     
-    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:@[whatsUpActivity]];
+    /* NSString * msg = @"YOUR MSG";
+     NSString * urlWhats = [NSString stringWithFormat:@"whatsapp://send?text=%@",msg];
+     NSURL * whatsappURL = [NSURL URLWithString:[urlWhats stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+     if ([[UIApplication sharedApplication] canOpenURL: whatsappURL]) {
+     [[UIApplication sharedApplication] openURL:whatsappURL options:@{} completionHandler:nil];
+     } else {
+     // Cannot open whatsapp
+     }*/
     
+    if ([[UIApplication sharedApplication] canOpenURL: [NSURL URLWithString:@"whatsapp://app"]]){
+        
+        NSString *savePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/whatsAppTmp.jpg"];
+        
+        [UIImageJPEGRepresentation([self.sourceArray firstObject], 1.0) writeToFile:savePath atomically:YES];
+        
+        documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:savePath]];
+        documentInteractionController.UTI = @"net.whatsapp.image";
+        documentInteractionController.delegate = self;
+        [documentInteractionController presentOpenInMenuFromRect:CGRectMake(0, 0, 0, 0) inView:self.view animated: YES];
+        
+    }else{
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"WhatsApp not installed." message:@"No WhatsApp installed." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
     [self presentViewController:activityViewController animated:YES completion:NULL];
-    
-    
 }
 
 

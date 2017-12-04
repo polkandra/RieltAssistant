@@ -36,14 +36,9 @@
 - (IBAction)unwindFromNewMeetengsDetailVC:(UIStoryboardSegue*)segue {
     
     if ([segue.identifier isEqualToString:@"toMeetingsVC"]) {
-        
-        /* NewMeetingDetailViewController *controller = segue.sourceViewController;
-         
-         MeetingObject* newObject = controller.meetingObject;
-         
-         [self.myMeetingsDetailsData addObject:newObject];*/
-        
+       
         _disclaimerLabel.hidden = YES;
+        
         
         //   [self.tableView reloadData];
         

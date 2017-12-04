@@ -597,16 +597,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RieltAssistant/Pods-RieltAssistant-resources.sh",
-				"${PODS_ROOT}/AQSWhatsAppActivity/AQSWhatsAppActivity/Classes/AQSWhatsAppActivity.xcassets/AQSWhatsAppActivity.imageset/AQSWhatsAppActivity.png",
-				"${PODS_ROOT}/AQSWhatsAppActivity/AQSWhatsAppActivity/Classes/AQSWhatsAppActivity.xcassets/AQSWhatsAppActivity.imageset/AQSWhatsAppActivity@2x.png",
-				"${PODS_ROOT}/AQSWhatsAppActivity/AQSWhatsAppActivity/Classes/AQSWhatsAppActivity.xcassets/AQSWhatsAppActivity.imageset/AQSWhatsAppActivity@2x~ipad.png",
-				"${PODS_ROOT}/AQSWhatsAppActivity/AQSWhatsAppActivity/Classes/AQSWhatsAppActivity.xcassets/AQSWhatsAppActivity.imageset/AQSWhatsAppActivity@3x.png",
-				"${PODS_ROOT}/AQSWhatsAppActivity/AQSWhatsAppActivity/Classes/AQSWhatsAppActivity.xcassets/AQSWhatsAppActivity.imageset/AQSWhatsAppActivity~ipad.png",
-				"${PODS_ROOT}/AQSWhatsAppActivity/AQSWhatsAppActivity/Classes/AQSWhatsAppActivity.xcassets/color_AQSWhatsAppActivity.imageset/color_AQSWhatsAppActivity.png",
-				"${PODS_ROOT}/AQSWhatsAppActivity/AQSWhatsAppActivity/Classes/AQSWhatsAppActivity.xcassets/color_AQSWhatsAppActivity.imageset/color_AQSWhatsAppActivity@2x.png",
-				"${PODS_ROOT}/AQSWhatsAppActivity/AQSWhatsAppActivity/Classes/AQSWhatsAppActivity.xcassets/color_AQSWhatsAppActivity.imageset/color_AQSWhatsAppActivity@2x~ipad.png",
-				"${PODS_ROOT}/AQSWhatsAppActivity/AQSWhatsAppActivity/Classes/AQSWhatsAppActivity.xcassets/color_AQSWhatsAppActivity.imageset/color_AQSWhatsAppActivity@3x.png",
-				"${PODS_ROOT}/AQSWhatsAppActivity/AQSWhatsAppActivity/Classes/AQSWhatsAppActivity.xcassets/color_AQSWhatsAppActivity.imageset/color_AQSWhatsAppActivity~ipad.png",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
@@ -803,7 +793,7 @@
 				ENABLE_BITCODE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "Помощник риэлтора/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -866,7 +856,7 @@
 				ENABLE_BITCODE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "Помощник риэлтора/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

@@ -16,7 +16,7 @@
 #import "EstateObjectEntity+CoreDataProperties.h"
 #import "DataManager.h"
 #import "ActionTypeEntity+CoreDataProperties.h"
-#import "AQSWhatsAppActivity.h"
+
 
 
 @interface DetailObjectController : UITableViewController
@@ -26,7 +26,7 @@
 
 - (IBAction)shareButtonTapped:(UIBarButtonItem *)sender;
 
-
+@property (strong, nonatomic) UIDocumentInteractionController * documentInteractionController;
 
 @property(strong, nonatomic) NSMutableArray* fetchedArrayWithUsersPics;
 @property(strong, nonatomic) NSMutableArray* sourceArray;

@@ -43,7 +43,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"toMeetingsVC"]) {
-     
+        
+        [self setNotificationwithDate:self.datePicker.date];
+        
         NSDate *myDate = _datePicker.date;
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"HH:mm"];
@@ -197,14 +199,68 @@
     
 }
 
-
-
 // unwind segue from SelectMeetingVC
 - (IBAction)unwindFromSelectMeetingVC:(UIStoryboardSegue*)segue {
-   
-//    [self updateUIWithDetailItem];
-
+    
+    //    [self updateUIWithDetailItem];
+    
 }
+
+
+
+
+#pragma mark  - Notification
+
+
+
+-(void)setNotificationwithDate:(NSDate*)date {
+    
+    
+    UNMutableNotificationContent *content = [UNMutableNotificationContent new];
+    content.title = [NSString localizedUserNotificationStringForKey:@"Настало время встречи по объекту" arguments:nil];
+    content.body =  [NSString localizedUserNotificationStringForKey:@"Моя первая нотификация" arguments:nil];
+    content.sound = [UNNotificationSound defaultSound];
+    content.badge = @([[UIApplication sharedApplication] applicationIconBadgeNumber] + 1);
+    
+    // NSDate *date = [NSDate dateWithTimeIntervalSinceNow:50];
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *triggerDate = [[NSCalendar currentCalendar]
+                                     components:NSCalendarUnitYear +
+                                     NSCalendarUnitMonth + NSCalendarUnitDay +
+                                     NSCalendarUnitHour + NSCalendarUnitMinute
+                                     fromDate:date];
+    
+    
+    
+    NSDateComponents *time = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:date];
+    triggerDate.hour = time.hour;
+    triggerDate.minute = time.minute;
+    
+    
+    
+    UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:triggerDate
+                                                                                                      repeats:NO];
+    
+    NSString *identifier = @"UYLLocalNotification";
+    
+    UNUserNotificationCenter *center  = [UNUserNotificationCenter currentNotificationCenter];
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier
+                                                                          content:content trigger:trigger];
+    
+    [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"Something went wrong: %@",error);
+        }
+    }];
+    
+    
+    
+}
+
+    
+
+
 
 #pragma mark - Helpers
 
