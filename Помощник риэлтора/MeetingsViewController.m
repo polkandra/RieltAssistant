@@ -15,19 +15,23 @@
 @end
 
 @implementation MeetingsViewController
-@synthesize fetchedResultsController, tableView, meetingObject;
+@synthesize fetchedResultsController, tableView, meetingObject, detailItem, retrievedArray;
 
 #pragma mark - VC Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    self.tableView.backgroundColor = [UIColor greenColor];
+    self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
+    
 }
 
-
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:YES];
+    [self setNavigationController];
+}
 
 #pragma mark - Navigation
 
@@ -137,9 +141,9 @@
 #pragma mark - UITableViewDataSource
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 120;
+    return 160;
 }
 
 
@@ -151,7 +155,7 @@
 
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *cellIdentifier = @"MeetingCell";
     
@@ -168,19 +172,22 @@
     MeetingObjectEntity* object = [self.fetchedResultsController objectAtIndexPath:indexPath];
    
     cell.dateLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"date"]];
-    cell.dateLabel.textColor = [UIColor whiteColor];
+   // cell.dateLabel.textColor = [UIColor whiteColor];
     
     cell.timeLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"time"]];
-    cell.timeLabel.textColor = [UIColor whiteColor];
+   // cell.timeLabel.textColor = [UIColor whiteColor];
     
     cell.objectNameLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"objectName"]];;
     cell.objectNameLabel.textColor = [UIColor whiteColor];
     
     cell.personNameLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"personName"]];;
     cell.personNameLabel.textColor = [UIColor whiteColor];
-    
-    
+    //cell.objectPicture.image = [[UIImage alloc] initWithData:[self.retrievedArray objectAtIndex:0]];
+    cell.objectPicture.image = [[UIImage alloc] initWithData:[object valueForKey:@"picture"]];
+
+ 
 }
+
 
 
 #pragma mark - UITableViewDelegate
@@ -191,6 +198,35 @@
 }
 
 
+#pragma mark - Helper
+
+-(void)setNavigationController {
+    
+    [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor52]];
+    [self.navigationController.navigationBar setTranslucent:YES];
+    
+    [self.navigationItem setTitle:@"Мои встречи"];
+    
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor],
+       NSFontAttributeName:[UIFont fontWithName:@"BloggerSans" size:23]}];
+    
+    if (@available(iOS 11.0, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = NO;
+    } else {
+        // Fallback on earlier versions
+    }
+    
+    // making nav bar translucent
+    /*[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+     self.navigationController.navigationBar.shadowImage = [UIImage new];
+     self.navigationController.navigationBar.translucent = YES;*/
+    //
+    
+}
 
 
 @end

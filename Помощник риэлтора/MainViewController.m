@@ -120,7 +120,7 @@
     [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor52]];
     [self.navigationController.navigationBar setTranslucent:YES];
     
-    [self.navigationItem setTitle:@"Мои объекты"];
+    [self.navigationItem setTitle:@"Мои  объекты"];
     
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];

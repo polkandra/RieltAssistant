@@ -16,7 +16,7 @@
 @property(strong, nonatomic) NSString* time;
 @property(strong, nonatomic) NSString* date;
 @property(strong, nonatomic) NSString* dateAndTime;
-
+@property(strong, nonatomic) NSData *picture;
 
 
 @end

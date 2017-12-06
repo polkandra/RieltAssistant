@@ -1285,6 +1285,7 @@
                                                         <constraint firstAttribute="width" constant="326" id="GQB-z3-5ri"/>
                                                         <constraint firstAttribute="height" constant="74" id="WId-bo-fHp"/>
                                                     </constraints>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <state key="normal" title="Сохранить" backgroundImage="saveButton"/>
                                                     <state key="highlighted" backgroundImage="saveBlurButton">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1311,6 +1312,7 @@
                                                         <constraint firstAttribute="width" constant="326" id="dbY-Ql-M8W"/>
                                                         <constraint firstAttribute="height" constant="74" id="wJr-Us-Pni"/>
                                                     </constraints>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <state key="normal" title="Удалить" backgroundImage="deleteButton"/>
                                                     <state key="highlighted" backgroundImage="blurButton">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

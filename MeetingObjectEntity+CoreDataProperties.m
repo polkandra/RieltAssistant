@@ -2,7 +2,7 @@
 //  MeetingObjectEntity+CoreDataProperties.m
 //  RieltAssistant
 //
-//  Created by Mikhail Kozlyukov on 26.11.2017.
+//  Created by Mikhail Kozlyukov on 06.12.2017.
 //  Copyright © 2017 Chebahatt. All rights reserved.
 //
 //
@@ -22,6 +22,7 @@
 @dynamic personName;
 @dynamic phoneNumber;
 @dynamic time;
+@dynamic picture;
 @dynamic estateObject;
 
 @end

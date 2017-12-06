@@ -21,10 +21,10 @@
     [super viewDidLoad];
     [self setNavigationController];
 
-    self.tableView.backgroundColor = [StyleKitName gradientColor46];
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
-    //self.view.backgroundColor = [StyleKitName gradientColor46];
+    
 }
 
 
@@ -40,9 +40,7 @@
         EstateObjectEntity *selectedEntity = [[self fetchedResultsController] objectAtIndexPath:selectedPath];
         dmVC.detailItem = selectedEntity;
         dmVC.chooseObjectString = @"";
-//        dmVC.nameLabel.hidden = NO;
-//        dmVC.addressLabel.hidden = NO;
-//        dmVC.priceLabel.hidden = NO;
+
         
     }
 }
@@ -161,12 +159,11 @@
     EstateObjectEntity *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.nameOfMeeting.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"discription"]];
-    cell.nameOfMeeting.textColor = [UIColor whiteColor];
+   // cell.nameOfMeeting.textColor = [UIColor whiteColor];
     cell.priceOfMetting.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"price"]];
-    cell.priceOfMetting.textColor = [UIColor whiteColor];
+    //cell.priceOfMetting.textColor = [UIColor whiteColor];
     cell.addressOfMeeting.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"address"]];
-    cell.addressOfMeeting.textColor = [UIColor whiteColor];
-    
+   // cell.addressOfMeeting.textColor = [UIColor whiteColor];
     cell.meetingPicture.image = [[UIImage alloc] initWithData:[object valueForKey:@"picture"]];
    
     cell.backgroundColor = [UIColor clearColor];

@@ -8,6 +8,17 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Blogger_Sans-Bold.otf">
+            <string>BloggerSans-Bold</string>
+        </array>
+        <array key="Blogger_Sans-Medium.otf">
+            <string>BloggerSans-Medium</string>
+        </array>
+        <array key="Blogger_Sans.otf">
+            <string>BloggerSans</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--MeetingsVC-->
         <scene sceneID="c2R-ZU-QVx">
@@ -28,55 +39,87 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="70f-JY-a9Z">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="170" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="70f-JY-a9Z">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="MeetingCell" rowHeight="120" id="I8i-z7-Fji" customClass="MeetingsCell">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="120"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="MeetingCell" rowHeight="169" id="CsT-hJ-7yD" userLabel="MeetingCell2" customClass="MeetingsCell">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="169"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" tableViewCell="I8i-z7-Fji" id="2WQ-qI-lrE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CsT-hJ-7yD" id="ZrQ-fK-Z4e">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="168.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Июля 9,вс" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAu-lC-rg4" userLabel="dateLabel">
-                                                    <rect key="frame" x="267" y="20" width="108" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9eo-pV-nva">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="150" id="8Un-HD-JAH"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellDarken" translatesAutoresizingMaskIntoConstraints="NO" id="xRQ-4X-uVN">
+                                                    <rect key="frame" x="0.0" y="75" width="375" height="86"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="375" id="z7i-MO-Kqk"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Кутузовский 15" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45I-Wu-H3p" userLabel="meetingNameLabel">
-                                                    <rect key="frame" x="8" y="21" width="251" height="21"/>
+                                                    <rect key="frame" x="10" y="84" width="251" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Medium" family="Blogger Sans" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Игорь Петрович" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXb-M7-t0n" userLabel="personLabel">
-                                                    <rect key="frame" x="8" y="51" width="219" height="21"/>
+                                                    <rect key="frame" x="9" y="114" width="219" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Medium" family="Blogger Sans" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Июля 9,вс" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAu-lC-rg4" userLabel="dateLabel">
+                                                    <rect key="frame" x="236" y="86" width="119" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Bold" family="Blogger Sans" pointSize="23"/>
+                                                    <color key="textColor" red="0.50445513282449861" green="1" blue="0.49572446371482326" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15:24" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX8-jw-RiS" userLabel="timeLabel">
-                                                    <rect key="frame" x="304" y="51" width="52" height="21"/>
+                                                    <rect key="frame" x="264" y="114" width="61" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans-Bold" family="Blogger Sans" pointSize="23"/>
+                                                    <color key="textColor" red="0.50445513279999998" green="1" blue="0.49572446370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="YFU-05-Kwl">
+                                                    <rect key="frame" x="230" y="110" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOA-Mc-0Zf">
+                                                    <rect key="frame" x="0.0" y="150" width="374" height="18.5"/>
+                                                    <color key="backgroundColor" red="0.92941176469999998" green="0.96078431369999995" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GOA-Mc-0Zf" firstAttribute="top" secondItem="9eo-pV-nva" secondAttribute="bottom" id="4yS-Oe-ydf"/>
+                                                <constraint firstItem="GOA-Mc-0Zf" firstAttribute="leading" secondItem="ZrQ-fK-Z4e" secondAttribute="leading" id="FcA-Ax-A6L"/>
+                                                <constraint firstAttribute="trailing" secondItem="xRQ-4X-uVN" secondAttribute="trailing" constant="-33" id="SMN-tP-Xg8"/>
+                                                <constraint firstAttribute="bottom" secondItem="xRQ-4X-uVN" secondAttribute="bottom" constant="7.5" id="bbh-iM-z3X"/>
+                                                <constraint firstAttribute="trailing" secondItem="GOA-Mc-0Zf" secondAttribute="trailing" constant="-32" id="jPx-LX-mxR"/>
+                                                <constraint firstItem="xRQ-4X-uVN" firstAttribute="leading" secondItem="ZrQ-fK-Z4e" secondAttribute="leading" id="reu-2F-4z4"/>
+                                                <constraint firstItem="9eo-pV-nva" firstAttribute="top" secondItem="ZrQ-fK-Z4e" secondAttribute="top" id="s6e-Wg-GLv"/>
+                                                <constraint firstItem="9eo-pV-nva" firstAttribute="leading" secondItem="xRQ-4X-uVN" secondAttribute="leading" id="ugJ-7i-yhV"/>
+                                                <constraint firstItem="xRQ-4X-uVN" firstAttribute="top" secondItem="ZrQ-fK-Z4e" secondAttribute="top" constant="75" id="v21-gj-A0e"/>
+                                                <constraint firstItem="9eo-pV-nva" firstAttribute="trailing" secondItem="xRQ-4X-uVN" secondAttribute="trailing" id="vRe-tV-FUg"/>
+                                                <constraint firstAttribute="bottom" secondItem="GOA-Mc-0Zf" secondAttribute="bottom" id="xcQ-71-dVZ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.89937149429999996" blue="0.5658323099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
                                         <connections>
-                                            <outlet property="dateLabel" destination="bAu-lC-rg4" id="PSn-hN-oDX"/>
-                                            <outlet property="objectNameLabel" destination="45I-Wu-H3p" id="RvC-vW-XJP"/>
-                                            <outlet property="personNameLabel" destination="DXb-M7-t0n" id="zsp-hq-h08"/>
-                                            <outlet property="timeLabel" destination="sX8-jw-RiS" id="1lS-Dj-LOW"/>
-                                            <segue destination="XQV-9Z-Ilf" kind="show" identifier="toDetailMeetingVC" id="Pa7-Nk-FAZ"/>
+                                            <outlet property="dateLabel" destination="bAu-lC-rg4" id="H1b-zN-8zo"/>
+                                            <outlet property="objectNameLabel" destination="45I-Wu-H3p" id="XhW-bl-JnW"/>
+                                            <outlet property="objectPicture" destination="9eo-pV-nva" id="VZb-Gn-KQU"/>
+                                            <outlet property="personNameLabel" destination="DXb-M7-t0n" id="RZI-Vq-43I"/>
+                                            <outlet property="timeLabel" destination="sX8-jw-RiS" id="yd6-PX-KpS"/>
+                                            <segue destination="XQV-9Z-Ilf" kind="show" identifier="toDetailMeetingVC" id="2bx-Yn-C2f"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -95,7 +138,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Мои встречи" id="hTh-ud-rId">
-                        <barButtonItem key="rightBarButtonItem" image="addMeetings" id="1lD-0L-8Yj">
+                        <barButtonItem key="rightBarButtonItem" image="plus-1" id="1lD-0L-8Yj">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="4tq-nq-HiZ" kind="show" identifier="toNewMeetingDetailVC" id="n0X-Op-Urp"/>
                             </connections>
@@ -265,7 +309,7 @@
                         <sections>
                             <tableViewSection headerTitle="Объект" id="ShI-KX-8qi">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="80" id="1zS-x4-aI1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="80" id="1zS-x4-aI1">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1zS-x4-aI1" id="GNu-We-o6h">
@@ -275,32 +319,38 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Выберите объект" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EV-tU-Hna">
                                                     <rect key="frame" x="101" y="29" width="140" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Имя" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9K-cI-dKZ">
                                                     <rect key="frame" x="79" y="13" width="242" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Цена" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLh-UY-ZBV">
                                                     <rect key="frame" x="79" y="58" width="242" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iqM-IG-5ad">
                                                     <rect key="frame" x="8" y="8" width="63" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Адрес" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7z-94-G8a">
                                                     <rect key="frame" x="79" y="35" width="242" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -314,7 +364,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Дата и время встречи" id="axU-TK-pUj">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="170" id="JnR-EA-pXL">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="170" id="JnR-EA-pXL">
                                         <rect key="frame" x="0.0" y="136" width="375" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JnR-EA-pXL" id="VM4-Aj-Js3">
@@ -339,7 +389,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Данные клиента" id="5rt-qc-Pbh">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="01H-G4-FKG">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="01H-G4-FKG">
                                         <rect key="frame" x="0.0" y="334" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="01H-G4-FKG" id="LAF-vg-dV0">
@@ -350,13 +400,13 @@
                                                     <rect key="frame" x="8" y="6" width="359" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9WA-a4-upp">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="9WA-a4-upp">
                                         <rect key="frame" x="0.0" y="378" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9WA-a4-upp" id="JKE-1g-pwz">
@@ -367,7 +417,7 @@
                                                     <rect key="frame" x="8" y="6" width="359" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -377,7 +427,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Заметки по встрече" id="L8U-AP-Pvx">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="Z0M-Qz-Off">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="150" id="Z0M-Qz-Off">
                                         <rect key="frame" x="0.0" y="450" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z0M-Qz-Off" id="RxS-mS-e7v">
@@ -398,31 +448,29 @@
                             </tableViewSection>
                             <tableViewSection id="bkG-Ag-6PP">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="AMy-r5-OeC">
-                                        <rect key="frame" x="0.0" y="600" width="375" height="150"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="170" id="AMy-r5-OeC">
+                                        <rect key="frame" x="0.0" y="600" width="375" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AMy-r5-OeC" id="bHk-3k-QRh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="169.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEi-Ry-IHK">
-                                                    <rect key="frame" x="24" y="75" width="326" height="60"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Удалить" backgroundImage="ownerRect">
-                                                        <color key="titleColor" red="1" green="0.1768548955" blue="0.13543968880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="eno-bn-8Y2" kind="unwind" identifier="deleteButtonTapedInNewMeetingDetailVC" unwindAction="deleteButtonTapedInNewMeetingDetailVC:" id="R0x-v6-ZvV"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSn-Yv-nQy">
-                                                    <rect key="frame" x="24" y="8" width="326" height="60"/>
+                                                    <rect key="frame" x="23" y="-8" width="338" height="86"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Сохранить" backgroundImage="ownerRect">
-                                                        <color key="titleColor" red="0.15739924629999999" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
+                                                    <state key="normal" title="Сохранить" backgroundImage="saveButton"/>
+                                                    <state key="selected" image="saveBlurButton"/>
                                                     <connections>
                                                         <segue destination="eno-bn-8Y2" kind="unwind" identifier="saveSecondButtonTapedInNewMeetingDetailVC" unwindAction="saveSecondButtonTapedInNewMeetingDetailVC:" id="S0R-qQ-i64"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEi-Ry-IHK">
+                                                    <rect key="frame" x="32" y="53" width="338" height="86"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Удалить" backgroundImage="deleteButton"/>
+                                                    <state key="selected" image="blurButton"/>
+                                                    <connections>
+                                                        <segue destination="eno-bn-8Y2" kind="unwind" identifier="deleteButtonTapedInNewMeetingDetailVC" unwindAction="deleteButtonTapedInNewMeetingDetailVC:" id="R0x-v6-ZvV"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -478,7 +526,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="b95-4n-M56">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.92941176469999998" green="0.96078431369999995" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="selectMeetingCell" rowHeight="118" id="6ev-6A-LlZ" customClass="SelectMeetingCell">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="118"/>
@@ -487,31 +535,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="117.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jjb-yL-JfF">
-                                                    <rect key="frame" x="8" y="9" width="88" height="101"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="цена" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIR-hJ-Vwa">
                                                     <rect key="frame" x="104" y="82" width="271" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Адрес объекта" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYW-Jx-hWd">
                                                     <rect key="frame" x="104" y="53" width="271" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Имя объекта" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMN-I1-8l8">
                                                     <rect key="frame" x="104" y="24" width="271" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jjb-yL-JfF">
+                                                    <rect key="frame" x="7" y="7" width="88" height="101"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -545,7 +593,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bag-ud-92b" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="BKo-Ji-Aze" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3145" y="2186"/>
+            <point key="canvasLocation" x="3144.8000000000002" y="2185.4572713643179"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6kv-gJ-bh0">
@@ -578,10 +626,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addMeetings" width="30" height="30"/>
+        <image name="blurButton" width="342" height="91"/>
+        <image name="cellDarken" width="375" height="87"/>
+        <image name="clock" width="30" height="30"/>
+        <image name="deleteButton" width="338" height="86"/>
         <image name="handset" width="55" height="55"/>
         <image name="meetings3" width="26" height="30"/>
-        <image name="ownerRect" width="353" height="112"/>
+        <image name="plus-1" width="30" height="30"/>
+        <image name="saveBlurButton" width="351" height="100"/>
+        <image name="saveButton" width="338" height="86"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="n0X-Op-Urp"/>

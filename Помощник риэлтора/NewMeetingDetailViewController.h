@@ -19,7 +19,7 @@
 
 
 
-@interface NewMeetingDetailViewController : UITableViewController 
+@interface NewMeetingDetailViewController : UITableViewController <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBarButtonItem;
@@ -31,6 +31,8 @@
 
 @property (strong, nonatomic) EstateObjectEntity* detailItem;
 @property(strong, nonatomic) MeetingObjectEntity *meetingObject;
+
+@property(strong, nonatomic) NSMutableArray *retrievedArray;
 
 @property (weak, nonatomic) IBOutlet UILabel *chooseObjectLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;

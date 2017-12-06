@@ -21,22 +21,73 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
-    self.tableView.backgroundColor = [StyleKitName gradientColor8];
-    
- 
-
-    
+   
+    //self.tableView.backgroundColor = [StyleKitName gradientColor8];
+    [self setDelegatesForTextFields];
     [self hideShowDeleteSaveButtons];
+    [self addGestureRecognizer];
+    
+    self.pictureImageView.layer.masksToBounds = YES;
+    self.pictureImageView.layer.cornerRadius  = self.pictureImageView.frame.size.width/2.0;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:YES];
+    
     [self updateLabels];
     [self updateUIWithMeetingObject];
     [self updateUIWithDetailItem];
 }
+
+
+
+
+#pragma mark - UITableViewDelegate
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height)];
+    
+    if (section == 0) {
+        [headerView setBackgroundColor:[UIColor colorWithRed:184/255.0 green:197/255.0 blue:214/255.0 alpha:1]];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
+        titleLabel.text = @"Объект";
+        titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
+        titleLabel.textColor = [UIColor whiteColor];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        [headerView addSubview:titleLabel];
+    }else if (section == 1) {
+        [headerView setBackgroundColor:[UIColor colorWithRed:184/255.0 green:197/255.0 blue:214/255.0 alpha:1]];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
+        titleLabel.text = @"Дата и время встречи";
+        titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
+        titleLabel.textColor = [UIColor whiteColor];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        [headerView addSubview:titleLabel];
+    }else if (section == 2) {
+        [headerView setBackgroundColor:[UIColor colorWithRed:184/255.0 green:197/255.0 blue:214/255.0 alpha:1]];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
+        titleLabel.text = @"Данные клиента";
+        titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
+        titleLabel.textColor = [UIColor whiteColor];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        [headerView addSubview:titleLabel];
+    }else if (section == 3) {
+        [headerView setBackgroundColor:[UIColor colorWithRed:184/255.0 green:197/255.0 blue:214/255.0 alpha:1]];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
+        titleLabel.text = @"Заметки по встрече";
+        titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
+        titleLabel.textColor = [UIColor whiteColor];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        [headerView addSubview:titleLabel];
+        
+    }
+
+    return headerView;
+}
+
+
 
 #pragma mark - Navigation
 
@@ -45,6 +96,7 @@
     if ([segue.identifier isEqualToString:@"toMeetingsVC"]) {
         
         [self setNotificationwithDate:self.datePicker.date];
+       // [self fetchEstateObjectEntity];
         
         NSDate *myDate = _datePicker.date;
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -67,10 +119,13 @@
         [NSEntityDescription insertNewObjectForEntityForName:@"MeetingObjectEntity"
                                       inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
         
+       
+        
         MeetingsViewController *mVC = (MeetingsViewController *)segue.destinationViewController;
         
         mVC.detailItem = self.detailItem;
         
+       
         object.time = timeString;
         object.date = timeString2;
         object.objectName = self.nameLabel.text;
@@ -79,7 +134,11 @@
         object.phoneNumber = self.personPhoneTextField.text;
         object.meetDetails = self.meetDetailsTextView.text;
         object.estateObject = self.detailItem;
+        object.picture = detailItem.picture;
         
+        
+        mVC.detailItem = self.detailItem;
+       
         if (self.meetDetailsTextView.text.length > 0) {
             
             object.meetDetails = self.meetDetailsTextView.text;
@@ -94,6 +153,8 @@
         
         
     }else if ([segue.identifier isEqualToString:@"saveSecondButtonTapedInNewMeetingDetailVC"]) {
+        
+       // [self fetchEstateObjectEntity];
         
         DetailMeetingController *dvc = (DetailMeetingController *)segue.destinationViewController;
         dvc.myMeetingObject = self.meetingObject;
@@ -222,8 +283,7 @@
     content.sound = [UNNotificationSound defaultSound];
     content.badge = @([[UIApplication sharedApplication] applicationIconBadgeNumber] + 1);
     
-    // NSDate *date = [NSDate dateWithTimeIntervalSinceNow:50];
-    
+
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *triggerDate = [[NSCalendar currentCalendar]
                                      components:NSCalendarUnitYear +
@@ -254,16 +314,49 @@
         }
     }];
     
-    
-    
 }
 
     
+#pragma mark - UITextFieldDelegate
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [self.personPhoneTextField resignFirstResponder];
+    [self.personPhoneTextField resignFirstResponder];
+
+    return NO;
+    
+}
+
+
+
+#pragma mark - UITapGestureRecognizer Method
+
+-(void)addGestureRecognizer {
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    [self.tableView addGestureRecognizer:gestureRecognizer];
+    gestureRecognizer.cancelsTouchesInView = NO;
+}
+
+
+- (void)hideKeyboard {
+    
+    [self.view endEditing:YES];
+}
+
+
 
 
 
 #pragma mark - Helpers
 
+-(void)setDelegatesForTextFields {
+   
+    self.personNameTextField.delegate = self;
+    self.personPhoneTextField.delegate = self;
+   
+}
 
 
 -(void)hideShowDeleteSaveButtons {
@@ -320,6 +413,28 @@
      
      }
 }
+
+
+//-(void)fetchEstateObjectEntity {
+//
+//    NSEntityDescription *entity = [NSEntityDescription  entityForName:@"EstateObjectEntity" inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
+//    
+//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//    [request setEntity:entity];
+//    [request setResultType:NSDictionaryResultType];
+//    [request setReturnsDistinctResults:YES];
+//    [request setPropertiesToFetch:@[@"longitude", @"latitude", @"picture", @"discription", @"price", @"actionByProperty", @"address", @"kitchenArea", @"livingArea", @"owner", @"phoneNumber", @"roomQuantity", @"typeOfProperty", @"wholeArea"]];
+//    
+//    NSError *error;
+//    
+//    self.retrievedArray = [[[DataManager sharedManager] managedObjectContext] executeFetchRequest:request error:&error];
+//    
+//    for (NSDictionary *location in self.retrievedArray) {
+//        
+//        point.latitude  = [location[@"latitude"] doubleValue];
+//    }
+//}
+
 
 
 

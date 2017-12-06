@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *objectNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *personNameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *objectPicture;
 
 @end

@@ -2,7 +2,7 @@
 //  MeetingObjectEntity+CoreDataProperties.h
 //  RieltAssistant
 //
-//  Created by Mikhail Kozlyukov on 26.11.2017.
+//  Created by Mikhail Kozlyukov on 06.12.2017.
 //  Copyright © 2017 Chebahatt. All rights reserved.
 //
 //
@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *personName;
 @property (nullable, nonatomic, copy) NSString *phoneNumber;
 @property (nullable, nonatomic, copy) NSString *time;
+@property (nullable, nonatomic, retain) NSData *picture;
 @property (nullable, nonatomic, retain) EstateObjectEntity *estateObject;
 
 @end
