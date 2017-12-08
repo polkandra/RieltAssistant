@@ -15,7 +15,7 @@
 
 -(void)drawRect:(CGRect)rect {
     
-    [StyleKitName drawBackgroundColor];
+    //[StyleKitName drawBackgroundColor];
 
     
 }

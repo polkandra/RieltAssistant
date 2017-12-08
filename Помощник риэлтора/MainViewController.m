@@ -27,7 +27,6 @@
    
     self.emptyDataBaseLabel.hidden = YES;
     
-   
   
     // self.tableView.backgroundColor = [StyleKitName backgroundColorGradient];
    
@@ -35,7 +34,6 @@
 //    CAGradientLayer *layer = [CAGradientLayer layer];
 //    layer.frame = view1.bounds;
 //    layer.colors = @[(id)StyleKitName.gradientColor.CGColor, (id)StyleKitName.gradientColor2.CGColor];
-//    self.view = view1;
 //    [self.tableView.layer insertSublayer:layer atIndex:0];
 //    
     
@@ -56,7 +54,6 @@
     [super viewWillAppear:animated];
     [self setNavigationController];
    
-    
     NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
     self.filteredResults = [[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error];
@@ -66,7 +63,8 @@
             self.detailItem = ((EstateObjectEntity *)object);
         }
     }
- }
+
+}
 
 
 
@@ -240,6 +238,25 @@
     
 }
 
+- (IBAction)selectedControlValueChanged:(UISegmentedControl *)sender {
+    
+    switch (self.segmentedControl.selectedSegmentIndex) {
+        case 0: {
+            self.segmentedControl.selectedSegmentIndex = 0;
+            NSPredicate *rent0 = [NSPredicate predicateWithFormat:@"roomQuantity contains [cd] %@", @"1 комната"];
+            
+            break;
+        }
+            
+        default:break;
+            
+    }
+    
+}
+
+
+
+
 
 
 #pragma mark - NSFetchedResultsController
@@ -329,6 +346,28 @@
     cell.ownerCellLabel.textColor = [UIColor whiteColor];
     
     cell.imageViewCell.image = [[UIImage alloc] initWithData:[object valueForKey:@"picture"]];
+   
+    if (detailItem.isLiked == YES) {
+        
+        cell.likeView.image = [UIImage imageNamed:@"likeRed"];
+        
+    }else{
+        
+        cell.likeView.image = nil;
+    }
+    
+    if (detailItem.isActive == YES) {
+        
+        cell.statusView.image = [UIImage imageNamed:@"active"];
+    
+    }else{
+        
+        cell.statusView.image = [UIImage imageNamed:@"finished"];
+    }
+
+    
+   
+    
     
     cell.backgroundColor = [UIColor clearColor];
     

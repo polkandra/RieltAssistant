@@ -2,14 +2,13 @@
 //  EstateObjectEntity+CoreDataProperties.h
 //  RieltAssistant
 //
-//  Created by Mikhail Kozlyukov on 26.11.2017.
+//  Created by Mikhail Kozlyukov on 08.12.2017.
 //  Copyright © 2017 Chebahatt. All rights reserved.
 //
 //
 
 #import "EstateObjectEntity+CoreDataClass.h"
-#import "EstateTypeEntity+CoreDataClass.h"
-#import "ActionTypeEntity+CoreDataClass.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -34,9 +33,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *roomQuantity;
 @property (nullable, nonatomic, copy) NSString *typeOfProperty;
 @property (nullable, nonatomic, copy) NSString *wholeArea;
+@property (nonatomic) BOOL isActive;
+@property (nonatomic) BOOL isLiked;
+//@property (nullable, nonatomic, retain) ActionTypeEntity *actionType;
 @property (nullable, nonatomic, retain) NSSet<MeetingObjectEntity *> *meetingObjects;
-@property (nullable, nonatomic, retain) EstateTypeEntity *objectType;
-@property (nullable, nonatomic, retain) ActionTypeEntity *actionType;
+//@property (nullable, nonatomic, retain) EstateTypeEntity *objectType;
 
 @end
 

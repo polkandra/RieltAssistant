@@ -32,6 +32,8 @@
 @property(strong, nonatomic) NSMutableArray* sourceArray;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareBarButtonItem;
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet UIButton *statusButton;
 
 @property(strong, nonatomic) NSString *telString;
 @property (strong, nonatomic) UIImageView *fullScreenImageView;

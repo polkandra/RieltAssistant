@@ -23,7 +23,7 @@
 @property(strong, nonatomic) NSString* wholeArea;
 @property(strong, nonatomic) NSString* livingArea;
 @property(strong, nonatomic) NSString* kitchenArea;
-
+@property(assign, nonatomic) BOOL isActive;
 
 @property(assign, nonatomic) double latitude;
 @property(assign, nonatomic) double longtitude;

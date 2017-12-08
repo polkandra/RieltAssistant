@@ -47,6 +47,7 @@
 
 @property(strong, nonatomic) EstateObjectEntity *detailItem;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 //@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property(strong, nonatomic) UISearchController *searchController;
@@ -63,6 +64,7 @@
 
 - (IBAction)unwindAfterBackButtonFromDetail:(UIStoryboardSegue*)segue;
 - (IBAction)unwindAfterChangeButtonFromDetail:(UIStoryboardSegue*)segue;
+
 
 
 - (void)configureCell:(MainScreenCellTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;

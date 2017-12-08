@@ -280,6 +280,8 @@
         
         object.typeOfProperty = self.objectTypeLabelInCell.text;
         object.actionByProperty = self.actionTypeLabelInCell.text;
+        object.isActive = YES;
+        object.isLiked = NO;
         
         if (( self.totalSquareTextField.text.length == 0 )){
             

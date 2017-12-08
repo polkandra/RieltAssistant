@@ -12,6 +12,8 @@
         <attribute name="detailInformation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="discription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="globalPictureArray" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isLiked" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="kitchenArea" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="livingArea" optional="YES" attributeType="String" syncable="YES"/>
@@ -48,7 +50,7 @@
     </entity>
     <elements>
         <element name="ActionTypeEntity" positionX="1512" positionY="2502" width="128" height="90"/>
-        <element name="EstateObjectEntity" positionX="1764" positionY="2280" width="128" height="343"/>
+        <element name="EstateObjectEntity" positionX="1764" positionY="2280" width="128" height="373"/>
         <element name="EstateTypeEntity" positionX="1521" positionY="2286" width="128" height="133"/>
         <element name="MeetingObjectEntity" positionX="1987" positionY="2304" width="128" height="178"/>
     </elements>
