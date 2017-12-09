@@ -1,14 +1,14 @@
 //
-//  FilteredCell.h
+//  SegmentedCell.h
 //  RieltAssistant
 //
-//  Created by Mikhail Kozlyukov on 26.11.2017.
+//  Created by Mikhail Kozlyukov on 09.12.2017.
 //  Copyright © 2017 Chebahatt. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface FilteredCell : UITableViewCell
+@interface SegmentedCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewCell;
 @property (weak, nonatomic) IBOutlet UILabel *nameCellLabel;

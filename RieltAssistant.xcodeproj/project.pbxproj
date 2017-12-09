@@ -13,6 +13,8 @@
 		C60D384B1FA365E400BD96AD /* StyleKitName.m in Sources */ = {isa = PBXBuildFile; fileRef = C60D384A1FA365E400BD96AD /* StyleKitName.m */; };
 		C60D384D1FA371D300BD96AD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C60D384C1FA371BA00BD96AD /* QuartzCore.framework */; };
 		C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FFA431E895B560054F83D /* NewObjectViewController.m */; };
+		C61A467C1FDC2B4C00B61C8A /* SegmentedFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C61A467B1FDC2B4C00B61C8A /* SegmentedFilter.m */; };
+		C61A467F1FDC2B8900B61C8A /* SegmentedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C61A467E1FDC2B8800B61C8A /* SegmentedCell.m */; };
 		C63412F41EB4B24800ACE886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63412F31EB4B24800ACE886 /* Assets.xcassets */; };
 		C636778F1EE854FB0098FC90 /* MapTab.m in Sources */ = {isa = PBXBuildFile; fileRef = C636778E1EE854FB0098FC90 /* MapTab.m */; };
 		C639E0661FBDF38200AD7109 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C639E0651FBDF37400AD7109 /* UserNotifications.framework */; };
@@ -89,6 +91,10 @@
 		C60D384C1FA371BA00BD96AD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C60FFA421E895B560054F83D /* NewObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewObjectViewController.h; sourceTree = "<group>"; };
 		C60FFA431E895B560054F83D /* NewObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewObjectViewController.m; sourceTree = "<group>"; };
+		C61A467A1FDC2B4C00B61C8A /* SegmentedFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SegmentedFilter.h; sourceTree = "<group>"; };
+		C61A467B1FDC2B4C00B61C8A /* SegmentedFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SegmentedFilter.m; sourceTree = "<group>"; };
+		C61A467D1FDC2B8800B61C8A /* SegmentedCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SegmentedCell.h; sourceTree = "<group>"; };
+		C61A467E1FDC2B8800B61C8A /* SegmentedCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SegmentedCell.m; sourceTree = "<group>"; };
 		C63412F31EB4B24800ACE886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C63542451F0D62FE0034149E /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		C636778D1EE854FB0098FC90 /* MapTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTab.h; sourceTree = "<group>"; };
@@ -317,6 +323,8 @@
 				C67DE8A41FC9CC5A0004150D /* NotificationsVC.m */,
 				C6FFFD621FCAE4770007C823 /* FilteredResultsVC.h */,
 				C6FFFD631FCAE4770007C823 /* FilteredResultsVC.m */,
+				C61A467A1FDC2B4C00B61C8A /* SegmentedFilter.h */,
+				C61A467B1FDC2B4C00B61C8A /* SegmentedFilter.m */,
 				C65B201D1EEAE2C4009F8DFA /* MapsControllers */,
 				C6CAB5D51EE1E91D00078A32 /* PageViewController */,
 			);
@@ -482,6 +490,8 @@
 				C6CDE9BC1FC33B63006F2DA9 /* FilteredResultCellTableViewCell.m */,
 				C6FFFD671FCAE9610007C823 /* FilteredCell.h */,
 				C6FFFD681FCAE9610007C823 /* FilteredCell.m */,
+				C61A467D1FDC2B8800B61C8A /* SegmentedCell.h */,
+				C61A467E1FDC2B8800B61C8A /* SegmentedCell.m */,
 			);
 			name = Cells;
 			path = ..;
@@ -640,6 +650,7 @@
 				C662270B1FA4C00A000854A4 /* EstateObjectEntity+CoreDataProperties.m in Sources */,
 				C6FFFD691FCAE9610007C823 /* FilteredCell.m in Sources */,
 				C6D0E08F1EE8030B00E0FF26 /* MapAnnotation.m in Sources */,
+				C61A467F1FDC2B8900B61C8A /* SegmentedCell.m in Sources */,
 				C67BAB571E7EEF59004E9126 /* MainScreenView.m in Sources */,
 				C6FFFD641FCAE4770007C823 /* FilteredResultsVC.m in Sources */,
 				C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */,
@@ -674,6 +685,7 @@
 				C662270C1FA4C00A000854A4 /* MeetingObjectEntity+CoreDataProperties.m in Sources */,
 				C636778F1EE854FB0098FC90 /* MapTab.m in Sources */,
 				C67DE8A51FC9CC5A0004150D /* NotificationsVC.m in Sources */,
+				C61A467C1FDC2B4C00B61C8A /* SegmentedFilter.m in Sources */,
 				C6CDBEBB1F017EC00024B147 /* MeetingsCell.m in Sources */,
 				C67BAADA1E7EBDC1004E9126 /* main.m in Sources */,
 				C6A719D01F1005C500A5FE9B /* CoreDataTableVC.m in Sources */,

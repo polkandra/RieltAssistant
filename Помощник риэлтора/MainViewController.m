@@ -38,7 +38,9 @@
 //    
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-   
+    self.segmentedControl.tintColor = [StyleKitName gradientColor52];
+    
+    
     SearchResultsTableViewController *searchResultsVC = (SearchResultsTableViewController *)self.searchController.searchResultsController;
     [self addObserver:searchResultsVC forKeyPath:@"entities" options:NSKeyValueObservingOptionNew context:nil];
     
@@ -53,7 +55,8 @@
     
     [super viewWillAppear:animated];
     [self setNavigationController];
-   
+    [self.segmentedControl setSelectedSegmentIndex:UISegmentedControlNoSegment];
+    
     NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
     self.filteredResults = [[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error];
@@ -65,6 +68,8 @@
     }
 
 }
+
+
 
 
 
@@ -139,6 +144,18 @@
      self.navigationController.navigationBar.translucent = YES;*/
     //
     
+}
+
+-(void)fetchEntitiesWithPredicates:(NSPredicate*)predicates {
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    [fetchRequest setPredicate:predicates];
+    
+    self.filterdResultsForSegmentedControl = [[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    self.entitiesForSegmentedControl = [[self.filteredResults filteredArrayUsingPredicate:predicates] mutableCopy];
+    
+
 }
 
 
@@ -238,16 +255,66 @@
     
 }
 
+
+
 - (IBAction)selectedControlValueChanged:(UISegmentedControl *)sender {
     
     switch (self.segmentedControl.selectedSegmentIndex) {
+        
+//        case 0: {
+//
+//            NSError *error;
+//            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+//            self.filterdResultsForSegmentedControl = [[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+//
+//            SegmentedFilter * sfVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SegmentedResults"];
+//            sfVC.detailItem = self.detailItem;
+//            sfVC.searchResults = [[NSMutableArray alloc] init];
+//            sfVC.searchResults = self.filterdResultsForSegmentedControl;
+//
+//            [self.navigationController pushViewController:sfVC animated:YES];
+//
+//            break;
+//       }
         case 0: {
-            self.segmentedControl.selectedSegmentIndex = 0;
-            NSPredicate *rent0 = [NSPredicate predicateWithFormat:@"roomQuantity contains [cd] %@", @"1 комната"];
+            NSPredicate *favourite = [NSPredicate predicateWithFormat:@"isLiked == YES"];
+            [self fetchEntitiesWithPredicates:favourite];
+            SegmentedFilter * sfVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SegmentedResults"];
+            sfVC.detailItem = self.detailItem;
+            sfVC.searchResults = [[NSMutableArray alloc] init];
+            sfVC.searchResults = self.entitiesForSegmentedControl;
+            
+            [self.navigationController pushViewController:sfVC animated:YES];
             
             break;
         }
             
+        case 1: {
+            NSPredicate *favourite = [NSPredicate predicateWithFormat:@"isActive == YES"];
+            [self fetchEntitiesWithPredicates:favourite];
+            SegmentedFilter * sfVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SegmentedResults"];
+            sfVC.detailItem = self.detailItem;
+            sfVC.searchResults = [[NSMutableArray alloc] init];
+            sfVC.searchResults = self.entitiesForSegmentedControl;
+            
+            [self.navigationController pushViewController:sfVC animated:YES];
+            
+            break;
+        }
+        
+        case 2: {
+            NSPredicate *favourite = [NSPredicate predicateWithFormat:@"isActive == NO"];
+            [self fetchEntitiesWithPredicates:favourite];
+            SegmentedFilter * sfVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SegmentedResults"];
+            sfVC.detailItem = self.detailItem;
+            sfVC.searchResults = [[NSMutableArray alloc] init];
+            sfVC.searchResults = self.entitiesForSegmentedControl;
+            
+            [self.navigationController pushViewController:sfVC animated:YES];
+            
+            break;
+        }
+        
         default:break;
             
     }
@@ -344,10 +411,9 @@
     cell.addressCellLabel.textColor = [UIColor whiteColor];
     cell.ownerCellLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"owner"]];
     cell.ownerCellLabel.textColor = [UIColor whiteColor];
-    
     cell.imageViewCell.image = [[UIImage alloc] initWithData:[object valueForKey:@"picture"]];
-   
-    if (detailItem.isLiked == YES) {
+    
+    if (object.isLiked == YES) {
         
         cell.likeView.image = [UIImage imageNamed:@"likeRed"];
         
@@ -356,25 +422,21 @@
         cell.likeView.image = nil;
     }
     
-    if (detailItem.isActive == YES) {
+    if (object.isActive == YES) {
         
         cell.statusView.image = [UIImage imageNamed:@"active"];
-    
+        
     }else{
         
         cell.statusView.image = [UIImage imageNamed:@"finished"];
     }
-
-    
-   
-    
     
     cell.backgroundColor = [UIColor clearColor];
     
     /*UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 140, 374, 30)];
-    
-    view.backgroundColor = [UIColor clearColor];
-    [cell.contentView addSubview:view];*/
+     
+     view.backgroundColor = [UIColor clearColor];
+     [cell.contentView addSubview:view];*/
   
 }
 

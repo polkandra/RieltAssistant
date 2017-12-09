@@ -281,6 +281,14 @@
                                             <color key="textColor" red="1" green="0.46666666670000001" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fR2-99-QZ3">
+                                            <rect key="frame" x="305" y="130" width="60" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Chn-YF-24W">
+                                            <rect key="frame" x="279" y="130" width="22" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="qaX-g6-MIk" firstAttribute="top" secondItem="l54-bn-ci8" secondAttribute="bottom" id="0sm-gm-Y0A"/>
@@ -308,9 +316,11 @@
                                 <connections>
                                     <outlet property="addressCellLabel" destination="lh5-Hu-XAC" id="kMy-qN-Gk7"/>
                                     <outlet property="imageViewCell" destination="l54-bn-ci8" id="y1D-wA-NHy"/>
+                                    <outlet property="likeView" destination="Chn-YF-24W" id="W7o-LE-QSQ"/>
                                     <outlet property="nameCellLabel" destination="V6e-Qv-fAM" id="byp-Mg-cZb"/>
                                     <outlet property="ownerCellLabel" destination="ggY-e2-SSJ" id="L1H-u6-jis"/>
                                     <outlet property="priceCellLabel" destination="Mk9-EL-Vk6" id="gbe-6e-yH9"/>
+                                    <outlet property="statusView" destination="fR2-99-QZ3" id="mt6-Zs-jMt"/>
                                     <segue destination="xQh-mN-yM6" kind="show" identifier="toDOC" id="QhL-zJ-2jK"/>
                                 </connections>
                             </tableViewCell>
@@ -327,7 +337,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VrV-NR-3nW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1038" y="876"/>
+            <point key="canvasLocation" x="1037.5999999999999" y="875.71214392803608"/>
         </scene>
         <!--DetailObjectController-->
         <scene sceneID="2M4-1b-C4G">

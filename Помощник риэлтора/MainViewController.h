@@ -19,7 +19,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SearchResultsTableViewController.h"
 #import "FilteringVC.h"
-
+#import "SegmentedFilter.h"
 
 //@class DetailObjectController;
 //@protocol AddArrayDelegate;
@@ -34,6 +34,8 @@
 @property(strong, nonatomic) NSMutableArray* fetchedArrayWithUsersPics;
 @property(strong, nonatomic) NSMutableArray* filteredResults;
 @property(strong, nonatomic) NSMutableArray* entities;
+@property(strong, nonatomic) NSMutableArray* entitiesForSegmentedControl;
+@property(strong, nonatomic) NSMutableArray* filterdResultsForSegmentedControl;
 
 
 @property(strong, nonatomic) UINavigationController *nc;

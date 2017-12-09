@@ -79,25 +79,23 @@
         self.typeLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"actionByProperty"]];
         self.detailInfoLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"detailInformation"]];
         
-        if (detailItem.isActive == NO) {
+        if (self.detailItem.isActive == NO) {
             UIImage *pressedbuttonImage1 = [UIImage imageNamed:@"finished"];
             [self.statusButton setImage:pressedbuttonImage1 forState:UIControlStateNormal];
-            
         }else{
             UIImage *pressedbuttonImage2 = [UIImage imageNamed:@"active"];
             [self.statusButton setImage:pressedbuttonImage2 forState:UIControlStateNormal];
         }
     
         
-        if (detailItem.isLiked == NO) {
+        if (self.detailItem.isLiked == NO) {
             UIImage *pressedbuttonImage1 = [UIImage imageNamed:@"like"];
             [self.likeButton setImage:pressedbuttonImage1 forState:UIControlStateNormal];
         }else{
             UIImage *pressedbuttonImage2 = [UIImage imageNamed:@"likeRed"];
             [self.likeButton setImage:pressedbuttonImage2 forState:UIControlStateNormal];
         }
-    
-    
+        
     }
 }
 
@@ -197,7 +195,6 @@
         NSData* pictureData = UIImageJPEGRepresentation([self.sourceArray firstObject],0);
         detailItem.picture = pictureData;
         
-       
         
         [[[DataManager sharedManager] managedObjectContext] save:nil];
         
@@ -307,52 +304,48 @@
 
 - (IBAction)likeButtonTapped:(UIButton *)sender {
     
-    UIImage *pressedbuttonImage = [UIImage imageNamed:@"likeRed"];
-    UIImage *pressedbuttonImage2 = [UIImage imageNamed:@"like"];
-    [self.likeButton setBackgroundImage:pressedbuttonImage forState:UIControlStateNormal];
-    [self.likeButton setBackgroundImage:pressedbuttonImage2 forState:UIControlStateSelected];
-   
+//    UIImage *pressedbuttonImage = [UIImage imageNamed:@"like"];
+//    UIImage *pressedbuttonImage2 = [UIImage imageNamed:@"likeRed"];
+//    [self.likeButton setBackgroundImage:pressedbuttonImage forState:UIControlStateNormal];
+//    [self.likeButton setBackgroundImage:pressedbuttonImage2 forState:UIControlStateSelected];
     sender.selected = !sender.selected;
     
-  //  if (self.likeButton.isSelected) {
-        if (detailItem.isLiked == NO) {
-            UIImage *pressedbuttonImage = [UIImage imageNamed:@"likeRed"];
+    if (self.likeButton.isSelected) {
+        if (self.detailItem.isLiked == YES) {
+            UIImage *pressedbuttonImage = [UIImage imageNamed:@"like"];
             [self.likeButton setImage:pressedbuttonImage forState:UIControlStateNormal];
-            detailItem.isLiked = YES;
+            self.detailItem.isLiked = NO;
         }else{
-            UIImage *pressedbuttonImage2 = [UIImage imageNamed:@"like"];
+            UIImage *pressedbuttonImage2 = [UIImage imageNamed:@"likeRed"];
             [self.likeButton setImage:pressedbuttonImage2 forState:UIControlStateSelected];
-            detailItem.isLiked = NO;
-
+            self.detailItem.isLiked = YES;
         }
         [[[DataManager sharedManager] managedObjectContext] save:nil];
     }
-//}
+}
 
 
 
 - (IBAction)statusButtonTapped:(UIButton *)sender {
-
+   
     sender.selected = !sender.selected;
     
-    //if (self.statusButton.isSelected ) {
-        
-        if (detailItem.isActive == NO) {
-            UIImage *pressedbuttonImage = [UIImage imageNamed:@"active"];
+    if (self.statusButton.isSelected ) {
+        if (self.detailItem.isActive == YES) {
+            UIImage *pressedbuttonImage = [UIImage imageNamed:@"finished"];
             [self.statusButton setImage:pressedbuttonImage forState:UIControlStateNormal];
-            detailItem.isActive = YES;
+            self.detailItem.isActive = NO;
             
         }else{
-            UIImage *pressedbuttonImage2 = [UIImage imageNamed:@"finished"];
+            UIImage *pressedbuttonImage2 = [UIImage imageNamed:@"active"];
             [self.statusButton setImage:pressedbuttonImage2 forState:UIControlStateSelected];
-            detailItem.isActive = NO;
+            self.detailItem.isActive = YES;
             
         }
         
         [[[DataManager sharedManager] managedObjectContext] save:nil];
         
     }
-    
-//}
+}
 
 @end
