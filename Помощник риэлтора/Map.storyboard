@@ -41,6 +41,7 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Мои объекты" id="oI0-JR-Vsb">
                         <barButtonItem key="rightBarButtonItem" image="all" id="l6b-f3-Fux">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="showAllObjects:" destination="HGi-ja-Jut" id="0IF-KK-TtM"/>
                             </connections>

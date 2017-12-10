@@ -31,6 +31,19 @@
     
     [super viewWillAppear:YES];
     [self setNavigationController];
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    self.retrievedArray = [[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    
+    for (id object in self.retrievedArray) {
+        if ([object isKindOfClass:[EstateObjectEntity class]]) {
+            self.detailItem = ((EstateObjectEntity *)object);
+        }
+    }
+    
+    
+
 }
 
 #pragma mark - Navigation
@@ -42,9 +55,7 @@
     if ([segue.identifier isEqualToString:@"toMeetingsVC"]) {
        
         _disclaimerLabel.hidden = YES;
-        
-        
-        //   [self.tableView reloadData];
+  
         
     }
 }
@@ -54,6 +65,8 @@
     
     
 }
+
+
 
 
 
@@ -67,6 +80,13 @@
         controller.myMeetingObject = selectedEntity;
         controller.detailItem = selectedEntity.estateObject;
         
+        
+        UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
+        
+        [self setImageForButton:flipButton];
+        controller.navigationItem.leftBarButtonItem = flipButton;
+    
+    
     }else if ([segue.identifier isEqualToString:@"toNewMeetingDetailVC"]) {
         
         NewMeetingDetailViewController *nmdVC = (NewMeetingDetailViewController *)segue.destinationViewController;
@@ -76,6 +96,11 @@
         nmdVC.chooseObjectString = @"Выберите объект";
         nmdVC.hideButton = YES;
    
+        UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
+       
+        [self setImageForButton:flipButton];
+        
+        nmdVC.navigationItem.leftBarButtonItem = flipButton;
     }
 }
 
@@ -139,6 +164,23 @@
 
 
 #pragma mark - UITableViewDataSource
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+   
+    if ([sectionInfo numberOfObjects] == 0) {
+        
+        self.tableView.backgroundColor = [UIColor clearColor];
+        
+    }else{
+        
+        self.tableView.backgroundColor = [UIColor colorWithRed:234/255.0 green:253/255.0 blue:248/255.0 alpha:1];
+    }
+   
+    return [sectionInfo numberOfObjects];
+}
+
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -228,5 +270,25 @@
     
 }
 
+
+-(void)dismissView {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+ 
+}
+
+
+
+- (void)setImageForButton:(UIBarButtonItem *)flipButton {
+    UIImage* imageBack = [UIImage imageNamed:@"back"];
+    CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
+    
+    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
+    [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
+    [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
+    
+    [flipButton initWithCustomView:someButton];
+}
 
 @end

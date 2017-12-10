@@ -111,6 +111,8 @@
         NSLocale *locale2 = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
         [dateFormat2 setLocale:locale];;
         NSString *timeString2 = [dateFormat2 stringFromDate:myDate2];
+       
+        
         NSString *dateAndTime = [timeString stringByAppendingString:timeString2];
 
        
@@ -129,9 +131,30 @@
         object.time = timeString;
         object.date = timeString2;
         object.objectName = self.nameLabel.text;
-        object.personName = self.personNameTextField.text;
+        
+        
+        if (self.personNameTextField.text.length > 0) {
+            
+            object.personName = self.personNameTextField.text;
+       
+        }else{
+            
+            object.personName = @"Цена не указана";
+        }
+        
+        
+        if (self.personPhoneTextField.text.length > 0) {
+            
+            object.phoneNumber  = self.personPhoneTextField.text;
+            
+        }else{
+            
+            object.phoneNumber  = @"Телефон не указан";
+        }
+        
+        
         object.dateAndTime = dateAndTime;
-        object.phoneNumber = self.personPhoneTextField.text;
+        
         object.meetDetails = self.meetDetailsTextView.text;
         object.estateObject = self.detailItem;
         object.picture = detailItem.picture;
@@ -269,7 +292,6 @@
 
 
 
-
 #pragma mark  - Notification
 
 
@@ -299,8 +321,7 @@
     
     
     
-    UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:triggerDate
-                                                                                                      repeats:NO];
+    UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:triggerDate repeats:NO];
     
     NSString *identifier = @"UYLLocalNotification";
     
@@ -397,7 +418,6 @@
         self.priceLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"price"]];
         self.pictureImageView.image = [[UIImage alloc] initWithData:[detailItem valueForKey:@"picture"]];
     
-      
     }
 }
 

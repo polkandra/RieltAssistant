@@ -44,6 +44,7 @@
     SearchResultsTableViewController *searchResultsVC = (SearchResultsTableViewController *)self.searchController.searchResultsController;
     [self addObserver:searchResultsVC forKeyPath:@"entities" options:NSKeyValueObservingOptionNew context:nil];
     
+   
     
     
     
@@ -67,6 +68,18 @@
         }
     }
 
+    
+    if (self.filteredResults.count == 0) {
+        
+        self.tableView.backgroundColor = [UIColor clearColor];
+        
+    }else{
+        
+        self.tableView.backgroundColor = [UIColor colorWithRed:234/255.0 green:253/255.0 blue:248/255.0 alpha:1];
+    
+    }
+    
+    
 }
 
 
@@ -395,6 +408,25 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 170;
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    
+    if ([sectionInfo numberOfObjects] == 0) {
+        
+        self.tableView.backgroundColor = [UIColor clearColor];
+        
+    }else{
+        
+        self.tableView.backgroundColor = [UIColor colorWithRed:234/255.0 green:253/255.0 blue:248/255.0 alpha:1];
+    }
+    
+    
+    return [sectionInfo numberOfObjects];
+}
+
+
+
 
 
 #pragma mark - cell configuring

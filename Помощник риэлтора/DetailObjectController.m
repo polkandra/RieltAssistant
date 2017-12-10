@@ -122,6 +122,17 @@
 }
 
 
+- (void)setImageForButton:(UIBarButtonItem *)flipButton {
+    UIImage* imageBack = [UIImage imageNamed:@"back"];
+    CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
+    
+    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
+    [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
+    [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
+    
+    [flipButton initWithCustomView:someButton];
+}
 
 
 
@@ -219,15 +230,7 @@
     NewObjectViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"New"];
     UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
     
-    UIImage* imageBack = [UIImage imageNamed:@"back"];
-    CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
-    
-    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
-    [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
-    [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-    [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
-    
-    [flipButton initWithCustomView:someButton];
+    [self setImageForButton:flipButton];
     
     controller.title = [NSString stringWithFormat:@"%@", [self.detailItem valueForKey:@"discription"]];
     controller.navigationController.navigationItem.leftBarButtonItem = flipButton;

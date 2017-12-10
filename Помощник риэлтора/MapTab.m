@@ -38,14 +38,11 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
+    [self setNavigationController];
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self getAnnotations];
     // [self fetchPhotosArray];
-    if (@available(iOS 11.0, *)) {
-        self.navigationController.navigationBar.prefersLargeTitles = YES;
-    } else {
-    
-  }
+   
     
 }
 
@@ -233,7 +230,9 @@
     
     UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
     
-    doVC.navigationItem.rightBarButtonItem = flipButton;
+    [self setImageForButton:flipButton];
+    
+    doVC.navigationItem.leftBarButtonItem = flipButton;
     
     [self.navigationController pushViewController:doVC animated:YES];
 
@@ -262,5 +261,45 @@
     [self.view endEditing:YES];
 }
 
+
+-(void)setNavigationController {
+    
+    [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor52]];
+    [self.navigationController.navigationBar setTranslucent:YES];
+    
+    [self.navigationItem setTitle:@"Мои  объекты"];
+    
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor],
+       NSFontAttributeName:[UIFont fontWithName:@"BloggerSans" size:23]}];
+    
+    if (@available(iOS 11.0, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = NO;
+    } else {
+        // Fallback on earlier versions
+    }
+    
+    // making nav bar translucent
+    /*[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+     self.navigationController.navigationBar.shadowImage = [UIImage new];
+     self.navigationController.navigationBar.translucent = YES;*/
+    //
+    
+}
+
+- (void)setImageForButton:(UIBarButtonItem *)flipButton {
+    UIImage* imageBack = [UIImage imageNamed:@"back"];
+    CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
+    
+    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
+    [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
+    [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
+    
+    [flipButton initWithCustomView:someButton];
+}
 
 @end
