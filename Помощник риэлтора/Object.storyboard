@@ -72,13 +72,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AddressLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7h-SD-2TC">
-                                            <rect key="frame" x="5" y="123" width="104.5" height="20"/>
+                                            <rect key="frame" x="5" y="126" width="98.5" height="17"/>
                                             <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ownerLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geD-yI-OIj">
-                                            <rect key="frame" x="5" y="99" width="215" height="20"/>
+                                            <rect key="frame" x="5" y="105" width="215" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="215" id="aT5-J5-Wn8"/>
                                             </constraints>
@@ -157,7 +157,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="DetailObjectController" automaticallyAdjustsScrollViewInsets="NO" id="H5D-tJ-NL8" userLabel="DetailObjectVC" customClass="DetailObjectController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" id="own-8A-hm6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="892"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.99215686270000003" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
@@ -183,9 +183,12 @@
                                                         <action selector="shareButtonTapped:" destination="H5D-tJ-NL8" eventType="touchUpInside" id="eSx-bk-V73"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eo3-54-Jqp">
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eo3-54-Jqp">
                                                     <rect key="frame" x="288" y="38" width="30" height="26"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="26" id="RXI-Jh-h2P"/>
+                                                        <constraint firstAttribute="width" constant="30" id="ZDm-GB-daG"/>
+                                                    </constraints>
                                                     <state key="normal" image="like"/>
                                                     <connections>
                                                         <action selector="likeButtonTapped:" destination="H5D-tJ-NL8" eventType="touchUpInside" id="fl1-r5-mWF"/>
@@ -197,8 +200,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="P07-e6-j5Y" secondAttribute="trailing" id="4sl-Gk-Uu6"/>
                                                 <constraint firstAttribute="bottom" secondItem="xwF-QL-iK9" secondAttribute="bottom" constant="254" id="6oI-mg-utn"/>
                                                 <constraint firstItem="P07-e6-j5Y" firstAttribute="leading" secondItem="f71-5p-o4o" secondAttribute="leading" id="770-pr-dWi"/>
+                                                <constraint firstItem="eo3-54-Jqp" firstAttribute="top" secondItem="f71-5p-o4o" secondAttribute="top" constant="38" id="GlZ-WU-ZO2"/>
                                                 <constraint firstAttribute="bottom" secondItem="P07-e6-j5Y" secondAttribute="bottom" id="JfK-L6-2IM"/>
+                                                <constraint firstItem="xwF-QL-iK9" firstAttribute="leading" secondItem="eo3-54-Jqp" secondAttribute="trailing" constant="10" id="KWf-RT-cKU"/>
                                                 <constraint firstItem="P07-e6-j5Y" firstAttribute="top" secondItem="f71-5p-o4o" secondAttribute="top" constant="20" id="bEQ-XR-WHH"/>
+                                                <constraint firstAttribute="bottom" secondItem="eo3-54-Jqp" secondAttribute="bottom" constant="251" id="htN-Cw-7gN"/>
                                                 <constraint firstAttribute="trailing" secondItem="xwF-QL-iK9" secondAttribute="trailing" constant="17" id="uSW-PG-LW2"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -229,7 +235,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Аренда" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTy-8F-ZNI">
-                                                    <rect key="frame" x="187" y="50" width="178" height="20"/>
+                                                    <rect key="frame" x="187" y="50" width="178" height="16.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="178" id="2rK-5f-i0R"/>
                                                     </constraints>
@@ -415,19 +421,8 @@
                                                         <constraint firstAttribute="height" constant="1" id="dDa-xP-u9q"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEm-wU-neL">
-                                                    <rect key="frame" x="304" y="183" width="66" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="QkG-Te-Xgw"/>
-                                                        <constraint firstAttribute="width" constant="66" id="s1p-y8-ab3"/>
-                                                    </constraints>
-                                                    <state key="normal" image="callButton"/>
-                                                    <connections>
-                                                        <action selector="callButton:" destination="H5D-tJ-NL8" eventType="touchUpInside" id="6HT-b4-CYb"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Жилая" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RaU-qW-spn">
-                                                    <rect key="frame" x="205" y="67" width="55" height="17"/>
+                                                    <rect key="frame" x="213" y="67" width="47" height="17"/>
                                                     <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <color key="textColor" red="0.70338837860000003" green="0.70840363319999999" blue="0.72344939720000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -452,12 +447,23 @@
                                                     <color key="textColor" red="1" green="0.46666666670000001" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xaw-LL-UGj">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xaw-LL-UGj">
                                                     <rect key="frame" x="280" y="114" width="90" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="9Bf-7t-3Yz"/>
+                                                        <constraint firstAttribute="height" constant="32" id="kj1-XG-vbH"/>
+                                                    </constraints>
                                                     <state key="normal" image="active"/>
                                                     <connections>
                                                         <action selector="statusButtonTapped:" destination="H5D-tJ-NL8" eventType="touchUpInside" id="cNp-e2-Bfe"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEm-wU-neL">
+                                                    <rect key="frame" x="296" y="180" width="66" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="callButton"/>
+                                                    <connections>
+                                                        <action selector="callButton:" destination="H5D-tJ-NL8" eventType="touchUpInside" id="6HT-b4-CYb"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -469,6 +475,7 @@
                                                 <constraint firstItem="MO4-bD-quq" firstAttribute="top" secondItem="gzH-wg-yFs" secondAttribute="bottom" constant="16" id="3gO-gq-ZQb"/>
                                                 <constraint firstItem="pKe-Dk-FvA" firstAttribute="baseline" secondItem="lbi-cq-PqB" secondAttribute="baseline" id="5IN-ba-62O"/>
                                                 <constraint firstItem="HuO-5y-dI6" firstAttribute="leading" secondItem="cj8-OI-MJQ" secondAttribute="leading" constant="10" id="6gP-lw-yOq"/>
+                                                <constraint firstAttribute="trailing" secondItem="Xaw-LL-UGj" secondAttribute="trailing" constant="5" id="6uP-ib-WhR"/>
                                                 <constraint firstAttribute="trailing" secondItem="XIq-Ii-EsL" secondAttribute="trailing" constant="25" id="9Kf-jx-AgA"/>
                                                 <constraint firstItem="pKe-Dk-FvA" firstAttribute="top" secondItem="cIw-gv-Cpl" secondAttribute="bottom" constant="3" id="DaU-Ps-HVl"/>
                                                 <constraint firstItem="XIq-Ii-EsL" firstAttribute="top" secondItem="gzH-wg-yFs" secondAttribute="bottom" constant="16" id="F67-5O-Brp"/>
@@ -480,13 +487,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="gzH-wg-yFs" secondAttribute="trailing" constant="8" id="Hbi-i9-J0x"/>
                                                 <constraint firstItem="x5J-zH-ynd" firstAttribute="top" secondItem="gzH-wg-yFs" secondAttribute="bottom" constant="16" id="IXZ-pv-B7l"/>
                                                 <constraint firstItem="lbi-cq-PqB" firstAttribute="leading" secondItem="vpi-CO-aXu" secondAttribute="trailing" constant="17" id="IoW-VT-Ung"/>
-                                                <constraint firstAttribute="trailing" secondItem="zEm-wU-neL" secondAttribute="trailing" constant="5" id="KEo-Ug-mo7"/>
                                                 <constraint firstItem="gzH-wg-yFs" firstAttribute="top" secondItem="cj8-OI-MJQ" secondAttribute="top" constant="23" id="L0L-Pb-RA2"/>
                                                 <constraint firstItem="TxM-3E-jg3" firstAttribute="top" secondItem="Q9O-Dv-KGC" secondAttribute="bottom" constant="10" id="Lyb-gJ-ubM"/>
                                                 <constraint firstItem="lbi-cq-PqB" firstAttribute="top" secondItem="MO4-bD-quq" secondAttribute="bottom" constant="6" id="NbP-n6-KDo"/>
                                                 <constraint firstItem="TxM-3E-jg3" firstAttribute="leading" secondItem="cj8-OI-MJQ" secondAttribute="leading" constant="10" id="OEV-Xi-9gG"/>
                                                 <constraint firstItem="Q9O-Dv-KGC" firstAttribute="top" secondItem="dXt-i7-zO5" secondAttribute="bottom" constant="20" id="OnI-LG-ZPB"/>
-                                                <constraint firstItem="zEm-wU-neL" firstAttribute="top" secondItem="dXt-i7-zO5" secondAttribute="bottom" constant="20" id="QJf-BY-5ie"/>
                                                 <constraint firstItem="lbi-cq-PqB" firstAttribute="top" secondItem="MO4-bD-quq" secondAttribute="bottom" constant="6" id="Qpx-rc-ofx"/>
                                                 <constraint firstAttribute="trailing" secondItem="EFd-0l-uPp" secondAttribute="trailing" constant="20" id="Tk6-dC-1be"/>
                                                 <constraint firstAttribute="bottom" secondItem="mS6-VO-Ytu" secondAttribute="bottom" constant="172" id="UGr-zA-7wJ"/>
@@ -496,12 +501,14 @@
                                                 <constraint firstItem="dXt-i7-zO5" firstAttribute="leading" secondItem="cj8-OI-MJQ" secondAttribute="leading" constant="7" id="Wi9-v7-Q4c"/>
                                                 <constraint firstItem="EFd-0l-uPp" firstAttribute="top" secondItem="XIq-Ii-EsL" secondAttribute="bottom" constant="7" id="ZgO-4y-w0A"/>
                                                 <constraint firstItem="Q9O-Dv-KGC" firstAttribute="leading" secondItem="cj8-OI-MJQ" secondAttribute="leading" constant="10" id="bNG-Un-mxA"/>
+                                                <constraint firstItem="dXt-i7-zO5" firstAttribute="top" secondItem="Xaw-LL-UGj" secondAttribute="bottom" constant="16" id="bz2-TM-vur"/>
                                                 <constraint firstItem="E8r-Mc-j0v" firstAttribute="top" secondItem="Wr0-Xq-9kt" secondAttribute="bottom" constant="5" id="coD-ce-gFS"/>
                                                 <constraint firstItem="dXt-i7-zO5" firstAttribute="top" secondItem="HuO-5y-dI6" secondAttribute="bottom" constant="22" id="dMi-L9-IBo"/>
                                                 <constraint firstItem="EFd-0l-uPp" firstAttribute="leading" secondItem="otd-2z-4vO" secondAttribute="trailing" constant="25" id="fmW-fB-aYR"/>
                                                 <constraint firstItem="cIw-gv-Cpl" firstAttribute="leading" secondItem="cj8-OI-MJQ" secondAttribute="leading" constant="44" id="gFW-0W-yY8"/>
                                                 <constraint firstItem="otd-2z-4vO" firstAttribute="top" secondItem="cj8-OI-MJQ" secondAttribute="top" constant="34" id="gVT-sf-JR9"/>
                                                 <constraint firstItem="dXt-i7-zO5" firstAttribute="top" secondItem="RaU-qW-spn" secondAttribute="bottom" constant="78" id="gXE-Ac-Sr9"/>
+                                                <constraint firstItem="Xaw-LL-UGj" firstAttribute="top" secondItem="EFd-0l-uPp" secondAttribute="bottom" constant="30" id="gZC-TK-9hY"/>
                                                 <constraint firstItem="vpi-CO-aXu" firstAttribute="top" secondItem="cj8-OI-MJQ" secondAttribute="top" constant="34" id="iMm-QT-aO0"/>
                                                 <constraint firstItem="dXt-i7-zO5" firstAttribute="top" secondItem="EFd-0l-uPp" secondAttribute="bottom" constant="78" id="ih1-q8-zPJ"/>
                                                 <constraint firstItem="dXt-i7-zO5" firstAttribute="top" secondItem="E8r-Mc-j0v" secondAttribute="bottom" constant="17" id="k6G-x1-Ofg"/>
@@ -509,7 +516,6 @@
                                                 <constraint firstItem="mS6-VO-Ytu" firstAttribute="top" secondItem="cj8-OI-MJQ" secondAttribute="top" constant="33" id="nmt-b0-H10"/>
                                                 <constraint firstItem="pKe-Dk-FvA" firstAttribute="leading" secondItem="cj8-OI-MJQ" secondAttribute="leadingMargin" constant="3" id="txa-un-PAZ"/>
                                                 <constraint firstItem="E8r-Mc-j0v" firstAttribute="leading" secondItem="HuO-5y-dI6" secondAttribute="trailing" constant="6" id="yj4-TR-zSJ"/>
-                                                <constraint firstAttribute="bottom" secondItem="zEm-wU-neL" secondAttribute="bottom" constant="17" id="zHl-D2-Tvj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -567,6 +573,7 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="editButtonTapped:" destination="H5D-tJ-NL8" id="634-dj-neC"/>
+                                <segue destination="wT1-B5-u4v" kind="show" identifier="editFromDetailVC" id="dTm-4H-yCW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -652,7 +659,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ownerLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98V-S1-xgl">
-                                                    <rect key="frame" x="5" y="97" width="215" height="20"/>
+                                                    <rect key="frame" x="5" y="100" width="215" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="215" id="1ke-4Z-5E3"/>
                                                     </constraints>
@@ -661,7 +668,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NameLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEc-x4-RcU">
-                                                    <rect key="frame" x="5" y="69" width="370" height="20"/>
+                                                    <rect key="frame" x="5" y="75" width="370" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="370" id="Ruc-IW-nBb"/>
                                                     </constraints>
@@ -670,7 +677,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена не указана" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ON-2b-Ttb">
-                                                    <rect key="frame" x="229" y="95" width="142" height="19"/>
+                                                    <rect key="frame" x="229" y="98" width="142" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="142" id="8Ts-gW-zsT"/>
                                                     </constraints>
@@ -772,13 +779,14 @@
                             <barButtonItem title="Item" image="settings-1" id="Nek-jH-1fd">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="k5p-rc-NpK" kind="show" id="cKs-Zb-4LI"/>
+                                    <action selector="settingsTapped:" destination="1by-3d-imN" id="RLm-3g-vaA"/>
+                                    <segue destination="k5p-rc-NpK" kind="show" identifier="toSettingsController" id="cKs-Zb-4LI"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="filter" id="PZF-3j-Td8">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="6ev-hr-z12" kind="show" identifier="toFilter" id="bGV-GO-3oe"/>
+                                    <segue destination="6ev-hr-z12" kind="show" identifier="toFiltering" id="bGV-GO-3oe"/>
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
@@ -925,7 +933,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Город" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXY-Hf-102">
-                                                    <rect key="frame" x="10" y="13" width="54" height="42.5"/>
+                                                    <rect key="frame" x="10" y="13" width="43" height="42.5"/>
                                                     <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1004,7 +1012,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Комнат" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yz7-Rq-yM8">
-                                                    <rect key="frame" x="10" y="24" width="60" height="20"/>
+                                                    <rect key="frame" x="10" y="24" width="60" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="kfd-QK-ziD"/>
                                                     </constraints>
@@ -1310,13 +1318,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54l-Mz-a25">
-                                                    <rect key="frame" x="10" y="42" width="355" height="68"/>
+                                                    <rect key="frame" x="10" y="39" width="355" height="71"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дополнительная информация" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cI-Yt-bfs">
-                                                    <rect key="frame" x="20" y="12" width="240" height="20"/>
+                                                    <rect key="frame" x="20" y="12" width="240" height="17"/>
                                                     <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1484,7 +1492,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Квартира" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5y8-Ta-nl6">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1501,7 +1509,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Комната" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q9J-g7-wHy">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1518,7 +1526,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Дом" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wXp-m7-jTS">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1535,7 +1543,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Нежилое помещение" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Az9-tT-UAG">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1552,7 +1560,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Земельный участок" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BBn-zZ-r7C">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1573,7 +1581,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Аренда" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BKY-FJ-wbC">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1590,7 +1598,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Продажа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="guQ-FW-FlS">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1731,13 +1739,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jrZ-Qp-zeH">
-                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="503"/>
                                 <connections>
                                     <outlet property="delegate" destination="bBp-q1-ovY" id="Kl8-5E-L1P"/>
                                 </connections>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Зажмите место на карте, где хотите установить метку" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqz-Zp-NgL">
-                                <rect key="frame" x="3" y="77" width="369" height="35"/>
+                                <rect key="frame" x="3" y="121" width="369" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Lir-Le-zye"/>
                                 </constraints>
@@ -1746,7 +1754,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="euT-Ld-vY5">
-                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="503"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="autocompleteCell" textLabel="yxk-6I-1ZU" style="IBUITableViewCellStyleDefault" id="Glb-hy-C4S">
@@ -1773,7 +1781,7 @@
                                 </connections>
                             </tableView>
                             <searchBar contentMode="redraw" placeholder="Введите адрес" translatesAutoresizingMaskIntoConstraints="NO" id="X0U-va-QUc">
-                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="bBp-q1-ovY" id="VY7-V3-ku2"/>
@@ -2004,13 +2012,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AddressLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSA-0W-Vct">
-                                            <rect key="frame" x="5" y="123" width="104.5" height="20"/>
+                                            <rect key="frame" x="5" y="126" width="98.5" height="17"/>
                                             <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ownerLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2D-4m-MgH">
-                                            <rect key="frame" x="5" y="99" width="215" height="20"/>
+                                            <rect key="frame" x="5" y="105" width="215" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="215" id="tpn-Zc-6K6"/>
                                             </constraints>
@@ -2133,6 +2141,7 @@
         <image name="trash" width="37" height="45"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KE0-0R-i2F"/>
+        <segue reference="dTm-4H-yCW"/>
+        <segue reference="ERq-hs-e3G"/>
     </inferredMetricsTieBreakers>
 </document>

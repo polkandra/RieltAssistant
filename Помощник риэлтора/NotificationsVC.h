@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NotificationsVC : UITableViewController
+@interface NotificationsVC : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property(strong, nonatomic) NSMutableArray *cellSelectedArray;
 
 @end

@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameOfOwner;
 @property (weak, nonatomic) IBOutlet UILabel *phoneOfOwner;
 @property (weak, nonatomic) IBOutlet UILabel *detailsLabel;
+
 @property (weak, nonatomic) IBOutlet UIImageView *pic;
 
 @property(strong, nonatomic) NSMutableArray *retrievedArray;

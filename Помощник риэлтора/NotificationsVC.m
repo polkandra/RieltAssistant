@@ -13,21 +13,54 @@
 @end
 
 @implementation NotificationsVC
+@synthesize tableView, cellSelectedArray;
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.tableView.allowsMultipleSelection = YES;
+    self.cellSelectedArray = [[NSMutableArray alloc] init];
+}
+
+
+
+#pragma mark - UITableViewDelegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if (indexPath.section == 0) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+        
+        if (selectedCell.accessoryType == UITableViewCellAccessoryCheckmark) {
+            return;
+        }
+        
+        if ([cellSelectedArray containsObject:selectedCell] ) {
+            [cellSelectedArray removeObject:selectedCell];
+            
+        }else{
+            
+            [cellSelectedArray addObject:selectedCell];
+            NSLog(@"%lu",(unsigned long)cellSelectedArray.count);
+            
+        }
+        
+        for (UITableViewCell *cell in [tableView visibleCells]) {
+            if (cell.accessoryType != UITableViewCellAccessoryNone && cell.tag == indexPath.section ) {
+                cell.accessoryType = UITableViewCellAccessoryNone;
+                
+            }
+        }
+        
+        selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        selectedCell.tag = indexPath.section;
+        
+    }
+    
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end

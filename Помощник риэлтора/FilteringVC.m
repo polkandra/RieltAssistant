@@ -16,6 +16,9 @@
 @synthesize cellSelectedArray, tableView, segmentedControl, entities, filteredResults;
 
 
+#pragma mark - VC Lyfecycle
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -28,6 +31,8 @@
 -(void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
+    [self.segmentedControl setSelectedSegmentIndex:UISegmentedControlNoSegment];
+    self.segmentedControl.tintColor = [StyleKitName gradientColor52];
     
     for (UITableViewCell *allCells in [self.tableView visibleCells]) {
         if ((allCells.accessoryType = UITableViewCellAccessoryCheckmark)) {
@@ -102,7 +107,7 @@
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height)];
     
     if (section == 0) {
-        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
+        [headerView setBackgroundColor:[UIColor colorWithRed:184/255.0 green:197/255.0 blue:214/255.0 alpha:1]];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"Количество комнат";
         titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
@@ -110,7 +115,7 @@
         titleLabel.backgroundColor = [UIColor clearColor];
         [headerView addSubview:titleLabel];
     }else if (section == 1) {
-        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
+        [headerView setBackgroundColor:[UIColor colorWithRed:184/255.0 green:197/255.0 blue:214/255.0 alpha:1]];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"По типу действия";
         titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
@@ -118,7 +123,7 @@
         titleLabel.backgroundColor = [UIColor clearColor];
         [headerView addSubview:titleLabel];
     }else if (section == 2) {
-        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
+        [headerView setBackgroundColor:[UIColor colorWithRed:184/255.0 green:197/255.0 blue:214/255.0 alpha:1]];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"По типу объекта";
         titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
@@ -130,8 +135,36 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self configureTicksWithIndexPath:indexPath tableView:tableView];
+    
+    [self configureSearchParamsWithIndexPaths:indexPath];
+    
+    
+}
 
 #pragma mark - Helpers
+
+
+- (void)setImageForButton:(UIBarButtonItem *)flipButton {
+    UIImage* imageBack = [UIImage imageNamed:@"back"];
+    CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
+    
+    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
+    [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
+    [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
+    
+    [flipButton initWithCustomView:someButton];
+}
+
+
+-(void)dismissView {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 
 -(void)fetchEntitiesWithPredicates:(NSPredicate*)predicates {
@@ -269,19 +302,6 @@
 }
 
 
-#pragma mark - UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [self configureTicksWithIndexPath:indexPath tableView:tableView];
-    
-    [self configureSearchParamsWithIndexPaths:indexPath];
-   
-   
-}
-
-
-
 #pragma mark - Navigation
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -289,10 +309,17 @@
     if ([segue.identifier isEqualToString:@"toFilteredResultsVC"]) {
         
         FilteredResultsVC *frVC = (FilteredResultsVC*)segue.destinationViewController;
+        
         frVC.detailItem = self.detailItem;
         frVC.searchResults = [[NSMutableArray alloc] init];
         frVC.searchResults = self.entities;
       
+        UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
+        
+        [self setImageForButton:flipButton];
+        
+        frVC.navigationItem.leftBarButtonItem = flipButton;
+        
         if ([cellSelectedArray containsObject:self.rentCell] && [cellSelectedArray containsObject:self.flatCell]) {
             NSPredicate *rent = [NSPredicate predicateWithFormat:@"SELF.actionByProperty contains [cd] %@ AND typeOfProperty contains [cd] %@",@"Аренда", @"Квартира"];
            
@@ -372,10 +399,9 @@
             frVC.searchResults = [[NSMutableArray alloc] init];
             frVC.searchResults = self.entities;
             
+            
         }
-        
     }
 }
-
 
 @end

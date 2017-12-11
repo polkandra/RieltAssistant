@@ -13,15 +13,58 @@
 @end
 
 @implementation CurrencyTableViewController
-@synthesize tableView;
+@synthesize tableView, cellSelectedArray;
 
+
+
+#pragma mark - VC lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    //self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.allowsMultipleSelection = YES;
+    self.cellSelectedArray = [[NSMutableArray alloc] init];
 }
 
+
+
+
+#pragma mark - UITableViewDelegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+        
+        if (selectedCell.accessoryType == UITableViewCellAccessoryCheckmark) {
+            return;
+        }
+        
+        if ([cellSelectedArray containsObject:selectedCell] ) {
+            [cellSelectedArray removeObject:selectedCell];
+            
+        }else{
+            
+            [cellSelectedArray addObject:selectedCell];
+            NSLog(@"%lu",(unsigned long)cellSelectedArray.count);
+            
+        }
+        
+        for (UITableViewCell *cell in [tableView visibleCells]) {
+            if (cell.accessoryType != UITableViewCellAccessoryNone && cell.tag == indexPath.section ) {
+                cell.accessoryType = UITableViewCellAccessoryNone;
+                
+            }
+        }
+        
+        selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        selectedCell.tag = indexPath.section;
+        
+    }
+    
+}
 
 
 @end

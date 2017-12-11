@@ -20,6 +20,7 @@
 #import "SearchResultsTableViewController.h"
 #import "FilteringVC.h"
 #import "SegmentedFilter.h"
+#import "SettingsViewController.h"
 
 //@class DetailObjectController;
 //@protocol AddArrayDelegate;

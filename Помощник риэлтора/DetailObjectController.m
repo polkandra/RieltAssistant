@@ -195,11 +195,9 @@
         newVC.detailItem = self.detailItem;
         newVC.navigationItem.title = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"discription"]];
         newVC.navigationItem.rightBarButtonItem = nil;
-        newVC.navigationItem.leftBarButtonItem = nil;
         newVC.saveSecondButton.hidden = NO;
         newVC.hideButton = NO;
-      //  newVC.navigationItem.hidesBackButton = YES;
-        // newVC.navigationController.navigationBar.backItem.
+    
     
     }else if ([segue.identifier isEqualToString:@"unwindAfterBackButtonFromDetail"]) {
         

@@ -15,6 +15,7 @@
 #import "EstateObject.h"
 #import "DataManager.h"
 #import "DetailMeetingController.h"
+#import "SelectMeetingOblectVC.h"
 #import <UserNotifications/UserNotifications.h>
 
 

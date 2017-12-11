@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CurrencyTableViewController.h"
+#import "NotificationsVC.h"
+
 
 @interface SettingsViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
@@ -14,6 +17,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *currencyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeToMeetLabel;
-
+@property (strong, nonatomic) NSMutableArray *cellSelectedArray;
 
 @end

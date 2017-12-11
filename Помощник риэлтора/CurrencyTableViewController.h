@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CurrencyTableViewController : UITableViewController
+@interface CurrencyTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property(strong, nonatomic) NSMutableArray *cellSelectedArray;
+
+
+
 
 @end

@@ -172,6 +172,25 @@
 }
 
 
+- (void)setImageForButton:(UIBarButtonItem *)flipButton {
+    UIImage* imageBack = [UIImage imageNamed:@"back"];
+    CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
+    
+    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
+    [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
+    [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
+    
+    [flipButton initWithCustomView:someButton];
+}
+
+
+-(void)dismissView {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 #pragma mark - Unwind Segues
 
 
@@ -228,14 +247,30 @@
         newVC.navigationItem.title = @" Новый объект";
         newVC.hideButton = YES;
         // newVC.detailItem = self.detailItem;
-    }else if ([segue.identifier isEqualToString:@"toFilter"]) {
+    }else if ([segue.identifier isEqualToString:@"toFiltering"]) {
                 
         FilteringVC *fVC = (FilteringVC*)segue.destinationViewController;
         fVC.detailItem = self.detailItem;
-    }
+        
+        UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
+        
+        [self setImageForButton:flipButton];
+        
+        fVC.navigationItem.leftBarButtonItem = flipButton;
+        
+    
+     }else if ([segue.identifier isEqualToString:@"toSettingsController"]) {
+         
+         SettingsViewController *sVC = (SettingsViewController*)segue.destinationViewController;
+         
+         UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
+         
+         [self setImageForButton:flipButton];
+         
+         sVC.navigationItem.leftBarButtonItem = flipButton;
+     }
+    
 }
-
-
 
 #pragma mark - Actions
 
@@ -256,6 +291,7 @@
 -(IBAction)settingsTapped:(UIButton *)sender {
     
     
+    
 }
 
 
@@ -273,22 +309,7 @@
 - (IBAction)selectedControlValueChanged:(UISegmentedControl *)sender {
     
     switch (self.segmentedControl.selectedSegmentIndex) {
-        
-//        case 0: {
-//
-//            NSError *error;
-//            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
-//            self.filterdResultsForSegmentedControl = [[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error];
-//
-//            SegmentedFilter * sfVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SegmentedResults"];
-//            sfVC.detailItem = self.detailItem;
-//            sfVC.searchResults = [[NSMutableArray alloc] init];
-//            sfVC.searchResults = self.filterdResultsForSegmentedControl;
-//
-//            [self.navigationController pushViewController:sfVC animated:YES];
-//
-//            break;
-//       }
+
         case 0: {
             NSPredicate *favourite = [NSPredicate predicateWithFormat:@"isLiked == YES"];
             [self fetchEntitiesWithPredicates:favourite];

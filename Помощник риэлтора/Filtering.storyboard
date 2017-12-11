@@ -28,16 +28,18 @@
                         <sections>
                             <tableViewSection headerTitle="Кол-во комнат" id="vC9-64-3CM">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="v6r-TZ-AtV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="v6r-TZ-AtV">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v6r-TZ-AtV" id="EoX-xS-slH">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4FM-lX-gTj">
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4FM-lX-gTj">
                                                     <rect key="frame" x="23" y="8" width="330" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="330" id="dcy-wm-DUZ"/>
+                                                    </constraints>
                                                     <segments>
                                                         <segment title="1"/>
                                                         <segment title="2"/>
@@ -50,6 +52,12 @@
                                                     </connections>
                                                 </segmentedControl>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4FM-lX-gTj" firstAttribute="leading" secondItem="EoX-xS-slH" secondAttribute="leading" constant="23" id="15r-Ho-rp6"/>
+                                                <constraint firstAttribute="trailing" secondItem="4FM-lX-gTj" secondAttribute="trailing" constant="22" id="Xnc-by-l6c"/>
+                                                <constraint firstAttribute="bottom" secondItem="4FM-lX-gTj" secondAttribute="bottom" constant="7.5" id="elR-6m-yFP"/>
+                                                <constraint firstItem="4FM-lX-gTj" firstAttribute="top" secondItem="EoX-xS-slH" secondAttribute="top" constant="8" id="yUB-qi-7xL"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -63,14 +71,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Аренда" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9d-mH-fVA">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Аренда" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9d-mH-fVA">
                                                     <rect key="frame" x="10" y="11" width="60" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="N9y-A9-Dti"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="C9d-mH-fVA" firstAttribute="leading" secondItem="cpg-LF-szy" secondAttribute="leading" constant="10" id="5vi-5N-jUf"/>
+                                                <constraint firstItem="C9d-mH-fVA" firstAttribute="top" secondItem="cpg-LF-szy" secondAttribute="top" constant="11" id="Fpu-Il-Erv"/>
+                                                <constraint firstAttribute="bottom" secondItem="C9d-mH-fVA" secondAttribute="bottom" constant="11.5" id="cnW-F4-uLV"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DGv-sP-Wna">
@@ -80,14 +95,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Продажа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dd4-gp-NNC">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Продажа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dd4-gp-NNC">
                                                     <rect key="frame" x="10" y="11" width="74" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="74" id="bWY-Uj-ZAx"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Dd4-gp-NNC" firstAttribute="top" secondItem="P5H-7e-M38" secondAttribute="top" constant="11" id="ITS-dt-8TA"/>
+                                                <constraint firstItem="Dd4-gp-NNC" firstAttribute="leading" secondItem="P5H-7e-M38" secondAttribute="leading" constant="10" id="qIk-TD-vUf"/>
+                                                <constraint firstAttribute="bottom" secondItem="Dd4-gp-NNC" secondAttribute="bottom" constant="11.5" id="uag-Ug-WF8"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -101,14 +123,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Квартиры" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfk-li-4vY">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Квартиры" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfk-li-4vY">
                                                     <rect key="frame" x="10" y="11" width="79" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="79" id="2Ru-WA-zVD"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xfk-li-4vY" firstAttribute="top" secondItem="2ij-hb-Raw" secondAttribute="top" constant="11" id="1Fp-V7-iE6"/>
+                                                <constraint firstAttribute="bottom" secondItem="xfk-li-4vY" secondAttribute="bottom" constant="11.5" id="L53-dU-21A"/>
+                                                <constraint firstItem="xfk-li-4vY" firstAttribute="leading" secondItem="2ij-hb-Raw" secondAttribute="leading" constant="10" id="fFg-6J-EvL"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="LZP-1k-YtI">
@@ -118,14 +147,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Дома" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Olq-Kf-IQL">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дома" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Olq-Kf-IQL">
                                                     <rect key="frame" x="10" y="11" width="54" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="54" id="S8k-ha-5UL"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Olq-Kf-IQL" secondAttribute="bottom" constant="11.5" id="9WH-7V-CGo"/>
+                                                <constraint firstItem="Olq-Kf-IQL" firstAttribute="leading" secondItem="qcT-Hh-to2" secondAttribute="leading" constant="10" id="IJV-zk-dYD"/>
+                                                <constraint firstItem="Olq-Kf-IQL" firstAttribute="top" secondItem="qcT-Hh-to2" secondAttribute="top" constant="11" id="gZi-Qb-TL1"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uPJ-Qe-Wak">
@@ -135,14 +171,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Нежилые помещения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="or1-KV-z2n">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Нежилые помещения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="or1-KV-z2n">
                                                     <rect key="frame" x="10" y="11" width="173" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="173" id="ZcU-94-ueo"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="or1-KV-z2n" firstAttribute="leading" secondItem="6xr-ya-fVX" secondAttribute="leading" constant="10" id="FUw-J6-s0i"/>
+                                                <constraint firstAttribute="bottom" secondItem="or1-KV-z2n" secondAttribute="bottom" constant="11.5" id="K9b-mM-jPO"/>
+                                                <constraint firstItem="or1-KV-z2n" firstAttribute="top" secondItem="6xr-ya-fVX" secondAttribute="top" constant="11" id="jHY-cZ-pLq"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cVp-Xq-Npx">
@@ -152,14 +195,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Комнаты" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCe-LC-ErZ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Комнаты" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCe-LC-ErZ">
                                                     <rect key="frame" x="10" y="11" width="72" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="72" id="L0K-8a-GND"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eCe-LC-ErZ" firstAttribute="top" secondItem="IDu-fg-QF7" secondAttribute="top" constant="11" id="1Mm-wP-zGI"/>
+                                                <constraint firstAttribute="bottom" secondItem="eCe-LC-ErZ" secondAttribute="bottom" constant="11.5" id="2Ja-GA-xxi"/>
+                                                <constraint firstItem="eCe-LC-ErZ" firstAttribute="leading" secondItem="IDu-fg-QF7" secondAttribute="leading" constant="10" id="ab0-wl-9fU"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZFy-X1-0mS">
@@ -169,14 +219,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Земельные участки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5F-ZY-BHJ">
-                                                    <rect key="frame" x="10" y="11" width="158" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Земельные участки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5F-ZY-BHJ">
+                                                    <rect key="frame" x="10" y="11" width="137.5" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="137.5" id="aB9-0p-uY2"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="n5F-ZY-BHJ" firstAttribute="leading" secondItem="rPr-JN-qH2" secondAttribute="leading" constant="10" id="Vfz-dR-7Bs"/>
+                                                <constraint firstAttribute="bottom" secondItem="n5F-ZY-BHJ" secondAttribute="bottom" constant="11.5" id="YEB-hG-jFo"/>
+                                                <constraint firstItem="n5F-ZY-BHJ" firstAttribute="top" secondItem="rPr-JN-qH2" secondAttribute="top" constant="11" id="ufe-GZ-9U7"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -189,6 +246,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Фильтр" id="oYx-yg-syf">
                         <barButtonItem key="rightBarButtonItem" title="Искать!" id="LIE-bx-Mj5">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="startSearch:" destination="Y2U-aK-gCB" id="rA9-fb-FKK"/>
                                 <segue destination="Bvk-V1-DXM" kind="show" identifier="toFilteredResultsVC" id="ree-eD-rx5"/>
