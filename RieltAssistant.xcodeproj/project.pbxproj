@@ -46,6 +46,7 @@
 		C6A7195D1F0FB6DC00A5FE9B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A7195C1F0FB6DC00A5FE9B /* CoreData.framework */; };
 		C6A7196A1F0FD98B00A5FE9B /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A719691F0FD98B00A5FE9B /* DataManager.m */; };
 		C6A719D01F1005C500A5FE9B /* CoreDataTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A719CF1F1005C500A5FE9B /* CoreDataTableVC.m */; };
+		C6A771931FE03DB6002335A1 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A771921FE03DB6002335A1 /* SplashScreenViewController.m */; };
 		C6AFF7D71FB7504F004A7995 /* Meetings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6AFF7D61FB7504F004A7995 /* Meetings.storyboard */; };
 		C6AFF7D91FB7514C004A7995 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6AFF7D81FB7514C004A7995 /* Map.storyboard */; };
 		C6AFF7DB1FB75218004A7995 /* Object.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6AFF7DA1FB75218004A7995 /* Object.storyboard */; };
@@ -153,6 +154,8 @@
 		C6A719691F0FD98B00A5FE9B /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		C6A719CE1F1005C500A5FE9B /* CoreDataTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableVC.h; sourceTree = "<group>"; };
 		C6A719CF1F1005C500A5FE9B /* CoreDataTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableVC.m; sourceTree = "<group>"; };
+		C6A771911FE03DB6002335A1 /* SplashScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
+		C6A771921FE03DB6002335A1 /* SplashScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
 		C6AFF7D61FB7504F004A7995 /* Meetings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Meetings.storyboard; sourceTree = "<group>"; };
 		C6AFF7D81FB7514C004A7995 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		C6AFF7DA1FB75218004A7995 /* Object.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Object.storyboard; sourceTree = "<group>"; };
@@ -325,6 +328,8 @@
 				C6FFFD631FCAE4770007C823 /* FilteredResultsVC.m */,
 				C61A467A1FDC2B4C00B61C8A /* SegmentedFilter.h */,
 				C61A467B1FDC2B4C00B61C8A /* SegmentedFilter.m */,
+				C6A771911FE03DB6002335A1 /* SplashScreenViewController.h */,
+				C6A771921FE03DB6002335A1 /* SplashScreenViewController.m */,
 				C65B201D1EEAE2C4009F8DFA /* MapsControllers */,
 				C6CAB5D51EE1E91D00078A32 /* PageViewController */,
 			);
@@ -667,6 +672,7 @@
 				C67DE89D1FC9C2590004150D /* SettingsViewController.m in Sources */,
 				C6CDE9BD1FC33B63006F2DA9 /* FilteredResultCellTableViewCell.m in Sources */,
 				C6592CB11FA0B48D00CF60EE /* AddPhotoCVCell.m in Sources */,
+				C6A771931FE03DB6002335A1 /* SplashScreenViewController.m in Sources */,
 				C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */,
 				C6D33CCF1F02973500F7C82B /* MeetingObject.m in Sources */,
 				C6F14D6A1EDF0AD800658494 /* EbmeddedImageController.m in Sources */,
