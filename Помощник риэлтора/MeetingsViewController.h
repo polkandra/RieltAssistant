@@ -23,7 +23,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 
-@property(strong, nonatomic) NSMutableArray* retrievedArray;
+@property(strong, nonatomic) NSArray* retrievedArray;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *disclaimerLabel;

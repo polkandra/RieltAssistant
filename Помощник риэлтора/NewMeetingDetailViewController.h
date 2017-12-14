@@ -25,6 +25,9 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBarButtonItem;
 
+@property(assign, nonatomic) NSTimeInterval notificationInterval;
+@property(strong, nonatomic) NSDate *pickerForNotification;
+
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UITextField *personNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *personPhoneTextField;
@@ -42,6 +45,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
 
 @property (weak, nonatomic) NSString *chooseObjectString;
+
 @property (weak, nonatomic) NSString *nameString;
 @property (weak, nonatomic) NSString *addressString;
 @property (weak, nonatomic) NSString *priceString;

@@ -18,5 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *currencyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeToMeetLabel;
 @property (strong, nonatomic) NSMutableArray *cellSelectedArray;
+@property (strong, nonatomic) NSString *cellText;
+@property(assign, nonatomic) NSInteger selectedRow;
 
 @end

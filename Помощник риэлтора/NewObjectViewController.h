@@ -22,9 +22,6 @@
 @interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIPickerViewDelegate>
 
 
-
-
-
 @property (nonatomic, assign) BOOL hideButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *saveSecondButton;

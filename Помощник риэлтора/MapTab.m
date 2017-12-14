@@ -111,7 +111,7 @@
         annotation.subtitle = location[@"price"];
        
         [self.annotationsArray addObject:annotation];
-        [self.mapView addAnnotation:annotation];
+        [self.mapView addAnnotation:(id)annotation];
     
     }
   
@@ -217,7 +217,7 @@
         }
     }
     
-    MapAnnotation *annotation = view.annotation;
+    MapAnnotation *annotation =(id)view.annotation;
     NSInteger index = [self.annotationsArray indexOfObject:annotation];
     EstateObjectEntity *selectedEntity = [self.retrievedArray objectAtIndex:index];
     doVC.detailItem = selectedEntity;
@@ -293,12 +293,10 @@
 - (void)setImageForButton:(UIBarButtonItem *)flipButton {
     UIImage* imageBack = [UIImage imageNamed:@"back"];
     CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
-    
     UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
     [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
     [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
-    
     [flipButton initWithCustomView:someButton];
 }
 

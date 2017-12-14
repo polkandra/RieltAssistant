@@ -21,32 +21,17 @@
 
 
 - (void)viewDidLoad {
-    
-        
     [super viewDidLoad];
    
     self.emptyDataBaseLabel.hidden = YES;
-    
-  
-    // self.tableView.backgroundColor = [StyleKitName backgroundColorGradient];
    
-//    UIView *view1 = [[UIView alloc] initWithFrame:self.tableView.bounds];
-//    CAGradientLayer *layer = [CAGradientLayer layer];
-//    layer.frame = view1.bounds;
-//    layer.colors = @[(id)StyleKitName.gradientColor.CGColor, (id)StyleKitName.gradientColor2.CGColor];
-//    [self.tableView.layer insertSublayer:layer atIndex:0];
-//    
-    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.segmentedControl.tintColor = [StyleKitName gradientColor52];
     
     
     SearchResultsTableViewController *searchResultsVC = (SearchResultsTableViewController *)self.searchController.searchResultsController;
     [self addObserver:searchResultsVC forKeyPath:@"entities" options:NSKeyValueObservingOptionNew context:nil];
-    
-   
-    
-    
+  
     
 }
 
@@ -67,7 +52,6 @@
             self.detailItem = ((EstateObjectEntity *)object);
         }
     }
-
     
     if (self.filteredResults.count == 0) {
         
@@ -76,7 +60,7 @@
     }else{
         
         self.tableView.backgroundColor = [UIColor colorWithRed:234/255.0 green:253/255.0 blue:248/255.0 alpha:1];
-    
+        
     }
     
     
@@ -182,6 +166,7 @@
     [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
     
     [flipButton initWithCustomView:someButton];
+
 }
 
 
@@ -314,6 +299,9 @@
             NSPredicate *favourite = [NSPredicate predicateWithFormat:@"isLiked == YES"];
             [self fetchEntitiesWithPredicates:favourite];
             SegmentedFilter * sfVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SegmentedResults"];
+            UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
+            [self setImageForButton:flipButton];
+            sfVC.navigationItem.leftBarButtonItem = flipButton;
             sfVC.detailItem = self.detailItem;
             sfVC.searchResults = [[NSMutableArray alloc] init];
             sfVC.searchResults = self.entitiesForSegmentedControl;
@@ -327,6 +315,9 @@
             NSPredicate *favourite = [NSPredicate predicateWithFormat:@"isActive == YES"];
             [self fetchEntitiesWithPredicates:favourite];
             SegmentedFilter * sfVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SegmentedResults"];
+            UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
+            [self setImageForButton:flipButton];
+            sfVC.navigationItem.leftBarButtonItem = flipButton;
             sfVC.detailItem = self.detailItem;
             sfVC.searchResults = [[NSMutableArray alloc] init];
             sfVC.searchResults = self.entitiesForSegmentedControl;
@@ -335,11 +326,14 @@
             
             break;
         }
-        
+            
         case 2: {
             NSPredicate *favourite = [NSPredicate predicateWithFormat:@"isActive == NO"];
             [self fetchEntitiesWithPredicates:favourite];
             SegmentedFilter * sfVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SegmentedResults"];
+            UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
+            [self setImageForButton:flipButton];
+            sfVC.navigationItem.leftBarButtonItem = flipButton;
             sfVC.detailItem = self.detailItem;
             sfVC.searchResults = [[NSMutableArray alloc] init];
             sfVC.searchResults = self.entitiesForSegmentedControl;

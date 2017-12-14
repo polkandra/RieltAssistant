@@ -13,7 +13,7 @@
 @end
 
 @implementation NewMeetingDetailViewController
-@synthesize tableView, detailItem, meetingObject;
+@synthesize tableView, detailItem, meetingObject, datePicker, notificationInterval;
 
 
 
@@ -21,11 +21,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    
     //self.tableView.backgroundColor = [StyleKitName gradientColor8];
     [self setDelegatesForTextFields];
     [self hideShowDeleteSaveButtons];
     [self addGestureRecognizer];
+    
     
     self.pictureImageView.layer.masksToBounds = YES;
     self.pictureImageView.layer.cornerRadius  = self.pictureImageView.frame.size.width/2.0;
@@ -95,21 +96,22 @@
     
     if ([segue.identifier isEqualToString:@"toMeetingsVC"]) {
         
-        [self setNotificationwithDate:self.datePicker.date];
-       // [self fetchEstateObjectEntity];
+        [self retriveSettingsFromUserDefaults];
+        [self setNotificationwithDate:self.pickerForNotification];
+       
         
-        NSDate *myDate = _datePicker.date;
+        NSDate *myDate = datePicker.date;
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"HH:mm"];
         NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
         [dateFormat setLocale:locale];
         NSString *timeString = [dateFormat stringFromDate:myDate];
 
-        NSDate *myDate2 = _datePicker.date;
+        NSDate *myDate2 = datePicker.date;
         NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
         [dateFormat2 setDateFormat:@"MMM d,ccc"];
         NSLocale *locale2 = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
-        [dateFormat2 setLocale:locale];;
+        [dateFormat2 setLocale:locale2];;
         NSString *timeString2 = [dateFormat2 stringFromDate:myDate2];
        
         
@@ -185,18 +187,18 @@
         
         if (self.meetingObject) {
             
-            NSDate *myDate = _datePicker.date;
+            NSDate *myDate = datePicker.date;
             NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
             [dateFormat setDateFormat:@"HH:mm"];
             NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
             [dateFormat setLocale:locale];
             NSString *timeString = [dateFormat stringFromDate:myDate];
             
-            NSDate *myDate2 = _datePicker.date;
+            NSDate *myDate2 = datePicker.date;
             NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
             [dateFormat2 setDateFormat:@"MMM d,ccc"];
             NSLocale *locale2 = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
-            [dateFormat2 setLocale:locale];;
+            [dateFormat2 setLocale:locale2];;
             NSString *timeString2 = [dateFormat2 stringFromDate:myDate2];
             NSString *dateAndTime = [timeString stringByAppendingString:timeString2];
             
@@ -231,18 +233,18 @@
             MeetingsViewController *mVC = (MeetingsViewController *)segue.destinationViewController;
             mVC.meetingObject = self.meetingObject;
             
-            NSDate *myDate = _datePicker.date;
+            NSDate *myDate = datePicker.date;
             NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
             [dateFormat setDateFormat:@"HH:mm"];
             NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
             [dateFormat setLocale:locale];
             NSString *timeString = [dateFormat stringFromDate:myDate];
             
-            NSDate *myDate2 = _datePicker.date;
+            NSDate *myDate2 = datePicker.date;
             NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
             [dateFormat2 setDateFormat:@"MMM d,ccc"];
             NSLocale *locale2 = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
-            [dateFormat2 setLocale:locale];;
+            [dateFormat2 setLocale:locale2];;
             NSString *timeString2 = [dateFormat2 stringFromDate:myDate2];
             NSString *dateAndTime = [timeString stringByAppendingString:timeString2];
             
@@ -294,6 +296,33 @@
 
 }
 
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    
+    if ([identifier isEqualToString:@"toMeetingsVC"]) {
+        
+        if (!self.detailItem) {
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"Выберите объект" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            
+            [alert addAction:action];
+            
+            
+            [self presentViewController:alert animated:YES completion:nil];
+            
+            
+            return NO;
+        }
+    }
+    return YES;
+}
+
+
+
 // unwind segue from SelectMeetingVC
 - (IBAction)unwindFromSelectMeetingVC:(UIStoryboardSegue*)segue {
     
@@ -305,14 +334,11 @@
 
 #pragma mark  - Notification
 
-
-
 -(void)setNotificationwithDate:(NSDate*)date {
-    
     
     UNMutableNotificationContent *content = [UNMutableNotificationContent new];
     content.title = [NSString localizedUserNotificationStringForKey:@"Настало время встречи по объекту" arguments:nil];
-    content.body =  [NSString localizedUserNotificationStringForKey:@"Моя первая нотификация" arguments:nil];
+    content.body =  [NSString localizedUserNotificationStringForKey:@"Скоро должна состояться Ваша встреча" arguments:nil];
     content.sound = [UNNotificationSound defaultSound];
     content.badge = @([[UIApplication sharedApplication] applicationIconBadgeNumber] + 1);
     
@@ -324,17 +350,13 @@
                                      NSCalendarUnitHour + NSCalendarUnitMinute
                                      fromDate:date];
     
-    
-    
     NSDateComponents *time = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:date];
     triggerDate.hour = time.hour;
     triggerDate.minute = time.minute;
-    
-    
-    
+   
     UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:triggerDate repeats:NO];
     
-    NSString *identifier = @"UYLLocalNotification";
+    NSString *identifier = @"LocalNotification";
     
     UNUserNotificationCenter *center  = [UNUserNotificationCenter currentNotificationCenter];
     UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier
@@ -382,6 +404,14 @@
 
 
 #pragma mark - Helpers
+
+
+-(void)retriveSettingsFromUserDefaults {
+    
+    self.notificationInterval = [[NSUserDefaults standardUserDefaults] doubleForKey:@"notificationType"];
+    self.pickerForNotification = [self.datePicker.date dateByAddingTimeInterval:self.notificationInterval];
+}
+
 
 -(void)setDelegatesForTextFields {
    
@@ -449,12 +479,10 @@
 - (void)setImageForButton:(UIBarButtonItem *)flipButton {
     UIImage* imageBack = [UIImage imageNamed:@"back"];
     CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
-    
     UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
     [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
     [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
-    
     [flipButton initWithCustomView:someButton];
 }
 
@@ -465,34 +493,11 @@
 }
 
 
-
-//-(void)fetchEstateObjectEntity {
-//
-//    NSEntityDescription *entity = [NSEntityDescription  entityForName:@"EstateObjectEntity" inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
-//    
-//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-//    [request setEntity:entity];
-//    [request setResultType:NSDictionaryResultType];
-//    [request setReturnsDistinctResults:YES];
-//    [request setPropertiesToFetch:@[@"longitude", @"latitude", @"picture", @"discription", @"price", @"actionByProperty", @"address", @"kitchenArea", @"livingArea", @"owner", @"phoneNumber", @"roomQuantity", @"typeOfProperty", @"wholeArea"]];
-//    
-//    NSError *error;
-//    
-//    self.retrievedArray = [[[DataManager sharedManager] managedObjectContext] executeFetchRequest:request error:&error];
-//    
-//    for (NSDictionary *location in self.retrievedArray) {
-//        
-//        point.latitude  = [location[@"latitude"] doubleValue];
-//    }
-//}
-
-
-
-
 #pragma mark - Actions
 
 - (IBAction)datePickerValueChanged:(id)sender {
 
+    
  NSDate *selectedDate = [sender date];
 
 }

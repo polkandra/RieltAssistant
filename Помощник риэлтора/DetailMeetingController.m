@@ -39,7 +39,6 @@
         
         self.detailTimeOfMeeting.text = [NSString stringWithFormat:@"%@",[myMeetingObject valueForKey:@"time"]];
         self.detailDateOfMeeting.text = [NSString stringWithFormat:@"%@",[myMeetingObject valueForKey:@"date"]];
-        
         self.nameOfOwner.text = [NSString stringWithFormat:@"%@",[myMeetingObject valueForKey:@"personName"]];
         self.phoneOfOwner.text = [NSString stringWithFormat:@"%@",[myMeetingObject valueForKey:@"phoneNumber"]];
        // self.detailNameOfObject.text = [NSString stringWithFormat:@"%@",[myMeetingObject valueForKey:@"objectName"]];

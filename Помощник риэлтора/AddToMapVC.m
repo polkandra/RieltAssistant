@@ -83,7 +83,7 @@
     // NSError *error;
     //NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
     // self.retrievedArray = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
-    NSMutableArray *retrievedArray = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
+    NSMutableArray *retrievedArray = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData*)detailItem.arrayOfUsersPics];
     self.pinPhotosArray = [[NSMutableArray alloc] initWithArray:retrievedArray];
     
     
@@ -99,7 +99,7 @@
     annotation.canShowCallout = YES;
     annotation.coordinate = loc.coordinate;
     
-    [self.mapView addAnnotation:annotation];
+    [self.mapView addAnnotation:(id)annotation];
     
 }
 
@@ -313,7 +313,7 @@
     
    
     
-    MKAnnotationView *pinView = nil;
+   // MKAnnotationView *pinView = nil;
     
     NSInteger toRemoveCount = self.mapView.annotations.count;
     NSMutableArray *toRemove = [NSMutableArray arrayWithCapacity:toRemoveCount];
@@ -324,7 +324,7 @@
     [toRemove addObject:annotation];
     [self.mapView removeAnnotations:toRemove];
     
-    [self.mapView addAnnotation:annotation];
+    [self.mapView addAnnotation:(id)annotation];
         
    
 }
@@ -343,7 +343,8 @@
     
     if (newState == MKAnnotationViewDragStateEnding) {
         CLLocationCoordinate2D droppedAt = annotationView.annotation.coordinate;
-        MKMapPoint point = MKMapPointForCoordinate(droppedAt);
+        
+        //MKMapPoint point = MKMapPointForCoordinate(droppedAt);
         
         NSLog(@"dragged coordinates %f  %f",droppedAt.longitude,droppedAt.latitude);
         
@@ -428,16 +429,27 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     
-    NSLog(@"didFailWithError: %@", error);
-    UIAlertView *errorAlert = [[UIAlertView alloc]
-                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [errorAlert show];
+  
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Failed to Get Your Location" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alert addAction:action];
+    
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+
+
+
 }
 
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     
-    CLLocation *newLocation = locations.lastObject;
+    //CLLocation *newLocation = locations.lastObject;
 }
 
 
@@ -450,7 +462,7 @@
     
     if ([segue.identifier isEqualToString:@"saveFromAddToMapVC"]) {
         
-        DetailObjectController *doVC = (DetailObjectController *)segue.destinationViewController;
+       // DetailObjectController *doVC = (DetailObjectController *)segue.destinationViewController;
         
         
         NSLog(@"pins coordinates are %f  %f",_touchMapCoordinate.latitude,_touchMapCoordinate.longitude);

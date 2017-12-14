@@ -30,6 +30,16 @@
 
 
 
+- (void) viewWillDisappear:(BOOL)animated{
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.selectedRow) forKey:@"selectedTick5"];
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.selectedRow2) forKey:@"selectedTick6"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    self.selectedRow = [[[NSUserDefaults standardUserDefaults] objectForKey:@"selectedTick5"] intValue];
+    self.selectedRow2 = [[[NSUserDefaults standardUserDefaults] objectForKey:@"selectedTick6"] intValue];
+}
 
 
 #pragma mark - UITableViewDelegate
@@ -37,6 +47,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) {
+        self.selectedRow = indexPath.row;
+        [self.tableView reloadData];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         
         UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
@@ -68,13 +80,12 @@
         selectedCell.tag = indexPath.section;
         
     }else if (indexPath.section == 1) {
-        
+       
+        self.selectedRow2 = indexPath.row;
+        [self.tableView reloadData];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        
-        
+       
         UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-        
-        
         
         if (selectedCell.accessoryType == UITableViewCellAccessoryCheckmark ) {
             
@@ -131,6 +142,33 @@
     }
     return headerView;
 
+}
+
+#pragma mark - UITableViewDataSource
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+    if (indexPath.section == 0) {
+        if (indexPath.row == self.selectedRow){
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            
+        }else{
+            cell.accessoryType = UITableViewCellAccessoryNone;
+       
+        }
+    }else if (indexPath.section == 1) {
+        
+        if (indexPath.row == self.selectedRow2){
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            
+        }else{
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+    }
+    return cell;
 }
 
 

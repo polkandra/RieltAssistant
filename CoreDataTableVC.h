@@ -13,7 +13,7 @@
 
 
 
-@interface CoreDataTableVC : UIViewController <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface CoreDataTableVC : UIViewController <NSFetchedResultsControllerDelegate, UITableViewDelegate>
 
 
 @property (strong, nonatomic) UITableView *tableView;

@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ImageInEmbeddedView;
 
 @property NSUInteger pageIndex;
-@property NSString *imageFile;
+@property UIImage *imageFile;
 
 
 @end

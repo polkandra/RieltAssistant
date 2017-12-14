@@ -33,10 +33,10 @@
 @property(strong, nonatomic) NSMutableArray* myPhotosData;
 @property(strong, nonatomic) NSMutableArray* fetchedData;
 @property(strong, nonatomic) NSMutableArray* fetchedArrayWithUsersPics;
-@property(strong, nonatomic) NSMutableArray* filteredResults;
-@property(strong, nonatomic) NSMutableArray* entities;
+@property(strong, nonatomic) NSArray* filteredResults;
+@property(strong, nonatomic) NSArray* entities;
 @property(strong, nonatomic) NSMutableArray* entitiesForSegmentedControl;
-@property(strong, nonatomic) NSMutableArray* filterdResultsForSegmentedControl;
+@property(strong, nonatomic) NSArray* filterdResultsForSegmentedControl;
 
 
 @property(strong, nonatomic) UINavigationController *nc;

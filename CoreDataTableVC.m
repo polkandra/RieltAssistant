@@ -14,7 +14,7 @@
 
 @end
 
-@implementation CoreDataTableVC
+@implementation CoreDataTableVC 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -83,9 +83,9 @@
 #pragma mark - Fetched results controller
 
 /*- (NSFetchedResultsController *)fetchedResultsController
-{
-    return nil;
-}*/
+ {
+ return nil;
+ }*/
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
@@ -102,7 +102,7 @@
             
         case NSFetchedResultsChangeDelete:
             [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-           
+            
             break;
             
         default:
@@ -142,5 +142,9 @@
 }
 
 
+
+- (void)configureCell:(MainScreenCellTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
+}
 
 @end

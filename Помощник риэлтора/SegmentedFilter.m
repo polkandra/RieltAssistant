@@ -43,7 +43,7 @@
     
     static NSString *cellIdentifier = @"segmentedCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    SegmentedCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     [self configureCell:cell atIndexPath:indexPath];
     

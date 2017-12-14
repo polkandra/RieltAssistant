@@ -15,8 +15,6 @@
 @implementation AddPhotosVC
 @synthesize myRetrievedPics, detailItem, collectionView, myPhotosArray;
 
-static NSString * const reuseIdentifier = @"collectionCell";
-
 
 #pragma mark - VC lifecycle
 
@@ -133,7 +131,7 @@ static NSString * const reuseIdentifier = @"collectionCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *cellIdentifier = @"CVcell";
+    static NSString * const reuseIdentifier = @"collectionCell";
     
     AddPhotoCVCell *cell = (AddPhotoCVCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     

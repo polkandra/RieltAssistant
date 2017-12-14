@@ -15,6 +15,7 @@
 @implementation SettingsViewController
 @synthesize tableView, cellSelectedArray;
 
+#pragma mark - VC Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +23,17 @@
 
     self.tableView.allowsMultipleSelection = YES;
     self.cellSelectedArray = [[NSMutableArray alloc] init];
+
+  
+}
+
+- (void) viewWillDisappear:(BOOL)animated{
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.selectedRow) forKey:@"selectedTick"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    self.selectedRow = [[[NSUserDefaults standardUserDefaults] objectForKey:@"selectedTick"] intValue];
 }
 
 
@@ -43,7 +55,7 @@
     }else if (section == 1) {
        [headerView setBackgroundColor:[UIColor colorWithRed:184/255.0 green:197/255.0 blue:214/255.0 alpha:1]];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
-        titleLabel.text = @"Удиницы измерения площади";
+        titleLabel.text = @" Единицы измерения площади";
         titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
         titleLabel.textColor = [UIColor whiteColor];
         titleLabel.backgroundColor = [UIColor clearColor];
@@ -69,15 +81,34 @@
 }
 
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+    if (indexPath.section == 1) {
+        if (indexPath.row == self.selectedRow){
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            
+        }else{
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+    }
+    
+    return cell;
+}
+
 #pragma mark - UITableViewDelegate
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+        
     if (indexPath.section == 1) {
+        self.selectedRow = indexPath.row;
+        [self.tableView reloadData];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         
         UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+        NSString *cellText = selectedCell.textLabel.text;
         
         if (selectedCell.accessoryType == UITableViewCellAccessoryCheckmark) {
             return;
@@ -91,8 +122,19 @@
             [cellSelectedArray addObject:selectedCell];
             NSLog(@"%lu",(unsigned long)cellSelectedArray.count);
             
+            if ([cellText isEqualToString:@"Футы"]) {
+                
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                [userDefaults setObject:cellText forKey:@"lengthType"];
+                [userDefaults synchronize];
+                
+            } else if ([cellText isEqualToString:@"Метры"]) {
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                [userDefaults setObject:cellText forKey:@"lengthType"];
+                [userDefaults synchronize];
+                
+            }
         }
-        
         for (UITableViewCell *cell in [tableView visibleCells]) {
             if (cell.accessoryType != UITableViewCellAccessoryNone && cell.tag == indexPath.section ) {
                 cell.accessoryType = UITableViewCellAccessoryNone;
@@ -164,12 +206,10 @@
 - (void)setImageForButton:(UIBarButtonItem *)flipButton {
     UIImage* imageBack = [UIImage imageNamed:@"back"];
     CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
-    
     UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
     [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
     [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
-    
     [flipButton initWithCustomView:someButton];
 }
 

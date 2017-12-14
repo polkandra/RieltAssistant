@@ -22,7 +22,6 @@
     
     self.ImageInEmbeddedView.image = imageFile;
     
-   
 }
 
 

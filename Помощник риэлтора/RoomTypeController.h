@@ -14,7 +14,8 @@
 @interface RoomTypeController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 
-
+@property(assign, nonatomic) NSInteger selectedRow;
+@property(assign, nonatomic) NSInteger selectedRow2;
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *roomCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *houseCell;

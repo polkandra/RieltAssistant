@@ -37,7 +37,7 @@
     
     static NSString *cellIdentifier = @"ResultCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    FilteredCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     [self configureCell:cell atIndexPath:indexPath];
     

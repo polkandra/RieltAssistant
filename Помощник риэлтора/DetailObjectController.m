@@ -45,7 +45,7 @@
     NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
     self.fetchedObjects = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
-    NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
+    NSMutableArray *fetchedArrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData*)detailItem.arrayOfUsersPics];
     self.sourceArray = [[NSMutableArray alloc] initWithArray:fetchedArrayWithUsersPics];
     
 }
@@ -135,6 +135,10 @@
 }
 
 
+-(void)dismissView {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 
 #pragma mark - Segues
@@ -159,7 +163,7 @@
     
     if ([segue.identifier isEqualToString:@"unwindAndSaveToDetail"]) {
         
-        NSMutableArray *arrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:detailItem.arrayOfUsersPics];
+        NSMutableArray *arrayWithUsersPics = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData*)detailItem.arrayOfUsersPics];
         self.sourceArray = [[NSMutableArray alloc] initWithArray:arrayWithUsersPics];
     
         [self configureView];
@@ -267,11 +271,12 @@
 
 - (IBAction)shareButtonTapped:(UIBarButtonItem *)sender {
     
-    NSArray *activities = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypeOpenInIBooks,UIActivityTypeMarkupAsPDF];
+    NSArray *activities = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypeOpenInIBooks];
     
     NSArray *items = @[[self.sourceArray firstObject]];
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
     activityViewController.excludedActivityTypes = activities;
+    
     
     /* NSString * msg = @"YOUR MSG";
      NSString * urlWhats = [NSString stringWithFormat:@"whatsapp://send?text=%@",msg];
@@ -294,9 +299,18 @@
         [documentInteractionController presentOpenInMenuFromRect:CGRectMake(0, 0, 0, 0) inView:self.view animated: YES];
         
     }else{
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"WhatsApp not installed." message:@"No WhatsApp installed." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"WhatsApp not installed." message:@"No WhatsApp installed." preferredStyle:UIAlertControllerStyleAlert];
         
-        [alert show];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        
+        [alert addAction:action];
+        
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
     }
     [self presentViewController:activityViewController animated:YES completion:NULL];
 }

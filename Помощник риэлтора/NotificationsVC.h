@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface NotificationsVC : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property(strong, nonatomic) NSMutableArray *cellSelectedArray;
+@property(assign, nonatomic) NSInteger selectedRow;
 
 @end

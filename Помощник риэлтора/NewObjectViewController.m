@@ -40,7 +40,7 @@
     [self setDelegatesForTextFields];
     [self addGestureRecognizer];
     [self pickerViewWithData];
-  
+    [self retriveSettingsFromUserDefaults];
     
     [self hideShowDeleteSaveButtons];
     [self hideBackButton];
@@ -53,7 +53,8 @@
     self.myData1 = [[NSMutableArray alloc] init];
 
     [self.saveSecondButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-     
+    
+  
     
 }
 
@@ -96,7 +97,13 @@
 
 #pragma mark - Helpers
 
-
+-(void)retriveSettingsFromUserDefaults {
+    self.totalSquareTextField.placeholder = [[NSUserDefaults standardUserDefaults] stringForKey:@"lengthType"];
+    self.livingSquareTextField.placeholder = [[NSUserDefaults standardUserDefaults] stringForKey:@"lengthType"];
+    self.kitchenSquareTextField.placeholder = [[NSUserDefaults standardUserDefaults] stringForKey:@"lengthType"];
+    
+    self.priceTextField.placeholder =  [[NSUserDefaults standardUserDefaults] stringForKey:@"currencyType"];
+}
 
 -(void)setNavController {
     
@@ -122,7 +129,7 @@
     
     if ((!self.navigationItem.leftBarButtonItem)) {
         
-        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:[detailItem valueForKey:@"discription"] style:UIBarButtonSystemItemCancel target:self action:@selector(back:)];
+        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:[detailItem valueForKey:@"discription"] style:UIBarButtonItemStylePlain target:self action:@selector(back:)];
         self.navigationItem.leftBarButtonItem = newBackButton;
         
     }
@@ -197,12 +204,10 @@
 - (void)setImageForButton:(UIBarButtonItem *)flipButton {
     UIImage* imageBack = [UIImage imageNamed:@"back"];
     CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
-    
     UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
     [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
     [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
-    
     [flipButton initWithCustomView:someButton];
 }
 
@@ -375,7 +380,7 @@
         }else{
             
             NSMutableString *concatString = [self.priceTextField.text mutableCopy];
-            NSMutableString *resultString = [concatString stringByAppendingString:@" \u20BD"];
+            NSMutableString *resultString = [[concatString stringByAppendingString:self.priceTextField.placeholder] mutableCopy];
             object.price = resultString;
         }
         
@@ -438,7 +443,7 @@
             
             if ([concatString rangeOfString:@"\u20BD"].location == NSNotFound) {
               
-                NSMutableString *resultString = [concatString stringByAppendingString:@" \u20BD"];
+                NSMutableString *resultString = [[concatString stringByAppendingString:self.priceTextField.placeholder] mutableCopy];
                 detailItem.price = resultString;
             } else {
                 detailItem.price = concatString;
@@ -554,7 +559,7 @@
                 
                 if ([concatString rangeOfString:@"\u20BD"].location == NSNotFound) {
                     
-                    NSMutableString *resultString = [concatString stringByAppendingString:@" \u20BD"];
+                    NSMutableString *resultString = [[concatString stringByAppendingString:self.priceTextField.placeholder] mutableCopy];
                     object.price = resultString;
                 }else{
                     object.price = concatString;
@@ -617,8 +622,7 @@
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     
     if ([identifier isEqualToString:@"toMain"]) {
-        
-        
+    
         if ((self.objectNameTextField.text.length == 0)) {
             
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"Введите название объекта" preferredStyle:UIAlertControllerStyleAlert];
@@ -649,7 +653,7 @@
     
     if ([segue.identifier isEqualToString:@"unwindAfterSaveTapped"]) {
         
-        RoomTypeController *controller = (RoomTypeController *)segue.sourceViewController;
+        //RoomTypeController *controller = (RoomTypeController *)segue.sourceViewController;
         
         
         self.objectTypeLabelInCell.text = [self.myData1 firstObject];

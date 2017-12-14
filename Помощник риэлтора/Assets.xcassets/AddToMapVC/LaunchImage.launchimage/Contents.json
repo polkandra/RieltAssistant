@@ -48,7 +48,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "icon_iphone_ios7_retina.png",
+      "filename" : "iPhone X Landscape-5.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
@@ -73,7 +73,7 @@
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
-      "filename" : "ipad_ios7_landscape.jpg",
+      "filename" : "iPhone X Landscape-1.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "1x"
@@ -89,7 +89,7 @@
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
-      "filename" : "ipad_2x_ios7_landscape.jpg",
+      "filename" : "iPhone X Landscape@2x.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
@@ -97,20 +97,21 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "iphone5_ios6.jpg",
+      "filename" : "iPhone X Landscape-4.png",
       "extent" : "full-screen",
       "scale" : "1x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
+      "filename" : "iPhone X Landscape@2x-3.png",
       "extent" : "full-screen",
       "scale" : "2x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "icon_iphone_ios6_retina.png",
+      "filename" : "iPhone X Landscape-6.png",
       "extent" : "full-screen",
       "subtype" : "retina4",
       "scale" : "2x"
@@ -124,7 +125,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "ipad_ios6_portrait.jpg",
+      "filename" : "iPhone X Landscape-3.png",
       "extent" : "full-screen",
       "scale" : "1x"
     },
@@ -137,7 +138,7 @@
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
-      "filename" : "ipad_ios6_landscape.jpg",
+      "filename" : "iPhone X Landscape-2.png",
       "extent" : "full-screen",
       "scale" : "1x"
     },
@@ -150,7 +151,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "ipad_2x_ios6_portrait.jpg",
+      "filename" : "iPhone X Landscape@2x-2.png",
       "extent" : "full-screen",
       "scale" : "2x"
     },
@@ -163,7 +164,7 @@
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
-      "filename" : "ipad_2x_ios6_landscape.jpg",
+      "filename" : "iPhone X Landscape-7.png",
       "extent" : "full-screen",
       "scale" : "2x"
     }

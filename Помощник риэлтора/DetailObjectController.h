@@ -19,7 +19,7 @@
 
 
 
-@interface DetailObjectController : UITableViewController
+@interface DetailObjectController : UITableViewController <UIDocumentInteractionControllerDelegate>
 
 
 
@@ -54,7 +54,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *detailPinImage;
 
-- (IBAction)detailMapAddressButton:(id)sender;
+//- (IBAction)detailMapAddressButton:(id)sender;
 - (IBAction)callButton:(UIButton *)sender;
 
 

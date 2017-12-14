@@ -34,7 +34,6 @@
 		C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */; };
 		C67BAAE01E7EBDC1004E9126 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAADF1E7EBDC1004E9126 /* MainViewController.m */; };
 		C67BAAE31E7EBDC1004E9126 /* MeetingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAAE21E7EBDC1004E9126 /* MeetingsViewController.m */; };
-		C67BAB571E7EEF59004E9126 /* MainScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = C67BAB561E7EEF59004E9126 /* MainScreenView.m */; };
 		C67DE89D1FC9C2590004150D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67DE89C1FC9C2590004150D /* SettingsViewController.m */; };
 		C67DE89F1FC9C8EF0004150D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C67DE89E1FC9C8EF0004150D /* Settings.storyboard */; };
 		C67DE8A21FC9CBF50004150D /* CurrencyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67DE8A11FC9CBF50004150D /* CurrencyTableViewController.m */; };
@@ -133,8 +132,6 @@
 		C67BAAE21E7EBDC1004E9126 /* MeetingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetingsViewController.m; sourceTree = "<group>"; };
 		C67BAAEA1E7EBDC2004E9126 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C67BAAEC1E7EBDC2004E9126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C67BAB551E7EEF59004E9126 /* MainScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenView.h; sourceTree = "<group>"; };
-		C67BAB561E7EEF59004E9126 /* MainScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenView.m; sourceTree = "<group>"; };
 		C67DE89B1FC9C2590004150D /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		C67DE89C1FC9C2590004150D /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		C67DE89E1FC9C8EF0004150D /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -339,8 +336,6 @@
 		C67BAB4F1E7EE1EC004E9126 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C67BAB551E7EEF59004E9126 /* MainScreenView.h */,
-				C67BAB561E7EEF59004E9126 /* MainScreenView.m */,
 				C6DE1CA81E897CF1008F3536 /* Cells */,
 				C67BAB4D1E7EE19E004E9126 /* StyleKit */,
 				C6D5F9A61F7AB27800D782A9 /* Storyboards */,
@@ -531,7 +526,7 @@
 		C67BAACD1E7EBDC1004E9126 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = Chebahatt;
 				TargetAttributes = {
 					C67BAAD41E7EBDC1004E9126 = {
@@ -664,7 +659,6 @@
 				C6FFFD691FCAE9610007C823 /* FilteredCell.m in Sources */,
 				C6D0E08F1EE8030B00E0FF26 /* MapAnnotation.m in Sources */,
 				C61A467F1FDC2B8900B61C8A /* SegmentedCell.m in Sources */,
-				C67BAB571E7EEF59004E9126 /* MainScreenView.m in Sources */,
 				C6FFFD641FCAE4770007C823 /* FilteredResultsVC.m in Sources */,
 				C67BAADD1E7EBDC1004E9126 /* AppDelegate.m in Sources */,
 				C64A91C91FA2447400C995A8 /* SelectMeetingCell.m in Sources */,
@@ -729,7 +723,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -737,7 +733,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -777,7 +777,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -785,7 +787,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
