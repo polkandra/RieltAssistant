@@ -12,13 +12,21 @@
 #import "AddToMapVC.h"
 #import "MapTab.h"
 #import <UserNotifications/UserNotifications.h>
+#import "DetailObjectController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) NSMutableArray *delegateMutableArray;
+@property (strong, nonatomic) NSArray *delegateMutableArray;
 
 @property(strong, nonatomic) EstateObjectEntity* detailItem;
+@property(strong, nonatomic) UINavigationController *navcon;
+@property(strong, nonatomic) UITabBarController *tabBar;
+@property(strong, nonatomic) UIViewController *cont;
+
+
+-(void)switchNavController;
+-(void)switchNavControllerToTabBar;
 
 
 @end

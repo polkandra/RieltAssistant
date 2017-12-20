@@ -21,11 +21,12 @@
 #import "FilteringVC.h"
 #import "SegmentedFilter.h"
 #import "SettingsViewController.h"
+#import "AppDelegate.h"
 
 //@class DetailObjectController;
 //@protocol AddArrayDelegate;
 
-@interface MainViewController : CoreDataTableVC  <UISearchControllerDelegate, UISearchResultsUpdating>
+@interface MainViewController : CoreDataTableVC  <UISearchControllerDelegate, UISearchResultsUpdating, UISearchControllerDelegate>
 
 
 

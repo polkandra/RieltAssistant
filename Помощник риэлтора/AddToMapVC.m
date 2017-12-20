@@ -243,8 +243,8 @@
 
 
 
-- (void)recenterMapToPlacemark:(CLPlacemark *)placemark
-{
+- (void)recenterMapToPlacemark:(CLPlacemark *)placemark {
+
     MKCoordinateRegion region;
     MKCoordinateSpan span;
     

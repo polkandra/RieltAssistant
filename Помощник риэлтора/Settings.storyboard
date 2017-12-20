@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eed-xr-YTR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eed-xr-YTR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Настройки-->
+        <!-- Настройки-->
         <scene sceneID="ydd-y3-Eey">
             <objects>
                 <tableViewController storyboardIdentifier="SettingsVC" id="eed-xr-YTR" customClass="SettingsViewController" sceneMemberID="viewController">
@@ -101,10 +101,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="за 15 минут" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2i2-bb-i6j">
-                                                    <rect key="frame" x="10" y="11" width="94" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите время уведомления" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2i2-bb-i6j">
+                                                    <rect key="frame" x="10" y="11" width="213" height="17"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="94" id="jIA-vb-Gqm"/>
+                                                        <constraint firstAttribute="width" constant="213" id="Xqm-XK-6pS"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -112,9 +112,9 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="2i2-bb-i6j" firstAttribute="leading" secondItem="di2-i4-4kS" secondAttribute="leading" constant="10" id="Ed0-qA-Z2d"/>
-                                                <constraint firstAttribute="bottom" secondItem="2i2-bb-i6j" secondAttribute="bottom" constant="12" id="IDa-MV-CW6"/>
-                                                <constraint firstItem="2i2-bb-i6j" firstAttribute="top" secondItem="di2-i4-4kS" secondAttribute="top" constant="11" id="IgM-ea-Raf"/>
+                                                <constraint firstAttribute="bottom" secondItem="2i2-bb-i6j" secondAttribute="bottom" constant="16" id="QE8-OU-uzd"/>
+                                                <constraint firstItem="2i2-bb-i6j" firstAttribute="top" secondItem="di2-i4-4kS" secondAttribute="top" constant="11" id="mac-3i-21Q"/>
+                                                <constraint firstItem="2i2-bb-i6j" firstAttribute="leading" secondItem="di2-i4-4kS" secondAttribute="leading" constant="10" id="qp5-BT-3Er"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -185,7 +185,7 @@
                             <outlet property="delegate" destination="eed-xr-YTR" id="0sl-Zf-NAS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Настройки" id="8OO-3X-cFt"/>
+                    <navigationItem key="navigationItem" title=" Настройки" id="8OO-3X-cFt"/>
                     <connections>
                         <outlet property="currencyLabel" destination="kdZ-18-5Hv" id="6jj-xe-HXT"/>
                         <outlet property="tableView" destination="n5c-0g-NhY" id="9rG-oo-fUL"/>
@@ -199,7 +199,7 @@
         <!--Валюта-->
         <scene sceneID="wjz-zH-Fhe">
             <objects>
-                <tableViewController id="9hA-EX-EXq" customClass="CurrencyTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CurrencyTableViewController" id="9hA-EX-EXq" customClass="CurrencyTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pCZ-x7-df5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -266,14 +266,24 @@
                             <outlet property="delegate" destination="9hA-EX-EXq" id="jas-p1-Oaz"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Валюта" id="mTD-db-Jzu"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Валюта" id="mTD-db-Jzu">
+                        <barButtonItem key="leftBarButtonItem" image="back" id="JMa-me-mdy">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="iwM-Ua-mhd" kind="unwind" identifier="unwindFromCurrencyVC" unwindAction="unwindFromCurrencyVC:" id="xNP-Eg-faR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="pCZ-x7-df5" id="74d-rj-Y7j"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dfe-BM-Ode" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="iwM-Ua-mhd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1310" y="224"/>
+            <point key="canvasLocation" x="952" y="348"/>
         </scene>
         <!--Уведомления-->
         <scene sceneID="dth-T1-47q">
@@ -379,14 +389,23 @@
                             <outlet property="delegate" destination="xl3-bd-UVJ" id="xMx-FU-oLs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Уведомления" id="KUj-sp-dbl" userLabel="Уведомления"/>
+                    <navigationItem key="navigationItem" title="Уведомления" id="KUj-sp-dbl" userLabel="Уведомления">
+                        <barButtonItem key="leftBarButtonItem" image="back" id="R1B-L6-5Wy">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="NRM-JO-4MJ" kind="unwind" identifier="unwindFromNotificationsVC" unwindAction="unwindFromNotificationsVC:" id="FCn-M6-27O"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T1l-RJ-ivE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="NRM-JO-4MJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1404" y="1110"/>
+            <point key="canvasLocation" x="931" y="1127"/>
         </scene>
     </scenes>
     <resources>
+        <image name="back" width="30" height="24"/>
         <image name="buyImage" width="235" height="43"/>
         <image name="restoreImage" width="235" height="43"/>
     </resources>

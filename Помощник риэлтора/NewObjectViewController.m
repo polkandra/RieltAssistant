@@ -40,7 +40,7 @@
     [self setDelegatesForTextFields];
     [self addGestureRecognizer];
     [self pickerViewWithData];
-    [self retriveSettingsFromUserDefaults];
+    
     
     [self hideShowDeleteSaveButtons];
     [self hideBackButton];
@@ -84,6 +84,7 @@
     [super viewWillAppear:animated];
     
     [self setNavController];
+    [self retriveSettingsFromUserDefaults];
     
     NSMutableString *concatString = [self.priceTextField.text mutableCopy];
     NSRange replaceRange = [concatString rangeOfString:@"Рублей"];
@@ -608,11 +609,11 @@
         AddPhotosVC *apVC = (AddPhotosVC *)segue.destinationViewController;
         apVC.detailItem = self.detailItem;
       
-        UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
+//        UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
+//
+//        [self setImageForButton:flipButton];
         
-        [self setImageForButton:flipButton];
-        
-        apVC.navigationItem.leftBarButtonItem = flipButton;
+      //  apVC.navigationItem.leftBarButtonItem = flipButton;
     }
     
 }
@@ -649,18 +650,20 @@
 
 // unwind segue from RoomType VC
 
-- (IBAction)unwindToNewObjectVCAfterSaveButtonTaped:(UIStoryboardSegue*)segue {
+- (IBAction)unwindToNewObjectVCAfterBackButtonTaped:(UIStoryboardSegue*)segue {
     
-    if ([segue.identifier isEqualToString:@"unwindAfterSaveTapped"]) {
-        
-        //RoomTypeController *controller = (RoomTypeController *)segue.sourceViewController;
-        
+    if ([segue.identifier isEqualToString:@"unwindAfterBackTapped"]) {
         
         self.objectTypeLabelInCell.text = [self.myData1 firstObject];
         self.actionTypeLabelInCell.text = [self.myData1 lastObject];
+        //RoomTypeController *controller = (RoomTypeController *)segue.sourceViewController;
         
-        
-        [self.tableView reloadData];
+         [self.tableView reloadData];
+//        self.objectTypeLabelInCell.text = [self.myData1 firstObject];
+//        self.actionTypeLabelInCell.text = [self.myData1 lastObject];
+//
+//
+//        [self.tableView reloadData];
         
     }
     
@@ -671,8 +674,12 @@
 
 // unwind segue from RoomType VC
 
-- (IBAction)unwindToNewObjectVCAfterBackButtonTapped:(UIStoryboardSegue *)segue {
+- (IBAction)unwindToNewObjectVCAfterSaveButtonTapped:(UIStoryboardSegue *)segue {
+    self.objectTypeLabelInCell.text = [self.myData1 firstObject];
+    self.actionTypeLabelInCell.text = [self.myData1 lastObject];
     
+    
+    [self.tableView reloadData];
 }
 
 

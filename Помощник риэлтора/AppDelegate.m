@@ -16,11 +16,14 @@
 @end
 
 @implementation AppDelegate
-
+@synthesize navcon;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
-  
+//    UIStoryboard  *storyboard = [UIStoryboard storyboardWithName:@"Object" bundle:nil];
+//    SearchResultsTableViewController *srTVC = [storyboard instantiateViewControllerWithIdentifier:@"SearchResultsTableViewController"];
+//    DetailObjectController *controller = [storyboard instantiateViewControllerWithIdentifier:@"DetailObjectController"];
+//    self.navcon = [[UINavigationController alloc] initWithRootViewController:srTVC];
     
 #pragma mark - Notifications
     
@@ -48,34 +51,12 @@
     //[[UITabBar appearance] setBackgroundImage:tabBarBackground];
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     [[UITabBar appearance] setBarTintColor:[StyleKitName gradientColor52]];
-   
-    
-    /* // setting navigation bar translucent
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
-    [[UINavigationBar appearance] setTranslucent:YES];*/
-   
-    /*[[UINavigationBar appearance] setBarStyle:UIBarStyleBlack ];
-    [[UINavigationBar appearance] setTintColor:[UIColor yellowColor]];
-    [[UINavigationBar appearance] setTranslucent:NO];*/
-        
-        
-    /*UIImage *navBackgroundImage = [UIImage imageNamed:@"navbar_bg"];
-    [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];*/
-    
-    /*[[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                           [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], UITextAttributeTextColor,
-                                                           [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],UITextAttributeTextShadowColor,
-                                                           [NSValue valueWithUIOffset:UIOffsetMake(0, 1)],
-                                                           UITextAttributeTextShadowOffset,
-                                                           [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], UITextAttributeFont, nil]];*/
-    
-    
-    
-    
+  
     
     return YES;
 }
+
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -105,6 +86,24 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     //[[DataManager sharedManager] saveContext];
 }
+
+
+
+-(void)switchNavController {
+    UIStoryboard  *storyboard = [UIStoryboard storyboardWithName:@"Object" bundle:nil];
+    self.navcon = [storyboard instantiateViewControllerWithIdentifier:@"Object88"];
+    self.window.rootViewController = self.navcon;
+}
+
+
+-(void)switchNavControllerToTabBar {
+    UIStoryboard  *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UITabBarController *controller = [storyboard instantiateViewControllerWithIdentifier:@"tab"];
+    self.window.rootViewController = controller;
+}
+
+
+
 
 
 @end

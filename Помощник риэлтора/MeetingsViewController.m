@@ -287,6 +287,7 @@
     [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
     [flipButton initWithCustomView:someButton];
+
 }
 
 @end

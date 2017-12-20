@@ -56,9 +56,6 @@
 
 @property(nonatomic, assign) id<UINavigationControllerDelegate,UIImagePickerControllerDelegate>delegate;
 
-- (IBAction)unwindToNewObjectVCAfterSaveButtonTaped:(UIStoryboardSegue*)segue;
-- (IBAction)unwindToNewObjectVCAfterBackButtonTapped:(UIStoryboardSegue *)segue;
-
 
 @property (weak, nonatomic) IBOutlet UIButton *addPlaceOnMapButton;
 

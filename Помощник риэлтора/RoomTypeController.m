@@ -30,40 +30,51 @@
 
 
 
-- (void) viewWillDisappear:(BOOL)animated{
+/*- (void) viewWillDisappear:(BOOL)animated{
     [[NSUserDefaults standardUserDefaults] setObject:@(self.selectedRow) forKey:@"selectedTick5"];
     [[NSUserDefaults standardUserDefaults] setObject:@(self.selectedRow2) forKey:@"selectedTick6"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.cellSelectedArray1 forKey:@"ticksArray1"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.cellSelectedArray2 forKey:@"ticksArray2"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     self.selectedRow = [[[NSUserDefaults standardUserDefaults] objectForKey:@"selectedTick5"] intValue];
     self.selectedRow2 = [[[NSUserDefaults standardUserDefaults] objectForKey:@"selectedTick6"] intValue];
-}
+    
+//    self.cellSelectedArray1 = [[[NSUserDefaults standardUserDefaults] objectForKey:@"ticksArray1"] mutableCopy];
+//    self.cellSelectedArray2 = [[[NSUserDefaults standardUserDefaults] objectForKey:@"ticksArray2"] mutableCopy ];
+    
+    NSMutableArray *array = [[[NSUserDefaults standardUserDefaults] objectForKey:@"ticksArray1"] mutableCopy];
+    NSMutableArray *array2 = [[[NSUserDefaults standardUserDefaults] objectForKey:@"ticksArray2"] mutableCopy];
+
+    self.cellSelectedArray1 =  [[NSMutableArray alloc] initWithArray:array];
+    self.cellSelectedArray2 =  [[NSMutableArray alloc] initWithArray:array2];
+}*/
 
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+   
     if (indexPath.section == 0) {
-        self.selectedRow = indexPath.row;
-        [self.tableView reloadData];
+       
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         
         UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
         
         if (selectedCell.accessoryType == UITableViewCellAccessoryCheckmark) {
-            return;
+            //return;
         }
         
-        if ([cellSelectedArray containsObject:selectedCell.textLabel.text] ) {
-            [cellSelectedArray removeObject:selectedCell.textLabel.text];
+        if ([self.cellSelectedArray containsObject:selectedCell.textLabel.text] ) {
+            
+            [self.cellSelectedArray removeObject:selectedCell.textLabel.text];
             
         }else{
             
-            [cellSelectedArray addObject:selectedCell.textLabel.text];
-            NSLog(@"%lu",(unsigned long)cellSelectedArray.count);
+            [self.cellSelectedArray addObject:selectedCell.textLabel.text];
+            NSLog(@"%lu",(unsigned long) self.cellSelectedArray.count);
             
         }
         
@@ -80,23 +91,21 @@
         selectedCell.tag = indexPath.section;
         
     }else if (indexPath.section == 1) {
-       
-        self.selectedRow2 = indexPath.row;
-        [self.tableView reloadData];
+      
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
        
         UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
         
         if (selectedCell.accessoryType == UITableViewCellAccessoryCheckmark ) {
             
-            return;
+           // return;
         }
         
-        if ([cellSelectedArray containsObject:selectedCell.textLabel.text] ) {
-            [cellSelectedArray removeObject:selectedCell.textLabel.text];
+        if ([self.cellSelectedArray containsObject:selectedCell.textLabel.text] ) {
+            [self.cellSelectedArray removeObject:selectedCell.textLabel.text];
             
         }else{
-            [cellSelectedArray addObject:selectedCell.textLabel.text];
+            [self.cellSelectedArray addObject:selectedCell.textLabel.text];
         }
         
         
@@ -111,12 +120,11 @@
         selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
         
         
-        NSLog(@"%lu",(unsigned long)cellSelectedArray.count);
+        NSLog(@"%lu",(unsigned long)self.cellSelectedArray.count);
         
     }
     
 }
-
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -147,7 +155,7 @@
 #pragma mark - UITableViewDataSource
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+/*- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     
@@ -169,19 +177,18 @@
         }
     }
     return cell;
-}
+}*/
 
 
 #pragma mark - Navigation
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([segue.identifier isEqualToString:@"unwindAfterSaveTapped"]) {
+    if ([segue.identifier isEqualToString:@"unwindAfterBackTapped"]) {
         
         NewObjectViewController *controller = segue.destinationViewController;
         controller.myData1 = cellSelectedArray;
-        
-        
+       
         NSLog(@"%lu",(unsigned long)cellSelectedArray.count);
         
     }
@@ -193,7 +200,7 @@
     
     if ([identifier isEqualToString:@"unwindAfterSaveTapped"]) {
         
-        if ([cellSelectedArray count] == 0) {
+       // if ([cellSelectedArray count] == 0) {
             
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"Введите параметры" preferredStyle:UIAlertControllerStyleAlert];
             
@@ -210,7 +217,7 @@
             return NO;
         }
         
-    }
+   // }
     return YES;
 }
 

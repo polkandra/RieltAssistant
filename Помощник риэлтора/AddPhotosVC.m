@@ -32,7 +32,11 @@
     
     self.myPhotosArray = [[NSMutableArray alloc] init];
     self.myArrayWithPhotoData = [[NSMutableArray alloc] init];
-
+    
+    
+    UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Добавить" style:UIBarButtonItemStylePlain target:self action:@selector(addPics:)];
+    [self setImageForButton:flipButton];
+    self.navigationItem.rightBarButtonItem = flipButton;
 }
 
 
@@ -420,6 +424,23 @@
     }
   
 }
+
+#pragma mark - Helper
+
+- (void)setImageForButton:(UIBarButtonItem *)flipButton {
+    UIImage* imageBack = [UIImage imageNamed:@"plus-1"];
+    CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
+    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
+    [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
+    [someButton setBackgroundImage:[UIImage imageNamed:@"plus-1"] forState:UIControlStateNormal];
+    [someButton addTarget:self action:@selector(addPics:) forControlEvents:UIControlEventTouchUpInside];
+    [flipButton initWithCustomView:someButton];
+}
+
+
+
+
+
 
 
 @end

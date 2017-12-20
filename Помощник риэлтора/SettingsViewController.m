@@ -30,10 +30,16 @@
 - (void) viewWillDisappear:(BOOL)animated{
     [[NSUserDefaults standardUserDefaults] setObject:@(self.selectedRow) forKey:@"selectedTick"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    self.selectedRow = [[[NSUserDefaults standardUserDefaults] objectForKey:@"selectedTick"] intValue];
+    self.selectedRow = [[NSUserDefaults standardUserDefaults] integerForKey:@"selectedTick"];
+    self.timeToMeetLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"notificationsText"];
+    
+    self.currencyLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"currencyText"];
+    
+    
 }
 
 
@@ -111,7 +117,7 @@
         NSString *cellText = selectedCell.textLabel.text;
         
         if (selectedCell.accessoryType == UITableViewCellAccessoryCheckmark) {
-            return;
+            //return;
         }
         
         if ([cellSelectedArray containsObject:selectedCell] ) {
@@ -122,6 +128,7 @@
             [cellSelectedArray addObject:selectedCell];
             NSLog(@"%lu",(unsigned long)cellSelectedArray.count);
             
+        }
             if ([cellText isEqualToString:@"Футы"]) {
                 
                 NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -134,7 +141,7 @@
                 [userDefaults synchronize];
                 
             }
-        }
+        
         for (UITableViewCell *cell in [tableView visibleCells]) {
             if (cell.accessoryType != UITableViewCellAccessoryNone && cell.tag == indexPath.section ) {
                 cell.accessoryType = UITableViewCellAccessoryNone;
@@ -178,47 +185,47 @@
     
     if ([segue.identifier isEqualToString:@"toCurrencyVC"]){
         
-        CurrencyTableViewController *sVC = segue.destinationViewController;
+       // CurrencyTableViewController *sVC = segue.destinationViewController;
         
-        UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
-        
-        [self setImageForButton:flipButton];
-        
-        sVC.navigationItem.leftBarButtonItem = flipButton;
         
     }else if ([segue.identifier isEqualToString:@"toNotificationsVC"]){
         
-        NotificationsVC *sVC = segue.destinationViewController;
-        
-        UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
-        
-        [self setImageForButton:flipButton];
-        
-        sVC.navigationItem.leftBarButtonItem = flipButton;
-    
     }
     
 }
 
+// unwind segue from unwindFromNotificationsVC
+- (IBAction)unwindFromNotificationsVC:(UIStoryboardSegue*)segue {
+    
+}
+
+
+// unwind segue from unwindFromCurrencyVC
+- (IBAction)unwindFromCurrencyVC:(UIStoryboardSegue*)segue {
+    
+}
+
+
 
 #pragma mark - Helper
 
-- (void)setImageForButton:(UIBarButtonItem *)flipButton {
-    UIImage* imageBack = [UIImage imageNamed:@"back"];
-    CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
-    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
-    [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
-    [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-    [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
-    [flipButton initWithCustomView:someButton];
-}
-
-
-
--(void)dismissView {
-    
-    [self.navigationController popViewControllerAnimated:YES];
-}
+//- (void)setImageForButton:(UIBarButtonItem *)flipButton {
+//    UIImage* imageBack = [UIImage imageNamed:@"back"];
+//    CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
+//    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
+//    [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
+//    [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+//    [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
+//    [flipButton initWithCustomView:someButton];
+//}
+//
+//
+//
+//-(void)dismissView {
+//    
+//  
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 
 
 

@@ -13,31 +13,40 @@
 @end
 
 @implementation SearchResultsTableViewController
-@synthesize detailItem, srTVC, nc;
+@synthesize detailItem, nc, top;
 
 
 #pragma mark - VC lificycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    srTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResultsTableViewController"];
+  
     
     
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+    
    
     
-     self.nc = [[UINavigationController alloc] initWithRootViewController:self];
+}
 
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+//    UIStoryboard  *storyboard = [UIStoryboard storyboardWithName:@"Object" bundle:nil];
+//    self.top = [storyboard instantiateViewControllerWithIdentifier:@"Object88"];
+//    self.top = [UIApplication sharedApplication].keyWindow.rootViewController;
+//    self.top = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+//    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+//    [(AppDelegate*)[[UIApplication sharedApplication]delegate] switchNavController];
+//    self.top = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+//    [self.top setNavigationBarHidden:YES animated:NO];
+    
 
 }
 
 #pragma mark - Table view data source
-
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
@@ -49,7 +58,7 @@
     
     static NSString *cellIdentifier = @"SearchResultCell";
     
-    FilteredResultCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    FilteredResultCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     //UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
@@ -81,26 +90,48 @@
 #pragma mark - UITableViewDelegate
 
 
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    self.top = [UIApplication sharedApplication].keyWindow.rootViewController;
-    
-    
-    DetailObjectController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailObjectController"];
-    NSIndexPath *indexPath2 = [self.tableView indexPathForSelectedRow];
-    EstateObjectEntity *selectedEntity = [self.searchResults objectAtIndex:indexPath2.row];
+    UIStoryboard  *storyboard = [UIStoryboard storyboardWithName:@"Object" bundle:nil];
+    DetailObjectController *controller = [storyboard instantiateViewControllerWithIdentifier:@"DetailObjectController"];
+    // NSIndexPath *indexPath2 = [tableView indexPathForSelectedRow];
+    EstateObjectEntity *selectedEntity = [self.searchResults objectAtIndex:indexPath.row];
     controller.detailItem = selectedEntity;
-    controller.goToMap.userInteractionEnabled = NO;
-    controller.goToMap.hidden = YES;
     
+    UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
+    [self setImageForButton:flipButton];
     
-    [self controllerWhereCreateNavBar:controller titleWithSelectedEntity:selectedEntity];
+    controller.navigationItem.leftBarButtonItem = flipButton;
+    controller.navigationItem.rightBarButtonItem = nil;
     
-    [self.top presentViewController:controller animated:YES completion: nil];
+    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [(AppDelegate*)[[UIApplication sharedApplication]delegate] switchNavController];
+    
+    self.top = (UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+    [self.top pushViewController:controller animated:YES];
+    
 }
+
+
+
+#pragma mark - Navigation
+
+
+/*-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"fromSearchToDetail"]) {
+        
+        DetailObjectController *doc = (DetailObjectController*)segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        EstateObjectEntity *selectedEntity = [self.searchResults objectAtIndex:indexPath.row];
+        doc.detailItem = selectedEntity;
+        doc.goToMap.userInteractionEnabled = NO;
+        doc.goToMap.hidden = YES;
+        //  [self controllerWhereCreateNavBar:doc titleWithSelectedEntity:selectedEntity];
+    }
+    
+}*/
 
 
 #pragma mark - Observer
@@ -108,37 +139,14 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     // extract array from observer
     self.searchResults = [(NSMutableArray *)object valueForKey:@"entities"];
-    MainViewController *mainVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MainStoryboardID"];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Object" bundle:nil];
+    MainViewController *mainVC = [storyboard instantiateViewControllerWithIdentifier:@"MainStoryboardID"];
     mainVC.detailItem = self.detailItem;
     [self.tableView reloadData];
 }
 
 
-
-#pragma mark - Helper
-
-- (void)controllerWhereCreateNavBar:(DetailObjectController *)controller titleWithSelectedEntity:(EstateObjectEntity *)selectedEntity {
-   
-    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 45)];
-    
-    navBar.backgroundColor = [StyleKitName gradientColor52];
-    
-    [navBar setBackgroundImage:[UIImage new] forBarPosition:UIBarPositionTopAttached barMetrics:UIBarMetricsDefault];
-    [navBar setShadowImage:[UIImage new]];
-    [navBar setTranslucent:YES];
-    [self preferredStatusBarStyle];
-    [controller.view addSubview:navBar];
-    
-    NSString * myTitle = [NSString stringWithFormat:@"%@",[selectedEntity valueForKey:@"discription"]];
-    UINavigationItem *navigItem = [[UINavigationItem alloc] initWithTitle:myTitle];
-    
-    UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
-    
-    [self setImageForButton:flipButton];
-    
-    navigItem.leftBarButtonItem = flipButton;
-    navBar.items = @[navigItem];
-}
 
 
 
@@ -156,10 +164,13 @@
 
 
 -(void)dismissView {
-    
-    [self.top dismissViewControllerAnimated:YES completion:nil];
-   
+  
+    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [(AppDelegate*)[[UIApplication sharedApplication]delegate] switchNavControllerToTabBar];
 
 }
+
+
+
 
 @end

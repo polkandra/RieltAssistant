@@ -32,9 +32,8 @@
     SearchResultsTableViewController *searchResultsVC = (SearchResultsTableViewController *)self.searchController.searchResultsController;
     [self addObserver:searchResultsVC forKeyPath:@"entities" options:NSKeyValueObservingOptionNew context:nil];
   
-    
+ 
 }
-
 
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -63,17 +62,14 @@
         
     }
     
-    
 }
 
 
 
 
-
--(void)viewDidAppear:(BOOL)animated {
+-(void)viewWillDisappear:(BOOL)animated {
     
-    [super viewDidAppear:animated];
-  
+   // [self.searchController dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -83,7 +79,11 @@
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.discription contains [cd] %@", self.searchController.searchBar.text];
     self.entities = [self.filteredResults filteredArrayUsingPredicate:predicate];
+
+    
 }
+
+
 
 
 #pragma mark - UISearchController
@@ -95,17 +95,14 @@
         SearchResultsTableViewController *resultsController = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResultsTableViewController"];
         
         searchController = [[UISearchController alloc]initWithSearchResultsController:resultsController];
-        
         searchController.searchResultsUpdater = self;
         searchController.hidesNavigationBarDuringPresentation = NO;
-        
         searchController.delegate = self;
-        searchController.obscuresBackgroundDuringPresentation = NO;
+        searchController.obscuresBackgroundDuringPresentation = YES;
         searchController.definesPresentationContext = YES;
         searchController.searchBar.placeholder = @"введите имя объекта";
         searchController.searchBar.barTintColor = [StyleKitName gradientColor52];
-        
-        
+        // self.tableView.tableHeaderView = searchController.searchBar;
         
     }
     return searchController;
@@ -298,7 +295,7 @@
         case 0: {
             NSPredicate *favourite = [NSPredicate predicateWithFormat:@"isLiked == YES"];
             [self fetchEntitiesWithPredicates:favourite];
-            SegmentedFilter * sfVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SegmentedResults"];
+            SegmentedFilter *sfVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SegmentedResults"];
             UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
             [self setImageForButton:flipButton];
             sfVC.navigationItem.leftBarButtonItem = flipButton;

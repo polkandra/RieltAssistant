@@ -12,24 +12,29 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    [self makeItCircle];
 }
 
 
 
 -(void)drawRect:(CGRect)rect {
-
-     [StyleKitName gradientColor55];
     
-
+    [StyleKitName gradientColor55];
+    
 }
 
-
+-(void)makeItCircle {
+    
+    self.objectPicture.layer.masksToBounds = YES;
+    // self.imageViewCell.layer.cornerRadius  = self.imageViewCell.frame.size.width/2.0;
+    self.objectPicture.layer.cornerRadius  = 15;
+    
+}
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 

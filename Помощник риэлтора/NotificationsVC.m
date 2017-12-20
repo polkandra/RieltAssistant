@@ -13,7 +13,7 @@
 @end
 
 @implementation NotificationsVC
-@synthesize cellSelectedArray;
+@synthesize cellSelectedArray, cellText;
 
 
 
@@ -43,11 +43,11 @@
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         
         UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-        NSString *cellText = selectedCell.textLabel.text;
+        self.cellText = selectedCell.textLabel.text;
         
         
         if (selectedCell.accessoryType == UITableViewCellAccessoryCheckmark) {
-            return;
+            //return;
         }
         
         if ([cellSelectedArray containsObject:selectedCell] ) {
@@ -112,16 +112,29 @@
     
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     
-        if (indexPath.row == self.selectedRow){
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            
-        }else{
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }
+    if (indexPath.row == self.selectedRow){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        self.cellText = cell.textLabel.text;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
     return cell;
 }
 
+#pragma mark - Navigation
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"unwindFromNotificationsVC"]) {
+        
+        SettingsViewController *sVC = (SettingsViewController*)segue.destinationViewController;
+       
+        [[NSUserDefaults standardUserDefaults] setObject:self.cellText forKey:@"notificationsText"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        sVC.timeToMeetLabel.text = [NSString stringWithFormat:@"%@",self.cellText];
+    }
+}
 
 
 @end

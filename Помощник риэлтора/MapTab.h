@@ -14,13 +14,21 @@
 #import "EstateObjectEntity+CoreDataProperties.h"
 #import "EstateObject.h"
 #import "DetailObjectController.h"
+#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocomplete.h>
+#import "CLPlacemark+HNKAdditions.h"
+#import "StyleKitName.h"
 
-@interface MapTab : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
+@interface MapTab : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchBarDelegate>
 
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-
+@property (strong, nonatomic) HNKGooglePlacesAutocompleteQuery *searchQuery;
 @property (strong, nonatomic)  CLLocationManager *locationManager;
+@property (strong, nonatomic) NSArray *searchResults;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+
 
 @property(strong, nonatomic) EstateObjectEntity *detailItem;
 @property (assign)  int pinTag;

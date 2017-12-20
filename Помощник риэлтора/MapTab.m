@@ -13,7 +13,7 @@
 @end
 
 @implementation MapTab
-@synthesize mapView, locationManager, detailItem;
+@synthesize mapView, locationManager, detailItem, searchBar, tableView;
 
 
 #pragma mark VC Lifecycle
@@ -23,7 +23,7 @@
     
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
-    
+    self.searchBar.tintColor = [StyleKitName gradientColor52];
     [self setLocationManager];
     //[self getAnnotations];
     
@@ -153,6 +153,101 @@
 }
 
 
+#pragma mark - UITableView DataSource
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return self.searchResults.count;
+    
+}
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"autocompleteCell" forIndexPath:indexPath];
+    
+    HNKGooglePlacesAutocompletePlace *thisPlace = self.searchResults[indexPath.row];
+    cell.textLabel.text = thisPlace.name;
+    return cell;
+}
+
+
+#pragma mark - UITableView Delegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.searchBar setShowsCancelButton:NO animated:YES];
+    [self.searchBar resignFirstResponder];
+    
+    HNKGooglePlacesAutocompletePlace *selectedPlace = self.searchResults[indexPath.row];
+    
+    [CLPlacemark hnk_placemarkFromGooglePlace: selectedPlace
+                                       apiKey:@"AIzaSyAh4GgFn_mdwKvfOzhPNxxnU7UERxIMIIM"
+                                   completion:^(CLPlacemark *placemark, NSString *addressString, NSError *error) {
+                                       if (placemark) {
+                                           [self.tableView setHidden: YES];
+                                           
+                                           //uncomment to be able after selecting row in search results go to place and put a placemark.
+                                           
+                                           // [self addPlacemarkAnnotationToMap:placemark addressString:addressString];
+                                           
+                                           [self recenterMapToPlacemark:placemark];
+                                           [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+                                       }
+                                   }];
+}
+
+
+
+
+#pragma mark - UISearchBar Delegate
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)aSearchBar {
+    [searchBar resignFirstResponder];
+    
+}
+
+
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    if (searchText.length > 0) {
+        self.tableView.hidden = NO;
+        [self.searchQuery fetchPlacesForSearchQuery: searchText
+                                         completion:^(NSArray *places, NSError *error) {
+                                             if (error) {
+                                                 NSLog(@"ERROR: %@", error);
+                                                 [self handleSearchError:error];
+                                             } else {
+                                                 self.searchResults = places;
+                                                 [self.mapView addSubview:self.tableView];
+                                                 [self.tableView reloadData];
+                                             }
+                                         }];
+    }else{
+        
+        self.tableView.hidden = YES;
+    }
+}
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    
+    searchBar.text = @"";
+    
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+    [self.tableView setHidden:YES];
+}
+
+
+
 
 #pragma mark - MKMapViewDelegate
 
@@ -249,6 +344,34 @@
 
 
 #pragma mark - helpers
+
+- (void)recenterMapToPlacemark:(CLPlacemark *)placemark {
+    
+    MKCoordinateRegion region;
+    MKCoordinateSpan span;
+    
+    span.latitudeDelta = 0.02;
+    span.longitudeDelta = 0.02;
+    
+    region.span = span;
+    region.center = placemark.location.coordinate;
+    
+    [self.mapView setRegion:region animated:YES];
+}
+
+
+
+- (void)handleSearchError:(NSError *)error {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                   message:error.localizedDescription
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 
 
 -(void)dismissView {

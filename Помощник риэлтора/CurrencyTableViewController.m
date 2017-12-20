@@ -13,7 +13,7 @@
 @end
 
 @implementation CurrencyTableViewController
-@synthesize tableView, cellSelectedArray;
+@synthesize tableView, cellSelectedArray, selectedCell;
 
 
 
@@ -33,7 +33,8 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    self.selectedRow = [[[NSUserDefaults standardUserDefaults] objectForKey:@"selectedTick1"] intValue];
+    self.selectedRow = [[NSUserDefaults standardUserDefaults] integerForKey:@"selectedTick1"];
+
 }
 
 
@@ -45,11 +46,10 @@
     [self.tableView reloadData];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    NSString *cellText = selectedCell.textLabel.text;
-    
+    self.selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    self.cellText = selectedCell.textLabel.text;
     if (selectedCell.accessoryType == UITableViewCellAccessoryCheckmark) {
-        return;
+       // return;
     }
     
     if ([cellSelectedArray containsObject:selectedCell] ) {
@@ -62,20 +62,20 @@
         
     }
     
-    if ([cellText isEqualToString:@"Рубль ₽"]) {
+    if ([self.cellText isEqualToString:@"Рубль ₽"]) {
         
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         NSString *resultString = @"₽";
         [userDefaults setObject:resultString forKey:@"currencyType"];
         [userDefaults synchronize];
         
-    } else if ([cellText isEqualToString:@"Доллар ＄"]) {
+    } else if ([self.cellText isEqualToString:@"Доллар ＄"]) {
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         NSString *resultString = @"＄";
         [userDefaults setObject:resultString forKey:@"currencyType"];
         [userDefaults synchronize];
         
-    }else if ([cellText isEqualToString:@"Евро €"]) {
+    }else if ([self.cellText isEqualToString:@"Евро €"]) {
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         NSString *resultString = @"€";
         [userDefaults setObject:resultString forKey:@"currencyType"];
@@ -101,14 +101,34 @@
     
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     
-    if (indexPath.row == self.selectedRow){
+    if (indexPath.row == self.selectedRow) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        
+        self.cellText = cell.textLabel.text;
     }else{
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
     return cell;
 }
+
+
+
+#pragma mark - Navigation
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"unwindFromCurrencyVC"]) {
+        SettingsViewController *sVC = (SettingsViewController*)segue.destinationViewController;
+        [[NSUserDefaults standardUserDefaults] setObject:self.cellText forKey:@"currencyText"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        sVC.currencyLabel.text = [NSString stringWithFormat:@"%@",self.cellText];
+        
+    }
+}
+
+
+
+
+
 
 @end

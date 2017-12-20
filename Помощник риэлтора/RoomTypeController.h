@@ -39,6 +39,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *sellType;
 
 @property (strong, nonatomic) NSMutableArray *myData;
+
 @property (strong, nonatomic)  NSMutableArray *cellSelectedArray;
+
 
 @end
