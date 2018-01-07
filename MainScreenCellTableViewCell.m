@@ -21,6 +21,7 @@
 -(void)layoutSubviews{
     
     [super layoutSubviews];
+   // [self.contentView layoutIfNeeded];
     [self makeItCircle];
 }
 

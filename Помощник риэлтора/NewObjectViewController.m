@@ -756,7 +756,7 @@
 -(void)pickerViewWithData {
     
     
-    self.pickerViewArrayRoomQuantity = [[NSMutableArray alloc] initWithObjects:@"1 комната",@" 2 комнаты",@"3 комнаты",@"4 комнаты",@"5 комнат и более", nil];
+    self.pickerViewArrayRoomQuantity = [[NSMutableArray alloc] initWithObjects:@"1",@"2",@"3",@"4",@"5 и >", nil];
     self.pickerViewArrayCity = [[NSMutableArray alloc] initWithObjects:@"Москва",@"Санкт-Петербург",@"Екатеринбург",@"Сочи", nil];
     
    // self.myPhotosArray = [[NSMutableArray alloc] init];

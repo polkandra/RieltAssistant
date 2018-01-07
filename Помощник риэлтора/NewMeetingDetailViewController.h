@@ -34,7 +34,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *meetDetailsTextView;
 
 @property (strong, nonatomic) EstateObjectEntity* detailItem;
-@property(strong, nonatomic) MeetingObjectEntity *meetingObject;
+@property(strong, nonatomic)  MeetingObjectEntity *meetingObject;
 
 @property(strong, nonatomic) NSMutableArray *retrievedArray;
 

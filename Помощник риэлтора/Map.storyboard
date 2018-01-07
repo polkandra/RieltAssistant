@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="efU-Df-iTV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="efU-Df-iTV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,6 +41,11 @@
                                     <constraint firstAttribute="width" constant="375" id="qJk-pX-pYz"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="qJk-pX-pYz"/>
+                                    </mask>
+                                </variation>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,15 +53,35 @@
                             <constraint firstItem="ODF-EI-j19" firstAttribute="top" secondItem="ezv-Xu-dv7" secondAttribute="bottom" id="0dA-nm-cVb"/>
                             <constraint firstAttribute="trailing" secondItem="2Wi-WH-X9b" secondAttribute="trailing" id="NFj-Wf-aqq"/>
                             <constraint firstAttribute="trailing" secondItem="Gm3-Kc-D3J" secondAttribute="trailing" id="QyB-3v-Zyl"/>
+                            <constraint firstAttribute="trailing" secondItem="2Wi-WH-X9b" secondAttribute="trailing" id="ZHn-hG-h1u"/>
                             <constraint firstItem="Gm3-Kc-D3J" firstAttribute="top" secondItem="ezv-Xu-dv7" secondAttribute="bottom" id="b1K-Ts-71H"/>
                             <constraint firstItem="ODF-EI-j19" firstAttribute="leading" secondItem="lS6-o0-YqB" secondAttribute="leading" id="e8w-Qi-Mng"/>
                             <constraint firstItem="Gm3-Kc-D3J" firstAttribute="leading" secondItem="lS6-o0-YqB" secondAttribute="leading" id="eC5-cg-vc8"/>
                             <constraint firstItem="tFo-ZU-svk" firstAttribute="top" secondItem="ODF-EI-j19" secondAttribute="bottom" id="h3Q-bN-aRz"/>
                             <constraint firstAttribute="bottom" secondItem="Gm3-Kc-D3J" secondAttribute="bottom" id="hoh-Hi-5f8"/>
+                            <constraint firstItem="2Wi-WH-X9b" firstAttribute="leading" secondItem="lS6-o0-YqB" secondAttribute="leading" id="m1u-QN-chT"/>
                             <constraint firstItem="2Wi-WH-X9b" firstAttribute="leading" secondItem="lS6-o0-YqB" secondAttribute="leading" id="pgS-QF-a5f"/>
+                            <constraint firstItem="2Wi-WH-X9b" firstAttribute="top" secondItem="ezv-Xu-dv7" secondAttribute="bottom" id="qUB-jS-JG0"/>
                             <constraint firstItem="2Wi-WH-X9b" firstAttribute="top" secondItem="ezv-Xu-dv7" secondAttribute="bottom" id="sUw-SE-FHW"/>
                             <constraint firstAttribute="trailing" secondItem="ODF-EI-j19" secondAttribute="trailing" id="yjG-rK-QaF"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZHn-hG-h1u"/>
+                                <exclude reference="m1u-QN-chT"/>
+                                <exclude reference="qUB-jS-JG0"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="NFj-Wf-aqq"/>
+                                <include reference="ZHn-hG-h1u"/>
+                                <include reference="m1u-QN-chT"/>
+                                <exclude reference="pgS-QF-a5f"/>
+                                <include reference="qUB-jS-JG0"/>
+                                <exclude reference="sUw-SE-FHW"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems>
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="rlT-T4-Bxp"/>
@@ -71,7 +96,6 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="mapView" destination="ODF-EI-j19" id="2GR-bc-DkP"/>
                         <outlet property="searchBar" destination="2Wi-WH-X9b" id="6GH-Hw-yl3"/>

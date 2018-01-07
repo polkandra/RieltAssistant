@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    [self performSelector:@selector(showNavController) withObject:nil afterDelay:3];
+    [self performSelector:@selector(showNavController) withObject:nil afterDelay:1];
 }
 
 -(void) showNavController {

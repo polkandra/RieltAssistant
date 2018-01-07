@@ -231,6 +231,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C64D70161FEFBB8E00DED4A8 /* InAppPurchase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = InAppPurchase;
+			sourceTree = "<group>";
+		};
 		C65B201D1EEAE2C4009F8DFA /* MapsControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,6 +460,7 @@
 		C6D5F9A71F7AB29400D782A9 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				C64D70161FEFBB8E00DED4A8 /* InAppPurchase */,
 				C6AFF7DC1FB7562B004A7995 /* Fonts */,
 				C63412F31EB4B24800ACE886 /* Assets.xcassets */,
 			);
@@ -536,6 +544,9 @@
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
 							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
@@ -877,6 +888,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Chebahatt.RieltAssistant.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -940,6 +952,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Chebahatt.RieltAssistant.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

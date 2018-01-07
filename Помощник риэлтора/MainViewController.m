@@ -117,7 +117,7 @@
     [self.navigationController.navigationBar setBarTintColor:[StyleKitName gradientColor52]];
     [self.navigationController.navigationBar setTranslucent:YES];
     
-    [self.navigationItem setTitle:@"Мои  объекты"];
+    [self.navigationItem setTitle:@"Мои объекты"];
     
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
@@ -450,7 +450,7 @@
     cell.nameCellLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"discription"]];
     cell.nameCellLabel.textColor = [UIColor whiteColor];
     cell.priceCellLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"price"]];
-    cell.priceCellLabel.textColor = [UIColor whiteColor];
+   // cell.priceCellLabel.textColor = [UIColor whiteColor];
     cell.addressCellLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"address"]];
     cell.addressCellLabel.textColor = [UIColor whiteColor];
     cell.ownerCellLabel.text = [NSString stringWithFormat:@"%@",[object valueForKey:@"owner"]];
