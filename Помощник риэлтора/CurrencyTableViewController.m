@@ -65,19 +65,19 @@
     if ([self.cellText isEqualToString:@"Рубль ₽"]) {
         
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSString *resultString = @"₽";
+        NSString *resultString = @"Рубль ₽";
         [userDefaults setObject:resultString forKey:@"currencyType"];
         [userDefaults synchronize];
         
     } else if ([self.cellText isEqualToString:@"Доллар ＄"]) {
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSString *resultString = @"＄";
+        NSString *resultString = @"Доллар ＄";
         [userDefaults setObject:resultString forKey:@"currencyType"];
         [userDefaults synchronize];
         
     }else if ([self.cellText isEqualToString:@"Евро €"]) {
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSString *resultString = @"€";
+        NSString *resultString = @"Евро €";
         [userDefaults setObject:resultString forKey:@"currencyType"];
         [userDefaults synchronize];
     }
@@ -121,7 +121,7 @@
         SettingsViewController *sVC = (SettingsViewController*)segue.destinationViewController;
         [[NSUserDefaults standardUserDefaults] setObject:self.cellText forKey:@"currencyText"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        sVC.currencyLabel.text = [NSString stringWithFormat:@"%@",self.cellText];
+        sVC.currencyCell.textLabel.text = [NSString stringWithFormat:@"%@",self.cellText];
         
     }
 }

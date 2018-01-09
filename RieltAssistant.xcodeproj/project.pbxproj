@@ -16,6 +16,7 @@
 		C60FFA441E895B560054F83D /* NewObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FFA431E895B560054F83D /* NewObjectViewController.m */; };
 		C61A467C1FDC2B4C00B61C8A /* SegmentedFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C61A467B1FDC2B4C00B61C8A /* SegmentedFilter.m */; };
 		C61A467F1FDC2B8900B61C8A /* SegmentedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C61A467E1FDC2B8800B61C8A /* SegmentedCell.m */; };
+		C62EB0BB2004D0FF00B500D4 /* DefaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = C62EB0BA2004D0FF00B500D4 /* DefaultSettings.plist */; };
 		C63412F41EB4B24800ACE886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63412F31EB4B24800ACE886 /* Assets.xcassets */; };
 		C636778F1EE854FB0098FC90 /* MapTab.m in Sources */ = {isa = PBXBuildFile; fileRef = C636778E1EE854FB0098FC90 /* MapTab.m */; };
 		C639E0661FBDF38200AD7109 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C639E0651FBDF37400AD7109 /* UserNotifications.framework */; };
@@ -50,6 +51,8 @@
 		C6AFF7D91FB7514C004A7995 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6AFF7D81FB7514C004A7995 /* Map.storyboard */; };
 		C6AFF7DB1FB75218004A7995 /* Object.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6AFF7DA1FB75218004A7995 /* Object.storyboard */; };
 		C6B1A14C1F11160E00965F9D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6B1A14A1F11160E00965F9D /* Model.xcdatamodeld */; };
+		C6C84B8020050D8B00E2117C /* InAppObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C84B7C20050D8B00E2117C /* InAppObserver.m */; };
+		C6C84B8120050D8B00E2117C /* InAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C84B7E20050D8B00E2117C /* InAppManager.m */; };
 		C6CDBEBB1F017EC00024B147 /* MeetingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CDBEB91F017EC00024B147 /* MeetingsCell.m */; };
 		C6CDE9BD1FC33B63006F2DA9 /* FilteredResultCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CDE9BC1FC33B63006F2DA9 /* FilteredResultCellTableViewCell.m */; };
 		C6D0E08F1EE8030B00E0FF26 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D0E08E1EE8030B00E0FF26 /* MapAnnotation.m */; };
@@ -96,6 +99,7 @@
 		C61A467B1FDC2B4C00B61C8A /* SegmentedFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SegmentedFilter.m; sourceTree = "<group>"; };
 		C61A467D1FDC2B8800B61C8A /* SegmentedCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SegmentedCell.h; sourceTree = "<group>"; };
 		C61A467E1FDC2B8800B61C8A /* SegmentedCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SegmentedCell.m; sourceTree = "<group>"; };
+		C62EB0BA2004D0FF00B500D4 /* DefaultSettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DefaultSettings.plist; sourceTree = "<group>"; };
 		C63412F31EB4B24800ACE886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C63542451F0D62FE0034149E /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		C636778D1EE854FB0098FC90 /* MapTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTab.h; sourceTree = "<group>"; };
@@ -157,6 +161,10 @@
 		C6AFF7D81FB7514C004A7995 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		C6AFF7DA1FB75218004A7995 /* Object.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Object.storyboard; sourceTree = "<group>"; };
 		C6B1A14B1F11160E00965F9D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		C6C84B7C20050D8B00E2117C /* InAppObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InAppObserver.m; path = ../../../Downloads/InApp_Projects/InAppPurchase_UIView/InAppPurchase/InAppPurchase/InAppObserver.m; sourceTree = "<group>"; };
+		C6C84B7D20050D8B00E2117C /* InAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InAppManager.h; path = ../../../Downloads/InApp_Projects/InAppPurchase_UIView/InAppPurchase/InAppPurchase/InAppManager.h; sourceTree = "<group>"; };
+		C6C84B7E20050D8B00E2117C /* InAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InAppManager.m; path = ../../../Downloads/InApp_Projects/InAppPurchase_UIView/InAppPurchase/InAppPurchase/InAppManager.m; sourceTree = "<group>"; };
+		C6C84B7F20050D8B00E2117C /* InAppObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InAppObserver.h; path = ../../../Downloads/InApp_Projects/InAppPurchase_UIView/InAppPurchase/InAppPurchase/InAppObserver.h; sourceTree = "<group>"; };
 		C6CDBEB81F017EC00024B147 /* MeetingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingsCell.h; sourceTree = "<group>"; };
 		C6CDBEB91F017EC00024B147 /* MeetingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingsCell.m; sourceTree = "<group>"; };
 		C6CDE9BB1FC33B63006F2DA9 /* FilteredResultCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilteredResultCellTableViewCell.h; sourceTree = "<group>"; };
@@ -234,6 +242,10 @@
 		C64D70161FEFBB8E00DED4A8 /* InAppPurchase */ = {
 			isa = PBXGroup;
 			children = (
+				C6C84B7D20050D8B00E2117C /* InAppManager.h */,
+				C6C84B7E20050D8B00E2117C /* InAppManager.m */,
+				C6C84B7F20050D8B00E2117C /* InAppObserver.h */,
+				C6C84B7C20050D8B00E2117C /* InAppObserver.m */,
 			);
 			name = InAppPurchase;
 			sourceTree = "<group>";
@@ -284,6 +296,7 @@
 			children = (
 				C67BAADB1E7EBDC1004E9126 /* AppDelegate.h */,
 				C67BAADC1E7EBDC1004E9126 /* AppDelegate.m */,
+				C62EB0BA2004D0FF00B500D4 /* DefaultSettings.plist */,
 				C67BAAEC1E7EBDC2004E9126 /* Info.plist */,
 				C67BAAD91E7EBDC1004E9126 /* main.m */,
 			);
@@ -583,6 +596,7 @@
 				C6FF87C11FB77BD600CFBE4A /* Blogger_Sans-Bold.otf in Resources */,
 				C6FF87C41FB77BD600CFBE4A /* Blogger_Sans-Light_Italic.otf in Resources */,
 				C6FF87C61FB77BD600CFBE4A /* clip.ttf in Resources */,
+				C62EB0BB2004D0FF00B500D4 /* DefaultSettings.plist in Resources */,
 				C6FF87C01FB77BD600CFBE4A /* Blogger_Sans-Light.otf in Resources */,
 				C6FFFD661FCAE4CB0007C823 /* Filtering.storyboard in Resources */,
 				C609EE7A1EBA13E300B6F9D8 /* LaunchScreen.storyboard in Resources */,
@@ -687,6 +701,7 @@
 				C6A36DA51E9A827B00A00F04 /* CollectionViewCell.m in Sources */,
 				C67DE8A21FC9CBF50004150D /* CurrencyTableViewController.m in Sources */,
 				C6D33CD21F029CBA00F7C82B /* NewMeetingDetailViewController.m in Sources */,
+				C6C84B8020050D8B00E2117C /* InAppObserver.m in Sources */,
 				C6FFFD7F1FCB22050007C823 /* EstateTypeEntity+CoreDataProperties.m in Sources */,
 				C64380C71EAD358100D88E01 /* DetailObjectController.m in Sources */,
 				C6B1A14C1F11160E00965F9D /* Model.xcdatamodeld in Sources */,
@@ -703,6 +718,7 @@
 				C67DE8A81FC9D36D0004150D /* FilteringVC.m in Sources */,
 				C662270C1FA4C00A000854A4 /* MeetingObjectEntity+CoreDataProperties.m in Sources */,
 				C636778F1EE854FB0098FC90 /* MapTab.m in Sources */,
+				C6C84B8120050D8B00E2117C /* InAppManager.m in Sources */,
 				C67DE8A51FC9CC5A0004150D /* NotificationsVC.m in Sources */,
 				C61A467C1FDC2B4C00B61C8A /* SegmentedFilter.m in Sources */,
 				C6CDBEBB1F017EC00024B147 /* MeetingsCell.m in Sources */,
@@ -752,6 +768,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -806,6 +823,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -886,7 +904,7 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Chebahatt.RieltAssistant.com;
+				PRODUCT_BUNDLE_IDENTIFIER = Chebahatt.RieltAssist.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -950,7 +968,7 @@
 					"\"UIKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Chebahatt.RieltAssistant.com;
+				PRODUCT_BUNDLE_IDENTIFIER = Chebahatt.RieltAssist.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

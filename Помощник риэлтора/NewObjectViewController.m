@@ -16,7 +16,7 @@
 @end
 
 @implementation NewObjectViewController
-@synthesize  myPhotosArray, tableView, myArrayWithPhotoData, detailItem, hideButton, saveSecondButton, detailItemFromDetailObjectVC,  myRetrievedPics, addPlaceOnMapButton;
+@synthesize  myPhotosArray, tableView, myArrayWithPhotoData, detailItem, hideButton, saveSecondButton, detailItemFromDetailObjectVC,  myRetrievedPics, addPlaceOnMapButton, allEntities, myData1;
 
 
 #pragma mark - VC Lifecycle
@@ -51,7 +51,7 @@
     self.selectedPhotos = [[NSMutableArray alloc] init];
     self.myArrayWithPhotoData = [[NSMutableArray alloc] init];
     self.myData1 = [[NSMutableArray alloc] init];
-
+    
     [self.saveSecondButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
   
@@ -66,7 +66,7 @@
   /*  // Casting detailItem to EstateObjectEntity
     NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
-    self.myData1 = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    self.allEntities = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
     
     for (id object in _myData1) {
         if ([object isKindOfClass:[EstateObjectEntity class]]) {
@@ -85,18 +85,29 @@
     
     [self setNavController];
     [self retriveSettingsFromUserDefaults];
-    
+    [self fetchAllEntities];
+   
     NSMutableString *concatString = [self.priceTextField.text mutableCopy];
     NSRange replaceRange = [concatString rangeOfString:@"Рублей"];
     if (replaceRange.location != NSNotFound){
         NSString* result = [concatString stringByReplacingCharactersInRange:replaceRange withString:@""];
         self.priceTextField.text = result;
-        }
+    }
 }
 
 
 
 #pragma mark - Helpers
+
+
+-(void)fetchAllEntities {
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
+    self.allEntities = [[[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    
+}
+
 
 -(void)retriveSettingsFromUserDefaults {
     self.totalSquareTextField.placeholder = [[NSUserDefaults standardUserDefaults] stringForKey:@"lengthType"];
@@ -623,7 +634,7 @@
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     
     if ([identifier isEqualToString:@"toMain"]) {
-    
+        
         if ((self.objectNameTextField.text.length == 0)) {
             
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"Введите название объекта" preferredStyle:UIAlertControllerStyleAlert];
@@ -633,14 +644,23 @@
             }];
             
             [alert addAction:action];
-            
-            
             [self presentViewController:alert animated:YES completion:nil];
+            return NO;
             
+        }else if (self.allEntities.count == 3 && self.isBought == NO) {
             
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Внимание" message:@"Чтобы добавить больше 3 объектов, приобретите PRO версию в настройках" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            
+            [alert addAction:action];
+            [self presentViewController:alert animated:YES completion:nil];
             return NO;
         }
     }
+    
     return YES;
 }
 
@@ -658,12 +678,12 @@
         self.actionTypeLabelInCell.text = [self.myData1 lastObject];
         //RoomTypeController *controller = (RoomTypeController *)segue.sourceViewController;
         
-         [self.tableView reloadData];
-//        self.objectTypeLabelInCell.text = [self.myData1 firstObject];
-//        self.actionTypeLabelInCell.text = [self.myData1 lastObject];
-//
-//
-//        [self.tableView reloadData];
+        [self.tableView reloadData];
+        //        self.objectTypeLabelInCell.text = [self.myData1 firstObject];
+        //        self.actionTypeLabelInCell.text = [self.myData1 lastObject];
+        //
+        //
+        //        [self.tableView reloadData];
         
     }
     

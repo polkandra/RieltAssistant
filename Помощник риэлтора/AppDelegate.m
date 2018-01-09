@@ -20,13 +20,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
-//    UIStoryboard  *storyboard = [UIStoryboard storyboardWithName:@"Object" bundle:nil];
-//    SearchResultsTableViewController *srTVC = [storyboard instantiateViewControllerWithIdentifier:@"SearchResultsTableViewController"];
-//    DetailObjectController *controller = [storyboard instantiateViewControllerWithIdentifier:@"DetailObjectController"];
-//    self.navcon = [[UINavigationController alloc] initWithRootViewController:srTVC];
+
     
-#pragma mark - Notifications
-    
+// Default Settings
+   
+    NSDictionary *prefDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"За 2 часа",@"notificationType",@"Рубль ₽",@"currencyType",@"Метры",@"lengthType",@1,@"selectedTick",@1,@"selectedTick1",@4,@"selectedTick2",nil];
+  
+    [[NSUserDefaults standardUserDefaults] registerDefaults:prefDictionary];
+
+
+
+
+// Notifications
     
     if ([application respondsToSelector:@selector(isRegisteredForRemoteNotifications)]) {
         

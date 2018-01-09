@@ -15,16 +15,21 @@
 @implementation SettingsViewController
 @synthesize tableView, cellSelectedArray;
 
+static NSString* alreadyBoughtMessage = @"Уже куплено";
+
 #pragma mark - VC Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 
     self.tableView.allowsMultipleSelection = YES;
     self.cellSelectedArray = [[NSMutableArray alloc] init];
 
-  
+    [InAppManager sharedManager];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unlockProduct1) name:@"feature1Purchased" object:nil];
+   
+    
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
@@ -35,11 +40,8 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     self.selectedRow = [[NSUserDefaults standardUserDefaults] integerForKey:@"selectedTick"];
-    self.timeToMeetLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"notificationsText"];
-    
-    self.currencyLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"currencyText"];
-    
-    
+    self.notificationsCell.textLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"notificationType"];
+    self.currencyCell.textLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"currencyType"];
 }
 
 
@@ -162,10 +164,16 @@
 #pragma mark - Actions
 
 
-- (IBAction)buyFullVersionButtonTapped:(UIButton *)sender {
+- (IBAction)buyFullVersionButtonTapped:(UIButton *)sender withMessage:(NSString*)theMessage {
 
-
-
+//    if( [theMessage isEqualToString:alreadyBoughtMessage]) {
+//
+//        [sender addTarget:self action:@selector(doNothing) forControlEvents:UIControlEventTouchUpInside];
+//
+//    }else{
+    
+        [sender addTarget:[InAppManager sharedManager] action:@selector(buyFeature1) forControlEvents:UIControlEventTouchUpInside];
+  //  }
 
 }
 
@@ -209,26 +217,19 @@
 
 #pragma mark - Helper
 
-//- (void)setImageForButton:(UIBarButtonItem *)flipButton {
-//    UIImage* imageBack = [UIImage imageNamed:@"back"];
-//    CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
-//    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
-//    [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
-//    [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-//    [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
-//    [flipButton initWithCustomView:someButton];
-//}
-//
-//
-//
-//-(void)dismissView {
-//    
-//  
-//    [self.navigationController popViewControllerAnimated:YES];
-//}
+-(void)doNothing {
+    
+    NSLog(@"Do Nothing");
+    
+}
 
+-(void) unlockProduct1 {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Object" bundle:nil];
+    NewObjectViewController *noVC = [storyboard instantiateViewControllerWithIdentifier:@"New"];
+    noVC.isBought = YES;
 
-
+}
 
 
 @end

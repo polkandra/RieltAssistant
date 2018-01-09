@@ -13,6 +13,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self makeItCircle];
+  //  self.personNameLabel.adjustsFontSizeToFitWidth = YES;
+
 }
 
 

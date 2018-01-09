@@ -31,8 +31,8 @@
     
     SearchResultsTableViewController *searchResultsVC = (SearchResultsTableViewController *)self.searchController.searchResultsController;
     [self addObserver:searchResultsVC forKeyPath:@"entities" options:NSKeyValueObservingOptionNew context:nil];
-  
- 
+   
+
 }
 
 
@@ -45,6 +45,7 @@
     NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EstateObjectEntity"];
     self.filteredResults = [[[DataManager sharedManager] managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+   
     
     for (id object in self.filteredResults) {
         if ([object isKindOfClass:[EstateObjectEntity class]]) {
@@ -63,6 +64,7 @@
     }
     
 }
+
 
 
 
@@ -433,7 +435,6 @@
         self.tableView.backgroundColor = [UIColor colorWithRed:234/255.0 green:253/255.0 blue:248/255.0 alpha:1];
     }
     
-    
     return [sectionInfo numberOfObjects];
 }
 
@@ -477,10 +478,7 @@
     
     cell.backgroundColor = [UIColor clearColor];
     
-    /*UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 140, 374, 30)];
-     
-     view.backgroundColor = [UIColor clearColor];
-     [cell.contentView addSubview:view];*/
+   
   
 }
 

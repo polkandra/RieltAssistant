@@ -30,6 +30,8 @@
     
     self.pictureImageView.layer.masksToBounds = YES;
     self.pictureImageView.layer.cornerRadius  = self.pictureImageView.frame.size.width/2.0;
+
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -141,7 +143,7 @@
        
         }else{
             
-            object.personName = @"Цена не указана";
+            object.personName = @"Имя не указано";
         }
         
         

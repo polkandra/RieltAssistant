@@ -21,7 +21,7 @@
 
 @interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIPickerViewDelegate>
 
-
+@property (nonatomic, assign) BOOL isBought;
 @property (nonatomic, assign) BOOL hideButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *saveSecondButton;
@@ -46,8 +46,8 @@
 @property(strong, nonatomic) NSMutableArray* selectedPhotos;
 @property(strong, nonatomic) NSMutableArray* fetchedPhotos;
 @property(strong, nonatomic) NSMutableArray* myRetrievedPics;
+@property(strong, nonatomic) NSMutableArray* allEntities;
 @property(strong, nonatomic) NSMutableArray* myData1;
-
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 //@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
@@ -58,10 +58,6 @@
 
 
 @property (weak, nonatomic) IBOutlet UIButton *addPlaceOnMapButton;
-
-/*- (IBAction)addPlaceToMapButton:(UIButton *)sender;
-- (IBAction)addPhotosButton:(UIButton *)sender;
-- (IBAction)deletePhotosButton:(UIButton *)sender;*/
 
 @property (weak, nonatomic) IBOutlet UILabel *objectTypeLabel;
 @property (weak, nonatomic) IBOutlet UITextField *objectNameTextField;
