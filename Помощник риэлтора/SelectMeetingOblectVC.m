@@ -69,12 +69,6 @@
         // Fallback on earlier versions
     }
     
-    // making nav bar translucent
-    /*[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-     self.navigationController.navigationBar.shadowImage = [UIImage new];
-     self.navigationController.navigationBar.translucent = YES;*/
-    //
-    
 }
 
 

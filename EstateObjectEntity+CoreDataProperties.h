@@ -2,8 +2,8 @@
 //  EstateObjectEntity+CoreDataProperties.h
 //  RieltAssistant
 //
-//  Created by Mikhail Kozlyukov on 08.12.2017.
-//  Copyright © 2017 Chebahatt. All rights reserved.
+//  Created by Mikhail Kozlyukov on 11.01.2018.
+//  Copyright © 2018 Chebahatt. All rights reserved.
 //
 //
 
@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *detailInformation;
 @property (nullable, nonatomic, copy) NSString *discription;
 @property (nullable, nonatomic, retain) NSObject *globalPictureArray;
+@property (nonatomic) BOOL isActive;
+@property (nonatomic) BOOL isLiked;
 @property (nullable, nonatomic, copy) NSString *kitchenArea;
 @property (nonatomic) double latitude;
 @property (nullable, nonatomic, copy) NSString *livingArea;
@@ -33,8 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *roomQuantity;
 @property (nullable, nonatomic, copy) NSString *typeOfProperty;
 @property (nullable, nonatomic, copy) NSString *wholeArea;
-@property (nonatomic) BOOL isActive;
-@property (nonatomic) BOOL isLiked;
+@property (nullable, nonatomic, copy) NSString *city;
 //@property (nullable, nonatomic, retain) ActionTypeEntity *actionType;
 @property (nullable, nonatomic, retain) NSSet<MeetingObjectEntity *> *meetingObjects;
 //@property (nullable, nonatomic, retain) EstateTypeEntity *objectType;

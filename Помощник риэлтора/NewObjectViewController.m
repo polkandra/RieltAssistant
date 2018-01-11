@@ -24,15 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    /*NSInteger row = 1;
-    NSInteger section = 4;
-    self.expandedIndexPath = [NSIndexPath indexPathForRow:row inSection:section];*/
-    
-    //NSLog(@"my array = %@",self.myData);
-    
-    
-
+   
     self.tableView.allowsSelection = YES;
     
     [self updateUI];
@@ -54,8 +46,7 @@
     
     [self.saveSecondButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
-  
-    
+    self.isBought = [[NSUserDefaults standardUserDefaults] boolForKey:@"Chebahatt.RieltAssist.com.fullVersion"];
 }
 
 
@@ -87,12 +78,12 @@
     [self retriveSettingsFromUserDefaults];
     [self fetchAllEntities];
    
-    NSMutableString *concatString = [self.priceTextField.text mutableCopy];
-    NSRange replaceRange = [concatString rangeOfString:@"Рублей"];
-    if (replaceRange.location != NSNotFound){
-        NSString* result = [concatString stringByReplacingCharactersInRange:replaceRange withString:@""];
-        self.priceTextField.text = result;
-    }
+//    NSMutableString *concatString = [self.priceTextField.text mutableCopy];
+//    NSRange replaceRange = [concatString rangeOfString:@"Рублей"];
+//    if (replaceRange.location != NSNotFound){
+//        NSString* result = [concatString stringByReplacingCharactersInRange:replaceRange withString:@""];
+//        self.priceTextField.text = result;
+//    }
 }
 
 
@@ -113,7 +104,6 @@
     self.totalSquareTextField.placeholder = [[NSUserDefaults standardUserDefaults] stringForKey:@"lengthType"];
     self.livingSquareTextField.placeholder = [[NSUserDefaults standardUserDefaults] stringForKey:@"lengthType"];
     self.kitchenSquareTextField.placeholder = [[NSUserDefaults standardUserDefaults] stringForKey:@"lengthType"];
-    
     self.priceTextField.placeholder =  [[NSUserDefaults standardUserDefaults] stringForKey:@"currencyType"];
 }
 
@@ -286,8 +276,6 @@
 
 
 
-
-
 #pragma mark - Navigation
 
 
@@ -309,7 +297,7 @@
                                       inManagedObjectContext:[[DataManager sharedManager] managedObjectContext]];
         
         
-      
+        
         
         controller.detailItem = object;
         
@@ -318,8 +306,10 @@
         
         object.typeOfProperty = self.objectTypeLabelInCell.text;
         object.actionByProperty = self.actionTypeLabelInCell.text;
+        object.city = self.cityTextField.text;
         object.isActive = YES;
         object.isLiked = NO;
+        
         
         if (( self.totalSquareTextField.text.length == 0 )){
             
@@ -393,6 +383,7 @@
             
             NSMutableString *concatString = [self.priceTextField.text mutableCopy];
             NSMutableString *resultString = [[concatString stringByAppendingString:self.priceTextField.placeholder] mutableCopy];
+            //NSString *resultString = [concatString stringByAppendingString:@"₽"];
             object.price = resultString;
         }
         
@@ -450,15 +441,16 @@
             detailItem.discription = self.objectNameTextField.text;
             detailItem.address = self.adressTextfield.text;
             detailItem.owner = self.ownerNameTextField.text;
-           
-            NSMutableString *concatString = [self.priceTextField.text mutableCopy];
             
+            NSMutableString *concatString = [self.priceTextField.text mutableCopy];
+            //NSString *resultString = [concatString stringByAppendingString:@"₽"];
+            //detailItem.price = resultString;
             if ([concatString rangeOfString:@"\u20BD"].location == NSNotFound) {
-              
+                
                 NSMutableString *resultString = [[concatString stringByAppendingString:self.priceTextField.placeholder] mutableCopy];
                 detailItem.price = resultString;
             } else {
-                detailItem.price = concatString;
+                 detailItem.price = concatString;
             }
             
 //            NSMutableString *resultString = [concatString stringByAppendingString:@" \u20BD"];
@@ -473,7 +465,7 @@
             detailItem.kitchenArea = self.kitchenSquareTextField.text;
             detailItem.roomQuantity = [self.pickerViewArrayRoomQuantity objectAtIndex:[_roomPicker selectedRowInComponent:0]];
             detailItem.detailInformation = self.detailInfoTextView.text;
-            
+            detailItem.city = self.cityTextField.text;
             NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:self.myRetrievedPics];
             detailItem.arrayOfUsersPics = arrayData;
             
@@ -496,6 +488,7 @@
             object.phoneNumber = self.phoneTextField.text;
             object.typeOfProperty = self.objectTypeLabelInCell.text;
             object.actionByProperty = self.actionTypeLabelInCell.text;
+            object.city = self.cityTextField.text;
             
             if (self.totalSquareTextField.text.length == 0 ) {
                 
@@ -568,14 +561,16 @@
             }else{
                 
                 NSMutableString *concatString = [self.priceTextField.text mutableCopy];
-                
-                if ([concatString rangeOfString:@"\u20BD"].location == NSNotFound) {
-                    
-                    NSMutableString *resultString = [[concatString stringByAppendingString:self.priceTextField.placeholder] mutableCopy];
-                    object.price = resultString;
-                }else{
-                    object.price = concatString;
-                }
+                NSString *resultString = [concatString stringByAppendingString:@"₽"];
+                object.price = resultString;
+               
+                //     if ([concatString rangeOfString:@"\u20BD"].location == NSNotFound) {
+                //
+                //                    NSMutableString *resultString = [[concatString stringByAppendingString:self.priceTextField.placeholder] mutableCopy];
+                //                    object.price = resultString;
+                //                }else{
+                //                    object.price = concatString;
+                //   }
                 
             }
             
@@ -658,6 +653,10 @@
             [alert addAction:action];
             [self presentViewController:alert animated:YES completion:nil];
             return NO;
+            
+        }else{
+            
+            return YES;
         }
     }
     

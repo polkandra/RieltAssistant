@@ -16,5 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *addressCellLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ownerCellLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *likeView;
+@property (weak, nonatomic) IBOutlet UIImageView *activeView;
 
 @end

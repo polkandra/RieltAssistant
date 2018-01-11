@@ -54,7 +54,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *detailPinImage;
 
-//- (IBAction)detailMapAddressButton:(id)sender;
 - (IBAction)callButton:(UIButton *)sender;
 
 

@@ -165,25 +165,16 @@ static NSString* alreadyBoughtMessage = @"Уже куплено";
 
 
 - (IBAction)buyFullVersionButtonTapped:(UIButton *)sender withMessage:(NSString*)theMessage {
-
-//    if( [theMessage isEqualToString:alreadyBoughtMessage]) {
-//
-//        [sender addTarget:self action:@selector(doNothing) forControlEvents:UIControlEventTouchUpInside];
-//
-//    }else{
     
-        [sender addTarget:[InAppManager sharedManager] action:@selector(buyFeature1) forControlEvents:UIControlEventTouchUpInside];
-  //  }
-
+    [sender addTarget:[InAppManager sharedManager] action:@selector(buyFeature1) forControlEvents:UIControlEventTouchDown];
+    
 }
 
 
 - (IBAction)restorePurchasesButtonTapped:(UIButton *)sender {
-
-
-
-
-
+    
+    [sender addTarget:[InAppManager sharedManager] action:@selector(restoreCompletedTransactions) forControlEvents:UIControlEventTouchDown];
+    
 }
 
 

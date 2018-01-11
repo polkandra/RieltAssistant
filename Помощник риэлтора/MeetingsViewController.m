@@ -42,9 +42,8 @@
         }
     }
     
-    
-
 }
+
 
 #pragma mark - Navigation
 
@@ -65,8 +64,6 @@
     
     
 }
-
-
 
 
 
@@ -189,14 +186,6 @@
 }
 
 
-/*- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    NSDate *dateRepresentingThisDay = [self.sortedDays objectAtIndex:section];
-    return [self.sectionDateFormatter stringFromDate:dateRepresentingThisDay];
-}*/
-
-
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *cellIdentifier = @"MeetingCell";
@@ -261,12 +250,6 @@
     } else {
         // Fallback on earlier versions
     }
-    
-    // making nav bar translucent
-    /*[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-     self.navigationController.navigationBar.shadowImage = [UIImage new];
-     self.navigationController.navigationBar.translucent = YES;*/
-    //
     
 }
 

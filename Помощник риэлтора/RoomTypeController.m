@@ -127,12 +127,15 @@
 }
 
 
+#pragma mark - UITableViewDataSource
+
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height)];
     
     if (section == 0) {
-        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
+        [headerView setBackgroundColor:[UIColor colorWithRed:184/255.0 green:197/255.0 blue:214/255.0 alpha:1]];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"Тип объекта";
         titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];
@@ -140,7 +143,7 @@
         titleLabel.backgroundColor = [UIColor clearColor];
         [headerView addSubview:titleLabel];
     }else if (section == 1) {
-        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:119/255.0 blue:62/255.0 alpha:1]];
+        [headerView setBackgroundColor:[UIColor colorWithRed:184/255.0 green:197/255.0 blue:214/255.0 alpha:1]];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 42)];
         titleLabel.text = @"Тип действия";
         titleLabel.font = [UIFont fontWithName:@"BloggerSans-BoldItalic" size:18];

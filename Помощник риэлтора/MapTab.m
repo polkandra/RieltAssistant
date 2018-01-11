@@ -21,17 +21,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
     self.searchBar.tintColor = [StyleKitName gradientColor52];
+    self.searchBar.delegate = self;
+   
+    self.searchQuery = [HNKGooglePlacesAutocompleteQuery sharedQuery];
+    
+    self.tableView.hidden = YES;
+    
     [self setLocationManager];
     //[self getAnnotations];
     
     self.annotationsArray = [[NSMutableArray alloc] init];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    tap.cancelsTouchesInView = NO;
-    [self.view addGestureRecognizer:tap];
+
 }
 
 
@@ -164,9 +170,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"autocompleteCell" forIndexPath:indexPath];
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"autocompleteCell2" forIndexPath:indexPath];
     HNKGooglePlacesAutocompletePlace *thisPlace = self.searchResults[indexPath.row];
     cell.textLabel.text = thisPlace.name;
     return cell;
@@ -404,13 +408,7 @@
     } else {
         // Fallback on earlier versions
     }
-    
-    // making nav bar translucent
-    /*[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-     self.navigationController.navigationBar.shadowImage = [UIImage new];
-     self.navigationController.navigationBar.translucent = YES;*/
-    //
-    
+  
 }
 
 - (void)setImageForButton:(UIBarButtonItem *)flipButton {

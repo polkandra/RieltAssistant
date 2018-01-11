@@ -85,6 +85,23 @@
     cell.imageViewCell.image = [[UIImage alloc] initWithData:[object valueForKey:@"picture"]];
     cell.backgroundColor = [UIColor clearColor];
     
+    if (object.isLiked == YES) {
+        
+        cell.likeView.image = [UIImage imageNamed:@"likeRed"];
+        
+    }else{
+        
+        cell.likeView.image = nil;
+    }
+    
+    if (object.isActive == YES) {
+        
+        cell.activeView.image = [UIImage imageNamed:@"active"];
+        
+    }else{
+        
+        cell.activeView.image = [UIImage imageNamed:@"finished"];
+    }
 }
 
 #pragma mark - UITableViewDelegate

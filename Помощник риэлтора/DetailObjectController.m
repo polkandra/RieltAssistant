@@ -78,6 +78,7 @@
         self.actionLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"typeOfProperty"]];
         self.typeLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"actionByProperty"]];
         self.detailInfoLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"detailInformation"]];
+        self.cityLabel.text = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"city"]];
         
         if (self.detailItem.isActive == NO) {
             UIImage *pressedbuttonImage1 = [UIImage imageNamed:@"finished"];
@@ -87,7 +88,6 @@
             [self.statusButton setImage:pressedbuttonImage2 forState:UIControlStateNormal];
         }
     
-        
         if (self.detailItem.isLiked == NO) {
             UIImage *pressedbuttonImage1 = [UIImage imageNamed:@"like"];
             [self.likeButton setImage:pressedbuttonImage1 forState:UIControlStateNormal];
@@ -148,7 +148,6 @@
     
     if ([segue.identifier isEqualToString:@"saveFromAddToMapVC"]) {
        
-       // [self.goToMap setTitle:[NSString stringWithFormat:@"%@",[detailItem valueForKey:@"address"]] forState:UIControlStateNormal ];
     
     }
     
@@ -245,9 +244,6 @@
 
 - (IBAction)addPlaceToMapButton:(UIButton *)sender {
     
-   // AddToMapVC *mapVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AddToMapVC"];
-   // mapVC.detailItem = self.detailItem;
-  
 }
 
 
@@ -276,16 +272,7 @@
     NSArray *items = @[[self.sourceArray firstObject]];
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
     activityViewController.excludedActivityTypes = activities;
-    
-    
-    /* NSString * msg = @"YOUR MSG";
-     NSString * urlWhats = [NSString stringWithFormat:@"whatsapp://send?text=%@",msg];
-     NSURL * whatsappURL = [NSURL URLWithString:[urlWhats stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-     if ([[UIApplication sharedApplication] canOpenURL: whatsappURL]) {
-     [[UIApplication sharedApplication] openURL:whatsappURL options:@{} completionHandler:nil];
-     } else {
-     // Cannot open whatsapp
-     }*/
+  
     
     if ([[UIApplication sharedApplication] canOpenURL: [NSURL URLWithString:@"whatsapp://app"]]){
         
@@ -319,10 +306,6 @@
 
 - (IBAction)likeButtonTapped:(UIButton *)sender {
     
-//    UIImage *pressedbuttonImage = [UIImage imageNamed:@"like"];
-//    UIImage *pressedbuttonImage2 = [UIImage imageNamed:@"likeRed"];
-//    [self.likeButton setBackgroundImage:pressedbuttonImage forState:UIControlStateNormal];
-//    [self.likeButton setBackgroundImage:pressedbuttonImage2 forState:UIControlStateSelected];
     sender.selected = !sender.selected;
     
     if (self.likeButton.isSelected) {

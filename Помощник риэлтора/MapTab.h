@@ -18,7 +18,7 @@
 #import "CLPlacemark+HNKAdditions.h"
 #import "StyleKitName.h"
 
-@interface MapTab : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchBarDelegate>
+@interface MapTab : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;

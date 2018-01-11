@@ -24,7 +24,7 @@
     
 // Default Settings
    
-    NSDictionary *prefDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"За 2 часа",@"notificationType",@"Рубль ₽",@"currencyType",@"Метры",@"lengthType",@1,@"selectedTick",@1,@"selectedTick1",@4,@"selectedTick2",nil];
+    NSDictionary *prefDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"За 2 часа",@"notificationType",@"₽",@"currencyType",@"Метры",@"lengthType",@1,@"selectedTick",@1,@"selectedTick1",@4,@"selectedTick2",nil];
   
     [[NSUserDefaults standardUserDefaults] registerDefaults:prefDictionary];
 

@@ -37,7 +37,8 @@
     
     [self.locationManager requestWhenInUseAuthorization];
     [self setLocationManager];
-   // [self fetchExistingPins];
+   
+    // [self fetchExistingPins];
     // [self setMKUserTrackingButton];
     //[self setGestureRecognizers];
    
@@ -178,7 +179,7 @@
                                              if (error) {
                                                  NSLog(@"ERROR: %@", error);
                                                  [self handleSearchError:error];
-                                             } else {
+                                             }else{
                                                  self.searchResults = places;
                                                  [self.mapView addSubview:self.tableView];
                                                  [self.tableView reloadData];
@@ -189,6 +190,7 @@
         self.tableView.hidden = YES;
     }
 }
+
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
 

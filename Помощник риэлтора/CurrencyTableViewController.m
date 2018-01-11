@@ -62,22 +62,22 @@
         
     }
     
-    if ([self.cellText isEqualToString:@"Рубль ₽"]) {
+    if ([self.cellText isEqualToString:@"₽"]) {
         
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSString *resultString = @"Рубль ₽";
+        NSString *resultString = @"₽";
         [userDefaults setObject:resultString forKey:@"currencyType"];
         [userDefaults synchronize];
         
-    } else if ([self.cellText isEqualToString:@"Доллар ＄"]) {
+    } else if ([self.cellText isEqualToString:@"＄"]) {
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSString *resultString = @"Доллар ＄";
+        NSString *resultString = @"＄";
         [userDefaults setObject:resultString forKey:@"currencyType"];
         [userDefaults synchronize];
         
-    }else if ([self.cellText isEqualToString:@"Евро €"]) {
+    }else if ([self.cellText isEqualToString:@"€"]) {
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSString *resultString = @"Евро €";
+        NSString *resultString = @"€";
         [userDefaults setObject:resultString forKey:@"currencyType"];
         [userDefaults synchronize];
     }

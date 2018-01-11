@@ -18,6 +18,7 @@
 #import "DataManager.h"
 #import "MapViewController.h"
 #import "AddPhotosVC.h"
+#import "InAppManager.h"
 
 @interface NewObjectViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIPickerViewDelegate>
 
@@ -34,13 +35,8 @@
 
 @property (strong, nonatomic) EstateObjectEntity* detailItemFromDetailObjectVC;
 @property (strong, nonatomic) EstateObjectEntity* detailItem;
-
-
-
 @property(strong, nonatomic) NSMutableArray* pickerViewArrayCity;
 @property(strong, nonatomic) NSMutableArray* pickerViewArrayRoomQuantity;
-
-
 @property(strong, nonatomic) NSMutableArray *myArrayWithPhotoData;
 @property(strong, nonatomic) NSMutableArray* myPhotosArray;
 @property(strong, nonatomic) NSMutableArray* selectedPhotos;
@@ -49,14 +45,12 @@
 @property(strong, nonatomic) NSMutableArray* allEntities;
 @property(strong, nonatomic) NSMutableArray* myData1;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-//@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 
 @property (strong, nonatomic) NSIndexPath *expandedIndexPath;
 
 
 @property(nonatomic, assign) id<UINavigationControllerDelegate,UIImagePickerControllerDelegate>delegate;
-
-
 @property (weak, nonatomic) IBOutlet UIButton *addPlaceOnMapButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *objectTypeLabel;
@@ -86,5 +80,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *actionTypeLabelInCell;
 @property (weak, nonatomic) IBOutlet UILabel *detailInfoLabel;
 @property (weak, nonatomic) IBOutlet UITextView *detailInfoTextView;
+@property (weak, nonatomic) IBOutlet UITextField *cityTextField;
 
 @end

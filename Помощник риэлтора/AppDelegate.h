@@ -18,8 +18,9 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSArray *delegateMutableArray;
+@property (nonatomic, assign) BOOL isBought;
 
-@property(assign, nonatomic) BOOL inAppActivated;
+//@property(assign, nonatomic) BOOL inAppActivated;
 
 @property(strong, nonatomic) EstateObjectEntity* detailItem;
 @property(strong, nonatomic) UINavigationController *navcon;

@@ -71,7 +71,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated {
     
-   // [self.searchController dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 
@@ -134,12 +134,6 @@
         // Fallback on earlier versions
     }
     
-    // making nav bar translucent
-    /*[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-     self.navigationController.navigationBar.shadowImage = [UIImage new];
-     self.navigationController.navigationBar.translucent = YES;*/
-    //
-    
 }
 
 -(void)fetchEntitiesWithPredicates:(NSPredicate*)predicates {
@@ -158,12 +152,10 @@
 - (void)setImageForButton:(UIBarButtonItem *)flipButton {
     UIImage* imageBack = [UIImage imageNamed:@"back"];
     CGRect frameimg = CGRectMake(0, 0, imageBack.size.width, imageBack.size.height);
-    
     UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
     [someButton setBackgroundImage:imageBack forState:UIControlStateNormal];
     [someButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [someButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
-    
     [flipButton initWithCustomView:someButton];
 
 }
@@ -347,8 +339,6 @@
     }
     
 }
-
-
 
 
 

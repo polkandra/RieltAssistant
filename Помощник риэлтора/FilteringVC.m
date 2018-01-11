@@ -29,8 +29,8 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    
     [super viewWillAppear:animated];
+    
     [self.segmentedControl setSelectedSegmentIndex:UISegmentedControlNoSegment];
     self.segmentedControl.tintColor = [StyleKitName gradientColor52];
     
@@ -59,33 +59,33 @@
     switch (self.segmentedControl.selectedSegmentIndex) {
         case 0: {
             self.segmentedControl.selectedSegmentIndex = 0;
-            NSPredicate *rent0 = [NSPredicate predicateWithFormat:@"roomQuantity contains [cd] %@", @"1 комната"];
+            NSPredicate *rent0 = [NSPredicate predicateWithFormat:@"roomQuantity contains [cd] %@", @"1"];
             [self fetchEntitiesWithPredicates:rent0];
             break;
         }
         case 1: {
             self.segmentedControl.selectedSegmentIndex = 1;
-            NSPredicate *rent1 = [NSPredicate predicateWithFormat:@"roomQuantity contains [cd] %@", @"2 комнаты"];
+            NSPredicate *rent1 = [NSPredicate predicateWithFormat:@"roomQuantity contains [cd] %@", @"2"];
             [self fetchEntitiesWithPredicates:rent1];
             break;
         }
             
         case 2: {
             self.segmentedControl.selectedSegmentIndex = 2;
-            NSPredicate *rent2 = [NSPredicate predicateWithFormat:@"roomQuantity contains [cd] %@", @"3 комнаты"];
+            NSPredicate *rent2 = [NSPredicate predicateWithFormat:@"roomQuantity contains [cd] %@", @"3"];
             [self fetchEntitiesWithPredicates:rent2];
             break;
         }
         case 3: {
             self.segmentedControl.selectedSegmentIndex = 3;
-            NSPredicate *rent3 = [NSPredicate predicateWithFormat:@"roomQuantity contains [cd] %@", @"4 комнаты"];
+            NSPredicate *rent3 = [NSPredicate predicateWithFormat:@"roomQuantity contains [cd] %@", @"4"];
             [self fetchEntitiesWithPredicates:rent3];
             break;
         }
             
         case 4: {
             self.segmentedControl.selectedSegmentIndex = 4;
-            NSPredicate *rent4 = [NSPredicate predicateWithFormat:@"roomQuantity contains [cd] %@", @"5 комнат и более"];
+            NSPredicate *rent4 = [NSPredicate predicateWithFormat:@"roomQuantity contains [cd] %@", @"5 и >"];
             [self fetchEntitiesWithPredicates:rent4];
             break;
         }
