@@ -22,19 +22,18 @@
    
 
     
-// Default Settings
-   
+    // Default Settings
+    
     NSDictionary *prefDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"За 2 часа",@"notificationType",@"₽",@"currencyType",@"Метры",@"lengthType",@1,@"selectedTick",@1,@"selectedTick1",@4,@"selectedTick2",nil];
-  
+    
     [[NSUserDefaults standardUserDefaults] registerDefaults:prefDictionary];
-
-
-
-
-// Notifications
+    
+    
+    
+    
+    // Notifications
     
     if ([application respondsToSelector:@selector(isRegisteredForRemoteNotifications)]) {
-        
         UNUserNotificationCenter *center  = [UNUserNotificationCenter currentNotificationCenter];
         [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound + UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error) {
             if (!granted) {
@@ -43,20 +42,22 @@
         }];
     }
     
-   
+    
     //[GMSServices provideAPIKey:@"AIzaSyBLyGSJWcQvDrSdS2opP-BZtwu5WYo7JTE"];
     //[GMSPlacesClient provideAPIKey:@"AIzaSyAqAivv-DgtCZPvnH3josgO_5vLBU0SfoE"];
-  
+    
+    
+    
     [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:@"AIzaSyAh4GgFn_mdwKvfOzhPNxxnU7UERxIMIIM"];
+    // [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:@"AIzaSyAqAivv-DgtCZPvnH3josgO_5vLBU0SfoE"];
     
     
     
-    
-   // UIImage *tabBarBackground = [UIImage imageNamed:@"imageOfGradient2"];
+    // UIImage *tabBarBackground = [UIImage imageNamed:@"imageOfGradient2"];
     //[[UITabBar appearance] setBackgroundImage:tabBarBackground];
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     [[UITabBar appearance] setBarTintColor:[StyleKitName gradientColor52]];
-  
+    
     
     return YES;
 }
@@ -78,7 +79,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-
+    
     application.applicationIconBadgeNumber = 0;
 }
 

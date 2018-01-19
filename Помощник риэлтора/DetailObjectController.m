@@ -191,31 +191,35 @@
         UIPageViewControllerScene *controller = (UIPageViewControllerScene *)segue.destinationViewController;
         controller.detailItem = self.detailItem;
         
-                    
     }else if ([segue.identifier isEqualToString:@"editFromDetailVC"]) {
-                
+        
         NewObjectViewController *newVC = (NewObjectViewController *)segue.destinationViewController;
         newVC.detailItem = self.detailItem;
         newVC.navigationItem.title = [NSString stringWithFormat:@"%@",[detailItem valueForKey:@"discription"]];
         newVC.navigationItem.rightBarButtonItem = nil;
         newVC.saveSecondButton.hidden = NO;
         newVC.hideButton = NO;
-    
-    
+        
+        
     }else if ([segue.identifier isEqualToString:@"unwindAfterBackButtonFromDetail"]) {
         
         NSData* pictureData = UIImageJPEGRepresentation([self.sourceArray firstObject],0);
         detailItem.picture = pictureData;
-        
-        
         [[[DataManager sharedManager] managedObjectContext] save:nil];
         
-    
+        
     } else if ([segue.identifier isEqualToString:@"toMapView"]) {
         
         AddToMapVC *mapVC = (AddToMapVC *)segue.destinationViewController;
         mapVC.detailItem = self.detailItem;
         mapVC.pinPhotosArray = self.sourceArray;
+        
+        UIBarButtonItem *flipButton = [[UIBarButtonItem alloc] initWithTitle:@"Вернуться" style:UIBarButtonItemStylePlain target:self action:@selector(dismissView)];
+        
+        [self setImageForButton:flipButton];
+        
+        mapVC.navigationItem.leftBarButtonItem = flipButton;
+    
     }
    
 }

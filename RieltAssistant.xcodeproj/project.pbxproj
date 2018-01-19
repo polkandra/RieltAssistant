@@ -553,7 +553,7 @@
 					C67BAAD41E7EBDC1004E9126 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 8LJGXZ9C93;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -823,8 +823,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -850,6 +850,9 @@
 			baseConfigurationReference = 680B096D56A625AAEC280D31 /* Pods-RieltAssistant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8LJGXZ9C93;
 				ENABLE_BITCODE = YES;
@@ -906,6 +909,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Chebahatt.RieltAssist.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cf2172ce-0868-413a-ba1f-99c78ff8fbba";
+				PROVISIONING_PROFILE_SPECIFIER = ProvisioningProfileDev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -915,6 +920,9 @@
 			baseConfigurationReference = DF636865D7E19A7A836332AF /* Pods-RieltAssistant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mikhail Kozlyukov (8WT85HAK66)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mikhail Kozlyukov (8LJGXZ9C93)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8LJGXZ9C93;
 				ENABLE_BITCODE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -970,6 +978,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Chebahatt.RieltAssist.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f05aa5e5-d829-496e-b4dd-0f04683a0bf2";
+				PROVISIONING_PROFILE_SPECIFIER = ProvisioningDistribution;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

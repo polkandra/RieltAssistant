@@ -155,10 +155,10 @@
                                             <variation key="heightClass=regular-widthClass=compact" alignment="fill" axis="vertical" distribution="fill"/>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tHl-lk-v5q">
-                                            <rect key="frame" x="0.0" y="75" width="374" height="87"/>
+                                            <rect key="frame" x="0.0" y="75" width="380" height="87"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellDarken" translatesAutoresizingMaskIntoConstraints="NO" id="svO-iE-XRT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="87"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="380" height="87"/>
                                                 </imageView>
                                             </subviews>
                                             <variation key="heightClass=compact-widthClass=compact" alignment="fill" axis="vertical" distribution="fill"/>
@@ -275,10 +275,10 @@
                                             <variation key="heightClass=regular-widthClass=compact" alignment="top" axis="vertical" spacing="7"/>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9ID-7S-BCR">
-                                            <rect key="frame" x="229" y="81" width="123.5" height="19"/>
+                                            <rect key="frame" x="232" y="81" width="120.5" height="19"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена не указана" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oh7-PY-KhQ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="123.5" height="19"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="120.5" height="19"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="121" id="Jwn-OM-9lX"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="124" id="LT9-2n-yi2"/>
@@ -412,6 +412,7 @@
                                             <exclude reference="Cqr-fC-OF9"/>
                                             <exclude reference="J9E-Se-3Wx"/>
                                             <exclude reference="NZT-Og-NK2"/>
+                                            <exclude reference="Rnq-ub-v3d"/>
                                             <exclude reference="VJi-94-4fB"/>
                                             <exclude reference="hS4-tk-7aa"/>
                                             <exclude reference="jhk-I0-u7G"/>
@@ -421,6 +422,7 @@
                                             <exclude reference="ltj-a1-3N5"/>
                                             <exclude reference="vPu-7N-xg0"/>
                                             <exclude reference="lN8-Ny-UaA"/>
+                                            <exclude reference="d5K-oR-I9E"/>
                                         </mask>
                                     </variation>
                                     <variation key="widthClass=compact">
@@ -639,7 +641,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Аренда" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTy-8F-ZNI">
-                                                    <rect key="frame" x="187" y="50" width="178" height="20"/>
+                                                    <rect key="frame" x="187" y="50" width="178" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="178" id="2rK-5f-i0R">
                                                             <variation key="heightClass=compact-widthClass=compact" constant="178"/>
@@ -1814,7 +1816,7 @@
                                 <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                                 <color key="backgroundColor" red="0.91764705882352937" green="0.99215686274509807" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="MainScreenCell" rowHeight="170" id="om6-dA-bo0" customClass="MainScreenCellTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="MainScreenCell" rowHeight="170" id="om6-dA-bo0" customClass="MainScreenCellTableViewCell">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="om6-dA-bo0" id="1NH-r6-sJs">
@@ -1940,10 +1942,10 @@
                                                     </variation>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="BlA-eR-aaW">
-                                                    <rect key="frame" x="5" y="79" width="240" height="74"/>
+                                                    <rect key="frame" x="5" y="79" width="240" height="65"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="Кутузовский проезд" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEc-x4-RcU">
-                                                            <rect key="frame" x="0.0" y="0.0" width="192" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="192" height="17"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="Fc6-LS-XbN"/>
                                                                 <constraint firstAttribute="width" constant="192" id="PVh-7B-5Xs"/>
@@ -1979,7 +1981,7 @@
                                                             </variation>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Собственник не указан" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98V-S1-xgl">
-                                                            <rect key="frame" x="0.0" y="27" width="187" height="20"/>
+                                                            <rect key="frame" x="0.0" y="24" width="187" height="17"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="257" id="0V2-z2-WFf"/>
                                                                 <constraint firstAttribute="width" constant="187" id="3t3-V3-toi"/>
@@ -2019,7 +2021,7 @@
                                                             </variation>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Николоямская 123 строение 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyx-7t-Rr6">
-                                                            <rect key="frame" x="0.0" y="54" width="240" height="20"/>
+                                                            <rect key="frame" x="0.0" y="48" width="240" height="17"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="365" id="IWX-74-18z"/>
                                                                 <constraint firstAttribute="width" constant="256" id="anf-1J-BEV">
@@ -2148,7 +2150,7 @@
                                                     <variation key="heightClass=regular-widthClass=compact" alignment="center" axis="horizontal" distribution="fill" spacing="5"/>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена не указана" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ON-2b-Ttb">
-                                                    <rect key="frame" x="235.5" y="82" width="123.5" height="16"/>
+                                                    <rect key="frame" x="238.5" y="82" width="120.5" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="Uii-S9-Grf"/>
                                                     </constraints>
@@ -2575,7 +2577,7 @@
                                                     <rect key="frame" x="141" y="14" width="193" height="41"/>
                                                     <subviews>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0c-xn-7gj">
-                                                            <rect key="frame" x="0.0" y="0.0" width="193" height="34"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="193" height="0.0"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="193" id="FcL-DN-ObD"/>
                                                                 <constraint firstAttribute="width" constant="193" id="iQP-yM-gGb"/>
@@ -2596,7 +2598,7 @@
                                                             </variation>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8C-ud-6eo">
-                                                            <rect key="frame" x="0.0" y="41" width="193" height="0.0"/>
+                                                            <rect key="frame" x="0.0" y="7" width="193" height="34"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="193" id="d8Y-WT-iy1"/>
                                                                 <constraint firstAttribute="width" constant="193" id="yOy-pD-tle"/>
@@ -2722,7 +2724,7 @@
                                                     <rect key="frame" x="167" y="23" width="203" height="19"/>
                                                     <subviews>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите название" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Llc-be-dZY">
-                                                            <rect key="frame" x="0.0" y="0.0" width="149.5" height="19"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="131.5" height="19"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" returnKeyType="next" textContentType="name"/>
@@ -3101,10 +3103,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XCd-v4-U7s">
-                                                    <rect key="frame" x="266" y="25" width="39" height="19"/>
+                                                    <rect key="frame" x="270.5" y="25" width="34.5" height="19"/>
                                                     <subviews>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="кв.м" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tAu-VB-90y">
-                                                            <rect key="frame" x="0.0" y="0.0" width="39" height="19"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="34.5" height="19"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
@@ -3149,10 +3151,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u4Z-5l-rD2">
-                                                    <rect key="frame" x="266" y="25" width="39" height="19"/>
+                                                    <rect key="frame" x="270.5" y="25" width="34.5" height="19"/>
                                                     <subviews>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="кв.м" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4wS-3Q-6lK">
-                                                            <rect key="frame" x="0.0" y="0.0" width="39" height="19"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="34.5" height="19"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
@@ -3188,10 +3190,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zdy-Rf-uNh">
-                                                    <rect key="frame" x="266" y="25" width="39" height="19"/>
+                                                    <rect key="frame" x="270.5" y="25" width="34.5" height="19"/>
                                                     <subviews>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="кв.м" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="K44-Rg-87R">
-                                                            <rect key="frame" x="0.0" y="0.0" width="39" height="19"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="34.5" height="19"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
@@ -3241,10 +3243,10 @@
                                                     </variation>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21L-WO-wHS">
-                                                    <rect key="frame" x="65" y="25" width="542" height="19"/>
+                                                    <rect key="frame" x="65" y="25" width="250" height="19"/>
                                                     <subviews>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="₽" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0r1-gE-1eL">
-                                                            <rect key="frame" x="0.0" y="0.0" width="542" height="19"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="250" height="19"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" textContentType="postal-code"/>
@@ -3314,7 +3316,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавить фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqa-Wm-oHr">
-                                                    <rect key="frame" x="62" y="32" width="122.5" height="20"/>
+                                                    <rect key="frame" x="62" y="32" width="117" height="20"/>
                                                     <fontDescription key="fontDescription" name="BloggerSans-Italic" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3363,10 +3365,10 @@
                                                     </variation>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U16-DP-OL5">
-                                                    <rect key="frame" x="123" y="25" width="514" height="19"/>
+                                                    <rect key="frame" x="123" y="25" width="222" height="19"/>
                                                     <subviews>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="введите владельца" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9z4-71-Z2l">
-                                                            <rect key="frame" x="0.0" y="0.0" width="514" height="19"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="222" height="19"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" keyboardType="numbersAndPunctuation"/>
@@ -3602,10 +3604,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IJi-s2-xCj">
-                                                    <rect key="frame" x="10" y="39" width="647" height="81"/>
+                                                    <rect key="frame" x="10" y="39" width="355" height="81"/>
                                                     <subviews>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54l-Mz-a25">
-                                                            <rect key="frame" x="0.0" y="0.0" width="647" height="81"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="355" height="81"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -3613,7 +3615,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доп инфо" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cI-Yt-bfs">
-                                                    <rect key="frame" x="13" y="12" width="79" height="17"/>
+                                                    <rect key="frame" x="13" y="12" width="68" height="17"/>
                                                     <fontDescription key="fontDescription" name="BloggerSans" family="Blogger Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3661,10 +3663,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="25K-Wz-dZd">
-                                                    <rect key="frame" x="37" y="-6" width="592" height="180"/>
+                                                    <rect key="frame" x="37" y="-6" width="300" height="180"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JqS-U8-R74">
-                                                            <rect key="frame" x="0.0" y="0.0" width="592" height="90"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="90"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="90" id="NPt-Sr-hNl"/>
                                                             </constraints>
@@ -3678,7 +3680,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GM8-JW-9XI">
-                                                            <rect key="frame" x="0.0" y="90" width="592" height="90"/>
+                                                            <rect key="frame" x="0.0" y="90" width="300" height="90"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="90" id="U1d-55-bPU"/>
                                                             </constraints>
@@ -4088,7 +4090,7 @@
                                 <rect key="frame" x="0.0" y="62" width="375" height="605"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="autocompleteCell" textLabel="yxk-6I-1ZU" style="IBUITableViewCellStyleDefault" id="Glb-hy-C4S">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="autocompleteCell" textLabel="yxk-6I-1ZU" style="IBUITableViewCellStyleDefault" id="Glb-hy-C4S">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Glb-hy-C4S" id="55j-l8-7Zb">
@@ -4606,10 +4608,10 @@
                                             <variation key="heightClass=regular-widthClass=compact" axis="vertical"/>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="quG-nB-NW0">
-                                            <rect key="frame" x="248.5" y="81" width="123.5" height="19"/>
+                                            <rect key="frame" x="251.5" y="81" width="120.5" height="16"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена не указана" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4R0-zk-HUb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="123.5" height="19"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="120.5" height="16"/>
                                                     <fontDescription key="fontDescription" name="BloggerSans-BoldItalic" family="Blogger Sans" pointSize="16"/>
                                                     <color key="textColor" red="1" green="0.46666666670000001" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
